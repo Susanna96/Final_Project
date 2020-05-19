@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc75hU6v.s 			page 1
+ARM GAS  C:\Users\Sergio\AppData\Local\Temp\ccVfmD9f.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc75hU6v.s 			page 1
   28:Generated_Source\PSoC5/GREEN.c **** *
   29:Generated_Source\PSoC5/GREEN.c **** * \brief Writes the value to the physical port (data output register), masking
   30:Generated_Source\PSoC5/GREEN.c **** *  and shifting the bits appropriately. 
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc75hU6v.s 			page 2
+ARM GAS  C:\Users\Sergio\AppData\Local\Temp\ccVfmD9f.s 			page 2
 
 
   31:Generated_Source\PSoC5/GREEN.c **** *
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc75hU6v.s 			page 1
   52              		.size	GREEN_Write, .-GREEN_Write
   53              		.section	.text.GREEN_SetDriveMode,"ax",%progbits
   54              		.align	2
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc75hU6v.s 			page 3
+ARM GAS  C:\Users\Sergio\AppData\Local\Temp\ccVfmD9f.s 			page 3
 
 
   55              		.global	GREEN_SetDriveMode
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc75hU6v.s 			page 1
   77 0012 00BF     		.align	2
   78              	.L5:
   79 0014 1E500040 		.word	1073762334
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc75hU6v.s 			page 4
+ARM GAS  C:\Users\Sergio\AppData\Local\Temp\ccVfmD9f.s 			page 4
 
 
   80              		.cfi_endproc
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc75hU6v.s 			page 1
  110              		.align	2
  111              		.global	GREEN_ReadDataReg
  112              		.thumb
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc75hU6v.s 			page 5
+ARM GAS  C:\Users\Sergio\AppData\Local\Temp\ccVfmD9f.s 			page 5
 
 
  113              		.thumb_func
@@ -298,51 +298,51 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc75hU6v.s 			page 1
  139              	.Ldebug_info0:
  140 0000 1B010000 		.4byte	0x11b
  141 0004 0400     		.2byte	0x4
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc75hU6v.s 			page 6
+ARM GAS  C:\Users\Sergio\AppData\Local\Temp\ccVfmD9f.s 			page 6
 
 
  142 0006 00000000 		.4byte	.Ldebug_abbrev0
  143 000a 04       		.byte	0x4
  144 000b 01       		.uleb128 0x1
- 145 000c B8000000 		.4byte	.LASF20
+ 145 000c 55000000 		.4byte	.LASF20
  146 0010 0C       		.byte	0xc
- 147 0011 BF010000 		.4byte	.LASF21
- 148 0015 41000000 		.4byte	.LASF22
+ 147 0011 96010000 		.4byte	.LASF21
+ 148 0015 20010000 		.4byte	.LASF22
  149 0019 00000000 		.4byte	.Ldebug_ranges0+0
  150 001d 00000000 		.4byte	0
  151 0021 00000000 		.4byte	.Ldebug_line0
  152 0025 02       		.uleb128 0x2
  153 0026 01       		.byte	0x1
  154 0027 06       		.byte	0x6
- 155 0028 F7010000 		.4byte	.LASF0
+ 155 0028 CE010000 		.4byte	.LASF0
  156 002c 02       		.uleb128 0x2
  157 002d 01       		.byte	0x1
  158 002e 08       		.byte	0x8
- 159 002f AA000000 		.4byte	.LASF1
+ 159 002f 47000000 		.4byte	.LASF1
  160 0033 02       		.uleb128 0x2
  161 0034 02       		.byte	0x2
  162 0035 05       		.byte	0x5
- 163 0036 DE010000 		.4byte	.LASF2
+ 163 0036 B5010000 		.4byte	.LASF2
  164 003a 02       		.uleb128 0x2
  165 003b 02       		.byte	0x2
  166 003c 07       		.byte	0x7
- 167 003d 5D010000 		.4byte	.LASF3
+ 167 003d FA000000 		.4byte	.LASF3
  168 0041 02       		.uleb128 0x2
  169 0042 04       		.byte	0x4
  170 0043 05       		.byte	0x5
- 171 0044 EE010000 		.4byte	.LASF4
+ 171 0044 C5010000 		.4byte	.LASF4
  172 0048 02       		.uleb128 0x2
  173 0049 04       		.byte	0x4
  174 004a 07       		.byte	0x7
- 175 004b 4B010000 		.4byte	.LASF5
+ 175 004b E8000000 		.4byte	.LASF5
  176 004f 02       		.uleb128 0x2
  177 0050 08       		.byte	0x8
  178 0051 05       		.byte	0x5
- 179 0052 AC010000 		.4byte	.LASF6
+ 179 0052 83010000 		.4byte	.LASF6
  180 0056 02       		.uleb128 0x2
  181 0057 08       		.byte	0x8
  182 0058 07       		.byte	0x7
- 183 0059 90010000 		.4byte	.LASF7
+ 183 0059 67010000 		.4byte	.LASF7
  184 005d 03       		.uleb128 0x3
  185 005e 04       		.byte	0x4
  186 005f 05       		.byte	0x5
@@ -350,36 +350,36 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc75hU6v.s 			page 1
  188 0064 02       		.uleb128 0x2
  189 0065 04       		.byte	0x4
  190 0066 07       		.byte	0x7
- 191 0067 83010000 		.4byte	.LASF8
+ 191 0067 5A010000 		.4byte	.LASF8
  192 006b 04       		.uleb128 0x4
- 193 006c E8010000 		.4byte	.LASF12
+ 193 006c BF010000 		.4byte	.LASF12
  194 0070 02       		.byte	0x2
  195 0071 E401     		.2byte	0x1e4
  196 0073 2C000000 		.4byte	0x2c
  197 0077 02       		.uleb128 0x2
  198 0078 04       		.byte	0x4
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc75hU6v.s 			page 7
+ARM GAS  C:\Users\Sergio\AppData\Local\Temp\ccVfmD9f.s 			page 7
 
 
  199 0079 04       		.byte	0x4
- 200 007a A4000000 		.4byte	.LASF9
+ 200 007a 41000000 		.4byte	.LASF9
  201 007e 02       		.uleb128 0x2
  202 007f 08       		.byte	0x8
  203 0080 04       		.byte	0x4
- 204 0081 7C010000 		.4byte	.LASF10
+ 204 0081 19010000 		.4byte	.LASF10
  205 0085 02       		.uleb128 0x2
  206 0086 01       		.byte	0x1
  207 0087 08       		.byte	0x8
- 208 0088 BA010000 		.4byte	.LASF11
+ 208 0088 91010000 		.4byte	.LASF11
  209 008c 04       		.uleb128 0x4
- 210 008d 46010000 		.4byte	.LASF13
+ 210 008d E3000000 		.4byte	.LASF13
  211 0091 02       		.byte	0x2
  212 0092 8E02     		.2byte	0x28e
  213 0094 98000000 		.4byte	0x98
  214 0098 05       		.uleb128 0x5
  215 0099 6B000000 		.4byte	0x6b
  216 009d 06       		.uleb128 0x6
- 217 009e 70010000 		.4byte	.LASF14
+ 217 009e 0D010000 		.4byte	.LASF14
  218 00a2 01       		.byte	0x1
  219 00a3 39       		.byte	0x39
  220 00a4 00000000 		.4byte	.LFB0
@@ -411,14 +411,14 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc75hU6v.s 			page 1
  246 00df 9C       		.byte	0x9c
  247 00e0 F4000000 		.4byte	0xf4
  248 00e4 07       		.uleb128 0x7
- 249 00e5 A7010000 		.4byte	.LASF17
+ 249 00e5 7E010000 		.4byte	.LASF17
  250 00e9 01       		.byte	0x1
  251 00ea 5A       		.byte	0x5a
  252 00eb 6B000000 		.4byte	0x6b
  253 00ef 21000000 		.4byte	.LLST1
  254 00f3 00       		.byte	0
  255 00f4 09       		.uleb128 0x9
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc75hU6v.s 			page 8
+ARM GAS  C:\Users\Sergio\AppData\Local\Temp\ccVfmD9f.s 			page 8
 
 
  256 00f5 36000000 		.4byte	.LASF18
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc75hU6v.s 			page 1
  310 0022 0B       		.uleb128 0xb
  311 0023 3E       		.uleb128 0x3e
  312 0024 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc75hU6v.s 			page 9
+ARM GAS  C:\Users\Sergio\AppData\Local\Temp\ccVfmD9f.s 			page 9
 
 
  313 0025 03       		.uleb128 0x3
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc75hU6v.s 			page 1
  367 005c 3A       		.uleb128 0x3a
  368 005d 0B       		.uleb128 0xb
  369 005e 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc75hU6v.s 			page 10
+ARM GAS  C:\Users\Sergio\AppData\Local\Temp\ccVfmD9f.s 			page 10
 
 
  370 005f 0B       		.uleb128 0xb
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc75hU6v.s 			page 1
  424 000a 50       		.byte	0x50
  425 000b 0A000000 		.4byte	.LVL2
  426 000f 18000000 		.4byte	.LFE0
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc75hU6v.s 			page 11
+ARM GAS  C:\Users\Sergio\AppData\Local\Temp\ccVfmD9f.s 			page 11
 
 
  427 0013 0400     		.2byte	0x4
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc75hU6v.s 			page 1
  480      02004200 
  480      00000201 
  480      FB0E0D00 
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc75hU6v.s 			page 12
+ARM GAS  C:\Users\Sergio\AppData\Local\Temp\ccVfmD9f.s 			page 12
 
 
  480      01010101 
@@ -685,111 +685,108 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc75hU6v.s 			page 1
  490 0036 47524545 		.ascii	"GREEN_Read\000"
  490      4E5F5265 
  490      616400
- 491              	.LASF22:
- 492 0041 433A5C55 		.ascii	"C:\\Users\\Susanna\\Desktop\\Final_Project_DiGiacom"
- 492      73657273 
- 492      5C537573 
- 492      616E6E61 
- 492      5C446573 
- 493 0070 6F5F5061 		.ascii	"o_Palmieri\\Final_Project2.cydsn\\Final_Project.cyd"
- 493      6C6D6965 
- 493      72695C46 
- 493      696E616C 
- 493      5F50726F 
- 494 00a1 736E00   		.ascii	"sn\000"
- 495              	.LASF9:
- 496 00a4 666C6F61 		.ascii	"float\000"
- 496      7400
- 497              	.LASF1:
- 498 00aa 756E7369 		.ascii	"unsigned char\000"
- 498      676E6564 
- 498      20636861 
- 498      7200
- 499              	.LASF20:
- 500 00b8 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 500      43313120 
- 500      352E342E 
- 500      31203230 
- 500      31363036 
- 501 00eb 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
- 501      20726576 
- 501      6973696F 
- 501      6E203233 
- 501      37373135 
- 502 011e 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 502      66756E63 
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc75hU6v.s 			page 13
+ 491              	.LASF9:
+ 492 0041 666C6F61 		.ascii	"float\000"
+ 492      7400
+ 493              	.LASF1:
+ 494 0047 756E7369 		.ascii	"unsigned char\000"
+ 494      676E6564 
+ 494      20636861 
+ 494      7200
+ 495              	.LASF20:
+ 496 0055 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 496      43313120 
+ 496      352E342E 
+ 496      31203230 
+ 496      31363036 
+ 497 0088 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 497      20726576 
+ 497      6973696F 
+ 497      6E203233 
+ 497      37373135 
+ 498 00bb 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 498      66756E63 
+ 498      74696F6E 
+ 498      2D736563 
+ 498      74696F6E 
+ 499              	.LASF13:
+ 500 00e3 72656738 		.ascii	"reg8\000"
+ 500      00
+ 501              	.LASF5:
+ 502 00e8 6C6F6E67 		.ascii	"long unsigned int\000"
+ 502      20756E73 
+ 502      69676E65 
+ 502      6420696E 
+ 502      7400
+ARM GAS  C:\Users\Sergio\AppData\Local\Temp\ccVfmD9f.s 			page 13
 
 
- 502      74696F6E 
- 502      2D736563 
- 502      74696F6E 
- 503              	.LASF13:
- 504 0146 72656738 		.ascii	"reg8\000"
- 504      00
- 505              	.LASF5:
- 506 014b 6C6F6E67 		.ascii	"long unsigned int\000"
- 506      20756E73 
- 506      69676E65 
- 506      6420696E 
- 506      7400
- 507              	.LASF3:
- 508 015d 73686F72 		.ascii	"short unsigned int\000"
- 508      7420756E 
- 508      7369676E 
- 508      65642069 
- 508      6E7400
- 509              	.LASF14:
- 510 0170 47524545 		.ascii	"GREEN_Write\000"
- 510      4E5F5772 
- 510      69746500 
- 511              	.LASF10:
- 512 017c 646F7562 		.ascii	"double\000"
- 512      6C6500
- 513              	.LASF8:
- 514 0183 756E7369 		.ascii	"unsigned int\000"
- 514      676E6564 
- 514      20696E74 
- 514      00
- 515              	.LASF7:
- 516 0190 6C6F6E67 		.ascii	"long long unsigned int\000"
- 516      206C6F6E 
- 516      6720756E 
- 516      7369676E 
- 516      65642069 
- 517              	.LASF17:
- 518 01a7 6D6F6465 		.ascii	"mode\000"
- 518      00
- 519              	.LASF6:
- 520 01ac 6C6F6E67 		.ascii	"long long int\000"
- 520      206C6F6E 
- 520      6720696E 
- 520      7400
- 521              	.LASF11:
- 522 01ba 63686172 		.ascii	"char\000"
- 522      00
- 523              	.LASF21:
- 524 01bf 47656E65 		.ascii	"Generated_Source\\PSoC5\\GREEN.c\000"
- 524      72617465 
- 524      645F536F 
- 524      75726365 
- 524      5C50536F 
- 525              	.LASF2:
- 526 01de 73686F72 		.ascii	"short int\000"
- 526      7420696E 
- 526      7400
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc75hU6v.s 			page 14
+ 503              	.LASF3:
+ 504 00fa 73686F72 		.ascii	"short unsigned int\000"
+ 504      7420756E 
+ 504      7369676E 
+ 504      65642069 
+ 504      6E7400
+ 505              	.LASF14:
+ 506 010d 47524545 		.ascii	"GREEN_Write\000"
+ 506      4E5F5772 
+ 506      69746500 
+ 507              	.LASF10:
+ 508 0119 646F7562 		.ascii	"double\000"
+ 508      6C6500
+ 509              	.LASF22:
+ 510 0120 433A5C55 		.ascii	"C:\\Users\\Sergio\\Desktop\\Final_Project\\Final_Pr"
+ 510      73657273 
+ 510      5C536572 
+ 510      67696F5C 
+ 510      4465736B 
+ 511 014e 6F6A6563 		.ascii	"oject.cydsn\000"
+ 511      742E6379 
+ 511      64736E00 
+ 512              	.LASF8:
+ 513 015a 756E7369 		.ascii	"unsigned int\000"
+ 513      676E6564 
+ 513      20696E74 
+ 513      00
+ 514              	.LASF7:
+ 515 0167 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 515      206C6F6E 
+ 515      6720756E 
+ 515      7369676E 
+ 515      65642069 
+ 516              	.LASF17:
+ 517 017e 6D6F6465 		.ascii	"mode\000"
+ 517      00
+ 518              	.LASF6:
+ 519 0183 6C6F6E67 		.ascii	"long long int\000"
+ 519      206C6F6E 
+ 519      6720696E 
+ 519      7400
+ 520              	.LASF11:
+ 521 0191 63686172 		.ascii	"char\000"
+ 521      00
+ 522              	.LASF21:
+ 523 0196 47656E65 		.ascii	"Generated_Source\\PSoC5\\GREEN.c\000"
+ 523      72617465 
+ 523      645F536F 
+ 523      75726365 
+ 523      5C50536F 
+ 524              	.LASF2:
+ 525 01b5 73686F72 		.ascii	"short int\000"
+ 525      7420696E 
+ 525      7400
+ 526              	.LASF12:
+ 527 01bf 75696E74 		.ascii	"uint8\000"
+ 527      3800
+ARM GAS  C:\Users\Sergio\AppData\Local\Temp\ccVfmD9f.s 			page 14
 
 
- 527              	.LASF12:
- 528 01e8 75696E74 		.ascii	"uint8\000"
- 528      3800
- 529              	.LASF4:
- 530 01ee 6C6F6E67 		.ascii	"long int\000"
- 530      20696E74 
- 530      00
- 531              	.LASF0:
- 532 01f7 7369676E 		.ascii	"signed char\000"
- 532      65642063 
- 532      68617200 
- 533              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ 528              	.LASF4:
+ 529 01c5 6C6F6E67 		.ascii	"long int\000"
+ 529      20696E74 
+ 529      00
+ 530              	.LASF0:
+ 531 01ce 7369676E 		.ascii	"signed char\000"
+ 531      65642063 
+ 531      68617200 
+ 532              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

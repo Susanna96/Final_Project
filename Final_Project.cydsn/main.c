@@ -153,7 +153,7 @@ int main(void)
     
     // CONTROL REGISTER 3
     uint8_t ctrl_reg3; 
-    ErrorCode error = I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS,
+    error = I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS,
                                         LIS3DH_CTRL_REG3,
                                         &ctrl_reg3);
      if (error == NO_ERROR)
