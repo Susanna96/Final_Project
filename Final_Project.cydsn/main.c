@@ -24,6 +24,13 @@ CTRL_REG1[3]=LPen=0 (HR mode);
 CTRL_REG1[7:4]=ODR[3:0]=0101 (100 Hz)*/
 #define LIS3DH_HR_MODE_100_HZ_CTRL_REG1 0x57
 
+//Brief CONTROL REGISTER 3 address
+#define LIS3DH_CTRL_REG3 0x22
+
+/*Brief HEX value for CONTROL REGISTER 3:
+I1_OVERRUN = 1 (enable FIFO overrun interrupt on INT1) */
+#define LIS3DH_FIFO_OVERRUN 0x02
+
 //Brief CONTROL REGISTER 4 address
 #define LIS3DH_CTRL_REG4 0x23
 
@@ -143,7 +150,41 @@ int main(void)
             UART_PutString("Error occurred during I2C comm to set control register 1\r\n");   
         }
     }
-   
+    
+    // CONTROL REGISTER 3
+    uint8_t ctrl_reg3; 
+    ErrorCode error = I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS,
+                                        LIS3DH_CTRL_REG3,
+                                        &ctrl_reg3);
+     if (error == NO_ERROR)
+    {
+        sprintf(message, "CONTROL REGISTER 3: 0x%02X\r\n", ctrl_reg3);
+        UART_PutString(message); 
+    }
+    else
+    {
+        UART_PutString("Error occurred during I2C comm to read control register 3\r\n");   
+    }
+    
+
+    if (ctrl_reg3 != LIS3DH_FIFO_OVERRUN)
+    {
+        ctrl_reg3 = LIS3DH_FIFO_OVERRUN;
+        error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
+                                             LIS3DH_CTRL_REG3,
+                                             ctrl_reg3);  
+        
+        if (error == NO_ERROR)
+        {
+            sprintf(message, "CONTROL REGISTER 3 successfully written as: 0x%02X\r\n", ctrl_reg3);
+            UART_PutString(message); 
+        }
+        else
+        {
+            UART_PutString("Error occurred during I2C comm to set control register 1\r\n");   
+        }
+    }
+    
     //CONTROL REGISTER 4   
     uint8_t ctrl_reg4;
     error = I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS,
