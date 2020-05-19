@@ -235,10 +235,103 @@ int main(void)
         }
     }
     
+	//INT2 CONFIGURATION REGISTER
+    uint8_t int2__cfg_reg;
+    error = I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS,
+                                        LIS3DH_INT2_CFG,
+                                        &int2__cfg_reg); 
+     if (error == NO_ERROR)
+    {
+        sprintf(message, "INT2 CONFIGURATION REGISTER: 0x%02X\r\n", int2__cfg_reg);
+        UART_PutString(message); 
+    }
+    else
+    {
+        UART_PutString("Error occurred during I2C comm to read INT2 CONFIGURATION REGISTER \r\n");   
+    }
+    
+    
+    if (int2__cfg_reg != LIS3DH_INT2_HIGH_EVENT)
+    {
+        int2__cfg_reg = LIS3DH_INT2_HIGH_EVENT;
+        error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
+                                         LIS3DH_INT2_CFG,
+                                         int2__cfg_reg);
+        if (error == NO_ERROR)
+        {
+            sprintf(message, "INT2 CONFIGURATION REGISTER successfully written as: 0x%02X\r\n", int2__cfg_reg);
+            UART_PutString(message); 
+        }
+        else
+        {
+            UART_PutString("Error occurred during I2C comm to set INT2 CONFIGURATION REGISTER \r\n");   
+        }
+    }
 
     for(;;)
     {
-     
+        uint8_t fifo_src_reg;
+        error = I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS,
+                                        LIS3DH_FIFO_SRC_REG,
+                                        &fifo_src_reg);
+        if (error == NO_ERROR)
+            {
+                 // Check for overrun (FIFO buffer is full and ready to be read): OVRN_FIFO=1 
+                if ((fifo_src_reg & 0x40) > 0)
+                {
+                    /* Per leggere i dati, diverse possibilità (da implementare)
+                     -1 multi read da 196 bytes (poi come me li prendo per separare i valori dei 3 assi? - è la soluzione
+                    che consigliano tutte le application notes per ridurre al minimo la comunicazione tra master e slave)
+                    - 32 multi read da 6 bytes (eventualmente ciclo for..?)
+                    - 196 read singole da 1 byte (non penso proprio)
+                    */
+                    
+                    // Read output registers - retrieval accel. data (X,Y,Z axis)
+                    error=I2C_Peripheral_ReadRegisterMulti(LIS3DH_DEVICE_ADDRESS,
+												LIS3DH_OUT_X_L, 6,
+												AccelerationData);
+                    if (error == NO_ERROR)
+                    {
+                    
+                        // Conversion of output data into right-justified 16 bit int (x-axis)
+                        X_Out=(int16)(AccelerationData[0] | (AccelerationData[1] << 8)) >> 4;
+                        //MSB (x-axis)
+                        OutArray[1]=(uint8_t)(X_Out >> 8);
+                        //LSB (x-axis)
+                        OutArray[2]=(uint8_t)(X_Out & 0xFF);
+                        
+                        // Conversion of output data into right-justified 16 bit int (y-axis)
+                        Y_Out=(int16)(AccelerationData[2] | (AccelerationData[3] << 8)) >> 4;
+                        //MSB (x-axis)
+                        OutArray[3]=(uint8_t)(Y_Out >> 8);
+                        //LSB (x-axis)
+                        OutArray[4]=(uint8_t)(Y_Out & 0xFF);
+                        
+                        // Conversion of output data into right-justified 16 bit int (z-axis)
+                        Z_Out=(int16)(AccelerationData[4] | (AccelerationData[5] << 8)) >> 4;
+                        //MSB (x-axis)
+                        OutArray[5]=(uint8_t)(Z_Out >> 8);
+                        //LSB (x-axis)
+                        OutArray[6]=(uint8_t)(Z_Out & 0xFF);
+                    
+                        UART_PutArray(OutArray,8);
+                    
+                    }
+                    
+                    // Enable Bypass mode
+                    fifo_ctrl_reg = LIS3DH_BYPASS_MODE;
+                    error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
+                                                        LIS3DH_FIFO_CTRL_REG,
+                                                         fifo_ctrl_reg); 
+                  
+                }
+                
+        // Enable FIFO mode again for next reading
+        fifo_ctrl_reg = LIS3DH_FIFO_MODE;
+        error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
+                                             LIS3DH_FIFO_CTRL_REG,
+                                             fifo_ctrl_reg); 
+        }
     }
 }
 /* [] END OF FILE */
