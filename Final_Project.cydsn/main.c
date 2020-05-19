@@ -47,6 +47,14 @@ FM[1:0]=01 (FIFO mode)
 TR=1 (Triggering signal on INT2)*/
 #define LIS3DH_FIFO_MODE 0x60
 
+/*Brief HEX value for FIFO CONTROL REGISTER:
+FM[1:0]=00 (BYPASS mode)
+TR=1 (Triggering signal on INT2)*/
+#define LIS3DH_BYPASS_MODE 0x20
+
+//Brief FIFO SRC REGISTER address
+#define LIS3DH_FIFO_SRC_REG 0x2F
+
 //Brief INT2 CONFIGURATION register address
 #define LIS3DH_INT2_CFG 0x34
 
@@ -268,6 +276,20 @@ int main(void)
         }
     }
 
+    
+    
+    int16_t X_Out;
+    int16_t Y_Out;
+    int16_t Z_Out;
+    uint8_t header = 0xA0;
+    uint8_t footer = 0xC0;
+    uint8_t OutArray[8]; 
+    uint8_t AccelerationData[6];
+    
+    
+    OutArray[0] = header;
+    OutArray[7] = footer;
+    
     for(;;)
     {
         uint8_t fifo_src_reg;
@@ -278,6 +300,7 @@ int main(void)
             {
                  // Check for overrun (FIFO buffer is full and ready to be read): OVRN_FIFO=1 
                 if ((fifo_src_reg & 0x40) > 0)
+                //if (INT_pin_Read())
                 {
                     /* Per leggere i dati, diverse possibilità (da implementare)
                      -1 multi read da 196 bytes (poi come me li prendo per separare i valori dei 3 assi? - è la soluzione
@@ -286,6 +309,7 @@ int main(void)
                     - 196 read singole da 1 byte (non penso proprio)
                     */
                     
+                   
                     // Read output registers - retrieval accel. data (X,Y,Z axis)
                     error=I2C_Peripheral_ReadRegisterMulti(LIS3DH_DEVICE_ADDRESS,
 												LIS3DH_OUT_X_L, 6,
@@ -294,14 +318,14 @@ int main(void)
                     {
                     
                         // Conversion of output data into right-justified 16 bit int (x-axis)
-                        X_Out=(int16)(AccelerationData[0] | (AccelerationData[1] << 8)) >> 4;
+                        X_Out=(int16)((AccelerationData[0] | (AccelerationData[1] << 8))) >> 4;
                         //MSB (x-axis)
                         OutArray[1]=(uint8_t)(X_Out >> 8);
                         //LSB (x-axis)
                         OutArray[2]=(uint8_t)(X_Out & 0xFF);
                         
                         // Conversion of output data into right-justified 16 bit int (y-axis)
-                        Y_Out=(int16)(AccelerationData[2] | (AccelerationData[3] << 8)) >> 4;
+                        Y_Out=(int16)((AccelerationData[2] | (AccelerationData[3] << 8))) >> 4;
                         //MSB (x-axis)
                         OutArray[3]=(uint8_t)(Y_Out >> 8);
                         //LSB (x-axis)
@@ -314,9 +338,13 @@ int main(void)
                         //LSB (x-axis)
                         OutArray[6]=(uint8_t)(Z_Out & 0xFF);
                     
-                        UART_PutArray(OutArray,8);
+                        //UART_PutArray(OutArray,8);
+                         sprintf(message, "Acceleration data: %d %d %d\r\n", X_Out,Y_Out,Z_Out);
+                         UART_PutString(message);
                     
                     }
+                    
+                    
                     
                     // Enable Bypass mode
                     fifo_ctrl_reg = LIS3DH_BYPASS_MODE;
