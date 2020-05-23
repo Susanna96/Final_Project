@@ -1,0 +1,905 @@
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cce0FGlL.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"SW_State.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.Switch_State,"ax",%progbits
+  20              		.align	2
+  21              		.global	Switch_State
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	Switch_State, %function
+  25              	Switch_State:
+  26              	.LFB63:
+  27              		.file 1 "SW_State.c"
+   1:SW_State.c    **** /* ========================================
+   2:SW_State.c    ****  *
+   3:SW_State.c    ****  * Copyright YOUR COMPANY, THE YEAR
+   4:SW_State.c    ****  * All Rights Reserved
+   5:SW_State.c    ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:SW_State.c    ****  *
+   7:SW_State.c    ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:SW_State.c    ****  * WHICH IS THE PROPERTY OF your company.
+   9:SW_State.c    ****  *
+  10:SW_State.c    ****  * ========================================
+  11:SW_State.c    **** */
+  12:SW_State.c    **** #include "project.h"
+  13:SW_State.c    **** #include "SW_State.h"
+  14:SW_State.c    **** 
+  15:SW_State.c    **** 
+  16:SW_State.c    **** #define LONG_PRESS          150
+  17:SW_State.c    **** #define START               0
+  18:SW_State.c    **** #define STOP                1
+  19:SW_State.c    **** #define CONFIGURATION_MODE  2
+  20:SW_State.c    **** int  device_state    = STOP;
+  21:SW_State.c    **** int  double_click    = 0;
+  22:SW_State.c    **** int  t_press         = 0;
+  23:SW_State.c    **** int  t_dbl_click     = 50;
+  24:SW_State.c    **** int  time_now        = 0;
+  25:SW_State.c    **** int  time_elapsed    = 0;
+  26:SW_State.c    **** extern volatile int button_pressed;
+  27:SW_State.c    **** extern volatile int click_count;
+  28:SW_State.c    **** 
+  29:SW_State.c    **** int Switch_State(void)
+  30:SW_State.c    **** {
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cce0FGlL.s 			page 2
+
+
+  28              		.loc 1 30 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 08B5     		push	{r3, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
+  31:SW_State.c    ****     t_press = Timer_SW_ReadCounter();
+  36              		.loc 1 31 0
+  37 0002 FFF7FEFF 		bl	Timer_SW_ReadCounter
+  38              	.LVL0:
+  39 0006 374B     		ldr	r3, .L9
+  40 0008 1860     		str	r0, [r3]
+  32:SW_State.c    ****     button_pressed = 0;
+  41              		.loc 1 32 0
+  42 000a 0022     		movs	r2, #0
+  43 000c 364B     		ldr	r3, .L9+4
+  44 000e 1A60     		str	r2, [r3]
+  33:SW_State.c    ****     while ((BUTTON_Read() == 0))
+  45              		.loc 1 33 0
+  46 0010 06E0     		b	.L2
+  47              	.L3:
+  34:SW_State.c    ****     {
+  35:SW_State.c    ****         time_now = Timer_SW_ReadCounter();
+  48              		.loc 1 35 0
+  49 0012 FFF7FEFF 		bl	Timer_SW_ReadCounter
+  50              	.LVL1:
+  51 0016 334B     		ldr	r3, .L9
+  52 0018 5860     		str	r0, [r3, #4]
+  36:SW_State.c    ****         time_elapsed = time_now - t_press;
+  53              		.loc 1 36 0
+  54 001a 1A68     		ldr	r2, [r3]
+  55 001c 801A     		subs	r0, r0, r2
+  56 001e 9860     		str	r0, [r3, #8]
+  57              	.L2:
+  33:SW_State.c    ****     while ((BUTTON_Read() == 0))
+  58              		.loc 1 33 0
+  59 0020 FFF7FEFF 		bl	BUTTON_Read
+  60              	.LVL2:
+  61 0024 0028     		cmp	r0, #0
+  62 0026 F4D0     		beq	.L3
+  37:SW_State.c    ****     }
+  38:SW_State.c    ****     if ((time_elapsed > LONG_PRESS) && ((device_state == START) || (device_state == STOP)))
+  63              		.loc 1 38 0
+  64 0028 2E4B     		ldr	r3, .L9
+  65 002a 9B68     		ldr	r3, [r3, #8]
+  66 002c 962B     		cmp	r3, #150
+  67 002e 0EDD     		ble	.L4
+  68              		.loc 1 38 0 is_stmt 0 discriminator 1
+  69 0030 2E4A     		ldr	r2, .L9+8
+  70 0032 1268     		ldr	r2, [r2]
+  71 0034 012A     		cmp	r2, #1
+  72 0036 0AD8     		bhi	.L4
+  39:SW_State.c    ****     {
+  40:SW_State.c    ****         click_count  = 0;
+  73              		.loc 1 40 0 is_stmt 1
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cce0FGlL.s 			page 3
+
+
+  74 0038 0023     		movs	r3, #0
+  75 003a 2D4A     		ldr	r2, .L9+12
+  76 003c 1360     		str	r3, [r2]
+  41:SW_State.c    ****         time_elapsed = 0;
+  77              		.loc 1 41 0
+  78 003e 294A     		ldr	r2, .L9
+  79 0040 9360     		str	r3, [r2, #8]
+  42:SW_State.c    ****         time_now     = 0;
+  80              		.loc 1 42 0
+  81 0042 5360     		str	r3, [r2, #4]
+  43:SW_State.c    ****         t_press      = 0;
+  82              		.loc 1 43 0
+  83 0044 1360     		str	r3, [r2]
+  44:SW_State.c    ****         device_state = CONFIGURATION_MODE;
+  84              		.loc 1 44 0
+  85 0046 0222     		movs	r2, #2
+  86 0048 284B     		ldr	r3, .L9+8
+  87 004a 1A60     		str	r2, [r3]
+  88 004c 47E0     		b	.L5
+  89              	.L4:
+  45:SW_State.c    ****     } else if ((time_elapsed > LONG_PRESS) && (device_state == CONFIGURATION_MODE))
+  90              		.loc 1 45 0
+  91 004e 962B     		cmp	r3, #150
+  92 0050 0DDD     		ble	.L6
+  93              		.loc 1 45 0 is_stmt 0 discriminator 1
+  94 0052 264B     		ldr	r3, .L9+8
+  95 0054 1B68     		ldr	r3, [r3]
+  96 0056 022B     		cmp	r3, #2
+  97 0058 09D1     		bne	.L6
+  46:SW_State.c    ****     {
+  47:SW_State.c    ****         click_count  = 0;
+  98              		.loc 1 47 0 is_stmt 1
+  99 005a 0023     		movs	r3, #0
+ 100 005c 244A     		ldr	r2, .L9+12
+ 101 005e 1360     		str	r3, [r2]
+  48:SW_State.c    ****         time_elapsed = 0;
+ 102              		.loc 1 48 0
+ 103 0060 204A     		ldr	r2, .L9
+ 104 0062 9360     		str	r3, [r2, #8]
+  49:SW_State.c    ****         time_now     = 0;
+ 105              		.loc 1 49 0
+ 106 0064 5360     		str	r3, [r2, #4]
+  50:SW_State.c    ****         t_press      = 0;
+ 107              		.loc 1 50 0
+ 108 0066 1360     		str	r3, [r2]
+  51:SW_State.c    ****         device_state = START;
+ 109              		.loc 1 51 0
+ 110 0068 204A     		ldr	r2, .L9+8
+ 111 006a 1360     		str	r3, [r2]
+ 112 006c 37E0     		b	.L5
+ 113              	.L6:
+  52:SW_State.c    ****     }
+  53:SW_State.c    ****      else if ((click_count == 2) && ((Timer_SW_ReadCounter() - t_press) < t_dbl_click ) && ((device
+ 114              		.loc 1 53 0
+ 115 006e 204B     		ldr	r3, .L9+12
+ 116 0070 1B68     		ldr	r3, [r3]
+ 117 0072 022B     		cmp	r3, #2
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cce0FGlL.s 			page 4
+
+
+ 118 0074 18D1     		bne	.L7
+ 119              		.loc 1 53 0 is_stmt 0 discriminator 1
+ 120 0076 FFF7FEFF 		bl	Timer_SW_ReadCounter
+ 121              	.LVL3:
+ 122 007a 1A4B     		ldr	r3, .L9
+ 123 007c 1B68     		ldr	r3, [r3]
+ 124 007e C01A     		subs	r0, r0, r3
+ 125 0080 1A4A     		ldr	r2, .L9+8
+ 126 0082 5268     		ldr	r2, [r2, #4]
+ 127 0084 9042     		cmp	r0, r2
+ 128 0086 0FDA     		bge	.L7
+ 129              		.loc 1 53 0 discriminator 2
+ 130 0088 184B     		ldr	r3, .L9+8
+ 131 008a 1B68     		ldr	r3, [r3]
+ 132 008c 012B     		cmp	r3, #1
+ 133 008e 0BD1     		bne	.L7
+  54:SW_State.c    ****     {
+  55:SW_State.c    ****         time_now        = 0;
+ 134              		.loc 1 55 0 is_stmt 1
+ 135 0090 144A     		ldr	r2, .L9
+ 136 0092 0023     		movs	r3, #0
+ 137 0094 5360     		str	r3, [r2, #4]
+  56:SW_State.c    ****         time_elapsed    = 0;
+ 138              		.loc 1 56 0
+ 139 0096 9360     		str	r3, [r2, #8]
+  57:SW_State.c    ****         click_count     = 0;
+ 140              		.loc 1 57 0
+ 141 0098 1549     		ldr	r1, .L9+12
+ 142 009a 0B60     		str	r3, [r1]
+  58:SW_State.c    ****         button_pressed  = 0;
+ 143              		.loc 1 58 0
+ 144 009c 1249     		ldr	r1, .L9+4
+ 145 009e 0B60     		str	r3, [r1]
+  59:SW_State.c    ****         t_press = 0;
+ 146              		.loc 1 59 0
+ 147 00a0 1360     		str	r3, [r2]
+  60:SW_State.c    ****         device_state = START;
+ 148              		.loc 1 60 0
+ 149 00a2 124A     		ldr	r2, .L9+8
+ 150 00a4 1360     		str	r3, [r2]
+ 151 00a6 1AE0     		b	.L5
+ 152              	.L7:
+  61:SW_State.c    ****     } else if ((click_count == 2) && ((Timer_SW_ReadCounter() - t_press) < t_dbl_click ) && ((devic
+ 153              		.loc 1 61 0
+ 154 00a8 114B     		ldr	r3, .L9+12
+ 155 00aa 1B68     		ldr	r3, [r3]
+ 156 00ac 022B     		cmp	r3, #2
+ 157 00ae 16D1     		bne	.L5
+ 158              		.loc 1 61 0 is_stmt 0 discriminator 1
+ 159 00b0 FFF7FEFF 		bl	Timer_SW_ReadCounter
+ 160              	.LVL4:
+ 161 00b4 0B4B     		ldr	r3, .L9
+ 162 00b6 1B68     		ldr	r3, [r3]
+ 163 00b8 C01A     		subs	r0, r0, r3
+ 164 00ba 0C4A     		ldr	r2, .L9+8
+ 165 00bc 5268     		ldr	r2, [r2, #4]
+ 166 00be 9042     		cmp	r0, r2
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cce0FGlL.s 			page 5
+
+
+ 167 00c0 0DDA     		bge	.L5
+ 168              		.loc 1 61 0 discriminator 2
+ 169 00c2 0A4B     		ldr	r3, .L9+8
+ 170 00c4 1B68     		ldr	r3, [r3]
+ 171 00c6 53B9     		cbnz	r3, .L5
+  62:SW_State.c    ****     {
+  63:SW_State.c    ****         time_now        = 0;
+ 172              		.loc 1 63 0 is_stmt 1
+ 173 00c8 064A     		ldr	r2, .L9
+ 174 00ca 5360     		str	r3, [r2, #4]
+  64:SW_State.c    ****         time_elapsed    = 0;
+ 175              		.loc 1 64 0
+ 176 00cc 9360     		str	r3, [r2, #8]
+  65:SW_State.c    ****         click_count    = 0;
+ 177              		.loc 1 65 0
+ 178 00ce 0849     		ldr	r1, .L9+12
+ 179 00d0 0B60     		str	r3, [r1]
+  66:SW_State.c    ****         button_pressed = 0;
+ 180              		.loc 1 66 0
+ 181 00d2 0549     		ldr	r1, .L9+4
+ 182 00d4 0B60     		str	r3, [r1]
+  67:SW_State.c    ****         t_press = 0;
+ 183              		.loc 1 67 0
+ 184 00d6 1360     		str	r3, [r2]
+  68:SW_State.c    ****         device_state = STOP;
+ 185              		.loc 1 68 0
+ 186 00d8 0122     		movs	r2, #1
+ 187 00da 044B     		ldr	r3, .L9+8
+ 188 00dc 1A60     		str	r2, [r3]
+ 189              	.L5:
+  69:SW_State.c    ****     }
+  70:SW_State.c    ****     
+  71:SW_State.c    ****     return device_state;
+  72:SW_State.c    **** }
+ 190              		.loc 1 72 0
+ 191 00de 034B     		ldr	r3, .L9+8
+ 192 00e0 1868     		ldr	r0, [r3]
+ 193 00e2 08BD     		pop	{r3, pc}
+ 194              	.L10:
+ 195              		.align	2
+ 196              	.L9:
+ 197 00e4 00000000 		.word	.LANCHOR0
+ 198 00e8 00000000 		.word	button_pressed
+ 199 00ec 00000000 		.word	.LANCHOR1
+ 200 00f0 00000000 		.word	click_count
+ 201              		.cfi_endproc
+ 202              	.LFE63:
+ 203              		.size	Switch_State, .-Switch_State
+ 204              		.global	time_elapsed
+ 205              		.global	time_now
+ 206              		.global	t_dbl_click
+ 207              		.global	t_press
+ 208              		.global	double_click
+ 209              		.global	device_state
+ 210              		.data
+ 211              		.align	2
+ 212              		.set	.LANCHOR1,. + 0
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cce0FGlL.s 			page 6
+
+
+ 213              		.type	device_state, %object
+ 214              		.size	device_state, 4
+ 215              	device_state:
+ 216 0000 01000000 		.word	1
+ 217              		.type	t_dbl_click, %object
+ 218              		.size	t_dbl_click, 4
+ 219              	t_dbl_click:
+ 220 0004 32000000 		.word	50
+ 221              		.bss
+ 222              		.align	2
+ 223              		.set	.LANCHOR0,. + 0
+ 224              		.type	t_press, %object
+ 225              		.size	t_press, 4
+ 226              	t_press:
+ 227 0000 00000000 		.space	4
+ 228              		.type	time_now, %object
+ 229              		.size	time_now, 4
+ 230              	time_now:
+ 231 0004 00000000 		.space	4
+ 232              		.type	time_elapsed, %object
+ 233              		.size	time_elapsed, 4
+ 234              	time_elapsed:
+ 235 0008 00000000 		.space	4
+ 236              		.type	double_click, %object
+ 237              		.size	double_click, 4
+ 238              	double_click:
+ 239 000c 00000000 		.space	4
+ 240              		.text
+ 241              	.Letext0:
+ 242              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.3\\psoc creator\\import\\gnu\\arm\\5.4.
+ 243              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.3\\psoc creator\\import\\gnu\\arm\\5.4.
+ 244              		.file 4 "Generated_Source\\PSoC5/core_cm3.h"
+ 245              		.file 5 "Generated_Source\\PSoC5/Timer_SW.h"
+ 246              		.file 6 "Generated_Source\\PSoC5/BUTTON.h"
+ 247              		.section	.debug_info,"",%progbits
+ 248              	.Ldebug_info0:
+ 249 0000 90010000 		.4byte	0x190
+ 250 0004 0400     		.2byte	0x4
+ 251 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 252 000a 04       		.byte	0x4
+ 253 000b 01       		.uleb128 0x1
+ 254 000c C1000000 		.4byte	.LASF27
+ 255 0010 0C       		.byte	0xc
+ 256 0011 61000000 		.4byte	.LASF28
+ 257 0015 00000000 		.4byte	.LASF29
+ 258 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 259 001d 00000000 		.4byte	0
+ 260 0021 00000000 		.4byte	.Ldebug_line0
+ 261 0025 02       		.uleb128 0x2
+ 262 0026 01       		.byte	0x1
+ 263 0027 06       		.byte	0x6
+ 264 0028 39020000 		.4byte	.LASF0
+ 265 002c 02       		.uleb128 0x2
+ 266 002d 01       		.byte	0x1
+ 267 002e 08       		.byte	0x8
+ 268 002f B3000000 		.4byte	.LASF1
+ 269 0033 02       		.uleb128 0x2
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cce0FGlL.s 			page 7
+
+
+ 270 0034 02       		.byte	0x2
+ 271 0035 05       		.byte	0x5
+ 272 0036 1A020000 		.4byte	.LASF2
+ 273 003a 02       		.uleb128 0x2
+ 274 003b 02       		.byte	0x2
+ 275 003c 07       		.byte	0x7
+ 276 003d 61010000 		.4byte	.LASF3
+ 277 0041 03       		.uleb128 0x3
+ 278 0042 6C000000 		.4byte	.LASF9
+ 279 0046 02       		.byte	0x2
+ 280 0047 3F       		.byte	0x3f
+ 281 0048 4C000000 		.4byte	0x4c
+ 282 004c 02       		.uleb128 0x2
+ 283 004d 04       		.byte	0x4
+ 284 004e 05       		.byte	0x5
+ 285 004f 24020000 		.4byte	.LASF4
+ 286 0053 02       		.uleb128 0x2
+ 287 0054 04       		.byte	0x4
+ 288 0055 07       		.byte	0x7
+ 289 0056 4F010000 		.4byte	.LASF5
+ 290 005a 02       		.uleb128 0x2
+ 291 005b 08       		.byte	0x8
+ 292 005c 05       		.byte	0x5
+ 293 005d F1010000 		.4byte	.LASF6
+ 294 0061 02       		.uleb128 0x2
+ 295 0062 08       		.byte	0x8
+ 296 0063 07       		.byte	0x7
+ 297 0064 B8010000 		.4byte	.LASF7
+ 298 0068 04       		.uleb128 0x4
+ 299 0069 04       		.byte	0x4
+ 300 006a 05       		.byte	0x5
+ 301 006b 696E7400 		.ascii	"int\000"
+ 302 006f 02       		.uleb128 0x2
+ 303 0070 04       		.byte	0x4
+ 304 0071 07       		.byte	0x7
+ 305 0072 AB010000 		.4byte	.LASF8
+ 306 0076 03       		.uleb128 0x3
+ 307 0077 A5000000 		.4byte	.LASF10
+ 308 007b 03       		.byte	0x3
+ 309 007c 2C       		.byte	0x2c
+ 310 007d 41000000 		.4byte	0x41
+ 311 0081 02       		.uleb128 0x2
+ 312 0082 04       		.byte	0x4
+ 313 0083 04       		.byte	0x4
+ 314 0084 AD000000 		.4byte	.LASF11
+ 315 0088 02       		.uleb128 0x2
+ 316 0089 08       		.byte	0x8
+ 317 008a 04       		.byte	0x4
+ 318 008b 8D010000 		.4byte	.LASF12
+ 319 008f 02       		.uleb128 0x2
+ 320 0090 01       		.byte	0x1
+ 321 0091 08       		.byte	0x8
+ 322 0092 0C020000 		.4byte	.LASF13
+ 323 0096 02       		.uleb128 0x2
+ 324 0097 08       		.byte	0x8
+ 325 0098 04       		.byte	0x4
+ 326 0099 2D020000 		.4byte	.LASF14
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cce0FGlL.s 			page 8
+
+
+ 327 009d 02       		.uleb128 0x2
+ 328 009e 04       		.byte	0x4
+ 329 009f 07       		.byte	0x7
+ 330 00a0 E8010000 		.4byte	.LASF15
+ 331 00a4 05       		.uleb128 0x5
+ 332 00a5 CF010000 		.4byte	.LASF30
+ 333 00a9 01       		.byte	0x1
+ 334 00aa 1D       		.byte	0x1d
+ 335 00ab 68000000 		.4byte	0x68
+ 336 00af 00000000 		.4byte	.LFB63
+ 337 00b3 F4000000 		.4byte	.LFE63-.LFB63
+ 338 00b7 01       		.uleb128 0x1
+ 339 00b8 9C       		.byte	0x9c
+ 340 00b9 EB000000 		.4byte	0xeb
+ 341 00bd 06       		.uleb128 0x6
+ 342 00be 06000000 		.4byte	.LVL0
+ 343 00c2 7D010000 		.4byte	0x17d
+ 344 00c6 06       		.uleb128 0x6
+ 345 00c7 16000000 		.4byte	.LVL1
+ 346 00cb 7D010000 		.4byte	0x17d
+ 347 00cf 06       		.uleb128 0x6
+ 348 00d0 24000000 		.4byte	.LVL2
+ 349 00d4 88010000 		.4byte	0x188
+ 350 00d8 06       		.uleb128 0x6
+ 351 00d9 7A000000 		.4byte	.LVL3
+ 352 00dd 7D010000 		.4byte	0x17d
+ 353 00e1 06       		.uleb128 0x6
+ 354 00e2 B4000000 		.4byte	.LVL4
+ 355 00e6 7D010000 		.4byte	0x17d
+ 356 00ea 00       		.byte	0
+ 357 00eb 07       		.uleb128 0x7
+ 358 00ec 80010000 		.4byte	.LASF16
+ 359 00f0 04       		.byte	0x4
+ 360 00f1 1207     		.2byte	0x712
+ 361 00f3 F7000000 		.4byte	0xf7
+ 362 00f7 08       		.uleb128 0x8
+ 363 00f8 76000000 		.4byte	0x76
+ 364 00fc 09       		.uleb128 0x9
+ 365 00fd 83000000 		.4byte	.LASF17
+ 366 0101 01       		.byte	0x1
+ 367 0102 14       		.byte	0x14
+ 368 0103 68000000 		.4byte	0x68
+ 369 0107 05       		.uleb128 0x5
+ 370 0108 03       		.byte	0x3
+ 371 0109 00000000 		.4byte	device_state
+ 372 010d 09       		.uleb128 0x9
+ 373 010e 76000000 		.4byte	.LASF18
+ 374 0112 01       		.byte	0x1
+ 375 0113 15       		.byte	0x15
+ 376 0114 68000000 		.4byte	0x68
+ 377 0118 05       		.uleb128 0x5
+ 378 0119 03       		.byte	0x3
+ 379 011a 00000000 		.4byte	double_click
+ 380 011e 09       		.uleb128 0x9
+ 381 011f A3010000 		.4byte	.LASF19
+ 382 0123 01       		.byte	0x1
+ 383 0124 16       		.byte	0x16
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cce0FGlL.s 			page 9
+
+
+ 384 0125 68000000 		.4byte	0x68
+ 385 0129 05       		.uleb128 0x5
+ 386 012a 03       		.byte	0x3
+ 387 012b 00000000 		.4byte	t_press
+ 388 012f 09       		.uleb128 0x9
+ 389 0130 DC010000 		.4byte	.LASF20
+ 390 0134 01       		.byte	0x1
+ 391 0135 17       		.byte	0x17
+ 392 0136 68000000 		.4byte	0x68
+ 393 013a 05       		.uleb128 0x5
+ 394 013b 03       		.byte	0x3
+ 395 013c 00000000 		.4byte	t_dbl_click
+ 396 0140 09       		.uleb128 0x9
+ 397 0141 11020000 		.4byte	.LASF21
+ 398 0145 01       		.byte	0x1
+ 399 0146 18       		.byte	0x18
+ 400 0147 68000000 		.4byte	0x68
+ 401 014b 05       		.uleb128 0x5
+ 402 014c 03       		.byte	0x3
+ 403 014d 00000000 		.4byte	time_now
+ 404 0151 09       		.uleb128 0x9
+ 405 0152 FF010000 		.4byte	.LASF22
+ 406 0156 01       		.byte	0x1
+ 407 0157 19       		.byte	0x19
+ 408 0158 68000000 		.4byte	0x68
+ 409 015c 05       		.uleb128 0x5
+ 410 015d 03       		.byte	0x3
+ 411 015e 00000000 		.4byte	time_elapsed
+ 412 0162 0A       		.uleb128 0xa
+ 413 0163 94010000 		.4byte	.LASF23
+ 414 0167 01       		.byte	0x1
+ 415 0168 1A       		.byte	0x1a
+ 416 0169 6D010000 		.4byte	0x16d
+ 417 016d 08       		.uleb128 0x8
+ 418 016e 68000000 		.4byte	0x68
+ 419 0172 0A       		.uleb128 0xa
+ 420 0173 74010000 		.4byte	.LASF24
+ 421 0177 01       		.byte	0x1
+ 422 0178 1B       		.byte	0x1b
+ 423 0179 6D010000 		.4byte	0x16d
+ 424 017d 0B       		.uleb128 0xb
+ 425 017e 90000000 		.4byte	.LASF25
+ 426 0182 90000000 		.4byte	.LASF25
+ 427 0186 05       		.byte	0x5
+ 428 0187 69       		.byte	0x69
+ 429 0188 0B       		.uleb128 0xb
+ 430 0189 45020000 		.4byte	.LASF26
+ 431 018d 45020000 		.4byte	.LASF26
+ 432 0191 06       		.byte	0x6
+ 433 0192 29       		.byte	0x29
+ 434 0193 00       		.byte	0
+ 435              		.section	.debug_abbrev,"",%progbits
+ 436              	.Ldebug_abbrev0:
+ 437 0000 01       		.uleb128 0x1
+ 438 0001 11       		.uleb128 0x11
+ 439 0002 01       		.byte	0x1
+ 440 0003 25       		.uleb128 0x25
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cce0FGlL.s 			page 10
+
+
+ 441 0004 0E       		.uleb128 0xe
+ 442 0005 13       		.uleb128 0x13
+ 443 0006 0B       		.uleb128 0xb
+ 444 0007 03       		.uleb128 0x3
+ 445 0008 0E       		.uleb128 0xe
+ 446 0009 1B       		.uleb128 0x1b
+ 447 000a 0E       		.uleb128 0xe
+ 448 000b 55       		.uleb128 0x55
+ 449 000c 17       		.uleb128 0x17
+ 450 000d 11       		.uleb128 0x11
+ 451 000e 01       		.uleb128 0x1
+ 452 000f 10       		.uleb128 0x10
+ 453 0010 17       		.uleb128 0x17
+ 454 0011 00       		.byte	0
+ 455 0012 00       		.byte	0
+ 456 0013 02       		.uleb128 0x2
+ 457 0014 24       		.uleb128 0x24
+ 458 0015 00       		.byte	0
+ 459 0016 0B       		.uleb128 0xb
+ 460 0017 0B       		.uleb128 0xb
+ 461 0018 3E       		.uleb128 0x3e
+ 462 0019 0B       		.uleb128 0xb
+ 463 001a 03       		.uleb128 0x3
+ 464 001b 0E       		.uleb128 0xe
+ 465 001c 00       		.byte	0
+ 466 001d 00       		.byte	0
+ 467 001e 03       		.uleb128 0x3
+ 468 001f 16       		.uleb128 0x16
+ 469 0020 00       		.byte	0
+ 470 0021 03       		.uleb128 0x3
+ 471 0022 0E       		.uleb128 0xe
+ 472 0023 3A       		.uleb128 0x3a
+ 473 0024 0B       		.uleb128 0xb
+ 474 0025 3B       		.uleb128 0x3b
+ 475 0026 0B       		.uleb128 0xb
+ 476 0027 49       		.uleb128 0x49
+ 477 0028 13       		.uleb128 0x13
+ 478 0029 00       		.byte	0
+ 479 002a 00       		.byte	0
+ 480 002b 04       		.uleb128 0x4
+ 481 002c 24       		.uleb128 0x24
+ 482 002d 00       		.byte	0
+ 483 002e 0B       		.uleb128 0xb
+ 484 002f 0B       		.uleb128 0xb
+ 485 0030 3E       		.uleb128 0x3e
+ 486 0031 0B       		.uleb128 0xb
+ 487 0032 03       		.uleb128 0x3
+ 488 0033 08       		.uleb128 0x8
+ 489 0034 00       		.byte	0
+ 490 0035 00       		.byte	0
+ 491 0036 05       		.uleb128 0x5
+ 492 0037 2E       		.uleb128 0x2e
+ 493 0038 01       		.byte	0x1
+ 494 0039 3F       		.uleb128 0x3f
+ 495 003a 19       		.uleb128 0x19
+ 496 003b 03       		.uleb128 0x3
+ 497 003c 0E       		.uleb128 0xe
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cce0FGlL.s 			page 11
+
+
+ 498 003d 3A       		.uleb128 0x3a
+ 499 003e 0B       		.uleb128 0xb
+ 500 003f 3B       		.uleb128 0x3b
+ 501 0040 0B       		.uleb128 0xb
+ 502 0041 27       		.uleb128 0x27
+ 503 0042 19       		.uleb128 0x19
+ 504 0043 49       		.uleb128 0x49
+ 505 0044 13       		.uleb128 0x13
+ 506 0045 11       		.uleb128 0x11
+ 507 0046 01       		.uleb128 0x1
+ 508 0047 12       		.uleb128 0x12
+ 509 0048 06       		.uleb128 0x6
+ 510 0049 40       		.uleb128 0x40
+ 511 004a 18       		.uleb128 0x18
+ 512 004b 9742     		.uleb128 0x2117
+ 513 004d 19       		.uleb128 0x19
+ 514 004e 01       		.uleb128 0x1
+ 515 004f 13       		.uleb128 0x13
+ 516 0050 00       		.byte	0
+ 517 0051 00       		.byte	0
+ 518 0052 06       		.uleb128 0x6
+ 519 0053 898201   		.uleb128 0x4109
+ 520 0056 00       		.byte	0
+ 521 0057 11       		.uleb128 0x11
+ 522 0058 01       		.uleb128 0x1
+ 523 0059 31       		.uleb128 0x31
+ 524 005a 13       		.uleb128 0x13
+ 525 005b 00       		.byte	0
+ 526 005c 00       		.byte	0
+ 527 005d 07       		.uleb128 0x7
+ 528 005e 34       		.uleb128 0x34
+ 529 005f 00       		.byte	0
+ 530 0060 03       		.uleb128 0x3
+ 531 0061 0E       		.uleb128 0xe
+ 532 0062 3A       		.uleb128 0x3a
+ 533 0063 0B       		.uleb128 0xb
+ 534 0064 3B       		.uleb128 0x3b
+ 535 0065 05       		.uleb128 0x5
+ 536 0066 49       		.uleb128 0x49
+ 537 0067 13       		.uleb128 0x13
+ 538 0068 3F       		.uleb128 0x3f
+ 539 0069 19       		.uleb128 0x19
+ 540 006a 3C       		.uleb128 0x3c
+ 541 006b 19       		.uleb128 0x19
+ 542 006c 00       		.byte	0
+ 543 006d 00       		.byte	0
+ 544 006e 08       		.uleb128 0x8
+ 545 006f 35       		.uleb128 0x35
+ 546 0070 00       		.byte	0
+ 547 0071 49       		.uleb128 0x49
+ 548 0072 13       		.uleb128 0x13
+ 549 0073 00       		.byte	0
+ 550 0074 00       		.byte	0
+ 551 0075 09       		.uleb128 0x9
+ 552 0076 34       		.uleb128 0x34
+ 553 0077 00       		.byte	0
+ 554 0078 03       		.uleb128 0x3
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cce0FGlL.s 			page 12
+
+
+ 555 0079 0E       		.uleb128 0xe
+ 556 007a 3A       		.uleb128 0x3a
+ 557 007b 0B       		.uleb128 0xb
+ 558 007c 3B       		.uleb128 0x3b
+ 559 007d 0B       		.uleb128 0xb
+ 560 007e 49       		.uleb128 0x49
+ 561 007f 13       		.uleb128 0x13
+ 562 0080 3F       		.uleb128 0x3f
+ 563 0081 19       		.uleb128 0x19
+ 564 0082 02       		.uleb128 0x2
+ 565 0083 18       		.uleb128 0x18
+ 566 0084 00       		.byte	0
+ 567 0085 00       		.byte	0
+ 568 0086 0A       		.uleb128 0xa
+ 569 0087 34       		.uleb128 0x34
+ 570 0088 00       		.byte	0
+ 571 0089 03       		.uleb128 0x3
+ 572 008a 0E       		.uleb128 0xe
+ 573 008b 3A       		.uleb128 0x3a
+ 574 008c 0B       		.uleb128 0xb
+ 575 008d 3B       		.uleb128 0x3b
+ 576 008e 0B       		.uleb128 0xb
+ 577 008f 49       		.uleb128 0x49
+ 578 0090 13       		.uleb128 0x13
+ 579 0091 3F       		.uleb128 0x3f
+ 580 0092 19       		.uleb128 0x19
+ 581 0093 3C       		.uleb128 0x3c
+ 582 0094 19       		.uleb128 0x19
+ 583 0095 00       		.byte	0
+ 584 0096 00       		.byte	0
+ 585 0097 0B       		.uleb128 0xb
+ 586 0098 2E       		.uleb128 0x2e
+ 587 0099 00       		.byte	0
+ 588 009a 3F       		.uleb128 0x3f
+ 589 009b 19       		.uleb128 0x19
+ 590 009c 3C       		.uleb128 0x3c
+ 591 009d 19       		.uleb128 0x19
+ 592 009e 6E       		.uleb128 0x6e
+ 593 009f 0E       		.uleb128 0xe
+ 594 00a0 03       		.uleb128 0x3
+ 595 00a1 0E       		.uleb128 0xe
+ 596 00a2 3A       		.uleb128 0x3a
+ 597 00a3 0B       		.uleb128 0xb
+ 598 00a4 3B       		.uleb128 0x3b
+ 599 00a5 0B       		.uleb128 0xb
+ 600 00a6 00       		.byte	0
+ 601 00a7 00       		.byte	0
+ 602 00a8 00       		.byte	0
+ 603              		.section	.debug_aranges,"",%progbits
+ 604 0000 1C000000 		.4byte	0x1c
+ 605 0004 0200     		.2byte	0x2
+ 606 0006 00000000 		.4byte	.Ldebug_info0
+ 607 000a 04       		.byte	0x4
+ 608 000b 00       		.byte	0
+ 609 000c 0000     		.2byte	0
+ 610 000e 0000     		.2byte	0
+ 611 0010 00000000 		.4byte	.LFB63
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cce0FGlL.s 			page 13
+
+
+ 612 0014 F4000000 		.4byte	.LFE63-.LFB63
+ 613 0018 00000000 		.4byte	0
+ 614 001c 00000000 		.4byte	0
+ 615              		.section	.debug_ranges,"",%progbits
+ 616              	.Ldebug_ranges0:
+ 617 0000 00000000 		.4byte	.LFB63
+ 618 0004 F4000000 		.4byte	.LFE63
+ 619 0008 00000000 		.4byte	0
+ 620 000c 00000000 		.4byte	0
+ 621              		.section	.debug_line,"",%progbits
+ 622              	.Ldebug_line0:
+ 623 0000 B9010000 		.section	.debug_str,"MS",%progbits,1
+ 623      02005D01 
+ 623      00000201 
+ 623      FB0E0D00 
+ 623      01010101 
+ 624              	.LASF29:
+ 625 0000 433A5C55 		.ascii	"C:\\Users\\Susanna\\Desktop\\Final_Project_DiGiacom"
+ 625      73657273 
+ 625      5C537573 
+ 625      616E6E61 
+ 625      5C446573 
+ 626 002f 6F5F5061 		.ascii	"o_Palmieri\\Final_Project2.cydsn\\Final_prova.cydsn"
+ 626      6C6D6965 
+ 626      72695C46 
+ 626      696E616C 
+ 626      5F50726F 
+ 627 0060 00       		.ascii	"\000"
+ 628              	.LASF28:
+ 629 0061 53575F53 		.ascii	"SW_State.c\000"
+ 629      74617465 
+ 629      2E6300
+ 630              	.LASF9:
+ 631 006c 5F5F696E 		.ascii	"__int32_t\000"
+ 631      7433325F 
+ 631      7400
+ 632              	.LASF18:
+ 633 0076 646F7562 		.ascii	"double_click\000"
+ 633      6C655F63 
+ 633      6C69636B 
+ 633      00
+ 634              	.LASF17:
+ 635 0083 64657669 		.ascii	"device_state\000"
+ 635      63655F73 
+ 635      74617465 
+ 635      00
+ 636              	.LASF25:
+ 637 0090 54696D65 		.ascii	"Timer_SW_ReadCounter\000"
+ 637      725F5357 
+ 637      5F526561 
+ 637      64436F75 
+ 637      6E746572 
+ 638              	.LASF10:
+ 639 00a5 696E7433 		.ascii	"int32_t\000"
+ 639      325F7400 
+ 640              	.LASF11:
+ 641 00ad 666C6F61 		.ascii	"float\000"
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cce0FGlL.s 			page 14
+
+
+ 641      7400
+ 642              	.LASF1:
+ 643 00b3 756E7369 		.ascii	"unsigned char\000"
+ 643      676E6564 
+ 643      20636861 
+ 643      7200
+ 644              	.LASF27:
+ 645 00c1 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 645      43313120 
+ 645      352E342E 
+ 645      31203230 
+ 645      31363036 
+ 646 00f4 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 646      20726576 
+ 646      6973696F 
+ 646      6E203233 
+ 646      37373135 
+ 647 0127 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 647      66756E63 
+ 647      74696F6E 
+ 647      2D736563 
+ 647      74696F6E 
+ 648              	.LASF5:
+ 649 014f 6C6F6E67 		.ascii	"long unsigned int\000"
+ 649      20756E73 
+ 649      69676E65 
+ 649      6420696E 
+ 649      7400
+ 650              	.LASF3:
+ 651 0161 73686F72 		.ascii	"short unsigned int\000"
+ 651      7420756E 
+ 651      7369676E 
+ 651      65642069 
+ 651      6E7400
+ 652              	.LASF24:
+ 653 0174 636C6963 		.ascii	"click_count\000"
+ 653      6B5F636F 
+ 653      756E7400 
+ 654              	.LASF16:
+ 655 0180 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 655      52784275 
+ 655      66666572 
+ 655      00
+ 656              	.LASF12:
+ 657 018d 646F7562 		.ascii	"double\000"
+ 657      6C6500
+ 658              	.LASF23:
+ 659 0194 62757474 		.ascii	"button_pressed\000"
+ 659      6F6E5F70 
+ 659      72657373 
+ 659      656400
+ 660              	.LASF19:
+ 661 01a3 745F7072 		.ascii	"t_press\000"
+ 661      65737300 
+ 662              	.LASF8:
+ 663 01ab 756E7369 		.ascii	"unsigned int\000"
+ 663      676E6564 
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cce0FGlL.s 			page 15
+
+
+ 663      20696E74 
+ 663      00
+ 664              	.LASF7:
+ 665 01b8 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 665      206C6F6E 
+ 665      6720756E 
+ 665      7369676E 
+ 665      65642069 
+ 666              	.LASF30:
+ 667 01cf 53776974 		.ascii	"Switch_State\000"
+ 667      63685F53 
+ 667      74617465 
+ 667      00
+ 668              	.LASF20:
+ 669 01dc 745F6462 		.ascii	"t_dbl_click\000"
+ 669      6C5F636C 
+ 669      69636B00 
+ 670              	.LASF15:
+ 671 01e8 73697A65 		.ascii	"sizetype\000"
+ 671      74797065 
+ 671      00
+ 672              	.LASF6:
+ 673 01f1 6C6F6E67 		.ascii	"long long int\000"
+ 673      206C6F6E 
+ 673      6720696E 
+ 673      7400
+ 674              	.LASF22:
+ 675 01ff 74696D65 		.ascii	"time_elapsed\000"
+ 675      5F656C61 
+ 675      70736564 
+ 675      00
+ 676              	.LASF13:
+ 677 020c 63686172 		.ascii	"char\000"
+ 677      00
+ 678              	.LASF21:
+ 679 0211 74696D65 		.ascii	"time_now\000"
+ 679      5F6E6F77 
+ 679      00
+ 680              	.LASF2:
+ 681 021a 73686F72 		.ascii	"short int\000"
+ 681      7420696E 
+ 681      7400
+ 682              	.LASF4:
+ 683 0224 6C6F6E67 		.ascii	"long int\000"
+ 683      20696E74 
+ 683      00
+ 684              	.LASF14:
+ 685 022d 6C6F6E67 		.ascii	"long double\000"
+ 685      20646F75 
+ 685      626C6500 
+ 686              	.LASF0:
+ 687 0239 7369676E 		.ascii	"signed char\000"
+ 687      65642063 
+ 687      68617200 
+ 688              	.LASF26:
+ 689 0245 42555454 		.ascii	"BUTTON_Read\000"
+ 689      4F4E5F52 
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cce0FGlL.s 			page 16
+
+
+ 689      65616400 
+ 690              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

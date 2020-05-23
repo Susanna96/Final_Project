@@ -1,0 +1,487 @@
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccuOQ7np.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"InterruptRoutines.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.Switch_ISR,"ax",%progbits
+  20              		.align	2
+  21              		.global	Switch_ISR
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	Switch_ISR, %function
+  25              	Switch_ISR:
+  26              	.LFB63:
+  27              		.file 1 "InterruptRoutines.c"
+   1:InterruptRoutines.c **** /* ========================================
+   2:InterruptRoutines.c ****  *
+   3:InterruptRoutines.c ****  * ========================================
+   4:InterruptRoutines.c **** */
+   5:InterruptRoutines.c **** 
+   6:InterruptRoutines.c **** #include "project.h"
+   7:InterruptRoutines.c **** #include "InterruptRoutines.h"
+   8:InterruptRoutines.c **** 
+   9:InterruptRoutines.c **** extern volatile int button_pressed;
+  10:InterruptRoutines.c **** extern volatile int click_count;
+  11:InterruptRoutines.c **** 
+  12:InterruptRoutines.c **** 
+  13:InterruptRoutines.c **** 
+  14:InterruptRoutines.c **** CY_ISR(Switch_ISR)
+  15:InterruptRoutines.c **** {
+  28              		.loc 1 15 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  16:InterruptRoutines.c ****     button_pressed=1;
+  33              		.loc 1 16 0
+  34 0000 0122     		movs	r2, #1
+  35 0002 034B     		ldr	r3, .L2
+  36 0004 1A60     		str	r2, [r3]
+  17:InterruptRoutines.c ****     click_count++;
+  37              		.loc 1 17 0
+  38 0006 034A     		ldr	r2, .L2+4
+  39 0008 1368     		ldr	r3, [r2]
+  40 000a 0133     		adds	r3, r3, #1
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccuOQ7np.s 			page 2
+
+
+  41 000c 1360     		str	r3, [r2]
+  42 000e 7047     		bx	lr
+  43              	.L3:
+  44              		.align	2
+  45              	.L2:
+  46 0010 00000000 		.word	button_pressed
+  47 0014 00000000 		.word	click_count
+  48              		.cfi_endproc
+  49              	.LFE63:
+  50              		.size	Switch_ISR, .-Switch_ISR
+  51              		.comm	click_count,4,4
+  52              		.comm	button_pressed,4,4
+  53              		.text
+  54              	.Letext0:
+  55              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.3\\psoc creator\\import\\gnu\\arm\\5.4.
+  56              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.3\\psoc creator\\import\\gnu\\arm\\5.4.
+  57              		.file 4 "Generated_Source\\PSoC5/core_cm3.h"
+  58              		.section	.debug_info,"",%progbits
+  59              	.Ldebug_info0:
+  60 0000 EA000000 		.4byte	0xea
+  61 0004 0400     		.2byte	0x4
+  62 0006 00000000 		.4byte	.Ldebug_abbrev0
+  63 000a 04       		.byte	0x4
+  64 000b 01       		.uleb128 0x1
+  65 000c 2E000000 		.4byte	.LASF19
+  66 0010 0C       		.byte	0xc
+  67 0011 F0000000 		.4byte	.LASF20
+  68 0015 6E010000 		.4byte	.LASF21
+  69 0019 00000000 		.4byte	.Ldebug_ranges0+0
+  70 001d 00000000 		.4byte	0
+  71 0021 00000000 		.4byte	.Ldebug_line0
+  72 0025 02       		.uleb128 0x2
+  73 0026 01       		.byte	0x1
+  74 0027 06       		.byte	0x6
+  75 0028 4C010000 		.4byte	.LASF0
+  76 002c 02       		.uleb128 0x2
+  77 002d 01       		.byte	0x1
+  78 002e 08       		.byte	0x8
+  79 002f 04010000 		.4byte	.LASF1
+  80 0033 02       		.uleb128 0x2
+  81 0034 02       		.byte	0x2
+  82 0035 05       		.byte	0x5
+  83 0036 D5010000 		.4byte	.LASF2
+  84 003a 02       		.uleb128 0x2
+  85 003b 02       		.byte	0x2
+  86 003c 07       		.byte	0x7
+  87 003d 0E000000 		.4byte	.LASF3
+  88 0041 03       		.uleb128 0x3
+  89 0042 64010000 		.4byte	.LASF9
+  90 0046 02       		.byte	0x2
+  91 0047 3F       		.byte	0x3f
+  92 0048 4C000000 		.4byte	0x4c
+  93 004c 02       		.uleb128 0x2
+  94 004d 04       		.byte	0x4
+  95 004e 05       		.byte	0x5
+  96 004f 17010000 		.4byte	.LASF4
+  97 0053 02       		.uleb128 0x2
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccuOQ7np.s 			page 3
+
+
+  98 0054 04       		.byte	0x4
+  99 0055 07       		.byte	0x7
+ 100 0056 BC000000 		.4byte	.LASF5
+ 101 005a 02       		.uleb128 0x2
+ 102 005b 08       		.byte	0x8
+ 103 005c 05       		.byte	0x5
+ 104 005d 00000000 		.4byte	.LASF6
+ 105 0061 02       		.uleb128 0x2
+ 106 0062 08       		.byte	0x8
+ 107 0063 07       		.byte	0x7
+ 108 0064 CE000000 		.4byte	.LASF7
+ 109 0068 04       		.uleb128 0x4
+ 110 0069 04       		.byte	0x4
+ 111 006a 05       		.byte	0x5
+ 112 006b 696E7400 		.ascii	"int\000"
+ 113 006f 02       		.uleb128 0x2
+ 114 0070 04       		.byte	0x4
+ 115 0071 07       		.byte	0x7
+ 116 0072 21000000 		.4byte	.LASF8
+ 117 0076 03       		.uleb128 0x3
+ 118 0077 DF010000 		.4byte	.LASF10
+ 119 007b 03       		.byte	0x3
+ 120 007c 2C       		.byte	0x2c
+ 121 007d 41000000 		.4byte	0x41
+ 122 0081 02       		.uleb128 0x2
+ 123 0082 04       		.byte	0x4
+ 124 0083 04       		.byte	0x4
+ 125 0084 CF010000 		.4byte	.LASF11
+ 126 0088 02       		.uleb128 0x2
+ 127 0089 08       		.byte	0x8
+ 128 008a 04       		.byte	0x4
+ 129 008b 2F010000 		.4byte	.LASF12
+ 130 008f 02       		.uleb128 0x2
+ 131 0090 01       		.byte	0x1
+ 132 0091 08       		.byte	0x8
+ 133 0092 12010000 		.4byte	.LASF13
+ 134 0096 02       		.uleb128 0x2
+ 135 0097 08       		.byte	0x8
+ 136 0098 04       		.byte	0x4
+ 137 0099 58010000 		.4byte	.LASF14
+ 138 009d 02       		.uleb128 0x2
+ 139 009e 04       		.byte	0x4
+ 140 009f 07       		.byte	0x7
+ 141 00a0 36010000 		.4byte	.LASF15
+ 142 00a4 05       		.uleb128 0x5
+ 143 00a5 E5000000 		.4byte	.LASF22
+ 144 00a9 01       		.byte	0x1
+ 145 00aa 0E       		.byte	0xe
+ 146 00ab 00000000 		.4byte	.LFB63
+ 147 00af 18000000 		.4byte	.LFE63-.LFB63
+ 148 00b3 01       		.uleb128 0x1
+ 149 00b4 9C       		.byte	0x9c
+ 150 00b5 06       		.uleb128 0x6
+ 151 00b6 3F010000 		.4byte	.LASF16
+ 152 00ba 04       		.byte	0x4
+ 153 00bb 1207     		.2byte	0x712
+ 154 00bd C1000000 		.4byte	0xc1
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccuOQ7np.s 			page 4
+
+
+ 155 00c1 07       		.uleb128 0x7
+ 156 00c2 76000000 		.4byte	0x76
+ 157 00c6 08       		.uleb128 0x8
+ 158 00c7 20010000 		.4byte	.LASF17
+ 159 00cb 01       		.byte	0x1
+ 160 00cc 09       		.byte	0x9
+ 161 00cd D7000000 		.4byte	0xd7
+ 162 00d1 05       		.uleb128 0x5
+ 163 00d2 03       		.byte	0x3
+ 164 00d3 00000000 		.4byte	button_pressed
+ 165 00d7 07       		.uleb128 0x7
+ 166 00d8 68000000 		.4byte	0x68
+ 167 00dc 08       		.uleb128 0x8
+ 168 00dd E7010000 		.4byte	.LASF18
+ 169 00e1 01       		.byte	0x1
+ 170 00e2 0A       		.byte	0xa
+ 171 00e3 D7000000 		.4byte	0xd7
+ 172 00e7 05       		.uleb128 0x5
+ 173 00e8 03       		.byte	0x3
+ 174 00e9 00000000 		.4byte	click_count
+ 175 00ed 00       		.byte	0
+ 176              		.section	.debug_abbrev,"",%progbits
+ 177              	.Ldebug_abbrev0:
+ 178 0000 01       		.uleb128 0x1
+ 179 0001 11       		.uleb128 0x11
+ 180 0002 01       		.byte	0x1
+ 181 0003 25       		.uleb128 0x25
+ 182 0004 0E       		.uleb128 0xe
+ 183 0005 13       		.uleb128 0x13
+ 184 0006 0B       		.uleb128 0xb
+ 185 0007 03       		.uleb128 0x3
+ 186 0008 0E       		.uleb128 0xe
+ 187 0009 1B       		.uleb128 0x1b
+ 188 000a 0E       		.uleb128 0xe
+ 189 000b 55       		.uleb128 0x55
+ 190 000c 17       		.uleb128 0x17
+ 191 000d 11       		.uleb128 0x11
+ 192 000e 01       		.uleb128 0x1
+ 193 000f 10       		.uleb128 0x10
+ 194 0010 17       		.uleb128 0x17
+ 195 0011 00       		.byte	0
+ 196 0012 00       		.byte	0
+ 197 0013 02       		.uleb128 0x2
+ 198 0014 24       		.uleb128 0x24
+ 199 0015 00       		.byte	0
+ 200 0016 0B       		.uleb128 0xb
+ 201 0017 0B       		.uleb128 0xb
+ 202 0018 3E       		.uleb128 0x3e
+ 203 0019 0B       		.uleb128 0xb
+ 204 001a 03       		.uleb128 0x3
+ 205 001b 0E       		.uleb128 0xe
+ 206 001c 00       		.byte	0
+ 207 001d 00       		.byte	0
+ 208 001e 03       		.uleb128 0x3
+ 209 001f 16       		.uleb128 0x16
+ 210 0020 00       		.byte	0
+ 211 0021 03       		.uleb128 0x3
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccuOQ7np.s 			page 5
+
+
+ 212 0022 0E       		.uleb128 0xe
+ 213 0023 3A       		.uleb128 0x3a
+ 214 0024 0B       		.uleb128 0xb
+ 215 0025 3B       		.uleb128 0x3b
+ 216 0026 0B       		.uleb128 0xb
+ 217 0027 49       		.uleb128 0x49
+ 218 0028 13       		.uleb128 0x13
+ 219 0029 00       		.byte	0
+ 220 002a 00       		.byte	0
+ 221 002b 04       		.uleb128 0x4
+ 222 002c 24       		.uleb128 0x24
+ 223 002d 00       		.byte	0
+ 224 002e 0B       		.uleb128 0xb
+ 225 002f 0B       		.uleb128 0xb
+ 226 0030 3E       		.uleb128 0x3e
+ 227 0031 0B       		.uleb128 0xb
+ 228 0032 03       		.uleb128 0x3
+ 229 0033 08       		.uleb128 0x8
+ 230 0034 00       		.byte	0
+ 231 0035 00       		.byte	0
+ 232 0036 05       		.uleb128 0x5
+ 233 0037 2E       		.uleb128 0x2e
+ 234 0038 00       		.byte	0
+ 235 0039 3F       		.uleb128 0x3f
+ 236 003a 19       		.uleb128 0x19
+ 237 003b 03       		.uleb128 0x3
+ 238 003c 0E       		.uleb128 0xe
+ 239 003d 3A       		.uleb128 0x3a
+ 240 003e 0B       		.uleb128 0xb
+ 241 003f 3B       		.uleb128 0x3b
+ 242 0040 0B       		.uleb128 0xb
+ 243 0041 27       		.uleb128 0x27
+ 244 0042 19       		.uleb128 0x19
+ 245 0043 11       		.uleb128 0x11
+ 246 0044 01       		.uleb128 0x1
+ 247 0045 12       		.uleb128 0x12
+ 248 0046 06       		.uleb128 0x6
+ 249 0047 40       		.uleb128 0x40
+ 250 0048 18       		.uleb128 0x18
+ 251 0049 9742     		.uleb128 0x2117
+ 252 004b 19       		.uleb128 0x19
+ 253 004c 00       		.byte	0
+ 254 004d 00       		.byte	0
+ 255 004e 06       		.uleb128 0x6
+ 256 004f 34       		.uleb128 0x34
+ 257 0050 00       		.byte	0
+ 258 0051 03       		.uleb128 0x3
+ 259 0052 0E       		.uleb128 0xe
+ 260 0053 3A       		.uleb128 0x3a
+ 261 0054 0B       		.uleb128 0xb
+ 262 0055 3B       		.uleb128 0x3b
+ 263 0056 05       		.uleb128 0x5
+ 264 0057 49       		.uleb128 0x49
+ 265 0058 13       		.uleb128 0x13
+ 266 0059 3F       		.uleb128 0x3f
+ 267 005a 19       		.uleb128 0x19
+ 268 005b 3C       		.uleb128 0x3c
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccuOQ7np.s 			page 6
+
+
+ 269 005c 19       		.uleb128 0x19
+ 270 005d 00       		.byte	0
+ 271 005e 00       		.byte	0
+ 272 005f 07       		.uleb128 0x7
+ 273 0060 35       		.uleb128 0x35
+ 274 0061 00       		.byte	0
+ 275 0062 49       		.uleb128 0x49
+ 276 0063 13       		.uleb128 0x13
+ 277 0064 00       		.byte	0
+ 278 0065 00       		.byte	0
+ 279 0066 08       		.uleb128 0x8
+ 280 0067 34       		.uleb128 0x34
+ 281 0068 00       		.byte	0
+ 282 0069 03       		.uleb128 0x3
+ 283 006a 0E       		.uleb128 0xe
+ 284 006b 3A       		.uleb128 0x3a
+ 285 006c 0B       		.uleb128 0xb
+ 286 006d 3B       		.uleb128 0x3b
+ 287 006e 0B       		.uleb128 0xb
+ 288 006f 49       		.uleb128 0x49
+ 289 0070 13       		.uleb128 0x13
+ 290 0071 3F       		.uleb128 0x3f
+ 291 0072 19       		.uleb128 0x19
+ 292 0073 02       		.uleb128 0x2
+ 293 0074 18       		.uleb128 0x18
+ 294 0075 00       		.byte	0
+ 295 0076 00       		.byte	0
+ 296 0077 00       		.byte	0
+ 297              		.section	.debug_aranges,"",%progbits
+ 298 0000 1C000000 		.4byte	0x1c
+ 299 0004 0200     		.2byte	0x2
+ 300 0006 00000000 		.4byte	.Ldebug_info0
+ 301 000a 04       		.byte	0x4
+ 302 000b 00       		.byte	0
+ 303 000c 0000     		.2byte	0
+ 304 000e 0000     		.2byte	0
+ 305 0010 00000000 		.4byte	.LFB63
+ 306 0014 18000000 		.4byte	.LFE63-.LFB63
+ 307 0018 00000000 		.4byte	0
+ 308 001c 00000000 		.4byte	0
+ 309              		.section	.debug_ranges,"",%progbits
+ 310              	.Ldebug_ranges0:
+ 311 0000 00000000 		.4byte	.LFB63
+ 312 0004 18000000 		.4byte	.LFE63
+ 313 0008 00000000 		.4byte	0
+ 314 000c 00000000 		.4byte	0
+ 315              		.section	.debug_line,"",%progbits
+ 316              	.Ldebug_line0:
+ 317 0000 63010000 		.section	.debug_str,"MS",%progbits,1
+ 317      02004C01 
+ 317      00000201 
+ 317      FB0E0D00 
+ 317      01010101 
+ 318              	.LASF6:
+ 319 0000 6C6F6E67 		.ascii	"long long int\000"
+ 319      206C6F6E 
+ 319      6720696E 
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccuOQ7np.s 			page 7
+
+
+ 319      7400
+ 320              	.LASF3:
+ 321 000e 73686F72 		.ascii	"short unsigned int\000"
+ 321      7420756E 
+ 321      7369676E 
+ 321      65642069 
+ 321      6E7400
+ 322              	.LASF8:
+ 323 0021 756E7369 		.ascii	"unsigned int\000"
+ 323      676E6564 
+ 323      20696E74 
+ 323      00
+ 324              	.LASF19:
+ 325 002e 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 325      43313120 
+ 325      352E342E 
+ 325      31203230 
+ 325      31363036 
+ 326 0061 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 326      20726576 
+ 326      6973696F 
+ 326      6E203233 
+ 326      37373135 
+ 327 0094 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 327      66756E63 
+ 327      74696F6E 
+ 327      2D736563 
+ 327      74696F6E 
+ 328              	.LASF5:
+ 329 00bc 6C6F6E67 		.ascii	"long unsigned int\000"
+ 329      20756E73 
+ 329      69676E65 
+ 329      6420696E 
+ 329      7400
+ 330              	.LASF7:
+ 331 00ce 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 331      206C6F6E 
+ 331      6720756E 
+ 331      7369676E 
+ 331      65642069 
+ 332              	.LASF22:
+ 333 00e5 53776974 		.ascii	"Switch_ISR\000"
+ 333      63685F49 
+ 333      535200
+ 334              	.LASF20:
+ 335 00f0 496E7465 		.ascii	"InterruptRoutines.c\000"
+ 335      72727570 
+ 335      74526F75 
+ 335      74696E65 
+ 335      732E6300 
+ 336              	.LASF1:
+ 337 0104 756E7369 		.ascii	"unsigned char\000"
+ 337      676E6564 
+ 337      20636861 
+ 337      7200
+ 338              	.LASF13:
+ 339 0112 63686172 		.ascii	"char\000"
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccuOQ7np.s 			page 8
+
+
+ 339      00
+ 340              	.LASF4:
+ 341 0117 6C6F6E67 		.ascii	"long int\000"
+ 341      20696E74 
+ 341      00
+ 342              	.LASF17:
+ 343 0120 62757474 		.ascii	"button_pressed\000"
+ 343      6F6E5F70 
+ 343      72657373 
+ 343      656400
+ 344              	.LASF12:
+ 345 012f 646F7562 		.ascii	"double\000"
+ 345      6C6500
+ 346              	.LASF15:
+ 347 0136 73697A65 		.ascii	"sizetype\000"
+ 347      74797065 
+ 347      00
+ 348              	.LASF16:
+ 349 013f 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 349      52784275 
+ 349      66666572 
+ 349      00
+ 350              	.LASF0:
+ 351 014c 7369676E 		.ascii	"signed char\000"
+ 351      65642063 
+ 351      68617200 
+ 352              	.LASF14:
+ 353 0158 6C6F6E67 		.ascii	"long double\000"
+ 353      20646F75 
+ 353      626C6500 
+ 354              	.LASF9:
+ 355 0164 5F5F696E 		.ascii	"__int32_t\000"
+ 355      7433325F 
+ 355      7400
+ 356              	.LASF21:
+ 357 016e 433A5C55 		.ascii	"C:\\Users\\Susanna\\Desktop\\Final_Project_DiGiacom"
+ 357      73657273 
+ 357      5C537573 
+ 357      616E6E61 
+ 357      5C446573 
+ 358 019d 6F5F5061 		.ascii	"o_Palmieri\\Final_Project2.cydsn\\Final_prova.cydsn"
+ 358      6C6D6965 
+ 358      72695C46 
+ 358      696E616C 
+ 358      5F50726F 
+ 359 01ce 00       		.ascii	"\000"
+ 360              	.LASF11:
+ 361 01cf 666C6F61 		.ascii	"float\000"
+ 361      7400
+ 362              	.LASF2:
+ 363 01d5 73686F72 		.ascii	"short int\000"
+ 363      7420696E 
+ 363      7400
+ 364              	.LASF10:
+ 365 01df 696E7433 		.ascii	"int32_t\000"
+ 365      325F7400 
+ 366              	.LASF18:
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccuOQ7np.s 			page 9
+
+
+ 367 01e7 636C6963 		.ascii	"click_count\000"
+ 367      6B5F636F 
+ 367      756E7400 
+ 368              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
