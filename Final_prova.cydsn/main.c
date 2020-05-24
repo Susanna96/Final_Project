@@ -506,16 +506,29 @@ int main(void)
             PWM_RG_WriteCompare2(0);
             PWM_B_WriteCompare(255);
             
-            /* Set parameters (full-scale range) with potentiometer */
-            setParameter();
-    
-            Parameters=(Parameters<<4)|state;
-            EEPROM_writeByte(0x0000,Parameters);
-            EEPROM_waitForWriteComplete();
+            int flag = FLAG_Read();
             
-            Parameters_read=EEPROM_readByte(0x0000);
-            sprintf(buffer_EEPROM," EEPROM Read = 0x%02X (0x%02X)\r\n", Parameters_read, Parameters);
-            UART_PutString(buffer_EEPROM);
+            if (flag == 1)
+            {
+                /* Set parameters (full-scale range) with potentiometer */
+                setParameter();
+        
+                Parameters=Parameters|state;
+                EEPROM_writeByte(0x0000,Parameters);
+                EEPROM_waitForWriteComplete();
+                
+                Parameters_read=EEPROM_readByte(0x0000);
+                sprintf(buffer_EEPROM," EEPROM Read = 0x%02X (0x%02X)\r\n", Parameters_read, Parameters);
+                UART_PutString(buffer_EEPROM);
+            } else {
+                Parameters=Parameters|state;
+                EEPROM_writeByte(0x0000,Parameters);
+                EEPROM_waitForWriteComplete();
+                
+                Parameters_read=EEPROM_readByte(0x0000);
+                sprintf(buffer_EEPROM," EEPROM Read = 0x%02X (0x%02X)\r\n", Parameters_read, Parameters);
+                UART_PutString(buffer_EEPROM); 
+            }
             break;
         }
     }
