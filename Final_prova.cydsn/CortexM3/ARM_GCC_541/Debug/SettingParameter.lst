@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgZLJf5.s 			page 1
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccpES8Dk.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgZLJf5.s 			page 1
   28:SettingParameter.c **** CTRL_REG4[5:4]=FS[1:0]=01 (4.0 g FSR) */
   29:SettingParameter.c **** #define LIS3DH_CTRL_REG4_4g 0x98
   30:SettingParameter.c **** 
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgZLJf5.s 			page 2
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccpES8Dk.s 			page 2
 
 
   31:SettingParameter.c **** /*Brief HEX value for CONTROL REGISTER 4: +- 8.0 g FSR
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgZLJf5.s 			page 1
   53 001a 03DB     		blt	.L3
   54              		.loc 1 59 0 is_stmt 0 discriminator 1
   55 001c 4FF6FF72 		movw	r2, #65535
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgZLJf5.s 			page 3
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccpES8Dk.s 			page 3
 
 
   56 0020 314B     		ldr	r3, .L9
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgZLJf5.s 			page 1
   97 0064 10D8     		bhi	.L6
   73:SettingParameter.c ****     {
   74:SettingParameter.c ****         fullscale_range=4000;
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgZLJf5.s 			page 4
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccpES8Dk.s 			page 4
 
 
   98              		.loc 1 74 0
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgZLJf5.s 			page 1
  140 00aa 2321     		movs	r1, #35
  141 00ac 1820     		movs	r0, #24
  142              	.LVL9:
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgZLJf5.s 			page 5
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccpES8Dk.s 			page 5
 
 
  143 00ae FFF7FEFF 		bl	I2C_Peripheral_WriteRegister
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgZLJf5.s 			page 1
  188              	.LFE63:
  189              		.size	setParameter, .-setParameter
  190              		.comm	ctrl_reg4,1,1
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgZLJf5.s 			page 6
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccpES8Dk.s 			page 6
 
 
  191              		.comm	error,1,1
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgZLJf5.s 			page 1
  245 0057 02       		.uleb128 0x2
  246 0058 04       		.byte	0x4
  247 0059 05       		.byte	0x5
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgZLJf5.s 			page 7
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccpES8Dk.s 			page 7
 
 
  248 005a 81000000 		.4byte	.LASF6
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgZLJf5.s 			page 1
  302 00c5 08       		.byte	0x8
  303 00c6 04       		.byte	0x4
  304 00c7 75020000 		.4byte	.LASF18
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgZLJf5.s 			page 8
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccpES8Dk.s 			page 8
 
 
  305 00cb 02       		.uleb128 0x2
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgZLJf5.s 			page 1
  359 0140 51       		.byte	0x51
  360 0141 02       		.uleb128 0x2
  361 0142 08       		.byte	0x8
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgZLJf5.s 			page 9
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccpES8Dk.s 			page 9
 
 
  362 0143 23       		.byte	0x23
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgZLJf5.s 			page 1
  416 018e 26020000 		.4byte	0x226
  417 0192 0C       		.uleb128 0xc
  418 0193 01       		.uleb128 0x1
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgZLJf5.s 			page 10
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccpES8Dk.s 			page 10
 
 
  419 0194 50       		.byte	0x50
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgZLJf5.s 			page 1
  473 01f5 EB000000 		.4byte	0xeb
  474 01f9 05       		.uleb128 0x5
  475 01fa 03       		.byte	0x3
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgZLJf5.s 			page 11
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccpES8Dk.s 			page 11
 
 
  476 01fb 00000000 		.4byte	error
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgZLJf5.s 			page 1
  530 001b 0E       		.uleb128 0xe
  531 001c 00       		.byte	0
  532 001d 00       		.byte	0
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgZLJf5.s 			page 12
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccpES8Dk.s 			page 12
 
 
  533 001e 03       		.uleb128 0x3
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgZLJf5.s 			page 1
  587 0054 00       		.byte	0
  588 0055 03       		.uleb128 0x3
  589 0056 0E       		.uleb128 0xe
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgZLJf5.s 			page 13
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccpES8Dk.s 			page 13
 
 
  590 0057 1C       		.uleb128 0x1c
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgZLJf5.s 			page 1
  644 0090 898201   		.uleb128 0x4109
  645 0093 01       		.byte	0x1
  646 0094 11       		.uleb128 0x11
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgZLJf5.s 			page 14
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccpES8Dk.s 			page 14
 
 
  647 0095 01       		.uleb128 0x1
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgZLJf5.s 			page 1
  701 00d0 3A       		.uleb128 0x3a
  702 00d1 0B       		.uleb128 0xb
  703 00d2 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgZLJf5.s 			page 15
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccpES8Dk.s 			page 15
 
 
  704 00d3 05       		.uleb128 0x5
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgZLJf5.s 			page 1
  758 003e BC000000 		.4byte	.LVL12
  759 0042 0100     		.2byte	0x1
  760 0044 50       		.byte	0x50
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgZLJf5.s 			page 16
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccpES8Dk.s 			page 16
 
 
  761 0045 BC000000 		.4byte	.LVL12
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgZLJf5.s 			page 1
  799 0077 5F5F696E 		.ascii	"__int32_t\000"
  799      7433325F 
  799      7400
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgZLJf5.s 			page 17
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccpES8Dk.s 			page 17
 
 
  800              	.LASF6:
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgZLJf5.s 			page 1
  821 0173 696E7433 		.ascii	"int32\000"
  821      3200
  822              	.LASF25:
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgZLJf5.s 			page 18
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccpES8Dk.s 			page 18
 
 
  823 0179 49544D5F 		.ascii	"ITM_RxBuffer\000"
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgZLJf5.s 			page 1
  846              	.LASF27:
  847 022c 6572726F 		.ascii	"error\000"
  847      7200
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgZLJf5.s 			page 19
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccpES8Dk.s 			page 19
 
 
  848              	.LASF8:

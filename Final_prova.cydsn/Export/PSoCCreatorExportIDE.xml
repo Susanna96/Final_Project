@@ -40,8 +40,8 @@
           <File BuildType="BUILD" Toolchain="">I2C_Interface.c</File>
           <File BuildType="BUILD" Toolchain="">InterruptRoutines.c</File>
           <File BuildType="BUILD" Toolchain="">SW_State.c</File>
-          <File BuildType="BUILD" Toolchain="">RGBLedDriver.c</File>
           <File BuildType="BUILD" Toolchain="">SettingParameter.c</File>
+          <File BuildType="BUILD" Toolchain="">RGBLedDriver.c</File>
           <File BuildType="BUILD" Toolchain="">cyapicallbacks.h</File>
           <File BuildType="BUILD" Toolchain="">ErrorCodes.h</File>
           <File BuildType="BUILD" Toolchain="">I2C_Interface.h</File>

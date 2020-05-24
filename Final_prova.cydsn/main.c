@@ -145,6 +145,7 @@ int main(void)
     
 
     button_pressed  = 0;
+    click_count=0;
     
     //"The boot procedure is complete about 5 milliseconds after device power-up."
     CyDelay(5); 
@@ -469,26 +470,26 @@ int main(void)
             PWM_ONBOARD_Stop();
             PWM_ONBOARD_WriteCompare(0);
             PWM_ONBOARD_Start();
-            RGBLed_Stop();
-            PWM_RG_WritePeriod(255);
+            //RGBLed_Stop();
+            //PWM_RG_WritePeriod(255);
             PWM_RG_WriteCompare1(255);
-            PWM_RG_WriteCompare2(255);
-            PWM_B_WritePeriod(255);
-            PWM_B_WriteCompare(0);
-            RGBLed_Start();
+            PWM_RG_WriteCompare2(0);
+            //PWM_B_WritePeriod(255);
+            PWM_B_WriteCompare(255);
+           // RGBLed_Start();
             break;
             
             case(2):
             PWM_ONBOARD_Stop();
             PWM_ONBOARD_WriteCompare(127);
             PWM_ONBOARD_Start();
-            RGBLed_Stop();
-            PWM_RG_WritePeriod(255);
+            //RGBLed_Stop();
+            //PWM_RG_WritePeriod(255);
             PWM_RG_WriteCompare1(255);
-            PWM_RG_WriteCompare2(255);
-            PWM_B_WritePeriod(255);
-            PWM_B_WriteCompare(0);
-            RGBLed_Start();
+            PWM_RG_WriteCompare2(0);
+            //PWM_B_WritePeriod(255);
+            PWM_B_WriteCompare(255);
+            //RGBLed_Start();
             //CODICE POTENZIOMETRO
             break;
         }
