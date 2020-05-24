@@ -66,7 +66,7 @@ void setParameter(void)
     }
     else if((value_pot>=1250) && (value_pot<2500))
     {
-        Parameters=0x40;
+        Parameters=0x01;
         fullscale_range=4000;
         sensitivity=2;
         ctrl_reg4 = LIS3DH_CTRL_REG4_4g;
@@ -76,7 +76,7 @@ void setParameter(void)
     }
     else if((value_pot>=2500) && (value_pot<3750))
     {
-        Parameters=0x80;
+        Parameters=0x02;
         fullscale_range=8000;
         sensitivity=4;
         ctrl_reg4 = LIS3DH_CTRL_REG4_8g;
@@ -86,7 +86,7 @@ void setParameter(void)
     }
     else if((value_pot>=3750) && (value_pot<=5000))
     {
-        Parameters=0xC0;
+        Parameters=0x03;
         fullscale_range=16000;
         sensitivity=12;
         ctrl_reg4 = LIS3DH_CTRL_REG4_16g;

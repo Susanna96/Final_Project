@@ -372,11 +372,12 @@ int main(void)
     uint8 i=0;
     uint8_t Parameters_read;
     
-    /* Value of parameters when the device is turned on */
-    int state = STOP;
-    Parameters=0x40;
-    fullscale_range=4000;
-    sensitivity=2;
+    /* When the device is turned on the state is STOP and the FSR is read from EEPROM */
+    int state=STOP;
+    Parameters=EEPROM_readByte(0x0000);
+    Parameters=Parameters>>4;
+    Parameters=(Parameters<<4)|state;
+
 	
     #define  HEADER 	0xA0;
     #define  FOOTER 	0xC0;
@@ -393,7 +394,8 @@ int main(void)
         switch (state)
         {
             case (0):
-            Parameters=Parameters|state;
+            Parameters=Parameters>>4;
+            Parameters=(Parameters<<4)|state;
             EEPROM_writeByte(0x0000,Parameters);
             EEPROM_waitForWriteComplete();
             Parameters_read=EEPROM_readByte(0x0000);
@@ -479,7 +481,8 @@ int main(void)
             break;
             
             case(1):
-            Parameters=Parameters|state;
+            Parameters=Parameters>>4;
+            Parameters=(Parameters<<4)|state;
             EEPROM_writeByte(0x0000,Parameters);
             EEPROM_waitForWriteComplete();
             Parameters_read=EEPROM_readByte(0x0000);
@@ -506,7 +509,7 @@ int main(void)
             /* Set parameters (full-scale range) with potentiometer */
             setParameter();
     
-            Parameters=Parameters|state;
+            Parameters=(Parameters<<4)|state;
             EEPROM_writeByte(0x0000,Parameters);
             EEPROM_waitForWriteComplete();
             
