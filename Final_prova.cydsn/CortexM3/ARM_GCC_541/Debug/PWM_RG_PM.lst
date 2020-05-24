@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccZwdB2f.s 			page 1
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cchu8jpR.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccZwdB2f.s 			page 1
   28:Generated_Source\PSoC5/PWM_RG_PM.c **** *  Saves the current user configuration of the component.
   29:Generated_Source\PSoC5/PWM_RG_PM.c **** *
   30:Generated_Source\PSoC5/PWM_RG_PM.c **** * Parameters:
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccZwdB2f.s 			page 2
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cchu8jpR.s 			page 2
 
 
   31:Generated_Source\PSoC5/PWM_RG_PM.c **** *  None
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccZwdB2f.s 			page 1
   64:Generated_Source\PSoC5/PWM_RG_PM.c ****             PWM_RG_backup.PWMControlRegister = PWM_RG_ReadControlRegister();
   49              		.loc 1 64 0
   50 0016 FFF7FEFF 		bl	PWM_RG_ReadControlRegister
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccZwdB2f.s 			page 3
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cchu8jpR.s 			page 3
 
 
   51              	.LVL2:
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccZwdB2f.s 			page 1
   92:Generated_Source\PSoC5/PWM_RG_PM.c ****                 PWM_RG_WritePeriod(PWM_RG_backup.PWMPeriod);
   78              		.loc 1 92 0
   79 0002 074C     		ldr	r4, .L7
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccZwdB2f.s 			page 4
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cchu8jpR.s 			page 4
 
 
   80 0004 A078     		ldrb	r0, [r4, #2]	@ zero_extendqisi2
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccZwdB2f.s 			page 1
  115:Generated_Source\PSoC5/PWM_RG_PM.c **** 
  116:Generated_Source\PSoC5/PWM_RG_PM.c **** 
  117:Generated_Source\PSoC5/PWM_RG_PM.c **** /*******************************************************************************
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccZwdB2f.s 			page 5
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cchu8jpR.s 			page 5
 
 
  118:Generated_Source\PSoC5/PWM_RG_PM.c **** * Function Name: PWM_RG_Sleep
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccZwdB2f.s 			page 1
  148:Generated_Source\PSoC5/PWM_RG_PM.c ****         }
  149:Generated_Source\PSoC5/PWM_RG_PM.c ****     #endif /* (PWM_RG_UseControl) */
  150:Generated_Source\PSoC5/PWM_RG_PM.c **** 
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccZwdB2f.s 			page 6
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cchu8jpR.s 			page 6
 
 
  151:Generated_Source\PSoC5/PWM_RG_PM.c ****     /* Stop component */
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccZwdB2f.s 			page 1
  161              		@ args = 0, pretend = 0, frame = 0
  162              		@ frame_needed = 0, uses_anonymous_args = 0
  163 0000 08B5     		push	{r3, lr}
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccZwdB2f.s 			page 7
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cchu8jpR.s 			page 7
 
 
  164              		.cfi_def_cfa_offset 8
@@ -412,13 +412,13 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccZwdB2f.s 			page 1
  204 000c 0B010000 		.4byte	.LASF34
  205 0010 0C       		.byte	0xc
  206 0011 00000000 		.4byte	.LASF35
- 207 0015 3F000000 		.4byte	.LASF36
+ 207 0015 96000000 		.4byte	.LASF36
  208 0019 00000000 		.4byte	.Ldebug_ranges0+0
  209 001d 00000000 		.4byte	0
  210 0021 00000000 		.4byte	.Ldebug_line0
  211 0025 02       		.uleb128 0x2
  212 0026 01       		.byte	0x1
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccZwdB2f.s 			page 8
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cchu8jpR.s 			page 8
 
 
  213 0027 06       		.byte	0x6
@@ -434,7 +434,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccZwdB2f.s 			page 1
  223 003a 02       		.uleb128 0x2
  224 003b 02       		.byte	0x2
  225 003c 07       		.byte	0x7
- 226 003d C4000000 		.4byte	.LASF3
+ 226 003d 63000000 		.4byte	.LASF3
  227 0041 02       		.uleb128 0x2
  228 0042 04       		.byte	0x4
  229 0043 05       		.byte	0x5
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccZwdB2f.s 			page 1
  267 0088 9C020000 		.4byte	.LASF11
  268 008c 04       		.uleb128 0x4
  269 008d 80020000 		.4byte	.LASF13
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccZwdB2f.s 			page 9
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cchu8jpR.s 			page 9
 
 
  270 0091 02       		.byte	0x2
@@ -512,7 +512,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccZwdB2f.s 			page 1
  298 00c6 6B000000 		.4byte	0x6b
  299 00ca 01       		.byte	0x1
  300 00cb 07       		.uleb128 0x7
- 301 00cc A0000000 		.4byte	.LASF18
+ 301 00cc 3F000000 		.4byte	.LASF18
  302 00d0 03       		.byte	0x3
  303 00d1 73       		.byte	0x73
  304 00d2 6B000000 		.4byte	0x6b
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccZwdB2f.s 			page 1
  324 00fb 09       		.uleb128 0x9
  325 00fc FC010000 		.4byte	.LASF22
  326 0100 01       		.byte	0x1
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccZwdB2f.s 			page 10
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cchu8jpR.s 			page 10
 
 
  327 0101 2A       		.byte	0x2a
@@ -577,7 +577,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccZwdB2f.s 			page 1
  360 0158 F5010000 		.4byte	0x1f5
  361 015c 00       		.byte	0
  362 015d 09       		.uleb128 0x9
- 363 015e D7000000 		.4byte	.LASF24
+ 363 015e 76000000 		.4byte	.LASF24
  364 0162 01       		.byte	0x1
  365 0163 88       		.byte	0x88
  366 0164 00000000 		.4byte	.LFB2
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccZwdB2f.s 			page 1
  381 018b B2       		.byte	0xb2
  382 018c 00000000 		.4byte	.LFB3
  383 0190 18000000 		.4byte	.LFE3-.LFB3
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccZwdB2f.s 			page 11
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cchu8jpR.s 			page 11
 
 
  384 0194 01       		.uleb128 0x1
@@ -625,8 +625,8 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccZwdB2f.s 			page 1
  405 01c7 03       		.byte	0x3
  406 01c8 C0       		.byte	0xc0
  407 01c9 0C       		.uleb128 0xc
- 408 01ca E4000000 		.4byte	.LASF27
- 409 01ce E4000000 		.4byte	.LASF27
+ 408 01ca 83000000 		.4byte	.LASF27
+ 409 01ce 83000000 		.4byte	.LASF27
  410 01d2 03       		.byte	0x3
  411 01d3 B3       		.byte	0xb3
  412 01d4 0C       		.uleb128 0xc
@@ -650,15 +650,15 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccZwdB2f.s 			page 1
  430 01fe 03       		.byte	0x3
  431 01ff 9E       		.byte	0x9e
  432 0200 0C       		.uleb128 0xc
- 433 0201 B8000000 		.4byte	.LASF32
- 434 0205 B8000000 		.4byte	.LASF32
+ 433 0201 57000000 		.4byte	.LASF32
+ 434 0205 57000000 		.4byte	.LASF32
  435 0209 03       		.byte	0x3
  436 020a 93       		.byte	0x93
  437 020b 0C       		.uleb128 0xc
- 438 020c AA000000 		.4byte	.LASF33
- 439 0210 AA000000 		.4byte	.LASF33
+ 438 020c 49000000 		.4byte	.LASF33
+ 439 0210 49000000 		.4byte	.LASF33
  440 0214 03       		.byte	0x3
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccZwdB2f.s 			page 12
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cchu8jpR.s 			page 12
 
 
  441 0215 DB       		.byte	0xdb
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccZwdB2f.s 			page 1
  495 0032 49       		.uleb128 0x49
  496 0033 13       		.uleb128 0x13
  497 0034 00       		.byte	0
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccZwdB2f.s 			page 13
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cchu8jpR.s 			page 13
 
 
  498 0035 00       		.byte	0
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccZwdB2f.s 			page 1
  552 006b 03       		.uleb128 0x3
  553 006c 0E       		.uleb128 0xe
  554 006d 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccZwdB2f.s 			page 14
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cchu8jpR.s 			page 14
 
 
  555 006e 0B       		.uleb128 0xb
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccZwdB2f.s 			page 1
  609 00a7 3B       		.uleb128 0x3b
  610 00a8 0B       		.uleb128 0xb
  611 00a9 00       		.byte	0
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccZwdB2f.s 			page 15
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cchu8jpR.s 			page 15
 
 
  612 00aa 00       		.byte	0
@@ -895,51 +895,51 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccZwdB2f.s 			page 1
  652      6573746F 
  652      7265436F 
  652      6E666967 
- 653              	.LASF36:
- 654 003f 433A5C55 		.ascii	"C:\\Users\\Susanna\\Desktop\\Final_Project_DiGiacom"
- 654      73657273 
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccZwdB2f.s 			page 16
+ 653              	.LASF18:
+ 654 003f 50574D50 		.ascii	"PWMPeriod\000"
+ 654      6572696F 
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cchu8jpR.s 			page 16
 
 
- 654      5C537573 
- 654      616E6E61 
- 654      5C446573 
- 655 006e 6F5F5061 		.ascii	"o_Palmieri\\Final_Project2.cydsn\\Final_prova.cydsn"
- 655      6C6D6965 
- 655      72695C46 
- 655      696E616C 
- 655      5F50726F 
- 656 009f 00       		.ascii	"\000"
- 657              	.LASF18:
- 658 00a0 50574D50 		.ascii	"PWMPeriod\000"
- 658      6572696F 
- 658      6400
- 659              	.LASF33:
- 660 00aa 50574D5F 		.ascii	"PWM_RG_Enable\000"
- 660      52475F45 
- 660      6E61626C 
- 660      6500
- 661              	.LASF32:
- 662 00b8 50574D5F 		.ascii	"PWM_RG_Stop\000"
+ 654      6400
+ 655              	.LASF33:
+ 656 0049 50574D5F 		.ascii	"PWM_RG_Enable\000"
+ 656      52475F45 
+ 656      6E61626C 
+ 656      6500
+ 657              	.LASF32:
+ 658 0057 50574D5F 		.ascii	"PWM_RG_Stop\000"
+ 658      52475F53 
+ 658      746F7000 
+ 659              	.LASF3:
+ 660 0063 73686F72 		.ascii	"short unsigned int\000"
+ 660      7420756E 
+ 660      7369676E 
+ 660      65642069 
+ 660      6E7400
+ 661              	.LASF24:
+ 662 0076 50574D5F 		.ascii	"PWM_RG_Sleep\000"
  662      52475F53 
- 662      746F7000 
- 663              	.LASF3:
- 664 00c4 73686F72 		.ascii	"short unsigned int\000"
- 664      7420756E 
- 664      7369676E 
- 664      65642069 
- 664      6E7400
- 665              	.LASF24:
- 666 00d7 50574D5F 		.ascii	"PWM_RG_Sleep\000"
- 666      52475F53 
- 666      6C656570 
- 666      00
- 667              	.LASF27:
- 668 00e4 50574D5F 		.ascii	"PWM_RG_ReadCounter\000"
- 668      52475F52 
- 668      65616443 
- 668      6F756E74 
- 668      657200
+ 662      6C656570 
+ 662      00
+ 663              	.LASF27:
+ 664 0083 50574D5F 		.ascii	"PWM_RG_ReadCounter\000"
+ 664      52475F52 
+ 664      65616443 
+ 664      6F756E74 
+ 664      657200
+ 665              	.LASF36:
+ 666 0096 433A5C55 		.ascii	"C:\\Users\\Susanna\\Desktop\\Final_Project_DiGiacom"
+ 666      73657273 
+ 666      5C537573 
+ 666      616E6E61 
+ 666      5C446573 
+ 667 00c5 6F5F5061 		.ascii	"o_Palmieri\\Final_Project2.cydsn\\final_prova.cydsn"
+ 667      6C6D6965 
+ 667      72695C46 
+ 667      696E616C 
+ 667      5F50726F 
+ 668 00f6 00       		.ascii	"\000"
  669              	.LASF9:
  670 00f7 666C6F61 		.ascii	"float\000"
  670      7400
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccZwdB2f.s 			page 1
  675      20726576 
  675      6973696F 
  675      6E203233 
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccZwdB2f.s 			page 17
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cchu8jpR.s 			page 17
 
 
  675      37373135 
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccZwdB2f.s 			page 1
  696      676E6564 
  696      20696E74 
  696      00
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccZwdB2f.s 			page 18
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cchu8jpR.s 			page 18
 
 
  697              	.LASF7:
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccZwdB2f.s 			page 1
  720      20646F75 
  720      626C6500 
  721              	.LASF0:
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccZwdB2f.s 			page 19
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cchu8jpR.s 			page 19
 
 
  722 02dc 7369676E 		.ascii	"signed char\000"

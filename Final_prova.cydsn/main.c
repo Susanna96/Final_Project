@@ -12,6 +12,10 @@
 #include "RGBLedDriver.h"
 #include "InterruptRoutines.h"
 #include "SW_State.h"
+#include "stdlib.h"
+#include <string.h>
+#include "25LC256.h"
+#include  "SettingParameter.h"
 
 /* -------------------------------------------------
   BRIEF MACROS FOR LIS3DH REGISTERS CONFIGURATION
@@ -120,13 +124,7 @@ threshold)
 //Brief OUT_Z_L register address (z-axis output LSB)
 #define LIS3DH_OUT_Z_L 0x2C
 
-//Brief value of sensitivity in High Resolution mode (2 mg/digit)
-#define HR_SENSITIVITY 2
 
-//Brief value of absolute value of full scale range in mg (4000 mg)
-#define FS 4000
-
-int state = 1;
 
 int main(void)
 {
@@ -142,6 +140,8 @@ int main(void)
     PWM_ONBOARD_Start();
     ISR_SW_StartEx(Switch_ISR);
     Timer_SW_Start();
+    SPIM_Start();
+    ADC_DelSig_Start();
     
 
     button_pressed  = 0;
@@ -155,6 +155,7 @@ int main(void)
 		---------------------------------------- */
     
     char message[50];
+    char buffer_EEPROM[100];
     
     // CONTROL REGISTER 1
     uint8_t ctrl_reg1; 
@@ -369,6 +370,13 @@ int main(void)
     
     uint8_t fifo_src_reg;
     uint8 i=0;
+    uint8_t Parameters_read;
+    
+    /* Value of parameters when the device is turned on */
+    int state = STOP;
+    Parameters=0x40;
+    fullscale_range=4000;
+    sensitivity=2;
 	
     #define  HEADER 	0xA0;
     #define  FOOTER 	0xC0;
@@ -385,6 +393,10 @@ int main(void)
         switch (state)
         {
             case (0):
+            Parameters=Parameters|state;
+            EEPROM_writeByte(0x0000,Parameters);
+            EEPROM_waitForWriteComplete();
+            Parameters_read=EEPROM_readByte(0x0000);
             PWM_ONBOARD_Stop();
             PWM_ONBOARD_WriteCompare(255);
             PWM_ONBOARD_Start();
@@ -406,7 +418,7 @@ int main(void)
 						X_Out[i]=(int16)((AccelerationData[i][0] | (AccelerationData[i][1] << 8))) >> 4;
 						
 						/*scaling to mg (sensitivity=2mg/digit)*/
-						X_Out[i]=abs(X_Out[i]*HR_SENSITIVITY);
+						X_Out[i]=abs(X_Out[i]*sensitivity);
 						
 						
 						
@@ -419,7 +431,7 @@ int main(void)
 						Y_Out[i]=(int16)((AccelerationData[i][2] | (AccelerationData[i][3] << 8))) >> 4;
 						
 						/*scaling to mg (sensitivity=2mg/digit)*/
-						Y_Out[i]=abs(Y_Out[i]*HR_SENSITIVITY);
+						Y_Out[i]=abs(Y_Out[i]*sensitivity);
 						
 						 
 						
@@ -432,7 +444,7 @@ int main(void)
 						Z_Out[i]=(int16)(AccelerationData[i][4] | (AccelerationData[i][5] << 8)) >> 4;
 						
 						/*scaling to mg (sensitivity=2mg/digit)*/
-						Z_Out[i]=abs(Z_Out[i]*HR_SENSITIVITY);
+						Z_Out[i]=abs(Z_Out[i]*sensitivity);
 						
 						set_PWM(X_Out[i],Y_Out[i],Z_Out[i]);
 						
@@ -442,7 +454,7 @@ int main(void)
 						OutArray[6]=(uint8_t)(Z_Out[i] & 0xFF);
 					
 						//UART_PutArray(OutArray,8);
-						sprintf(message, "Acceleration data: %d %d %d\r\n", X_Out[i],Y_Out[i],Z_Out[i]);
+						sprintf(message, "Acceleration data: %d %d %d 0x%02X (0x%02X)\r\n", X_Out[i],Y_Out[i],Z_Out[i],Parameters_read, Parameters);
 						UART_PutString(message);
 						CyDelay(5);
                 
@@ -467,30 +479,40 @@ int main(void)
             break;
             
             case(1):
+            Parameters=Parameters|state;
+            EEPROM_writeByte(0x0000,Parameters);
+            EEPROM_waitForWriteComplete();
+            Parameters_read=EEPROM_readByte(0x0000);
+            sprintf(buffer_EEPROM," EEPROM Read = 0x%02X (0x%02X)\r\n", Parameters_read, Parameters);
+            UART_PutString(buffer_EEPROM);
             PWM_ONBOARD_Stop();
             PWM_ONBOARD_WriteCompare(0);
             PWM_ONBOARD_Start();
-            //RGBLed_Stop();
-            //PWM_RG_WritePeriod(255);
+            
             PWM_RG_WriteCompare1(255);
             PWM_RG_WriteCompare2(0);
-            //PWM_B_WritePeriod(255);
             PWM_B_WriteCompare(255);
-           // RGBLed_Start();
             break;
             
             case(2):
             PWM_ONBOARD_Stop();
             PWM_ONBOARD_WriteCompare(127);
             PWM_ONBOARD_Start();
-            //RGBLed_Stop();
-            //PWM_RG_WritePeriod(255);
+            
             PWM_RG_WriteCompare1(255);
             PWM_RG_WriteCompare2(0);
-            //PWM_B_WritePeriod(255);
             PWM_B_WriteCompare(255);
-            //RGBLed_Start();
-            //CODICE POTENZIOMETRO
+            
+            /* Set parameters (full-scale range) with potentiometer */
+            setParameter();
+    
+            Parameters=Parameters|state;
+            EEPROM_writeByte(0x0000,Parameters);
+            EEPROM_waitForWriteComplete();
+            
+            Parameters_read=EEPROM_readByte(0x0000);
+            sprintf(buffer_EEPROM," EEPROM Read = 0x%02X (0x%02X)\r\n", Parameters_read, Parameters);
+            UART_PutString(buffer_EEPROM);
             break;
         }
     }

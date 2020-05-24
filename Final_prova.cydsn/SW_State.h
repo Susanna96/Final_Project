@@ -12,6 +12,11 @@
 #ifndef ___SW_STATE_H__
    #define ___SW_STATE_H__
     
+   #define LONG_PRESS          9
+   #define START               0
+   #define STOP                1
+   #define CONFIGURATION_MODE  2
+    
    #include "cytypes.h"
    #include "stdlib.h"
    #include "InterruptRoutines.h"

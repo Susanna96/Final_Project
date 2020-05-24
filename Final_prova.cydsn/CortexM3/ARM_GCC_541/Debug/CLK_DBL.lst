@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 1
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccCkLmSd.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 1
   28:Generated_Source\PSoC5/CLK_DBL.c **** 
   29:Generated_Source\PSoC5/CLK_DBL.c **** 
   30:Generated_Source\PSoC5/CLK_DBL.c **** /*******************************************************************************
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 2
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccCkLmSd.s 			page 2
 
 
   31:Generated_Source\PSoC5/CLK_DBL.c **** * Function Name: CLK_DBL_Start
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 1
   54:Generated_Source\PSoC5/CLK_DBL.c **** * Function Name: CLK_DBL_Stop
   55:Generated_Source\PSoC5/CLK_DBL.c **** ********************************************************************************
   56:Generated_Source\PSoC5/CLK_DBL.c **** *
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 3
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccCkLmSd.s 			page 3
 
 
   57:Generated_Source\PSoC5/CLK_DBL.c **** * Summary:
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 1
   80:Generated_Source\PSoC5/CLK_DBL.c **** 
   81:Generated_Source\PSoC5/CLK_DBL.c **** 
   82:Generated_Source\PSoC5/CLK_DBL.c **** /*******************************************************************************
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 4
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccCkLmSd.s 			page 4
 
 
   83:Generated_Source\PSoC5/CLK_DBL.c **** * Function Name: CLK_DBL_StopBlock
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 1
  111 0018 1370     		strb	r3, [r2]
  116:Generated_Source\PSoC5/CLK_DBL.c **** #endif /* CLK_DBL__CFG3 */
  117:Generated_Source\PSoC5/CLK_DBL.c **** 
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 5
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccCkLmSd.s 			page 5
 
 
  118:Generated_Source\PSoC5/CLK_DBL.c ****         /* Clear mask of bus clock. */
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 1
  136:Generated_Source\PSoC5/CLK_DBL.c ****         CY_SET_REG16(CLK_DBL_DIV_PTR, oldDivider);
  148              		.loc 1 136 0
  149 0056 9B33     		adds	r3, r3, #155
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 6
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccCkLmSd.s 			page 6
 
 
  150 0058 1A80     		strh	r2, [r3]	@ movhi
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 1
  160:Generated_Source\PSoC5/CLK_DBL.c ****     {
  161:Generated_Source\PSoC5/CLK_DBL.c ****         CLK_DBL_CLKSTBY &= (uint8)(~CLK_DBL_CLKSTBY_MASK);
  181              		.loc 1 161 0
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 7
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccCkLmSd.s 			page 7
 
 
  182 0002 064A     		ldr	r2, .L15
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 1
  189:Generated_Source\PSoC5/CLK_DBL.c **** * Returns:
  190:Generated_Source\PSoC5/CLK_DBL.c **** *  None
  191:Generated_Source\PSoC5/CLK_DBL.c **** *
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 8
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccCkLmSd.s 			page 8
 
 
  192:Generated_Source\PSoC5/CLK_DBL.c **** *******************************************************************************/
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 1
  246:Generated_Source\PSoC5/CLK_DBL.c ****                     CY_SET_REG16(CYREG_CLKDIST_WRK0, oldDivider);
  247:Generated_Source\PSoC5/CLK_DBL.c ****                     CLK_DIST_LD = CYCLK_LD_DISABLE|CYCLK_LD_SYNC_EN|CYCLK_LD_LOAD;
  248:Generated_Source\PSoC5/CLK_DBL.c **** 
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 9
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccCkLmSd.s 			page 9
 
 
  249:Generated_Source\PSoC5/CLK_DBL.c ****                     /* Wait for clock to be disabled */
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 1
  213              		@ link register save eliminated.
  299:Generated_Source\PSoC5/CLK_DBL.c ****     return CY_GET_REG16(CLK_DBL_DIV_PTR);
  214              		.loc 1 299 0
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 10
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccCkLmSd.s 			page 10
 
 
  215 0000 014B     		ldr	r3, .L18
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 1
  235              		.loc 1 333 0
  236              		.cfi_startproc
  237              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 11
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccCkLmSd.s 			page 11
 
 
  238              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 1
  362:Generated_Source\PSoC5/CLK_DBL.c **** *
  363:Generated_Source\PSoC5/CLK_DBL.c **** * Returns:
  364:Generated_Source\PSoC5/CLK_DBL.c **** *  None
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 12
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccCkLmSd.s 			page 12
 
 
  365:Generated_Source\PSoC5/CLK_DBL.c **** *
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 1
  388:Generated_Source\PSoC5/CLK_DBL.c **** uint8 CLK_DBL_GetModeRegister(void) 
  389:Generated_Source\PSoC5/CLK_DBL.c **** {
  295              		.loc 1 389 0
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 13
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccCkLmSd.s 			page 13
 
 
  296              		.cfi_startproc
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 1
  419:Generated_Source\PSoC5/CLK_DBL.c **** void CLK_DBL_SetSourceRegister(uint8 clkSource) 
  420:Generated_Source\PSoC5/CLK_DBL.c **** {
  421:Generated_Source\PSoC5/CLK_DBL.c ****     uint16 currDiv = CLK_DBL_GetDividerRegister();
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 14
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccCkLmSd.s 			page 14
 
 
  422:Generated_Source\PSoC5/CLK_DBL.c ****     uint8 oldSrc = CLK_DBL_GetSourceRegister();
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 1
  329              		.loc 1 467 0
  330 0004 00F00700 		and	r0, r0, #7
  331 0008 7047     		bx	lr
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 15
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccCkLmSd.s 			page 15
 
 
  332              	.L31:
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 1
  379              		.loc 1 205 0 is_stmt 0 discriminator 1
  380 0020 00B1     		cbz	r0, .L35
  205:Generated_Source\PSoC5/CLK_DBL.c ****         {
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 16
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccCkLmSd.s 			page 16
 
 
  381              		.loc 1 205 0 discriminator 2
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 1
  425 0058 0C39     		subs	r1, r1, #12
  426 005a 0A78     		ldrb	r2, [r1]	@ zero_extendqisi2
  427 005c 02F07F02 		and	r2, r2, #127
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 17
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccCkLmSd.s 			page 17
 
 
  428 0060 0A70     		strb	r2, [r1]
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 1
  472 00a4 00E0     		b	.L41
  473              	.L43:
  474 00a6 0122     		movs	r2, #1
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 18
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccCkLmSd.s 			page 18
 
 
  475              	.L41:
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 1
  524              		.cfi_def_cfa_offset 16
  525              		.cfi_offset 3, -16
  526              		.cfi_offset 4, -12
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 19
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccCkLmSd.s 			page 19
 
 
  527              		.cfi_offset 5, -8
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 1
  568              		.loc 1 438 0
  569 0036 03F0F803 		and	r3, r3, #248
  570 003a 1C43     		orrs	r4, r4, r3
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 20
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccCkLmSd.s 			page 20
 
 
  571 003c 1470     		strb	r4, [r2]
@@ -1180,34 +1180,34 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 1
  604 000b 01       		.uleb128 0x1
  605 000c 4D020000 		.4byte	.LASF36
  606 0010 0C       		.byte	0xc
- 607 0011 CA000000 		.4byte	.LASF37
- 608 0015 65010000 		.4byte	.LASF38
+ 607 0011 2B010000 		.4byte	.LASF37
+ 608 0015 1A000000 		.4byte	.LASF38
  609 0019 00000000 		.4byte	.Ldebug_ranges0+0
  610 001d 00000000 		.4byte	0
  611 0021 00000000 		.4byte	.Ldebug_line0
  612 0025 02       		.uleb128 0x2
  613 0026 01       		.byte	0x1
  614 0027 06       		.byte	0x6
- 615 0028 20010000 		.4byte	.LASF0
+ 615 0028 81010000 		.4byte	.LASF0
  616 002c 02       		.uleb128 0x2
  617 002d 01       		.byte	0x1
  618 002e 08       		.byte	0x8
- 619 002f 06010000 		.4byte	.LASF1
+ 619 002f 67010000 		.4byte	.LASF1
  620 0033 02       		.uleb128 0x2
  621 0034 02       		.byte	0x2
  622 0035 05       		.byte	0x5
- 623 0036 4E000000 		.4byte	.LASF2
+ 623 0036 AF000000 		.4byte	.LASF2
  624 003a 02       		.uleb128 0x2
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 21
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccCkLmSd.s 			page 21
 
 
  625 003b 02       		.byte	0x2
  626 003c 07       		.byte	0x7
- 627 003d DD010000 		.4byte	.LASF3
+ 627 003d C6010000 		.4byte	.LASF3
  628 0041 02       		.uleb128 0x2
  629 0042 04       		.byte	0x4
  630 0043 05       		.byte	0x5
- 631 0044 93000000 		.4byte	.LASF4
+ 631 0044 F4000000 		.4byte	.LASF4
  632 0048 02       		.uleb128 0x2
  633 0049 04       		.byte	0x4
  634 004a 07       		.byte	0x7
@@ -1215,11 +1215,11 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 1
  636 004f 02       		.uleb128 0x2
  637 0050 08       		.byte	0x8
  638 0051 05       		.byte	0x5
- 639 0052 85000000 		.4byte	.LASF6
+ 639 0052 E6000000 		.4byte	.LASF6
  640 0056 02       		.uleb128 0x2
  641 0057 08       		.byte	0x8
  642 0058 07       		.byte	0x7
- 643 0059 2C010000 		.4byte	.LASF7
+ 643 0059 8D010000 		.4byte	.LASF7
  644 005d 03       		.uleb128 0x3
  645 005e 04       		.byte	0x4
  646 005f 05       		.byte	0x5
@@ -1227,21 +1227,21 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 1
  648 0064 02       		.uleb128 0x2
  649 0065 04       		.byte	0x4
  650 0066 07       		.byte	0x7
- 651 0067 58010000 		.4byte	.LASF8
+ 651 0067 B9010000 		.4byte	.LASF8
  652 006b 04       		.uleb128 0x4
- 653 006c 6E000000 		.4byte	.LASF9
+ 653 006c CF000000 		.4byte	.LASF9
  654 0070 02       		.byte	0x2
  655 0071 E401     		.2byte	0x1e4
  656 0073 2C000000 		.4byte	0x2c
  657 0077 04       		.uleb128 0x4
- 658 0078 58000000 		.4byte	.LASF10
+ 658 0078 B9000000 		.4byte	.LASF10
  659 007c 02       		.byte	0x2
  660 007d E501     		.2byte	0x1e5
  661 007f 3A000000 		.4byte	0x3a
  662 0083 02       		.uleb128 0x2
  663 0084 04       		.byte	0x4
  664 0085 04       		.byte	0x4
- 665 0086 7F000000 		.4byte	.LASF11
+ 665 0086 E0000000 		.4byte	.LASF11
  666 008a 02       		.uleb128 0x2
  667 008b 08       		.byte	0x8
  668 008c 04       		.byte	0x4
@@ -1249,7 +1249,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 1
  670 0091 02       		.uleb128 0x2
  671 0092 01       		.byte	0x1
  672 0093 08       		.byte	0x8
- 673 0094 C6010000 		.4byte	.LASF13
+ 673 0094 D9010000 		.4byte	.LASF13
  674 0098 04       		.uleb128 0x4
  675 0099 15020000 		.4byte	.LASF14
  676 009d 02       		.byte	0x2
@@ -1258,17 +1258,17 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 1
  679 00a4 05       		.uleb128 0x5
  680 00a5 6B000000 		.4byte	0x6b
  681 00a9 04       		.uleb128 0x4
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 22
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccCkLmSd.s 			page 22
 
 
- 682 00aa 3A000000 		.4byte	.LASF15
+ 682 00aa 9B000000 		.4byte	.LASF15
  683 00ae 02       		.byte	0x2
  684 00af 8F02     		.2byte	0x28f
  685 00b1 B5000000 		.4byte	0xb5
  686 00b5 05       		.uleb128 0x5
  687 00b6 77000000 		.4byte	0x77
  688 00ba 06       		.uleb128 0x6
- 689 00bb 40000000 		.4byte	.LASF16
+ 689 00bb A1000000 		.4byte	.LASF16
  690 00bf 01       		.byte	0x1
  691 00c0 2D       		.byte	0x2d
  692 00c1 00000000 		.4byte	.LFB0
@@ -1276,7 +1276,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 1
  694 00c9 01       		.uleb128 0x1
  695 00ca 9C       		.byte	0x9c
  696 00cb 06       		.uleb128 0x6
- 697 00cc B7000000 		.4byte	.LASF17
+ 697 00cc 18010000 		.4byte	.LASF17
  698 00d0 01       		.byte	0x1
  699 00d1 47       		.byte	0x47
  700 00d2 00000000 		.4byte	.LFB1
@@ -1304,7 +1304,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 1
  722 0109 00       		.byte	0
  723 010a 00       		.byte	0
  724 010b 07       		.uleb128 0x7
- 725 010c 43010000 		.4byte	.LASF19
+ 725 010c A4010000 		.4byte	.LASF19
  726 0110 01       		.byte	0x1
  727 0111 9D       		.byte	0x9d
  728 0112 00000000 		.4byte	.LFB3
@@ -1313,18 +1313,18 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 1
  731 011b 9C       		.byte	0x9c
  732 011c 2E010000 		.4byte	0x12e
  733 0120 0A       		.uleb128 0xa
- 734 0121 C4000000 		.4byte	.LASF21
+ 734 0121 25010000 		.4byte	.LASF21
  735 0125 01       		.byte	0x1
  736 0126 9D       		.byte	0x9d
  737 0127 6B000000 		.4byte	0x6b
  738 012b 01       		.uleb128 0x1
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 23
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccCkLmSd.s 			page 23
 
 
  739 012c 50       		.byte	0x50
  740 012d 00       		.byte	0
  741 012e 0B       		.uleb128 0xb
- 742 012f EB000000 		.4byte	.LASF24
+ 742 012f 4C010000 		.4byte	.LASF24
  743 0133 01       		.byte	0x1
  744 0134 2901     		.2byte	0x129
  745 0136 77000000 		.4byte	0x77
@@ -1333,7 +1333,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 1
  748 0142 01       		.uleb128 0x1
  749 0143 9C       		.byte	0x9c
  750 0144 0C       		.uleb128 0xc
- 751 0145 1A000000 		.4byte	.LASF20
+ 751 0145 7B000000 		.4byte	.LASF20
  752 0149 01       		.byte	0x1
  753 014a 4C01     		.2byte	0x14c
  754 014c 00000000 		.4byte	.LFB6
@@ -1342,7 +1342,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 1
  757 0155 9C       		.byte	0x9c
  758 0156 6B010000 		.4byte	0x16b
  759 015a 0D       		.uleb128 0xd
- 760 015b 14010000 		.4byte	.LASF22
+ 760 015b 75010000 		.4byte	.LASF22
  761 015f 01       		.byte	0x1
  762 0160 4C01     		.2byte	0x14c
  763 0162 6B000000 		.4byte	0x6b
@@ -1358,7 +1358,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 1
  773 017c 9C       		.byte	0x9c
  774 017d 92010000 		.4byte	0x192
  775 0181 0D       		.uleb128 0xd
- 776 0182 14010000 		.4byte	.LASF22
+ 776 0182 75010000 		.4byte	.LASF22
  777 0186 01       		.byte	0x1
  778 0187 6F01     		.2byte	0x16f
  779 0189 6B000000 		.4byte	0x6b
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 1
  793 01ad 01       		.byte	0x1
  794 01ae D001     		.2byte	0x1d0
  795 01b0 6B000000 		.4byte	0x6b
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 24
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccCkLmSd.s 			page 24
 
 
  796 01b4 00000000 		.4byte	.LFB10
@@ -1386,7 +1386,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 1
  798 01bc 01       		.uleb128 0x1
  799 01bd 9C       		.byte	0x9c
  800 01be 07       		.uleb128 0x7
- 801 01bf 9C000000 		.4byte	.LASF27
+ 801 01bf FD000000 		.4byte	.LASF27
  802 01c3 01       		.byte	0x1
  803 01c4 C1       		.byte	0xc1
  804 01c5 00000000 		.4byte	.LFB4
@@ -1395,13 +1395,13 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 1
  807 01ce 9C       		.byte	0x9c
  808 01cf 2F020000 		.4byte	0x22f
  809 01d3 0E       		.uleb128 0xe
- 810 01d4 74000000 		.4byte	.LASF28
+ 810 01d4 D5000000 		.4byte	.LASF28
  811 01d8 01       		.byte	0x1
  812 01d9 C1       		.byte	0xc1
  813 01da 77000000 		.4byte	0x77
  814 01de 55000000 		.4byte	.LLST3
  815 01e2 0E       		.uleb128 0xe
- 816 01e3 5F000000 		.4byte	.LASF29
+ 816 01e3 C0000000 		.4byte	.LASF29
  817 01e7 01       		.byte	0x1
  818 01e8 C1       		.byte	0xc1
  819 01e9 6B000000 		.4byte	0x6b
@@ -1413,7 +1413,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 1
  825 01f8 6B000000 		.4byte	0x6b
  826 01fc 97000000 		.4byte	.LLST5
  827 0200 09       		.uleb128 0x9
- 828 0201 D5010000 		.4byte	.LASF32
+ 828 0201 E8010000 		.4byte	.LASF32
  829 0205 01       		.byte	0x1
  830 0206 C6       		.byte	0xc6
  831 0207 6B000000 		.4byte	0x6b
@@ -1438,25 +1438,25 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 1
  850 0235 A301     		.2byte	0x1a3
  851 0237 00000000 		.4byte	.LFB9
  852 023b 5C000000 		.4byte	.LFE9-.LFB9
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 25
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccCkLmSd.s 			page 25
 
 
  853 023f 01       		.uleb128 0x1
  854 0240 9C       		.byte	0x9c
  855 0241 0D       		.uleb128 0xd
- 856 0242 CB010000 		.4byte	.LASF33
+ 856 0242 DE010000 		.4byte	.LASF33
  857 0246 01       		.byte	0x1
  858 0247 A301     		.2byte	0x1a3
  859 0249 6B000000 		.4byte	0x6b
  860 024d DE000000 		.4byte	.LLST7
  861 0251 12       		.uleb128 0x12
- 862 0252 32000000 		.4byte	.LASF34
+ 862 0252 93000000 		.4byte	.LASF34
  863 0256 01       		.byte	0x1
  864 0257 A501     		.2byte	0x1a5
  865 0259 77000000 		.4byte	0x77
  866 025d FF000000 		.4byte	.LLST8
  867 0261 13       		.uleb128 0x13
- 868 0262 67000000 		.4byte	.LASF35
+ 868 0262 C8000000 		.4byte	.LASF35
  869 0266 01       		.byte	0x1
  870 0267 A601     		.2byte	0x1a6
  871 0269 6B000000 		.4byte	0x6b
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 1
  907 0017 0B       		.uleb128 0xb
  908 0018 3E       		.uleb128 0x3e
  909 0019 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 26
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccCkLmSd.s 			page 26
 
 
  910 001a 03       		.uleb128 0x3
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 1
  964 0050 9742     		.uleb128 0x2117
  965 0052 19       		.uleb128 0x19
  966 0053 00       		.byte	0
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 27
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccCkLmSd.s 			page 27
 
 
  967 0054 00       		.byte	0
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 1
  1021 008b 0E       		.uleb128 0xe
  1022 008c 3A       		.uleb128 0x3a
  1023 008d 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 28
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccCkLmSd.s 			page 28
 
 
  1024 008e 3B       		.uleb128 0x3b
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 1
  1078 00c6 01       		.uleb128 0x1
  1079 00c7 13       		.uleb128 0x13
  1080 00c8 00       		.byte	0
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 29
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccCkLmSd.s 			page 29
 
 
  1081 00c9 00       		.byte	0
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 1
  1135 0101 00       		.byte	0
  1136 0102 11       		.uleb128 0x11
  1137 0103 2E       		.uleb128 0x2e
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 30
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccCkLmSd.s 			page 30
 
 
  1138 0104 01       		.byte	0x1
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 1
  1192              	.LLST0:
  1193 0000 2A000000 		.4byte	.LVL0
  1194 0004 5A000000 		.4byte	.LVL1
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 31
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccCkLmSd.s 			page 31
 
 
  1195 0008 0100     		.2byte	0x1
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 1
  1249 008b F3       		.byte	0xf3
  1250 008c 01       		.uleb128 0x1
  1251 008d 51       		.byte	0x51
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 32
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccCkLmSd.s 			page 32
 
 
  1252 008e 9F       		.byte	0x9f
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 1
  1306 000a 04       		.byte	0x4
  1307 000b 00       		.byte	0
  1308 000c 0000     		.2byte	0
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 33
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccCkLmSd.s 			page 33
 
 
  1309 000e 0000     		.2byte	0
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 1
  1362      02004400 
  1362      00000201 
  1362      FB0E0D00 
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 34
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccCkLmSd.s 			page 34
 
 
  1362      01010101 
@@ -1988,145 +1988,145 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 1
  1364      53657453 
  1364      6F757263 
  1364      65526567 
- 1365              	.LASF20:
- 1366 001a 434C4B5F 		.ascii	"CLK_DBL_SetModeRegister\000"
- 1366      44424C5F 
- 1366      5365744D 
- 1366      6F646552 
- 1366      65676973 
- 1367              	.LASF34:
- 1368 0032 63757272 		.ascii	"currDiv\000"
- 1368      44697600 
- 1369              	.LASF15:
- 1370 003a 72656731 		.ascii	"reg16\000"
- 1370      3600
- 1371              	.LASF16:
- 1372 0040 434C4B5F 		.ascii	"CLK_DBL_Start\000"
- 1372      44424C5F 
- 1372      53746172 
- 1372      7400
- 1373              	.LASF2:
- 1374 004e 73686F72 		.ascii	"short int\000"
- 1374      7420696E 
- 1374      7400
- 1375              	.LASF10:
- 1376 0058 75696E74 		.ascii	"uint16\000"
- 1376      313600
- 1377              	.LASF29:
- 1378 005f 72657374 		.ascii	"restart\000"
- 1378      61727400 
- 1379              	.LASF35:
- 1380 0067 6F6C6453 		.ascii	"oldSrc\000"
- 1380      726300
- 1381              	.LASF9:
- 1382 006e 75696E74 		.ascii	"uint8\000"
- 1382      3800
- 1383              	.LASF28:
- 1384 0074 636C6B44 		.ascii	"clkDivider\000"
- 1384      69766964 
- 1384      657200
- 1385              	.LASF11:
- 1386 007f 666C6F61 		.ascii	"float\000"
- 1386      7400
- 1387              	.LASF6:
- 1388 0085 6C6F6E67 		.ascii	"long long int\000"
- 1388      206C6F6E 
- 1388      6720696E 
- 1388      7400
- 1389              	.LASF4:
- 1390 0093 6C6F6E67 		.ascii	"long int\000"
- 1390      20696E74 
- 1390      00
- 1391              	.LASF27:
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 35
+ 1365              	.LASF38:
+ 1366 001a 433A5C55 		.ascii	"C:\\Users\\Susanna\\Desktop\\Final_Project_DiGiacom"
+ 1366      73657273 
+ 1366      5C537573 
+ 1366      616E6E61 
+ 1366      5C446573 
+ 1367 0049 6F5F5061 		.ascii	"o_Palmieri\\Final_Project2.cydsn\\final_prova.cydsn"
+ 1367      6C6D6965 
+ 1367      72695C46 
+ 1367      696E616C 
+ 1367      5F50726F 
+ 1368 007a 00       		.ascii	"\000"
+ 1369              	.LASF20:
+ 1370 007b 434C4B5F 		.ascii	"CLK_DBL_SetModeRegister\000"
+ 1370      44424C5F 
+ 1370      5365744D 
+ 1370      6F646552 
+ 1370      65676973 
+ 1371              	.LASF34:
+ 1372 0093 63757272 		.ascii	"currDiv\000"
+ 1372      44697600 
+ 1373              	.LASF15:
+ 1374 009b 72656731 		.ascii	"reg16\000"
+ 1374      3600
+ 1375              	.LASF16:
+ 1376 00a1 434C4B5F 		.ascii	"CLK_DBL_Start\000"
+ 1376      44424C5F 
+ 1376      53746172 
+ 1376      7400
+ 1377              	.LASF2:
+ 1378 00af 73686F72 		.ascii	"short int\000"
+ 1378      7420696E 
+ 1378      7400
+ 1379              	.LASF10:
+ 1380 00b9 75696E74 		.ascii	"uint16\000"
+ 1380      313600
+ 1381              	.LASF29:
+ 1382 00c0 72657374 		.ascii	"restart\000"
+ 1382      61727400 
+ 1383              	.LASF35:
+ 1384 00c8 6F6C6453 		.ascii	"oldSrc\000"
+ 1384      726300
+ 1385              	.LASF9:
+ 1386 00cf 75696E74 		.ascii	"uint8\000"
+ 1386      3800
+ 1387              	.LASF28:
+ 1388 00d5 636C6B44 		.ascii	"clkDivider\000"
+ 1388      69766964 
+ 1388      657200
+ 1389              	.LASF11:
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccCkLmSd.s 			page 35
 
 
- 1392 009c 434C4B5F 		.ascii	"CLK_DBL_SetDividerRegister\000"
- 1392      44424C5F 
- 1392      53657444 
- 1392      69766964 
- 1392      65725265 
- 1393              	.LASF17:
- 1394 00b7 434C4B5F 		.ascii	"CLK_DBL_Stop\000"
- 1394      44424C5F 
- 1394      53746F70 
+ 1390 00e0 666C6F61 		.ascii	"float\000"
+ 1390      7400
+ 1391              	.LASF6:
+ 1392 00e6 6C6F6E67 		.ascii	"long long int\000"
+ 1392      206C6F6E 
+ 1392      6720696E 
+ 1392      7400
+ 1393              	.LASF4:
+ 1394 00f4 6C6F6E67 		.ascii	"long int\000"
+ 1394      20696E74 
  1394      00
- 1395              	.LASF21:
- 1396 00c4 73746174 		.ascii	"state\000"
- 1396      6500
- 1397              	.LASF37:
- 1398 00ca 47656E65 		.ascii	"Generated_Source\\PSoC5\\CLK_DBL.c\000"
- 1398      72617465 
- 1398      645F536F 
- 1398      75726365 
- 1398      5C50536F 
- 1399              	.LASF24:
- 1400 00eb 434C4B5F 		.ascii	"CLK_DBL_GetDividerRegister\000"
- 1400      44424C5F 
- 1400      47657444 
- 1400      69766964 
- 1400      65725265 
- 1401              	.LASF1:
- 1402 0106 756E7369 		.ascii	"unsigned char\000"
- 1402      676E6564 
- 1402      20636861 
- 1402      7200
- 1403              	.LASF22:
- 1404 0114 6D6F6465 		.ascii	"modeBitMask\000"
- 1404      4269744D 
- 1404      61736B00 
- 1405              	.LASF0:
- 1406 0120 7369676E 		.ascii	"signed char\000"
- 1406      65642063 
- 1406      68617200 
- 1407              	.LASF7:
- 1408 012c 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1408      206C6F6E 
- 1408      6720756E 
- 1408      7369676E 
- 1408      65642069 
- 1409              	.LASF19:
- 1410 0143 434C4B5F 		.ascii	"CLK_DBL_StandbyPower\000"
- 1410      44424C5F 
- 1410      5374616E 
- 1410      64627950 
- 1410      6F776572 
- 1411              	.LASF8:
- 1412 0158 756E7369 		.ascii	"unsigned int\000"
- 1412      676E6564 
- 1412      20696E74 
- 1412      00
- 1413              	.LASF38:
- 1414 0165 433A5C55 		.ascii	"C:\\Users\\Susanna\\Desktop\\Final_Project_DiGiacom"
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 36
+ 1395              	.LASF27:
+ 1396 00fd 434C4B5F 		.ascii	"CLK_DBL_SetDividerRegister\000"
+ 1396      44424C5F 
+ 1396      53657444 
+ 1396      69766964 
+ 1396      65725265 
+ 1397              	.LASF17:
+ 1398 0118 434C4B5F 		.ascii	"CLK_DBL_Stop\000"
+ 1398      44424C5F 
+ 1398      53746F70 
+ 1398      00
+ 1399              	.LASF21:
+ 1400 0125 73746174 		.ascii	"state\000"
+ 1400      6500
+ 1401              	.LASF37:
+ 1402 012b 47656E65 		.ascii	"Generated_Source\\PSoC5\\CLK_DBL.c\000"
+ 1402      72617465 
+ 1402      645F536F 
+ 1402      75726365 
+ 1402      5C50536F 
+ 1403              	.LASF24:
+ 1404 014c 434C4B5F 		.ascii	"CLK_DBL_GetDividerRegister\000"
+ 1404      44424C5F 
+ 1404      47657444 
+ 1404      69766964 
+ 1404      65725265 
+ 1405              	.LASF1:
+ 1406 0167 756E7369 		.ascii	"unsigned char\000"
+ 1406      676E6564 
+ 1406      20636861 
+ 1406      7200
+ 1407              	.LASF22:
+ 1408 0175 6D6F6465 		.ascii	"modeBitMask\000"
+ 1408      4269744D 
+ 1408      61736B00 
+ 1409              	.LASF0:
+ 1410 0181 7369676E 		.ascii	"signed char\000"
+ 1410      65642063 
+ 1410      68617200 
+ 1411              	.LASF7:
+ 1412 018d 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1412      206C6F6E 
+ 1412      6720756E 
+ 1412      7369676E 
+ 1412      65642069 
+ 1413              	.LASF19:
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccCkLmSd.s 			page 36
 
 
- 1414      73657273 
- 1414      5C537573 
- 1414      616E6E61 
- 1414      5C446573 
- 1415 0194 6F5F5061 		.ascii	"o_Palmieri\\Final_Project2.cydsn\\Final_prova.cydsn"
- 1415      6C6D6965 
- 1415      72695C46 
- 1415      696E616C 
- 1415      5F50726F 
- 1416 01c5 00       		.ascii	"\000"
- 1417              	.LASF13:
- 1418 01c6 63686172 		.ascii	"char\000"
- 1418      00
- 1419              	.LASF33:
- 1420 01cb 636C6B53 		.ascii	"clkSource\000"
- 1420      6F757263 
- 1420      6500
- 1421              	.LASF32:
- 1422 01d5 63757272 		.ascii	"currSrc\000"
- 1422      53726300 
- 1423              	.LASF3:
- 1424 01dd 73686F72 		.ascii	"short unsigned int\000"
- 1424      7420756E 
- 1424      7369676E 
- 1424      65642069 
- 1424      6E7400
+ 1414 01a4 434C4B5F 		.ascii	"CLK_DBL_StandbyPower\000"
+ 1414      44424C5F 
+ 1414      5374616E 
+ 1414      64627950 
+ 1414      6F776572 
+ 1415              	.LASF8:
+ 1416 01b9 756E7369 		.ascii	"unsigned int\000"
+ 1416      676E6564 
+ 1416      20696E74 
+ 1416      00
+ 1417              	.LASF3:
+ 1418 01c6 73686F72 		.ascii	"short unsigned int\000"
+ 1418      7420756E 
+ 1418      7369676E 
+ 1418      65642069 
+ 1418      6E7400
+ 1419              	.LASF13:
+ 1420 01d9 63686172 		.ascii	"char\000"
+ 1420      00
+ 1421              	.LASF33:
+ 1422 01de 636C6B53 		.ascii	"clkSource\000"
+ 1422      6F757263 
+ 1422      6500
+ 1423              	.LASF32:
+ 1424 01e8 63757272 		.ascii	"currSrc\000"
+ 1424      53726300 
  1425              	.LASF30:
  1426 01f0 6F6C6444 		.ascii	"oldDivider\000"
  1426      69766964 
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 1
  1438      53746F70 
  1438      426C6F63 
  1438      6B00
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccykmMRL.s 			page 37
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccCkLmSd.s 			page 37
 
 
  1439              	.LASF36:

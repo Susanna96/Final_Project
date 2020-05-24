@@ -13,10 +13,6 @@
 #include "SW_State.h"
 
 
-#define LONG_PRESS          9
-#define START               0
-#define STOP                1
-#define CONFIGURATION_MODE  2
 int  device_state    = STOP;
 int  t_dbl_click     = 5;
 int  time_now        = 0;

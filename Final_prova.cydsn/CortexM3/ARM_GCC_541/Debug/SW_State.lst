@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc5BzBc7.s 			page 1
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 1
 
 
    1              		.syntax unified
@@ -43,183 +43,179 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc5BzBc7.s 			page 1
   13:SW_State.c    **** #include "SW_State.h"
   14:SW_State.c    **** 
   15:SW_State.c    **** 
-  16:SW_State.c    **** #define LONG_PRESS          9
-  17:SW_State.c    **** #define START               0
-  18:SW_State.c    **** #define STOP                1
-  19:SW_State.c    **** #define CONFIGURATION_MODE  2
-  20:SW_State.c    **** int  device_state    = STOP;
-  21:SW_State.c    **** int  t_dbl_click     = 5;
-  22:SW_State.c    **** int  time_now        = 0;
-  23:SW_State.c    **** int  time_elapsed    = 0;
-  24:SW_State.c    **** 
-  25:SW_State.c    **** 
-  26:SW_State.c    **** int Switch_State(void)
-  27:SW_State.c    **** {
-  28              		.loc 1 27 0
+  16:SW_State.c    **** int  device_state    = STOP;
+  17:SW_State.c    **** int  t_dbl_click     = 5;
+  18:SW_State.c    **** int  time_now        = 0;
+  19:SW_State.c    **** int  time_elapsed    = 0;
+  20:SW_State.c    **** 
+  21:SW_State.c    **** 
+  22:SW_State.c    **** int Switch_State(void)
+  23:SW_State.c    **** {
+  28              		.loc 1 23 0
   29              		.cfi_startproc
   30              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc5BzBc7.s 			page 2
-
-
   31              		@ frame_needed = 0, uses_anonymous_args = 0
   32 0000 08B5     		push	{r3, lr}
   33              		.cfi_def_cfa_offset 8
   34              		.cfi_offset 3, -8
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 2
+
+
   35              		.cfi_offset 14, -4
-  28:SW_State.c    **** 
-  29:SW_State.c    ****     Timer_SW_Stop();
-  36              		.loc 1 29 0
+  24:SW_State.c    **** 
+  25:SW_State.c    ****     Timer_SW_Stop();
+  36              		.loc 1 25 0
   37 0002 FFF7FEFF 		bl	Timer_SW_Stop
   38              	.LVL0:
-  30:SW_State.c    ****     Timer_SW_WriteCounter(0);
-  39              		.loc 1 30 0
+  26:SW_State.c    ****     Timer_SW_WriteCounter(0);
+  39              		.loc 1 26 0
   40 0006 0020     		movs	r0, #0
   41 0008 FFF7FEFF 		bl	Timer_SW_WriteCounter
   42              	.LVL1:
-  31:SW_State.c    ****     Timer_SW_Start();
-  43              		.loc 1 31 0
+  27:SW_State.c    ****     Timer_SW_Start();
+  43              		.loc 1 27 0
   44 000c FFF7FEFF 		bl	Timer_SW_Start
   45              	.LVL2:
-  32:SW_State.c    ****     button_pressed = 0;
-  46              		.loc 1 32 0
+  28:SW_State.c    ****     button_pressed = 0;
+  46              		.loc 1 28 0
   47 0010 0022     		movs	r2, #0
   48 0012 284B     		ldr	r3, .L9
   49 0014 1A60     		str	r2, [r3]
-  33:SW_State.c    ****     while ((BUTTON_Read() == 0))
-  50              		.loc 1 33 0
+  29:SW_State.c    ****     while ((BUTTON_Read() == 0))
+  50              		.loc 1 29 0
   51 0016 03E0     		b	.L2
   52              	.L3:
-  34:SW_State.c    ****     {
-  35:SW_State.c    ****         time_elapsed = Timer_SW_ReadCounter();
-  53              		.loc 1 35 0
+  30:SW_State.c    ****     {
+  31:SW_State.c    ****         time_elapsed = Timer_SW_ReadCounter();
+  53              		.loc 1 31 0
   54 0018 FFF7FEFF 		bl	Timer_SW_ReadCounter
   55              	.LVL3:
   56 001c 264B     		ldr	r3, .L9+4
   57 001e 1860     		str	r0, [r3]
   58              	.L2:
-  33:SW_State.c    ****     while ((BUTTON_Read() == 0))
-  59              		.loc 1 33 0
+  29:SW_State.c    ****     while ((BUTTON_Read() == 0))
+  59              		.loc 1 29 0
   60 0020 FFF7FEFF 		bl	BUTTON_Read
   61              	.LVL4:
   62 0024 0028     		cmp	r0, #0
   63 0026 F7D0     		beq	.L3
-  36:SW_State.c    ****     }
-  37:SW_State.c    ****     if ((time_elapsed > LONG_PRESS) && ((device_state == START) || (device_state == STOP)))
-  64              		.loc 1 37 0
+  32:SW_State.c    ****     }
+  33:SW_State.c    ****     if ((time_elapsed > LONG_PRESS) && ((device_state == START) || (device_state == STOP)))
+  64              		.loc 1 33 0
   65 0028 234B     		ldr	r3, .L9+4
   66 002a 1B68     		ldr	r3, [r3]
   67 002c 092B     		cmp	r3, #9
   68 002e 0ADD     		ble	.L4
-  69              		.loc 1 37 0 is_stmt 0 discriminator 1
+  69              		.loc 1 33 0 is_stmt 0 discriminator 1
   70 0030 224A     		ldr	r2, .L9+8
   71 0032 1268     		ldr	r2, [r2]
   72 0034 012A     		cmp	r2, #1
   73 0036 06D8     		bhi	.L4
-  38:SW_State.c    ****     {
-  39:SW_State.c    ****         click_count  = 0;
-  74              		.loc 1 39 0 is_stmt 1
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc5BzBc7.s 			page 3
-
-
+  34:SW_State.c    ****     {
+  35:SW_State.c    ****         click_count  = 0;
+  74              		.loc 1 35 0 is_stmt 1
   75 0038 0022     		movs	r2, #0
   76 003a 214B     		ldr	r3, .L9+12
   77 003c 1A60     		str	r2, [r3]
-  40:SW_State.c    ****         device_state = CONFIGURATION_MODE;
-  78              		.loc 1 40 0
+  36:SW_State.c    ****         device_state = CONFIGURATION_MODE;
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 3
+
+
+  78              		.loc 1 36 0
   79 003e 0222     		movs	r2, #2
   80 0040 1E4B     		ldr	r3, .L9+8
   81 0042 1A60     		str	r2, [r3]
   82 0044 32E0     		b	.L5
   83              	.L4:
-  41:SW_State.c    ****     } else if ((time_elapsed > LONG_PRESS) && (device_state == CONFIGURATION_MODE))
-  84              		.loc 1 41 0
+  37:SW_State.c    ****     } else if ((time_elapsed > LONG_PRESS) && (device_state == CONFIGURATION_MODE))
+  84              		.loc 1 37 0
   85 0046 092B     		cmp	r3, #9
   86 0048 09DD     		ble	.L6
-  87              		.loc 1 41 0 is_stmt 0 discriminator 1
+  87              		.loc 1 37 0 is_stmt 0 discriminator 1
   88 004a 1C4B     		ldr	r3, .L9+8
   89 004c 1B68     		ldr	r3, [r3]
   90 004e 022B     		cmp	r3, #2
   91 0050 05D1     		bne	.L6
-  42:SW_State.c    ****     {
-  43:SW_State.c    ****         click_count  = 0;
-  92              		.loc 1 43 0 is_stmt 1
+  38:SW_State.c    ****     {
+  39:SW_State.c    ****         click_count  = 0;
+  92              		.loc 1 39 0 is_stmt 1
   93 0052 0023     		movs	r3, #0
   94 0054 1A4A     		ldr	r2, .L9+12
   95 0056 1360     		str	r3, [r2]
-  44:SW_State.c    ****         device_state = START;
-  96              		.loc 1 44 0
+  40:SW_State.c    ****         device_state = START;
+  96              		.loc 1 40 0
   97 0058 184A     		ldr	r2, .L9+8
   98 005a 1360     		str	r3, [r2]
   99 005c 26E0     		b	.L5
  100              	.L6:
-  45:SW_State.c    ****     }
-  46:SW_State.c    ****      else if ((click_count == 2) && (Timer_SW_ReadCounter() < t_dbl_click ) && ((device_state == ST
- 101              		.loc 1 46 0
+  41:SW_State.c    ****     }
+  42:SW_State.c    ****      else if ((click_count == 2) && (Timer_SW_ReadCounter() < t_dbl_click ) && ((device_state == ST
+ 101              		.loc 1 42 0
  102 005e 184B     		ldr	r3, .L9+12
  103 0060 1B68     		ldr	r3, [r3]
  104 0062 022B     		cmp	r3, #2
  105 0064 0FD1     		bne	.L7
- 106              		.loc 1 46 0 is_stmt 0 discriminator 1
+ 106              		.loc 1 42 0 is_stmt 0 discriminator 1
  107 0066 FFF7FEFF 		bl	Timer_SW_ReadCounter
  108              	.LVL5:
  109 006a 144B     		ldr	r3, .L9+8
  110 006c 5B68     		ldr	r3, [r3, #4]
  111 006e 9842     		cmp	r0, r3
  112 0070 09DA     		bge	.L7
- 113              		.loc 1 46 0 discriminator 2
+ 113              		.loc 1 42 0 discriminator 2
  114 0072 124B     		ldr	r3, .L9+8
  115 0074 1B68     		ldr	r3, [r3]
  116 0076 012B     		cmp	r3, #1
  117 0078 05D1     		bne	.L7
-  47:SW_State.c    ****     {
-  48:SW_State.c    ****         click_count     = 0;
- 118              		.loc 1 48 0 is_stmt 1
+  43:SW_State.c    ****     {
+  44:SW_State.c    ****         click_count     = 0;
+ 118              		.loc 1 44 0 is_stmt 1
  119 007a 0023     		movs	r3, #0
  120 007c 104A     		ldr	r2, .L9+12
  121 007e 1360     		str	r3, [r2]
-  49:SW_State.c    ****         device_state = START;
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc5BzBc7.s 			page 4
-
-
- 122              		.loc 1 49 0
+  45:SW_State.c    ****         device_state = START;
+ 122              		.loc 1 45 0
  123 0080 0E4A     		ldr	r2, .L9+8
  124 0082 1360     		str	r3, [r2]
  125 0084 12E0     		b	.L5
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 4
+
+
  126              	.L7:
-  50:SW_State.c    ****     } else if ((click_count == 2) && (Timer_SW_ReadCounter() < t_dbl_click ) && ((device_state == S
- 127              		.loc 1 50 0
+  46:SW_State.c    ****     } else if ((click_count == 2) && (Timer_SW_ReadCounter() < t_dbl_click ) && ((device_state == S
+ 127              		.loc 1 46 0
  128 0086 0E4B     		ldr	r3, .L9+12
  129 0088 1B68     		ldr	r3, [r3]
  130 008a 022B     		cmp	r3, #2
  131 008c 0ED1     		bne	.L5
- 132              		.loc 1 50 0 is_stmt 0 discriminator 1
+ 132              		.loc 1 46 0 is_stmt 0 discriminator 1
  133 008e FFF7FEFF 		bl	Timer_SW_ReadCounter
  134              	.LVL6:
  135 0092 0A4B     		ldr	r3, .L9+8
  136 0094 5B68     		ldr	r3, [r3, #4]
  137 0096 9842     		cmp	r0, r3
  138 0098 08DA     		bge	.L5
- 139              		.loc 1 50 0 discriminator 2
+ 139              		.loc 1 46 0 discriminator 2
  140 009a 084B     		ldr	r3, .L9+8
  141 009c 1B68     		ldr	r3, [r3]
  142 009e 2BB9     		cbnz	r3, .L5
-  51:SW_State.c    ****     {
-  52:SW_State.c    ****         click_count    = 0;
- 143              		.loc 1 52 0 is_stmt 1
+  47:SW_State.c    ****     {
+  48:SW_State.c    ****         click_count    = 0;
+ 143              		.loc 1 48 0 is_stmt 1
  144 00a0 0022     		movs	r2, #0
  145 00a2 074B     		ldr	r3, .L9+12
  146 00a4 1A60     		str	r2, [r3]
-  53:SW_State.c    ****         device_state = STOP;
- 147              		.loc 1 53 0
+  49:SW_State.c    ****         device_state = STOP;
+ 147              		.loc 1 49 0
  148 00a6 0122     		movs	r2, #1
  149 00a8 044B     		ldr	r3, .L9+8
  150 00aa 1A60     		str	r2, [r3]
  151              	.L5:
-  54:SW_State.c    ****     }
-  55:SW_State.c    ****     
-  56:SW_State.c    ****     return device_state;
-  57:SW_State.c    **** }
- 152              		.loc 1 57 0
+  50:SW_State.c    ****     }
+  51:SW_State.c    ****     
+  52:SW_State.c    ****     return device_state;
+  53:SW_State.c    **** }
+ 152              		.loc 1 53 0
  153 00ac 034B     		ldr	r3, .L9+8
  154 00ae 1868     		ldr	r0, [r3]
  155 00b0 08BD     		pop	{r3, pc}
@@ -238,13 +234,13 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc5BzBc7.s 			page 1
  168              		.global	t_dbl_click
  169              		.global	device_state
  170              		.comm	click_count,4,4
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc5BzBc7.s 			page 5
-
-
  171              		.comm	button_pressed,4,4
  172              		.data
  173              		.align	2
  174              		.set	.LANCHOR1,. + 0
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 5
+
+
  175              		.type	device_state, %object
  176              		.size	device_state, 4
  177              	device_state:
@@ -279,10 +275,10 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc5BzBc7.s 			page 1
  206 0006 00000000 		.4byte	.Ldebug_abbrev0
  207 000a 04       		.byte	0x4
  208 000b 01       		.uleb128 0x1
- 209 000c B4000000 		.4byte	.LASF28
+ 209 000c B6000000 		.4byte	.LASF28
  210 0010 0C       		.byte	0xc
- 211 0011 61000000 		.4byte	.LASF29
- 212 0015 00000000 		.4byte	.LASF30
+ 211 0011 0F000000 		.4byte	.LASF29
+ 212 0015 24000000 		.4byte	.LASF30
  213 0019 00000000 		.4byte	.Ldebug_ranges0+0
  214 001d 00000000 		.4byte	0
  215 0021 00000000 		.4byte	.Ldebug_line0
@@ -293,20 +289,20 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc5BzBc7.s 			page 1
  220 002c 02       		.uleb128 0x2
  221 002d 01       		.byte	0x1
  222 002e 08       		.byte	0x8
- 223 002f A6000000 		.4byte	.LASF1
+ 223 002f A8000000 		.4byte	.LASF1
  224 0033 02       		.uleb128 0x2
  225 0034 02       		.byte	0x2
  226 0035 05       		.byte	0x5
  227 0036 1B020000 		.4byte	.LASF2
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc5BzBc7.s 			page 6
-
-
  228 003a 02       		.uleb128 0x2
  229 003b 02       		.byte	0x2
  230 003c 07       		.byte	0x7
- 231 003d 54010000 		.4byte	.LASF3
+ 231 003d 63010000 		.4byte	.LASF3
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 6
+
+
  232 0041 03       		.uleb128 0x3
- 233 0042 6C000000 		.4byte	.LASF9
+ 233 0042 1A000000 		.4byte	.LASF9
  234 0046 02       		.byte	0x2
  235 0047 3F       		.byte	0x3f
  236 0048 4C000000 		.4byte	0x4c
@@ -317,7 +313,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc5BzBc7.s 			page 1
  241 0053 02       		.uleb128 0x2
  242 0054 04       		.byte	0x4
  243 0055 07       		.byte	0x7
- 244 0056 42010000 		.4byte	.LASF5
+ 244 0056 51010000 		.4byte	.LASF5
  245 005a 02       		.uleb128 0x2
  246 005b 08       		.byte	0x8
  247 005c 05       		.byte	0x5
@@ -335,18 +331,18 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc5BzBc7.s 			page 1
  259 0071 07       		.byte	0x7
  260 0072 AC010000 		.4byte	.LASF8
  261 0076 03       		.uleb128 0x3
- 262 0077 98000000 		.4byte	.LASF10
+ 262 0077 9A000000 		.4byte	.LASF10
  263 007b 03       		.byte	0x3
  264 007c 2C       		.byte	0x2c
  265 007d 41000000 		.4byte	0x41
  266 0081 02       		.uleb128 0x2
  267 0082 04       		.byte	0x4
  268 0083 04       		.byte	0x4
- 269 0084 A0000000 		.4byte	.LASF11
+ 269 0084 A2000000 		.4byte	.LASF11
  270 0088 02       		.uleb128 0x2
  271 0089 08       		.byte	0x8
  272 008a 04       		.byte	0x4
- 273 008b 80010000 		.4byte	.LASF12
+ 273 008b 8F010000 		.4byte	.LASF12
  274 008f 02       		.uleb128 0x2
  275 0090 01       		.byte	0x1
  276 0091 08       		.byte	0x8
@@ -358,14 +354,14 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc5BzBc7.s 			page 1
  282 009d 02       		.uleb128 0x2
  283 009e 04       		.byte	0x4
  284 009f 07       		.byte	0x7
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc5BzBc7.s 			page 7
-
-
  285 00a0 E9010000 		.4byte	.LASF15
  286 00a4 05       		.uleb128 0x5
  287 00a5 D0010000 		.4byte	.LASF31
  288 00a9 01       		.byte	0x1
- 289 00aa 1A       		.byte	0x1a
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 7
+
+
+ 289 00aa 16       		.byte	0x16
  290 00ab 68000000 		.4byte	0x68
  291 00af 00000000 		.4byte	.LFB63
  292 00b3 C4000000 		.4byte	.LFE63-.LFB63
@@ -402,14 +398,14 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc5BzBc7.s 			page 1
  323 0102 A4010000 		.4byte	0x1a4
  324 0106 00       		.byte	0
  325 0107 09       		.uleb128 0x9
- 326 0108 73010000 		.4byte	.LASF16
+ 326 0108 82010000 		.4byte	.LASF16
  327 010c 04       		.byte	0x4
  328 010d 1207     		.2byte	0x712
  329 010f 13010000 		.4byte	0x113
  330 0113 0A       		.uleb128 0xa
  331 0114 76000000 		.4byte	0x76
  332 0118 0B       		.uleb128 0xb
- 333 0119 9D010000 		.4byte	.LASF17
+ 333 0119 00000000 		.4byte	.LASF17
  334 011d 05       		.byte	0x5
  335 011e 0A       		.byte	0xa
  336 011f 29010000 		.4byte	0x129
@@ -418,21 +414,21 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc5BzBc7.s 			page 1
  339 0125 00000000 		.4byte	button_pressed
  340 0129 0A       		.uleb128 0xa
  341 012a 68000000 		.4byte	0x68
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc5BzBc7.s 			page 8
-
-
  342 012e 0B       		.uleb128 0xb
- 343 012f 67010000 		.4byte	.LASF18
+ 343 012f 76010000 		.4byte	.LASF18
  344 0133 05       		.byte	0x5
  345 0134 0B       		.byte	0xb
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 8
+
+
  346 0135 29010000 		.4byte	0x129
  347 0139 05       		.uleb128 0x5
  348 013a 03       		.byte	0x3
  349 013b 00000000 		.4byte	click_count
  350 013f 0B       		.uleb128 0xb
- 351 0140 76000000 		.4byte	.LASF19
+ 351 0140 00020000 		.4byte	.LASF19
  352 0144 01       		.byte	0x1
- 353 0145 14       		.byte	0x14
+ 353 0145 10       		.byte	0x10
  354 0146 68000000 		.4byte	0x68
  355 014a 05       		.uleb128 0x5
  356 014b 03       		.byte	0x3
@@ -440,7 +436,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc5BzBc7.s 			page 1
  358 0150 0B       		.uleb128 0xb
  359 0151 DD010000 		.4byte	.LASF20
  360 0155 01       		.byte	0x1
- 361 0156 15       		.byte	0x15
+ 361 0156 11       		.byte	0x11
  362 0157 68000000 		.4byte	0x68
  363 015b 05       		.uleb128 0x5
  364 015c 03       		.byte	0x3
@@ -448,15 +444,15 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc5BzBc7.s 			page 1
  366 0161 0B       		.uleb128 0xb
  367 0162 12020000 		.4byte	.LASF21
  368 0166 01       		.byte	0x1
- 369 0167 16       		.byte	0x16
+ 369 0167 12       		.byte	0x12
  370 0168 68000000 		.4byte	0x68
  371 016c 05       		.uleb128 0x5
  372 016d 03       		.byte	0x3
  373 016e 00000000 		.4byte	time_now
  374 0172 0B       		.uleb128 0xb
- 375 0173 00020000 		.4byte	.LASF22
+ 375 0173 44010000 		.4byte	.LASF22
  376 0177 01       		.byte	0x1
- 377 0178 17       		.byte	0x17
+ 377 0178 13       		.byte	0x13
  378 0179 68000000 		.4byte	0x68
  379 017d 05       		.uleb128 0x5
  380 017e 03       		.byte	0x3
@@ -467,8 +463,8 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc5BzBc7.s 			page 1
  385 018c 06       		.byte	0x6
  386 018d 5B       		.byte	0x5b
  387 018e 0C       		.uleb128 0xc
- 388 018f 87010000 		.4byte	.LASF24
- 389 0193 87010000 		.4byte	.LASF24
+ 388 018f 96010000 		.4byte	.LASF24
+ 389 0193 96010000 		.4byte	.LASF24
  390 0197 06       		.byte	0x6
  391 0198 6A       		.byte	0x6a
  392 0199 0C       		.uleb128 0xc
@@ -477,14 +473,14 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc5BzBc7.s 			page 1
  395 01a2 06       		.byte	0x6
  396 01a3 5A       		.byte	0x5a
  397 01a4 0C       		.uleb128 0xc
- 398 01a5 83000000 		.4byte	.LASF26
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc5BzBc7.s 			page 9
-
-
- 399 01a9 83000000 		.4byte	.LASF26
+ 398 01a5 85000000 		.4byte	.LASF26
+ 399 01a9 85000000 		.4byte	.LASF26
  400 01ad 06       		.byte	0x6
  401 01ae 69       		.byte	0x69
  402 01af 0C       		.uleb128 0xc
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 9
+
+
  403 01b0 63020000 		.4byte	.LASF27
  404 01b4 63020000 		.4byte	.LASF27
  405 01b8 07       		.byte	0x7
@@ -538,13 +534,13 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc5BzBc7.s 			page 1
  453 002b 04       		.uleb128 0x4
  454 002c 24       		.uleb128 0x24
  455 002d 00       		.byte	0
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc5BzBc7.s 			page 10
-
-
  456 002e 0B       		.uleb128 0xb
  457 002f 0B       		.uleb128 0xb
  458 0030 3E       		.uleb128 0x3e
  459 0031 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 10
+
+
  460 0032 03       		.uleb128 0x3
  461 0033 08       		.uleb128 0x8
  462 0034 00       		.byte	0
@@ -598,13 +594,13 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc5BzBc7.s 			page 1
  510 0069 00       		.byte	0
  511 006a 08       		.uleb128 0x8
  512 006b 8A8201   		.uleb128 0x410a
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc5BzBc7.s 			page 11
-
-
  513 006e 00       		.byte	0
  514 006f 02       		.uleb128 0x2
  515 0070 18       		.uleb128 0x18
  516 0071 9142     		.uleb128 0x2111
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 11
+
+
  517 0073 18       		.uleb128 0x18
  518 0074 00       		.byte	0
  519 0075 00       		.byte	0
@@ -658,13 +654,13 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc5BzBc7.s 			page 1
  567 00a5 19       		.uleb128 0x19
  568 00a6 6E       		.uleb128 0x6e
  569 00a7 0E       		.uleb128 0xe
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc5BzBc7.s 			page 12
-
-
  570 00a8 03       		.uleb128 0x3
  571 00a9 0E       		.uleb128 0xe
  572 00aa 3A       		.uleb128 0x3a
  573 00ab 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 12
+
+
  574 00ac 3B       		.uleb128 0x3b
  575 00ad 0B       		.uleb128 0xb
  576 00ae 00       		.byte	0
@@ -695,105 +691,105 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc5BzBc7.s 			page 1
  599      00000201 
  599      FB0E0D00 
  599      01010101 
- 600              	.LASF30:
- 601 0000 433A5C55 		.ascii	"C:\\Users\\Susanna\\Desktop\\Final_Project_DiGiacom"
- 601      73657273 
- 601      5C537573 
- 601      616E6E61 
- 601      5C446573 
- 602 002f 6F5F5061 		.ascii	"o_Palmieri\\Final_Project2.cydsn\\Final_prova.cydsn"
- 602      6C6D6965 
- 602      72695C46 
- 602      696E616C 
- 602      5F50726F 
- 603 0060 00       		.ascii	"\000"
- 604              	.LASF29:
- 605 0061 53575F53 		.ascii	"SW_State.c\000"
- 605      74617465 
- 605      2E6300
- 606              	.LASF9:
- 607 006c 5F5F696E 		.ascii	"__int32_t\000"
- 607      7433325F 
- 607      7400
- 608              	.LASF19:
- 609 0076 64657669 		.ascii	"device_state\000"
- 609      63655F73 
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc5BzBc7.s 			page 13
-
-
- 609      74617465 
- 609      00
+ 600              	.LASF17:
+ 601 0000 62757474 		.ascii	"button_pressed\000"
+ 601      6F6E5F70 
+ 601      72657373 
+ 601      656400
+ 602              	.LASF29:
+ 603 000f 53575F53 		.ascii	"SW_State.c\000"
+ 603      74617465 
+ 603      2E6300
+ 604              	.LASF9:
+ 605 001a 5F5F696E 		.ascii	"__int32_t\000"
+ 605      7433325F 
+ 605      7400
+ 606              	.LASF30:
+ 607 0024 433A5C55 		.ascii	"C:\\Users\\Susanna\\Desktop\\Final_Project_DiGiacom"
+ 607      73657273 
+ 607      5C537573 
+ 607      616E6E61 
+ 607      5C446573 
+ 608 0053 6F5F5061 		.ascii	"o_Palmieri\\Final_Project2.cydsn\\final_prova.cydsn"
+ 608      6C6D6965 
+ 608      72695C46 
+ 608      696E616C 
+ 608      5F50726F 
+ 609 0084 00       		.ascii	"\000"
  610              	.LASF26:
- 611 0083 54696D65 		.ascii	"Timer_SW_ReadCounter\000"
+ 611 0085 54696D65 		.ascii	"Timer_SW_ReadCounter\000"
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 13
+
+
  611      725F5357 
  611      5F526561 
  611      64436F75 
  611      6E746572 
  612              	.LASF10:
- 613 0098 696E7433 		.ascii	"int32_t\000"
+ 613 009a 696E7433 		.ascii	"int32_t\000"
  613      325F7400 
  614              	.LASF11:
- 615 00a0 666C6F61 		.ascii	"float\000"
+ 615 00a2 666C6F61 		.ascii	"float\000"
  615      7400
  616              	.LASF1:
- 617 00a6 756E7369 		.ascii	"unsigned char\000"
+ 617 00a8 756E7369 		.ascii	"unsigned char\000"
  617      676E6564 
  617      20636861 
  617      7200
  618              	.LASF28:
- 619 00b4 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 619 00b6 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
  619      43313120 
  619      352E342E 
  619      31203230 
  619      31363036 
- 620 00e7 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 620 00e9 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
  620      20726576 
  620      6973696F 
  620      6E203233 
  620      37373135 
- 621 011a 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 621 011c 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
  621      66756E63 
  621      74696F6E 
  621      2D736563 
  621      74696F6E 
- 622              	.LASF5:
- 623 0142 6C6F6E67 		.ascii	"long unsigned int\000"
- 623      20756E73 
- 623      69676E65 
- 623      6420696E 
- 623      7400
- 624              	.LASF3:
- 625 0154 73686F72 		.ascii	"short unsigned int\000"
- 625      7420756E 
- 625      7369676E 
- 625      65642069 
- 625      6E7400
- 626              	.LASF18:
- 627 0167 636C6963 		.ascii	"click_count\000"
- 627      6B5F636F 
- 627      756E7400 
- 628              	.LASF16:
- 629 0173 49544D5F 		.ascii	"ITM_RxBuffer\000"
- 629      52784275 
- 629      66666572 
- 629      00
- 630              	.LASF12:
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc5BzBc7.s 			page 14
+ 622              	.LASF22:
+ 623 0144 74696D65 		.ascii	"time_elapsed\000"
+ 623      5F656C61 
+ 623      70736564 
+ 623      00
+ 624              	.LASF5:
+ 625 0151 6C6F6E67 		.ascii	"long unsigned int\000"
+ 625      20756E73 
+ 625      69676E65 
+ 625      6420696E 
+ 625      7400
+ 626              	.LASF3:
+ 627 0163 73686F72 		.ascii	"short unsigned int\000"
+ 627      7420756E 
+ 627      7369676E 
+ 627      65642069 
+ 627      6E7400
+ 628              	.LASF18:
+ 629 0176 636C6963 		.ascii	"click_count\000"
+ 629      6B5F636F 
+ 629      756E7400 
+ 630              	.LASF16:
+ 631 0182 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 631      52784275 
+ 631      66666572 
+ 631      00
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 14
 
 
- 631 0180 646F7562 		.ascii	"double\000"
- 631      6C6500
- 632              	.LASF24:
- 633 0187 54696D65 		.ascii	"Timer_SW_WriteCounter\000"
- 633      725F5357 
- 633      5F577269 
- 633      7465436F 
- 633      756E7465 
- 634              	.LASF17:
- 635 019d 62757474 		.ascii	"button_pressed\000"
- 635      6F6E5F70 
- 635      72657373 
- 635      656400
+ 632              	.LASF12:
+ 633 018f 646F7562 		.ascii	"double\000"
+ 633      6C6500
+ 634              	.LASF24:
+ 635 0196 54696D65 		.ascii	"Timer_SW_WriteCounter\000"
+ 635      725F5357 
+ 635      5F577269 
+ 635      7465436F 
+ 635      756E7465 
  636              	.LASF8:
  637 01ac 756E7369 		.ascii	"unsigned int\000"
  637      676E6564 
@@ -823,10 +819,10 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc5BzBc7.s 			page 1
  647      206C6F6E 
  647      6720696E 
  647      7400
- 648              	.LASF22:
- 649 0200 74696D65 		.ascii	"time_elapsed\000"
- 649      5F656C61 
- 649      70736564 
+ 648              	.LASF19:
+ 649 0200 64657669 		.ascii	"device_state\000"
+ 649      63655F73 
+ 649      74617465 
  649      00
  650              	.LASF13:
  651 020d 63686172 		.ascii	"char\000"
@@ -838,13 +834,13 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc5BzBc7.s 			page 1
  654              	.LASF2:
  655 021b 73686F72 		.ascii	"short int\000"
  655      7420696E 
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc5BzBc7.s 			page 15
-
-
  655      7400
  656              	.LASF4:
  657 0225 6C6F6E67 		.ascii	"long int\000"
  657      20696E74 
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 15
+
+
  657      00
  658              	.LASF25:
  659 022e 54696D65 		.ascii	"Timer_SW_Start\000"

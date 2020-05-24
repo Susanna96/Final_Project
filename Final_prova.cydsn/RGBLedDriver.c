@@ -22,8 +22,7 @@
 
 uint16_t step;
 uint8_t direction;
-extern volatile int fullscale_range;
-extern volatile int sensitivity;
+
 
 void RGBLed_Start(void)
 {
@@ -41,7 +40,7 @@ void RGBLed_Stop(void)
 
 void set_PWM(int16_t X_Out,int16_t Y_Out,int16_t Z_Out)
 {
-    step=(4000-(G+CONFIDENCE_INTERVAL))/LEVELS; //cambia in base al FS -> METTI FS COME INPUT
+    step=(fullscale_range-(G+CONFIDENCE_INTERVAL))/LEVELS; //cambia in base al FS -> METTI FS COME INPUT
     
     if((X_Out>=G-CONFIDENCE_INTERVAL) && (X_Out<=G+CONFIDENCE_INTERVAL))
     {

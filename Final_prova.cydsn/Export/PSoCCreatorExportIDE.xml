@@ -25,8 +25,8 @@
       <Tool Name="postbuild" Command="" Options="" />
     </Toolchain>
   </Toolchains>
-  <Project Name="Final_prova" Path="C:\Users\Susanna\Desktop\Final_Project_DiGiacomo_Palmieri\Final_Project2.cydsn\Final_prova.cydsn" Version="5.90" Type="Normal">
-    <CMSIS_SVD_File>Final_prova.svd</CMSIS_SVD_File>
+  <Project Name="final_prova" Path="C:\Users\Susanna\Desktop\Final_Project_DiGiacomo_Palmieri\Final_Project2.cydsn\final_prova.cydsn" Version="5.90" Type="Normal">
+    <CMSIS_SVD_File>final_prova.svd</CMSIS_SVD_File>
     <Datasheet />
     <LinkerFiles>
       <LinkerFile Toolchain="ARM GCC Generic">.\Generated_Source\PSoC5\cm3gcc.ld</LinkerFile>
@@ -34,14 +34,16 @@
       <LinkerFile Toolchain="ARM IAR Generic">.\Generated_Source\PSoC5\Cm3Iar.icf</LinkerFile>
     </LinkerFiles>
     <Folders>
-      <Folder BuildType="STRICT" Path="C:\Users\Susanna\Desktop\Final_Project_DiGiacomo_Palmieri\Final_Project2.cydsn\Final_prova.cydsn">
-        <Files Root="C:\Users\Susanna\Desktop\Final_Project_DiGiacomo_Palmieri\Final_Project2.cydsn\Final_prova.cydsn">
+      <Folder BuildType="STRICT" Path="C:\Users\Susanna\Desktop\Final_Project_DiGiacomo_Palmieri\Final_Project2.cydsn\final_prova.cydsn">
+        <Files Root="C:\Users\Susanna\Desktop\Final_Project_DiGiacomo_Palmieri\Final_Project2.cydsn\final_prova.cydsn">
           <File BuildType="BUILD" Toolchain="">main.c</File>
           <File BuildType="BUILD" Toolchain="">I2C_Interface.c</File>
           <File BuildType="BUILD" Toolchain="">InterruptRoutines.c</File>
           <File BuildType="BUILD" Toolchain="">SW_State.c</File>
-          <File BuildType="BUILD" Toolchain="">SettingParameter.c</File>
           <File BuildType="BUILD" Toolchain="">RGBLedDriver.c</File>
+          <File BuildType="BUILD" Toolchain="">SettingParameter.c</File>
+          <File BuildType="BUILD" Toolchain="">25LC256.c</File>
+          <File BuildType="BUILD" Toolchain="">SPI_Interface.c</File>
           <File BuildType="BUILD" Toolchain="">cyapicallbacks.h</File>
           <File BuildType="BUILD" Toolchain="">ErrorCodes.h</File>
           <File BuildType="BUILD" Toolchain="">I2C_Interface.h</File>
@@ -49,10 +51,12 @@
           <File BuildType="BUILD" Toolchain="">InterruptRoutines.h</File>
           <File BuildType="BUILD" Toolchain="">SW_State.h</File>
           <File BuildType="BUILD" Toolchain="">SettingParameter.h</File>
+          <File BuildType="BUILD" Toolchain="">25LC256.h</File>
+          <File BuildType="BUILD" Toolchain="">SPI_Interface.h</File>
         </Files>
       </Folder>
-      <Folder BuildType="STRICT" Path="C:\Users\Susanna\Desktop\Final_Project_DiGiacomo_Palmieri\Final_Project2.cydsn\Final_prova.cydsn\Generated_Source\PSoC5">
-        <Files Root="C:\Users\Susanna\Desktop\Final_Project_DiGiacomo_Palmieri\Final_Project2.cydsn\Final_prova.cydsn">
+      <Folder BuildType="STRICT" Path="C:\Users\Susanna\Desktop\Final_Project_DiGiacomo_Palmieri\Final_Project2.cydsn\final_prova.cydsn\Generated_Source\PSoC5">
+        <Files Root="C:\Users\Susanna\Desktop\Final_Project_DiGiacomo_Palmieri\Final_Project2.cydsn\final_prova.cydsn">
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cyfitter_cfg.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cyfitter_cfg.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cymetadata.c</File>
@@ -206,50 +210,50 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Timer_SW_PM.c</File>
         </Files>
       </Folder>
-      <Folder BuildType="STRICT" Path="C:\Users\Susanna\Desktop\Final_Project_DiGiacomo_Palmieri\Final_Project2.cydsn\Final_prova.cydsn\Export\ARM_GCC_Generic">
-        <Files Root="C:\Users\Susanna\Desktop\Final_Project_DiGiacomo_Palmieri\Final_Project2.cydsn\Final_prova.cydsn">
+      <Folder BuildType="STRICT" Path="C:\Users\Susanna\Desktop\Final_Project_DiGiacomo_Palmieri\Final_Project2.cydsn\final_prova.cydsn\Export\ARM_GCC_Generic">
+        <Files Root="C:\Users\Susanna\Desktop\Final_Project_DiGiacomo_Palmieri\Final_Project2.cydsn\final_prova.cydsn">
           <File BuildType="BUILD" Toolchain="ARM GCC Generic">.\Export\ARM_GCC_Generic\CyComponentLibrary.a</File>
         </Files>
       </Folder>
-      <Folder BuildType="STRICT" Path="C:\Users\Susanna\Desktop\Final_Project_DiGiacomo_Palmieri\Final_Project2.cydsn\Final_prova.cydsn\Export\ARM_MDK_Generic">
-        <Files Root="C:\Users\Susanna\Desktop\Final_Project_DiGiacomo_Palmieri\Final_Project2.cydsn\Final_prova.cydsn">
+      <Folder BuildType="STRICT" Path="C:\Users\Susanna\Desktop\Final_Project_DiGiacomo_Palmieri\Final_Project2.cydsn\final_prova.cydsn\Export\ARM_MDK_Generic">
+        <Files Root="C:\Users\Susanna\Desktop\Final_Project_DiGiacomo_Palmieri\Final_Project2.cydsn\final_prova.cydsn">
           <File BuildType="BUILD" Toolchain="ARM MDK Generic">.\Export\ARM_MDK_Generic\CyComponentLibrary.a</File>
         </Files>
       </Folder>
-      <Folder BuildType="STRICT" Path="C:\Users\Susanna\Desktop\Final_Project_DiGiacomo_Palmieri\Final_Project2.cydsn\Final_prova.cydsn\Export\ARM_IAR_Generic">
-        <Files Root="C:\Users\Susanna\Desktop\Final_Project_DiGiacomo_Palmieri\Final_Project2.cydsn\Final_prova.cydsn">
+      <Folder BuildType="STRICT" Path="C:\Users\Susanna\Desktop\Final_Project_DiGiacomo_Palmieri\Final_Project2.cydsn\final_prova.cydsn\Export\ARM_IAR_Generic">
+        <Files Root="C:\Users\Susanna\Desktop\Final_Project_DiGiacomo_Palmieri\Final_Project2.cydsn\final_prova.cydsn">
           <File BuildType="BUILD" Toolchain="ARM IAR Generic">.\Export\ARM_IAR_Generic\CyComponentLibrary.a</File>
         </Files>
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\codegentemp">
-        <Files Root="C:\Users\Susanna\Desktop\Final_Project_DiGiacomo_Palmieri\Final_Project2.cydsn\Final_prova.cydsn" />
+        <Files Root="C:\Users\Susanna\Desktop\Final_Project_DiGiacomo_Palmieri\Final_Project2.cydsn\final_prova.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\ARM_GCC_441">
-        <Files Root="C:\Users\Susanna\Desktop\Final_Project_DiGiacomo_Palmieri\Final_Project2.cydsn\Final_prova.cydsn" />
+        <Files Root="C:\Users\Susanna\Desktop\Final_Project_DiGiacomo_Palmieri\Final_Project2.cydsn\final_prova.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\ARM_GCC_473">
-        <Files Root="C:\Users\Susanna\Desktop\Final_Project_DiGiacomo_Palmieri\Final_Project2.cydsn\Final_prova.cydsn" />
+        <Files Root="C:\Users\Susanna\Desktop\Final_Project_DiGiacomo_Palmieri\Final_Project2.cydsn\final_prova.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\DP8051_Keil_952">
-        <Files Root="C:\Users\Susanna\Desktop\Final_Project_DiGiacomo_Palmieri\Final_Project2.cydsn\Final_prova.cydsn" />
+        <Files Root="C:\Users\Susanna\Desktop\Final_Project_DiGiacomo_Palmieri\Final_Project2.cydsn\final_prova.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\DP8051">
-        <Files Root="C:\Users\Susanna\Desktop\Final_Project_DiGiacomo_Palmieri\Final_Project2.cydsn\Final_prova.cydsn" />
+        <Files Root="C:\Users\Susanna\Desktop\Final_Project_DiGiacomo_Palmieri\Final_Project2.cydsn\final_prova.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\CortexM0">
-        <Files Root="C:\Users\Susanna\Desktop\Final_Project_DiGiacomo_Palmieri\Final_Project2.cydsn\Final_prova.cydsn" />
+        <Files Root="C:\Users\Susanna\Desktop\Final_Project_DiGiacomo_Palmieri\Final_Project2.cydsn\final_prova.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\CortexM0p">
-        <Files Root="C:\Users\Susanna\Desktop\Final_Project_DiGiacomo_Palmieri\Final_Project2.cydsn\Final_prova.cydsn" />
+        <Files Root="C:\Users\Susanna\Desktop\Final_Project_DiGiacomo_Palmieri\Final_Project2.cydsn\final_prova.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\CortexM3">
-        <Files Root="C:\Users\Susanna\Desktop\Final_Project_DiGiacomo_Palmieri\Final_Project2.cydsn\Final_prova.cydsn" />
+        <Files Root="C:\Users\Susanna\Desktop\Final_Project_DiGiacomo_Palmieri\Final_Project2.cydsn\final_prova.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\CortexM4">
-        <Files Root="C:\Users\Susanna\Desktop\Final_Project_DiGiacomo_Palmieri\Final_Project2.cydsn\Final_prova.cydsn" />
+        <Files Root="C:\Users\Susanna\Desktop\Final_Project_DiGiacomo_Palmieri\Final_Project2.cydsn\final_prova.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\CortexM7">
-        <Files Root="C:\Users\Susanna\Desktop\Final_Project_DiGiacomo_Palmieri\Final_Project2.cydsn\Final_prova.cydsn" />
+        <Files Root="C:\Users\Susanna\Desktop\Final_Project_DiGiacomo_Palmieri\Final_Project2.cydsn\final_prova.cydsn" />
       </Folder>
     </Folders>
   </Project>

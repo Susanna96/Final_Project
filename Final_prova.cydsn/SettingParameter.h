@@ -14,9 +14,10 @@
     
    #include "cytypes.h"
     
-    volatile int fullscale_range;
-    volatile int sensitivity;
-    void setParameter(int16 value_pot);
+    volatile int16 fullscale_range;
+    volatile uint8_t sensitivity;
+    uint8 Parameters;
+    void setParameter(void);
     
     
     
