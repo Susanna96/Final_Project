@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
   29:Generated_Source\PSoC5/cyfitter_cfg.c **** 
   30:Generated_Source\PSoC5/cyfitter_cfg.c **** #if defined(__GNUC__) || defined(__ARMCC_VERSION)
   31:Generated_Source\PSoC5/cyfitter_cfg.c ****     #define CYPACKED 
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 2
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 2
 
 
   32:Generated_Source\PSoC5/cyfitter_cfg.c ****     #define CYPACKED_ATTR __attribute__ ((packed))
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
   86:Generated_Source\PSoC5/cyfitter_cfg.c **** 	(void)memcpy(dest, src, n);
   87:Generated_Source\PSoC5/cyfitter_cfg.c **** }
   88:Generated_Source\PSoC5/cyfitter_cfg.c **** CY_CFG_UNUSED
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 3
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 3
 
 
   89:Generated_Source\PSoC5/cyfitter_cfg.c **** static void CYCONFIGCPYCODE(void *dest, const void *src, size_t n);
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
   41              		.thumb
   42              		.thumb_func
   43              		.type	cfg_write_bytes32, %function
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 4
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 4
 
 
   44              	cfg_write_bytes32:
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  181:Generated_Source\PSoC5/cyfitter_cfg.c **** 
  182:Generated_Source\PSoC5/cyfitter_cfg.c **** /* CYDEV_CLKDIST_ACFG0_CFG0 Address: CYREG_CLKDIST_ACFG0_CFG0 Size (bytes): 4 */
  183:Generated_Source\PSoC5/cyfitter_cfg.c **** #define BS_CYDEV_CLKDIST_ACFG0_CFG0_VAL ((const uint8 CYFAR *)0x48000988u)
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 5
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 5
 
 
  184:Generated_Source\PSoC5/cyfitter_cfg.c **** 
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
   74              		.loc 1 209 0
   75 000e 26F0FF06 		bic	r6, r6, #255
   76              	.LVL6:
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 6
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 6
 
 
  210:Generated_Source\PSoC5/cyfitter_cfg.c **** 		while (count != 0u)
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  120              		.thumb_func
  121              		.type	AnalogSetDefault, %function
  122              	AnalogSetDefault:
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 7
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 7
 
 
  123              	.LFB6:
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  271:Generated_Source\PSoC5/cyfitter_cfg.c **** 	/* Configure PLL based on settings from Clock DWR */
  272:Generated_Source\PSoC5/cyfitter_cfg.c **** 	CY_SET_XTND_REG16((void CYFAR *)(CYREG_FASTCLK_PLL_P), 0x0008u);
  273:Generated_Source\PSoC5/cyfitter_cfg.c **** 	CY_SET_XTND_REG16((void CYFAR *)(CYREG_FASTCLK_PLL_CFG0), 0x1251u);
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 8
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 8
 
 
  274:Generated_Source\PSoC5/cyfitter_cfg.c **** 	/* Wait up to 250us for the PLL to lock */
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  323:Generated_Source\PSoC5/cyfitter_cfg.c **** 	uint8 bg_xover_inl_trim = CY_GET_XTND_REG8((void CYFAR *)(CYREG_FLSHID_MFG_CFG_BG_XOVER_INL_TRIM +
  129              		.loc 1 323 0
  130 0000 0A4B     		ldr	r3, .L10
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 9
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 9
 
 
  131 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  178              		.cfi_startproc
  179              		@ args = 0, pretend = 0, frame = 0
  180              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 10
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 10
 
 
  181              	.LVL14:
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  231              		.cfi_def_cfa_offset 16
  232              		.cfi_offset 3, -16
  233              		.cfi_offset 4, -12
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 11
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 11
 
 
  234              		.cfi_offset 5, -8
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  254:Generated_Source\PSoC5/cyfitter_cfg.c **** 	CY_SET_XTND_REG16((void CYFAR *)(CYREG_CLKDIST_DCFG6_CFG0), 0x752Fu);
  277              		.loc 1 254 0
  278 0042 334B     		ldr	r3, .L22+8
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 12
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 12
 
 
  279 0044 1D70     		strb	r5, [r3]
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  322              		.loc 1 273 0
  323 008e 41F25122 		movw	r2, #4689
  324 0092 023B     		subs	r3, r3, #2
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 13
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 13
 
 
  325 0094 1A80     		strh	r2, [r3]	@ movhi
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  368 00cc 0022     		movs	r2, #0
  369 00ce 1949     		ldr	r1, .L22+44
  370 00d0 0A70     		strb	r2, [r1]
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 14
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 14
 
 
  291:Generated_Source\PSoC5/cyfitter_cfg.c **** 	CY_SET_XTND_REG8((void CYFAR *)(CYREG_CLKDIST_MSTR0), 0x00u);
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  418              		.cfi_endproc
  419              	.LFE5:
  420              		.size	ClockSetup, .-ClockSetup
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 15
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 15
 
 
  421              		.section	.text.SetAnalogRoutingPumps,"ax",%progbits
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  358:Generated_Source\PSoC5/cyfitter_cfg.c **** 	{
  359:Generated_Source\PSoC5/cyfitter_cfg.c **** 		regValue &= (uint8)~0x22u;
  447              		.loc 1 359 0
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 16
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 16
 
 
  448 000e 03F0DD03 		and	r3, r3, #221
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  392:Generated_Source\PSoC5/cyfitter_cfg.c **** *******************************************************************************/
  393:Generated_Source\PSoC5/cyfitter_cfg.c **** void ADC_DelSig_AMux_Set(uint8 channel)
  394:Generated_Source\PSoC5/cyfitter_cfg.c **** {
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 17
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 17
 
 
  470              		.loc 1 394 0
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  414:Generated_Source\PSoC5/cyfitter_cfg.c **** *******************************************************************************/
  415:Generated_Source\PSoC5/cyfitter_cfg.c **** void ADC_DelSig_AMux_Unset(uint8 channel)
  416:Generated_Source\PSoC5/cyfitter_cfg.c **** {
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 18
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 18
 
 
  505              		.loc 1 416 0
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  436:Generated_Source\PSoC5/cyfitter_cfg.c **** *
  437:Generated_Source\PSoC5/cyfitter_cfg.c **** * Return:
  438:Generated_Source\PSoC5/cyfitter_cfg.c **** *   void
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 19
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 19
 
 
  439:Generated_Source\PSoC5/cyfitter_cfg.c **** *
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  469:Generated_Source\PSoC5/cyfitter_cfg.c **** 			{(void CYFAR *)(CYREG_TMR0_CFG0), 12u},
  470:Generated_Source\PSoC5/cyfitter_cfg.c **** 			{(void CYFAR *)(CYREG_PRT4_DR), 48u},
  471:Generated_Source\PSoC5/cyfitter_cfg.c **** 			{(void CYFAR *)(CYREG_PRT15_DR), 16u},
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 20
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 20
 
 
  472:Generated_Source\PSoC5/cyfitter_cfg.c **** 			{(void CYFAR *)(CYDEV_UCFG_B0_P0_U0_BASE), 4096u},
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  595              	.L41:
  596              	.LBB5:
  493:Generated_Source\PSoC5/cyfitter_cfg.c **** 		}
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 21
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 21
 
 
  494:Generated_Source\PSoC5/cyfitter_cfg.c **** 
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  511:Generated_Source\PSoC5/cyfitter_cfg.c **** 		CY_SET_XTND_REG8((void CYFAR *)CYREG_BCTL0_BANK_CTL, CY_GET_XTND_REG8((void CYFAR *)CYREG_BCTL0_B
  632              		.loc 1 511 0
  633 0060 264A     		ldr	r2, .L43+16
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 22
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 22
 
 
  634 0062 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  675 00ae 1C48     		ldr	r0, .L43+52
  676 00b0 FFF7FEFF 		bl	CYCONFIGCPY
  677              	.LVL54:
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 23
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 23
 
 
  525:Generated_Source\PSoC5/cyfitter_cfg.c **** 	CYCONFIGCPY((void CYFAR *)(CYREG_PRT3_DR), (const void CYFAR *)(BS_IOPINS0_3_VAL), 10u);
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  715              	.L43:
  716 00ec E8460040 		.word	1073759976
  717 00f0 00000000 		.word	.LANCHOR0
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 24
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 24
 
 
  718 00f4 88000048 		.word	1207959688
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  772 0036 00400140 		.4byte	1073823744
  773 003a 000A     		.short	2560
  774 003c 004C0140 		.word	1073826816
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 25
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 25
 
 
  775 0040 0002     		.short	512
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  829 004e 06       		.byte	0x6
  830 004f 93000000 		.4byte	.LASF3
  831 0053 04       		.uleb128 0x4
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 26
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 26
 
 
  832 0054 01       		.byte	0x1
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  886 00ba 04       		.byte	0x4
  887 00bb E2000000 		.4byte	.LASF17
  888 00bf 06       		.uleb128 0x6
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 27
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 27
 
 
  889 00c0 F9010000 		.4byte	.LASF18
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  943 0131 9F000000 		.4byte	.LASF28
  944 0135 01       		.byte	0x1
  945 0136 C9       		.byte	0xc9
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 28
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 28
 
 
  946 0137 00000000 		.4byte	.LFB4
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  1000 01ae 04       		.byte	0x4
  1001 01af B3010000 		.4byte	0x1b3
  1002 01b3 11       		.uleb128 0x11
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 29
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 29
 
 
  1003 01b4 02010000 		.4byte	0x102
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  1057 0224 01       		.uleb128 0x1
  1058 0225 52       		.byte	0x52
  1059 0226 03       		.uleb128 0x3
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 30
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 30
 
 
  1060 0227 F3       		.byte	0xf3
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  1114 0288 01       		.uleb128 0x1
  1115 0289 52       		.byte	0x52
  1116 028a 00       		.byte	0
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 31
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 31
 
 
  1117 028b 00       		.byte	0
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  1171 02fa 50       		.byte	0x50
  1172 02fb 03       		.uleb128 0x3
  1173 02fc 0A       		.byte	0xa
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 32
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 32
 
 
  1174 02fd E001     		.2byte	0x1e0
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  1228 036f 01       		.byte	0x1
  1229 0370 9F01     		.2byte	0x19f
  1230 0372 00000000 		.4byte	.LFB9
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 33
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 33
 
 
  1231 0376 1C000000 		.4byte	.LFE9-.LFB9
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  1285 03f2 01       		.byte	0x1
  1286 03f3 CD01     		.2byte	0x1cd
  1287 03f5 84000000 		.4byte	0x84
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 34
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 34
 
 
  1288 03f9 00       		.byte	0
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  1342 0470 48000000 		.4byte	cfg_memcpy_list.5033
  1343 0474 11       		.uleb128 0x11
  1344 0475 4D040000 		.4byte	0x44d
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 35
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 35
 
 
  1345 0479 24       		.uleb128 0x24
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  1399 04e5 2F020000 		.4byte	.LLST16
  1400 04e9 10       		.uleb128 0x10
  1401 04ea 04       		.byte	0x4
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 36
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 36
 
 
  1402 04eb 5D040000 		.4byte	0x45d
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  1456 0552 24       		.byte	0x24
  1457 0553 16       		.uleb128 0x16
  1458 0554 01       		.uleb128 0x1
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 37
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 37
 
 
  1459 0555 51       		.byte	0x51
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  1513 05b2 CE050000 		.4byte	0x5ce
  1514 05b6 16       		.uleb128 0x16
  1515 05b7 01       		.uleb128 0x1
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 38
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 38
 
 
  1516 05b8 50       		.byte	0x50
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  1570 060f 7C090048 		.4byte	0x4800097c
  1571 0613 16       		.uleb128 0x16
  1572 0614 01       		.uleb128 0x1
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 39
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 39
 
 
  1573 0615 52       		.byte	0x52
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  1627 0679 4B060000 		.4byte	0x64b
  1628 067d 22       		.uleb128 0x22
  1629 067e 8D060000 		.4byte	0x68d
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 40
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 40
 
 
  1630 0682 8D060000 		.4byte	0x68d
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  1684 0017 0B       		.uleb128 0xb
  1685 0018 3E       		.uleb128 0x3e
  1686 0019 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 41
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 41
 
 
  1687 001a 03       		.uleb128 0x3
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  1741 0050 00       		.byte	0
  1742 0051 08       		.uleb128 0x8
  1743 0052 13       		.uleb128 0x13
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 42
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 42
 
 
  1744 0053 01       		.byte	0x1
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  1798 008b 03       		.uleb128 0x3
  1799 008c 0E       		.uleb128 0xe
  1800 008d 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 43
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 43
 
 
  1801 008e 0B       		.uleb128 0xb
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  1855 00c5 00       		.byte	0
  1856 00c6 00       		.byte	0
  1857 00c7 0F       		.uleb128 0xf
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 44
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 44
 
 
  1858 00c8 34       		.uleb128 0x34
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  1912 00ff 34       		.uleb128 0x34
  1913 0100 00       		.byte	0
  1914 0101 03       		.uleb128 0x3
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 45
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 45
 
 
  1915 0102 0E       		.uleb128 0xe
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  1969 013d 13       		.uleb128 0x13
  1970 013e 02       		.uleb128 0x2
  1971 013f 17       		.uleb128 0x17
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 46
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 46
 
 
  1972 0140 00       		.byte	0
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  2026 0179 02       		.uleb128 0x2
  2027 017a 18       		.uleb128 0x18
  2028 017b 00       		.byte	0
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 47
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 47
 
 
  2029 017c 00       		.byte	0
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  2083 01b2 00       		.byte	0
  2084 01b3 20       		.uleb128 0x20
  2085 01b4 0D       		.uleb128 0xd
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 48
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 48
 
 
  2086 01b5 00       		.byte	0
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  2140 01eb 05       		.uleb128 0x5
  2141 01ec 49       		.uleb128 0x49
  2142 01ed 13       		.uleb128 0x13
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 49
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 49
 
 
  2143 01ee 02       		.uleb128 0x2
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  2197 0226 3A       		.uleb128 0x3a
  2198 0227 0B       		.uleb128 0xb
  2199 0228 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 50
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 50
 
 
  2200 0229 0B       		.uleb128 0xb
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  2254 007e 00000000 		.4byte	0
  2255              	.LLST5:
  2256 0082 00000000 		.4byte	.LVL14
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 51
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 51
 
 
  2257 0086 09000000 		.4byte	.LVL16-1
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  2311 0107 51       		.byte	0x51
  2312 0108 9F       		.byte	0x9f
  2313 0109 00000000 		.4byte	0
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 52
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 52
 
 
  2314 010d 00000000 		.4byte	0
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  2368 0193 9F       		.byte	0x9f
  2369 0194 00000000 		.4byte	0
  2370 0198 00000000 		.4byte	0
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 53
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 53
 
 
  2371              	.LLST13:
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  2425 021d 7F       		.sleb128 -1
  2426 021e 36       		.byte	0x36
  2427 021f 1E       		.byte	0x1e
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 54
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 54
 
 
  2428 0220 03       		.byte	0x3
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  2482 029e 74       		.byte	0x74
  2483 029f 00       		.sleb128 0
  2484 02a0 32       		.byte	0x32
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 55
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 55
 
 
  2485 02a1 24       		.byte	0x24
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  2539              	.Ldebug_ranges0:
  2540 0000 00000000 		.4byte	.LFB3
  2541 0004 02000000 		.4byte	.LFE3
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 56
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 56
 
 
  2542 0008 00000000 		.4byte	.LFB4
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  2578      4D75785F 
  2578      556E7365 
  2579              	.LASF9:
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 57
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 57
 
 
  2580 0052 6C6F6E67 		.ascii	"long long unsigned int\000"
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  2605              	.LASF31:
  2606 00e9 43594D45 		.ascii	"CYMEMZERO\000"
  2606      4D5A4552 
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 58
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 58
 
 
  2606      4F00
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  2630      6E7400
  2631              	.LASF10:
  2632 0194 73697A65 		.ascii	"sizetype\000"
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 59
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 59
 
 
  2632      74797065 
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  2657 0249 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
  2657      20726576 
  2657      6973696F 
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 60
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 60
 
 
  2657      6E203233 
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 1
  2682      4E464947 
  2682      43505900 
  2683              	.LASF58:
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccgjxhKa.s 			page 61
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccwafdus.s 			page 61
 
 
  2684 036c 47656E65 		.ascii	"Generated_Source\\PSoC5\\cyfitter_cfg.c\000"

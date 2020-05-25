@@ -513,7 +513,7 @@ int main(void)
                 /* Set parameters (full-scale range) with potentiometer */
                 setParameter();
         
-                Parameters=Parameters|state;
+                Parameters=(Parameters<<4)|state;
                 EEPROM_writeByte(0x0000,Parameters);
                 EEPROM_waitForWriteComplete();
                 
@@ -521,7 +521,7 @@ int main(void)
                 sprintf(buffer_EEPROM," EEPROM Read = 0x%02X (0x%02X)\r\n", Parameters_read, Parameters);
                 UART_PutString(buffer_EEPROM);
             } else {
-                Parameters=Parameters|state;
+                Parameters=(Parameters<<4)|state;
                 EEPROM_writeByte(0x0000,Parameters);
                 EEPROM_waitForWriteComplete();
                 

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 1
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc02kxPZ.s 			page 1
 
 
    1              		.syntax unified
@@ -44,7 +44,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 1
   14:SW_State.c    **** 
   15:SW_State.c    **** 
   16:SW_State.c    **** int  device_state    = STOP;
-  17:SW_State.c    **** int  t_dbl_click     = 5;
+  17:SW_State.c    **** int  t_dbl_click     = 18;
   18:SW_State.c    **** int  time_now        = 0;
   19:SW_State.c    **** int  time_elapsed    = 0;
   20:SW_State.c    **** 
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 1
   32 0000 08B5     		push	{r3, lr}
   33              		.cfi_def_cfa_offset 8
   34              		.cfi_offset 3, -8
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 2
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc02kxPZ.s 			page 2
 
 
   35              		.cfi_offset 14, -4
@@ -67,9 +67,9 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 1
   36              		.loc 1 25 0
   37 0002 FFF7FEFF 		bl	Timer_SW_Stop
   38              	.LVL0:
-  26:SW_State.c    ****     Timer_SW_WriteCounter(0);
+  26:SW_State.c    ****     Timer_SW_WriteCounter(20);
   39              		.loc 1 26 0
-  40 0006 0020     		movs	r0, #0
+  40 0006 1420     		movs	r0, #20
   41 0008 FFF7FEFF 		bl	Timer_SW_WriteCounter
   42              	.LVL1:
   27:SW_State.c    ****     Timer_SW_Start();
@@ -100,12 +100,12 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 1
   62 0024 0028     		cmp	r0, #0
   63 0026 F7D0     		beq	.L3
   32:SW_State.c    ****     }
-  33:SW_State.c    ****     if ((time_elapsed > LONG_PRESS) && ((device_state == START) || (device_state == STOP)))
+  33:SW_State.c    ****     if ((time_elapsed < LONG_PRESS) && ((device_state == START) || (device_state == STOP)))
   64              		.loc 1 33 0
   65 0028 234B     		ldr	r3, .L9+4
   66 002a 1B68     		ldr	r3, [r3]
-  67 002c 092B     		cmp	r3, #9
-  68 002e 0ADD     		ble	.L4
+  67 002c 112B     		cmp	r3, #17
+  68 002e 0ADC     		bgt	.L4
   69              		.loc 1 33 0 is_stmt 0 discriminator 1
   70 0030 224A     		ldr	r2, .L9+8
   71 0032 1268     		ldr	r2, [r2]
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 1
   76 003a 214B     		ldr	r3, .L9+12
   77 003c 1A60     		str	r2, [r3]
   36:SW_State.c    ****         device_state = CONFIGURATION_MODE;
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 3
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc02kxPZ.s 			page 3
 
 
   78              		.loc 1 36 0
@@ -127,10 +127,10 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 1
   81 0042 1A60     		str	r2, [r3]
   82 0044 32E0     		b	.L5
   83              	.L4:
-  37:SW_State.c    ****     } else if ((time_elapsed > LONG_PRESS) && (device_state == CONFIGURATION_MODE))
+  37:SW_State.c    ****     } else if ((time_elapsed < LONG_PRESS) && (device_state == CONFIGURATION_MODE))
   84              		.loc 1 37 0
-  85 0046 092B     		cmp	r3, #9
-  86 0048 09DD     		ble	.L6
+  85 0046 112B     		cmp	r3, #17
+  86 0048 09DC     		bgt	.L6
   87              		.loc 1 37 0 is_stmt 0 discriminator 1
   88 004a 1C4B     		ldr	r3, .L9+8
   89 004c 1B68     		ldr	r3, [r3]
@@ -149,7 +149,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 1
   99 005c 26E0     		b	.L5
  100              	.L6:
   41:SW_State.c    ****     }
-  42:SW_State.c    ****      else if ((click_count == 2) && (Timer_SW_ReadCounter() < t_dbl_click ) && ((device_state == ST
+  42:SW_State.c    ****      else if ((click_count == 2) && (Timer_SW_ReadCounter() > t_dbl_click ) && ((device_state == ST
  101              		.loc 1 42 0
  102 005e 184B     		ldr	r3, .L9+12
  103 0060 1B68     		ldr	r3, [r3]
@@ -161,7 +161,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 1
  109 006a 144B     		ldr	r3, .L9+8
  110 006c 5B68     		ldr	r3, [r3, #4]
  111 006e 9842     		cmp	r0, r3
- 112 0070 09DA     		bge	.L7
+ 112 0070 09DD     		ble	.L7
  113              		.loc 1 42 0 discriminator 2
  114 0072 124B     		ldr	r3, .L9+8
  115 0074 1B68     		ldr	r3, [r3]
@@ -178,11 +178,11 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 1
  123 0080 0E4A     		ldr	r2, .L9+8
  124 0082 1360     		str	r3, [r2]
  125 0084 12E0     		b	.L5
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 4
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc02kxPZ.s 			page 4
 
 
  126              	.L7:
-  46:SW_State.c    ****     } else if ((click_count == 2) && (Timer_SW_ReadCounter() < t_dbl_click ) && ((device_state == S
+  46:SW_State.c    ****     } else if ((click_count == 2) && (Timer_SW_ReadCounter() > t_dbl_click ) && ((device_state == S
  127              		.loc 1 46 0
  128 0086 0E4B     		ldr	r3, .L9+12
  129 0088 1B68     		ldr	r3, [r3]
@@ -194,7 +194,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 1
  135 0092 0A4B     		ldr	r3, .L9+8
  136 0094 5B68     		ldr	r3, [r3, #4]
  137 0096 9842     		cmp	r0, r3
- 138 0098 08DA     		bge	.L5
+ 138 0098 08DD     		ble	.L5
  139              		.loc 1 46 0 discriminator 2
  140 009a 084B     		ldr	r3, .L9+8
  141 009c 1B68     		ldr	r3, [r3]
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 1
  172              		.data
  173              		.align	2
  174              		.set	.LANCHOR1,. + 0
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 5
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc02kxPZ.s 			page 5
 
 
  175              		.type	device_state, %object
@@ -248,7 +248,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 1
  179              		.type	t_dbl_click, %object
  180              		.size	t_dbl_click, 4
  181              	t_dbl_click:
- 182 0004 05000000 		.word	5
+ 182 0004 12000000 		.word	18
  183              		.bss
  184              		.align	2
  185              		.set	.LANCHOR0,. + 0
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 1
  229 003b 02       		.byte	0x2
  230 003c 07       		.byte	0x7
  231 003d 63010000 		.4byte	.LASF3
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 6
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc02kxPZ.s 			page 6
 
 
  232 0041 03       		.uleb128 0x3
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 1
  286 00a4 05       		.uleb128 0x5
  287 00a5 D0010000 		.4byte	.LASF31
  288 00a9 01       		.byte	0x1
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 7
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc02kxPZ.s 			page 7
 
 
  289 00aa 16       		.byte	0x16
@@ -379,7 +379,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 1
  304 00d4 01       		.uleb128 0x1
  305 00d5 50       		.byte	0x50
  306 00d6 01       		.uleb128 0x1
- 307 00d7 30       		.byte	0x30
+ 307 00d7 44       		.byte	0x44
  308 00d8 00       		.byte	0
  309 00d9 06       		.uleb128 0x6
  310 00da 10000000 		.4byte	.LVL2
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 1
  343 012f 76010000 		.4byte	.LASF18
  344 0133 05       		.byte	0x5
  345 0134 0B       		.byte	0xb
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 8
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc02kxPZ.s 			page 8
 
 
  346 0135 29010000 		.4byte	0x129
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 1
  400 01ad 06       		.byte	0x6
  401 01ae 69       		.byte	0x69
  402 01af 0C       		.uleb128 0xc
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 9
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc02kxPZ.s 			page 9
 
 
  403 01b0 63020000 		.4byte	.LASF27
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 1
  457 002f 0B       		.uleb128 0xb
  458 0030 3E       		.uleb128 0x3e
  459 0031 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 10
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc02kxPZ.s 			page 10
 
 
  460 0032 03       		.uleb128 0x3
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 1
  514 006f 02       		.uleb128 0x2
  515 0070 18       		.uleb128 0x18
  516 0071 9142     		.uleb128 0x2111
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 11
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc02kxPZ.s 			page 11
 
 
  517 0073 18       		.uleb128 0x18
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 1
  571 00a9 0E       		.uleb128 0xe
  572 00aa 3A       		.uleb128 0x3a
  573 00ab 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 12
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc02kxPZ.s 			page 12
 
 
  574 00ac 3B       		.uleb128 0x3b
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 1
  609 0084 00       		.ascii	"\000"
  610              	.LASF26:
  611 0085 54696D65 		.ascii	"Timer_SW_ReadCounter\000"
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 13
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc02kxPZ.s 			page 13
 
 
  611      725F5357 
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 1
  631      52784275 
  631      66666572 
  631      00
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 14
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc02kxPZ.s 			page 14
 
 
  632              	.LASF12:
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 1
  656              	.LASF4:
  657 0225 6C6F6E67 		.ascii	"long int\000"
  657      20696E74 
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccGBb1DP.s 			page 15
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc02kxPZ.s 			page 15
 
 
  657      00
