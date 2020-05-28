@@ -1,11 +1,8 @@
 /* ========================================
- *
- * Copyright YOUR COMPANY, THE YEAR
- * All Rights Reserved
- * UNPUBLISHED, LICENSED SOFTWARE.
- *
- * CONFIDENTIAL AND PROPRIETARY INFORMATION
- * WHICH IS THE PROPERTY OF your company.
+ * Source code to implement the different
+ * blinking frequencies of the RGB Led 
+ * in relation to the current value of
+ * the acceleration data acquired.
  *
  * ========================================
 */

@@ -1,7 +1,5 @@
 /* ========================================
  * \file main.c
- *
- *
  * ========================================
 */
 
@@ -124,8 +122,9 @@ threshold)
 #define LIS3DH_INT2_DURATION 0x37 
 
 /*Brief HEX value for INT2 DURATION register:
+    0.3 sec -> 0x03 
 */
-#define LIS3DH_DURATION_EVENT 0x03         // 0.3 sec
+#define LIS3DH_DURATION_EVENT 0x03         
 
 //Brief OUT_X_L register address (x-axis output LSB)
 #define LIS3DH_OUT_X_L 0x28
@@ -160,6 +159,7 @@ int main(void)
 	           INITIALIZATION
 	---------------------------------------- */
     
+    
     I2C_Peripheral_Start();
     UART_Start();
     
@@ -188,7 +188,6 @@ int main(void)
 		---------------------------------------- */
     
     char message[50];
-    char buffer_EEPROM[100];
     
     // CONTROL REGISTER 1
     uint8_t ctrl_reg1; 
@@ -451,6 +450,7 @@ int main(void)
     
     uint8_t i=0;
     uint8_t Parameters_read;
+    char buffer_EEPROM[100];
     
     #define N_SAMPLES 6
     #define DATA_BYTES 12
@@ -534,6 +534,7 @@ int main(void)
     {                       
         if (button_pressed == 1)
         {
+            /* Call to the function that determines the state of the device*/
             state = Switch_State();
         }
         
@@ -548,12 +549,12 @@ int main(void)
             EEPROM_waitForWriteComplete();
             Parameters_read=EEPROM_readByte(0x0000);
             
-            /*Turn on on-board LED*/
+            /* Turn on on-board LED */
             PWM_ONBOARD_Stop();
             PWM_ONBOARD_WriteCompare(255);
             PWM_ONBOARD_Start();
             
-            /*Read FIFO_SRC registers to check for overrun event*/
+            /* Read FIFO_SRC registers to check for overrun event */
             error = I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS,
                                          LIS3DH_FIFO_SRC_REG,
                                          &fifo_src_reg); 
@@ -563,7 +564,7 @@ int main(void)
 
                 for(i=0;i<32;i++)
 				{
-					// Read output registers - retrieval accel. data (X,Y,Z axis)
+					/* Read output registers - retrieval accel. data (X,Y,Z axis) */
 					error=I2C_Peripheral_ReadRegisterMulti(LIS3DH_DEVICE_ADDRESS,
 													LIS3DH_OUT_X_L, 6,
 													AccelerationData[i]);
@@ -600,7 +601,6 @@ int main(void)
                         
                         
                         /* Verify over threshold events in the 3 axis */
-                        
                         error = I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS,
                                              LIS3DH_INT2_SRC,
                                              &int2_src_reg);
@@ -755,7 +755,7 @@ int main(void)
             PWM_ONBOARD_Stop();
             PWM_ONBOARD_WriteCompare(0);
             PWM_ONBOARD_Start();
-
+            
             PWM_RG_WriteCompare1(255);
             PWM_RG_WriteCompare2(0);
             PWM_B_WriteCompare(255);

@@ -1,11 +1,10 @@
 /* ========================================
- *
- * Copyright YOUR COMPANY, THE YEAR
- * All Rights Reserved
- * UNPUBLISHED, LICENSED SOFTWARE.
- *
- * CONFIDENTIAL AND PROPRIETARY INFORMATION
- * WHICH IS THE PROPERTY OF your company.
+ * This file includes all the required source 
+ * code to determine the state of the 
+ * device according to the different actions
+ * performed on the on board button:
+ * - double-click
+ * - long press
  *
  * ========================================
 */
@@ -34,20 +33,26 @@ int Switch_State(void)
         /* Count for how much time the button is pressed */
         time_elapsed = Timer_SW_ReadCounter();
     }
+    /* Enter CONFIGURATION MODE when the button is pressed for long */
     if ((time_elapsed < LONG_PRESS) && ((device_state == START) || (device_state == STOP)))
     {
         click_count  = 0;
         device_state = CONFIGURATION_MODE;
-    } else if ((time_elapsed < LONG_PRESS) && (device_state == CONFIGURATION_MODE))
+    } 
+    /* Exit CONFIGURATION MODE when the button is pressed for long again*/
+    else if ((time_elapsed < LONG_PRESS) && (device_state == CONFIGURATION_MODE))
     {
         click_count  = 0;
         device_state = START;
     }
+    /* Enter START with double click */
      else if ((click_count == 2) && (Timer_SW_ReadCounter() > t_dbl_click ) && ((device_state == STOP)))
     {
         click_count     = 0;
         device_state = START;
-    } else if ((click_count == 2) && (Timer_SW_ReadCounter() > t_dbl_click ) && ((device_state == START)))
+    }
+    /* Enter STOP with double click */
+    else if ((click_count == 2) && (Timer_SW_ReadCounter() > t_dbl_click ) && ((device_state == START)))
     {
         click_count    = 0;
         device_state = STOP;
