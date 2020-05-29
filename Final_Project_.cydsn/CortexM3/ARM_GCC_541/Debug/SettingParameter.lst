@@ -1,0 +1,1331 @@
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cciWbK3G.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"SettingParameter.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.setParameter,"ax",%progbits
+  20              		.align	2
+  21              		.global	setParameter
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	setParameter, %function
+  25              	setParameter:
+  26              	.LFB64:
+  27              		.file 1 "SettingParameter.c"
+   1:SettingParameter.c **** /* ========================================
+   2:SettingParameter.c ****  *
+   3:SettingParameter.c ****  * Copyright YOUR COMPANY, THE YEAR
+   4:SettingParameter.c ****  * All Rights Reserved
+   5:SettingParameter.c ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:SettingParameter.c ****  *
+   7:SettingParameter.c ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:SettingParameter.c ****  * WHICH IS THE PROPERTY OF your company.
+   9:SettingParameter.c ****  *
+  10:SettingParameter.c ****  * ========================================
+  11:SettingParameter.c **** */
+  12:SettingParameter.c **** #include  "SettingParameter.h"
+  13:SettingParameter.c **** #include "project.h"
+  14:SettingParameter.c **** #include "I2C_Interface.h"
+  15:SettingParameter.c **** #include "stdio.h"
+  16:SettingParameter.c **** 
+  17:SettingParameter.c **** //Brief slave device address
+  18:SettingParameter.c **** #define LIS3DH_DEVICE_ADDRESS 0x18
+  19:SettingParameter.c **** 
+  20:SettingParameter.c **** //Brief CONTROL REGISTER 4 address
+  21:SettingParameter.c **** #define LIS3DH_CTRL_REG4 0x23
+  22:SettingParameter.c **** 
+  23:SettingParameter.c **** /*Brief HEX value for CONTROL REGISTER 4: +- 2.0 g FSR
+  24:SettingParameter.c **** CTRL_REG4[3]=0 (High resolution disabled)
+  25:SettingParameter.c **** CTRL_REG4[5:4]=FS[1:0]=00 (2.0 g FSR) */
+  26:SettingParameter.c **** #define LIS3DH_CTRL_REG4_2g 0x80
+  27:SettingParameter.c **** 
+  28:SettingParameter.c **** /*Brief HEX value for CONTROL REGISTER 4: +- 4.0 g FSR
+  29:SettingParameter.c **** CTRL_REG4[3]=0 (High resolution disabled)
+  30:SettingParameter.c **** CTRL_REG4[5:4]=FS[1:0]=01 (4.0 g FSR) */
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cciWbK3G.s 			page 2
+
+
+  31:SettingParameter.c **** #define LIS3DH_CTRL_REG4_4g 0x90
+  32:SettingParameter.c **** 
+  33:SettingParameter.c **** /*Brief HEX value for CONTROL REGISTER 4: +- 8.0 g FSR
+  34:SettingParameter.c **** CTRL_REG4[3]=0 (High resolution disabled)
+  35:SettingParameter.c **** CTRL_REG4[5:4]=FS[1:0]=10 (8.0 g FSR) */
+  36:SettingParameter.c **** #define LIS3DH_CTRL_REG4_8g 0xA0
+  37:SettingParameter.c **** 
+  38:SettingParameter.c **** /*Brief HEX value for CONTROL REGISTER 4: +- 16.0 g FSR
+  39:SettingParameter.c **** CTRL_REG4[3]=0 (High resolution disabled)
+  40:SettingParameter.c **** CTRL_REG4[5:4]=FS[1:0]=11 (16.0 g FSR) */
+  41:SettingParameter.c **** #define LIS3DH_CTRL_REG4_16g 0xB0
+  42:SettingParameter.c **** 
+  43:SettingParameter.c **** //Brief INT2 THRESHOLD register address
+  44:SettingParameter.c **** #define LIS3DH_INT2_THS 0x36
+  45:SettingParameter.c **** 
+  46:SettingParameter.c **** /*Brief HEX value for INT2 THRESHOLD register for the different fullscale ranges: 
+  47:SettingParameter.c **** */
+  48:SettingParameter.c **** #define LIS3DH_THRESHOLD_EVENTS_2g  0x5E   // about 1500g
+  49:SettingParameter.c **** #define LIS3DH_THRESHOLD_EVENTS_4g  0x2F   // about 1500g
+  50:SettingParameter.c **** #define LIS3DH_THRESHOLD_EVENTS_8g  0x18   // about 1500g
+  51:SettingParameter.c **** #define LIS3DH_THRESHOLD_EVENTS_16g 0x08   // about 1500g
+  52:SettingParameter.c **** 
+  53:SettingParameter.c **** int32 value_digit_pot;
+  54:SettingParameter.c **** int16 value_pot;
+  55:SettingParameter.c **** ErrorCode error;
+  56:SettingParameter.c **** uint8_t ctrl_reg4;
+  57:SettingParameter.c **** uint8_t int2_ths_reg;
+  58:SettingParameter.c **** 
+  59:SettingParameter.c **** void setParameter(void)
+  60:SettingParameter.c **** {
+  28              		.loc 1 60 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 10B5     		push	{r4, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 4, -8
+  35              		.cfi_offset 14, -4
+  61:SettingParameter.c ****     /* Acquisition and conversion to mV of the potentiometer signal */
+  62:SettingParameter.c ****     value_digit_pot=ADC_DelSig_Read32();
+  36              		.loc 1 62 0
+  37 0002 FFF7FEFF 		bl	ADC_DelSig_Read32
+  38              	.LVL0:
+  39 0006 554B     		ldr	r3, .L9
+  40 0008 1860     		str	r0, [r3]
+  63:SettingParameter.c ****     
+  64:SettingParameter.c ****     if(value_digit_pot<0) value_digit_pot=0;
+  41              		.loc 1 64 0
+  42 000a 0028     		cmp	r0, #0
+  43 000c 01DA     		bge	.L2
+  44              		.loc 1 64 0 is_stmt 0 discriminator 1
+  45 000e 0022     		movs	r2, #0
+  46 0010 1A60     		str	r2, [r3]
+  47              	.L2:
+  65:SettingParameter.c ****     if(value_digit_pot>65535) value_digit_pot=65535;
+  48              		.loc 1 65 0 is_stmt 1
+  49 0012 524B     		ldr	r3, .L9
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cciWbK3G.s 			page 3
+
+
+  50 0014 1B68     		ldr	r3, [r3]
+  51 0016 B3F5803F 		cmp	r3, #65536
+  52 001a 03DB     		blt	.L3
+  53              		.loc 1 65 0 is_stmt 0 discriminator 1
+  54 001c 4FF6FF72 		movw	r2, #65535
+  55 0020 4E4B     		ldr	r3, .L9
+  56 0022 1A60     		str	r2, [r3]
+  57              	.L3:
+  66:SettingParameter.c ****             
+  67:SettingParameter.c ****     value_pot=ADC_DelSig_CountsTo_mVolts(value_digit_pot);
+  58              		.loc 1 67 0 is_stmt 1
+  59 0024 4D4B     		ldr	r3, .L9
+  60 0026 1868     		ldr	r0, [r3]
+  61 0028 FFF7FEFF 		bl	ADC_DelSig_CountsTo_mVolts
+  62              	.LVL1:
+  63 002c 4C4B     		ldr	r3, .L9+4
+  64 002e 1880     		strh	r0, [r3]	@ movhi
+  68:SettingParameter.c ****     
+  69:SettingParameter.c ****     /* Set the variables Parameters, fullscale_range, sensitivity, confidence_interval, 
+  70:SettingParameter.c ****     write in the CTRL_REG4 the FSR and in the INT2_THS regiter the value of the threhsold 
+  71:SettingParameter.c ****     according to the value of the potentiometer signal */
+  72:SettingParameter.c ****     if((value_pot>=0) && (value_pot<1250))
+  65              		.loc 1 72 0
+  66 0030 80B2     		uxth	r0, r0
+  67 0032 40F2E143 		movw	r3, #1249
+  68 0036 9842     		cmp	r0, r3
+  69 0038 1ED8     		bhi	.L4
+  73:SettingParameter.c ****     {
+  74:SettingParameter.c ****         Parameters=0x00;
+  70              		.loc 1 74 0
+  71 003a 0022     		movs	r2, #0
+  72 003c 494B     		ldr	r3, .L9+8
+  73 003e 1A70     		strb	r2, [r3]
+  75:SettingParameter.c ****         fullscale_range=2000;
+  74              		.loc 1 75 0
+  75 0040 4FF4FA62 		mov	r2, #2000
+  76 0044 484B     		ldr	r3, .L9+12
+  77 0046 1A80     		strh	r2, [r3]	@ movhi
+  76:SettingParameter.c ****         sensitivity=16;
+  78              		.loc 1 76 0
+  79 0048 1022     		movs	r2, #16
+  80 004a 484B     		ldr	r3, .L9+16
+  81 004c 1A70     		strb	r2, [r3]
+  77:SettingParameter.c ****         confidence_interval=30;
+  82              		.loc 1 77 0
+  83 004e 1E22     		movs	r2, #30
+  84 0050 474B     		ldr	r3, .L9+20
+  85 0052 1A70     		strb	r2, [r3]
+  78:SettingParameter.c ****         ctrl_reg4 = LIS3DH_CTRL_REG4_2g;
+  86              		.loc 1 78 0
+  87 0054 8022     		movs	r2, #128
+  88 0056 474B     		ldr	r3, .L9+24
+  89 0058 1A70     		strb	r2, [r3]
+  79:SettingParameter.c ****         error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
+  90              		.loc 1 79 0
+  91 005a 2321     		movs	r1, #35
+  92 005c 1820     		movs	r0, #24
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cciWbK3G.s 			page 4
+
+
+  93 005e FFF7FEFF 		bl	I2C_Peripheral_WriteRegister
+  94              	.LVL2:
+  95 0062 454C     		ldr	r4, .L9+28
+  96 0064 2070     		strb	r0, [r4]
+  80:SettingParameter.c ****                                          LIS3DH_CTRL_REG4,
+  81:SettingParameter.c ****                                          ctrl_reg4);
+  82:SettingParameter.c ****         int2_ths_reg = LIS3DH_THRESHOLD_EVENTS_2g;
+  97              		.loc 1 82 0
+  98 0066 5E22     		movs	r2, #94
+  99 0068 444B     		ldr	r3, .L9+32
+ 100 006a 1A70     		strb	r2, [r3]
+  83:SettingParameter.c ****         error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
+ 101              		.loc 1 83 0
+ 102 006c 3621     		movs	r1, #54
+ 103 006e 1820     		movs	r0, #24
+ 104 0070 FFF7FEFF 		bl	I2C_Peripheral_WriteRegister
+ 105              	.LVL3:
+ 106 0074 2070     		strb	r0, [r4]
+ 107 0076 10BD     		pop	{r4, pc}
+ 108              	.L4:
+  84:SettingParameter.c ****                                          LIS3DH_INT2_THS,
+  85:SettingParameter.c ****                                          int2_ths_reg);
+  86:SettingParameter.c ****     }
+  87:SettingParameter.c ****     else if((value_pot>=1250) && (value_pot<2500))
+ 109              		.loc 1 87 0
+ 110 0078 A0F2E243 		subw	r3, r0, #1250
+ 111 007c 9BB2     		uxth	r3, r3
+ 112 007e 40F2E142 		movw	r2, #1249
+ 113 0082 9342     		cmp	r3, r2
+ 114 0084 1ED8     		bhi	.L6
+  88:SettingParameter.c ****     {
+  89:SettingParameter.c ****         Parameters=0x01;
+ 115              		.loc 1 89 0
+ 116 0086 0122     		movs	r2, #1
+ 117 0088 364B     		ldr	r3, .L9+8
+ 118 008a 1A70     		strb	r2, [r3]
+  90:SettingParameter.c ****         fullscale_range=4000;
+ 119              		.loc 1 90 0
+ 120 008c 4FF47A62 		mov	r2, #4000
+ 121 0090 354B     		ldr	r3, .L9+12
+ 122 0092 1A80     		strh	r2, [r3]	@ movhi
+  91:SettingParameter.c ****         sensitivity=32;
+ 123              		.loc 1 91 0
+ 124 0094 2022     		movs	r2, #32
+ 125 0096 354B     		ldr	r3, .L9+16
+ 126 0098 1A70     		strb	r2, [r3]
+  92:SettingParameter.c ****         confidence_interval=30;
+ 127              		.loc 1 92 0
+ 128 009a 1E22     		movs	r2, #30
+ 129 009c 344B     		ldr	r3, .L9+20
+ 130 009e 1A70     		strb	r2, [r3]
+  93:SettingParameter.c ****         ctrl_reg4 = LIS3DH_CTRL_REG4_4g;
+ 131              		.loc 1 93 0
+ 132 00a0 9022     		movs	r2, #144
+ 133 00a2 344B     		ldr	r3, .L9+24
+ 134 00a4 1A70     		strb	r2, [r3]
+  94:SettingParameter.c ****         error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cciWbK3G.s 			page 5
+
+
+ 135              		.loc 1 94 0
+ 136 00a6 2321     		movs	r1, #35
+ 137 00a8 1820     		movs	r0, #24
+ 138 00aa FFF7FEFF 		bl	I2C_Peripheral_WriteRegister
+ 139              	.LVL4:
+ 140 00ae 324C     		ldr	r4, .L9+28
+ 141 00b0 2070     		strb	r0, [r4]
+  95:SettingParameter.c ****                                          LIS3DH_CTRL_REG4,
+  96:SettingParameter.c ****                                          ctrl_reg4);
+  97:SettingParameter.c ****         int2_ths_reg = LIS3DH_THRESHOLD_EVENTS_4g;
+ 142              		.loc 1 97 0
+ 143 00b2 2F22     		movs	r2, #47
+ 144 00b4 314B     		ldr	r3, .L9+32
+ 145 00b6 1A70     		strb	r2, [r3]
+  98:SettingParameter.c ****         error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
+ 146              		.loc 1 98 0
+ 147 00b8 3621     		movs	r1, #54
+ 148 00ba 1820     		movs	r0, #24
+ 149 00bc FFF7FEFF 		bl	I2C_Peripheral_WriteRegister
+ 150              	.LVL5:
+ 151 00c0 2070     		strb	r0, [r4]
+ 152 00c2 10BD     		pop	{r4, pc}
+ 153              	.L6:
+  99:SettingParameter.c ****                                          LIS3DH_INT2_THS,
+ 100:SettingParameter.c ****                                          int2_ths_reg);
+ 101:SettingParameter.c ****     }
+ 102:SettingParameter.c ****     else if((value_pot>=2500) && (value_pot<3750))
+ 154              		.loc 1 102 0
+ 155 00c4 A0F6C413 		subw	r3, r0, #2500
+ 156 00c8 9BB2     		uxth	r3, r3
+ 157 00ca 40F2E142 		movw	r2, #1249
+ 158 00ce 9342     		cmp	r3, r2
+ 159 00d0 1ED8     		bhi	.L7
+ 103:SettingParameter.c ****     {
+ 104:SettingParameter.c ****         Parameters=0x02;
+ 160              		.loc 1 104 0
+ 161 00d2 0222     		movs	r2, #2
+ 162 00d4 234B     		ldr	r3, .L9+8
+ 163 00d6 1A70     		strb	r2, [r3]
+ 105:SettingParameter.c ****         fullscale_range=8000;
+ 164              		.loc 1 105 0
+ 165 00d8 4FF4FA52 		mov	r2, #8000
+ 166 00dc 224B     		ldr	r3, .L9+12
+ 167 00de 1A80     		strh	r2, [r3]	@ movhi
+ 106:SettingParameter.c ****         sensitivity=64;
+ 168              		.loc 1 106 0
+ 169 00e0 4022     		movs	r2, #64
+ 170 00e2 224B     		ldr	r3, .L9+16
+ 171 00e4 1A70     		strb	r2, [r3]
+ 107:SettingParameter.c ****         confidence_interval=40;
+ 172              		.loc 1 107 0
+ 173 00e6 2822     		movs	r2, #40
+ 174 00e8 214B     		ldr	r3, .L9+20
+ 175 00ea 1A70     		strb	r2, [r3]
+ 108:SettingParameter.c ****         ctrl_reg4 = LIS3DH_CTRL_REG4_8g;
+ 176              		.loc 1 108 0
+ 177 00ec A022     		movs	r2, #160
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cciWbK3G.s 			page 6
+
+
+ 178 00ee 214B     		ldr	r3, .L9+24
+ 179 00f0 1A70     		strb	r2, [r3]
+ 109:SettingParameter.c ****         error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
+ 180              		.loc 1 109 0
+ 181 00f2 2321     		movs	r1, #35
+ 182 00f4 1820     		movs	r0, #24
+ 183 00f6 FFF7FEFF 		bl	I2C_Peripheral_WriteRegister
+ 184              	.LVL6:
+ 185 00fa 1F4C     		ldr	r4, .L9+28
+ 186 00fc 2070     		strb	r0, [r4]
+ 110:SettingParameter.c ****                                          LIS3DH_CTRL_REG4,
+ 111:SettingParameter.c ****                                          ctrl_reg4);
+ 112:SettingParameter.c ****         int2_ths_reg = LIS3DH_THRESHOLD_EVENTS_8g;
+ 187              		.loc 1 112 0
+ 188 00fe 1820     		movs	r0, #24
+ 189 0100 1E4B     		ldr	r3, .L9+32
+ 190 0102 1870     		strb	r0, [r3]
+ 113:SettingParameter.c ****         error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
+ 191              		.loc 1 113 0
+ 192 0104 0246     		mov	r2, r0
+ 193 0106 3621     		movs	r1, #54
+ 194 0108 FFF7FEFF 		bl	I2C_Peripheral_WriteRegister
+ 195              	.LVL7:
+ 196 010c 2070     		strb	r0, [r4]
+ 197 010e 10BD     		pop	{r4, pc}
+ 198              	.L7:
+ 114:SettingParameter.c ****                                          LIS3DH_INT2_THS,
+ 115:SettingParameter.c ****                                          int2_ths_reg);
+ 116:SettingParameter.c ****     }
+ 117:SettingParameter.c ****     else if((value_pot>=3750) && (value_pot<=5000))
+ 199              		.loc 1 117 0
+ 200 0110 A0F6A660 		subw	r0, r0, #3750
+ 201 0114 80B2     		uxth	r0, r0
+ 202 0116 40F2E243 		movw	r3, #1250
+ 203 011a 9842     		cmp	r0, r3
+ 204 011c 1DD8     		bhi	.L1
+ 118:SettingParameter.c ****     {
+ 119:SettingParameter.c ****         Parameters=0x03;
+ 205              		.loc 1 119 0
+ 206 011e 0322     		movs	r2, #3
+ 207 0120 104B     		ldr	r3, .L9+8
+ 208 0122 1A70     		strb	r2, [r3]
+ 120:SettingParameter.c ****         fullscale_range=16000;
+ 209              		.loc 1 120 0
+ 210 0124 4FF47A52 		mov	r2, #16000
+ 211 0128 0F4B     		ldr	r3, .L9+12
+ 212 012a 1A80     		strh	r2, [r3]	@ movhi
+ 121:SettingParameter.c ****         sensitivity=192;
+ 213              		.loc 1 121 0
+ 214 012c C022     		movs	r2, #192
+ 215 012e 0F4B     		ldr	r3, .L9+16
+ 216 0130 1A70     		strb	r2, [r3]
+ 122:SettingParameter.c ****         confidence_interval=50;
+ 217              		.loc 1 122 0
+ 218 0132 3222     		movs	r2, #50
+ 219 0134 0E4B     		ldr	r3, .L9+20
+ 220 0136 1A70     		strb	r2, [r3]
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cciWbK3G.s 			page 7
+
+
+ 123:SettingParameter.c ****         ctrl_reg4 = LIS3DH_CTRL_REG4_16g;
+ 221              		.loc 1 123 0
+ 222 0138 B022     		movs	r2, #176
+ 223 013a 0E4B     		ldr	r3, .L9+24
+ 224 013c 1A70     		strb	r2, [r3]
+ 124:SettingParameter.c ****         error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
+ 225              		.loc 1 124 0
+ 226 013e 2321     		movs	r1, #35
+ 227 0140 1820     		movs	r0, #24
+ 228 0142 FFF7FEFF 		bl	I2C_Peripheral_WriteRegister
+ 229              	.LVL8:
+ 230 0146 0C4C     		ldr	r4, .L9+28
+ 231 0148 2070     		strb	r0, [r4]
+ 125:SettingParameter.c ****                                          LIS3DH_CTRL_REG4,
+ 126:SettingParameter.c ****                                          ctrl_reg4);
+ 127:SettingParameter.c ****         int2_ths_reg = LIS3DH_THRESHOLD_EVENTS_16g;
+ 232              		.loc 1 127 0
+ 233 014a 0822     		movs	r2, #8
+ 234 014c 0B4B     		ldr	r3, .L9+32
+ 235 014e 1A70     		strb	r2, [r3]
+ 128:SettingParameter.c ****         error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
+ 236              		.loc 1 128 0
+ 237 0150 3621     		movs	r1, #54
+ 238 0152 1820     		movs	r0, #24
+ 239 0154 FFF7FEFF 		bl	I2C_Peripheral_WriteRegister
+ 240              	.LVL9:
+ 241 0158 2070     		strb	r0, [r4]
+ 242              	.L1:
+ 243 015a 10BD     		pop	{r4, pc}
+ 244              	.L10:
+ 245              		.align	2
+ 246              	.L9:
+ 247 015c 00000000 		.word	value_digit_pot
+ 248 0160 00000000 		.word	value_pot
+ 249 0164 00000000 		.word	Parameters
+ 250 0168 00000000 		.word	fullscale_range
+ 251 016c 00000000 		.word	sensitivity
+ 252 0170 00000000 		.word	confidence_interval
+ 253 0174 00000000 		.word	ctrl_reg4
+ 254 0178 00000000 		.word	error
+ 255 017c 00000000 		.word	int2_ths_reg
+ 256              		.cfi_endproc
+ 257              	.LFE64:
+ 258              		.size	setParameter, .-setParameter
+ 259              		.comm	int2_ths_reg,1,1
+ 260              		.comm	ctrl_reg4,1,1
+ 261              		.comm	error,1,1
+ 262              		.comm	value_pot,2,2
+ 263              		.comm	value_digit_pot,4,4
+ 264              		.comm	Parameters,1,1
+ 265              		.comm	confidence_interval,1,1
+ 266              		.comm	sensitivity,1,1
+ 267              		.comm	fullscale_range,2,2
+ 268              		.text
+ 269              	.Letext0:
+ 270              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.3\\psoc creator\\import\\gnu\\arm\\5.4.
+ 271              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.3\\psoc creator\\import\\gnu\\arm\\5.4.
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cciWbK3G.s 			page 8
+
+
+ 272              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 273              		.file 5 "ErrorCodes.h"
+ 274              		.file 6 "SettingParameter.h"
+ 275              		.file 7 "Generated_Source\\PSoC5/core_cm3.h"
+ 276              		.file 8 "Generated_Source\\PSoC5/ADC_DelSig.h"
+ 277              		.file 9 "I2C_Interface.h"
+ 278              		.section	.debug_info,"",%progbits
+ 279              	.Ldebug_info0:
+ 280 0000 EE020000 		.4byte	0x2ee
+ 281 0004 0400     		.2byte	0x4
+ 282 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 283 000a 04       		.byte	0x4
+ 284 000b 01       		.uleb128 0x1
+ 285 000c 74000000 		.4byte	.LASF37
+ 286 0010 0C       		.byte	0xc
+ 287 0011 CD020000 		.4byte	.LASF38
+ 288 0015 8F010000 		.4byte	.LASF39
+ 289 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 290 001d 00000000 		.4byte	0
+ 291 0021 00000000 		.4byte	.Ldebug_line0
+ 292 0025 02       		.uleb128 0x2
+ 293 0026 01       		.byte	0x1
+ 294 0027 06       		.byte	0x6
+ 295 0028 AE020000 		.4byte	.LASF0
+ 296 002c 03       		.uleb128 0x3
+ 297 002d 0C000000 		.4byte	.LASF4
+ 298 0031 02       		.byte	0x2
+ 299 0032 1D       		.byte	0x1d
+ 300 0033 37000000 		.4byte	0x37
+ 301 0037 02       		.uleb128 0x2
+ 302 0038 01       		.byte	0x1
+ 303 0039 08       		.byte	0x8
+ 304 003a 66000000 		.4byte	.LASF1
+ 305 003e 02       		.uleb128 0x2
+ 306 003f 02       		.byte	0x2
+ 307 0040 05       		.byte	0x5
+ 308 0041 7F020000 		.4byte	.LASF2
+ 309 0045 02       		.uleb128 0x2
+ 310 0046 02       		.byte	0x2
+ 311 0047 07       		.byte	0x7
+ 312 0048 BA020000 		.4byte	.LASF3
+ 313 004c 03       		.uleb128 0x3
+ 314 004d 16000000 		.4byte	.LASF5
+ 315 0051 02       		.byte	0x2
+ 316 0052 3F       		.byte	0x3f
+ 317 0053 57000000 		.4byte	0x57
+ 318 0057 02       		.uleb128 0x2
+ 319 0058 04       		.byte	0x4
+ 320 0059 05       		.byte	0x5
+ 321 005a 20000000 		.4byte	.LASF6
+ 322 005e 02       		.uleb128 0x2
+ 323 005f 04       		.byte	0x4
+ 324 0060 07       		.byte	0x7
+ 325 0061 08010000 		.4byte	.LASF7
+ 326 0065 02       		.uleb128 0x2
+ 327 0066 08       		.byte	0x8
+ 328 0067 05       		.byte	0x5
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cciWbK3G.s 			page 9
+
+
+ 329 0068 40020000 		.4byte	.LASF8
+ 330 006c 02       		.uleb128 0x2
+ 331 006d 08       		.byte	0x8
+ 332 006e 07       		.byte	0x7
+ 333 006f 78010000 		.4byte	.LASF9
+ 334 0073 04       		.uleb128 0x4
+ 335 0074 04       		.byte	0x4
+ 336 0075 05       		.byte	0x5
+ 337 0076 696E7400 		.ascii	"int\000"
+ 338 007a 02       		.uleb128 0x2
+ 339 007b 04       		.byte	0x4
+ 340 007c 07       		.byte	0x7
+ 341 007d 6B010000 		.4byte	.LASF10
+ 342 0081 03       		.uleb128 0x3
+ 343 0082 36000000 		.4byte	.LASF11
+ 344 0086 03       		.byte	0x3
+ 345 0087 18       		.byte	0x18
+ 346 0088 2C000000 		.4byte	0x2c
+ 347 008c 03       		.uleb128 0x3
+ 348 008d 29020000 		.4byte	.LASF12
+ 349 0091 03       		.byte	0x3
+ 350 0092 2C       		.byte	0x2c
+ 351 0093 4C000000 		.4byte	0x4c
+ 352 0097 05       		.uleb128 0x5
+ 353 0098 60000000 		.4byte	.LASF13
+ 354 009c 04       		.byte	0x4
+ 355 009d E401     		.2byte	0x1e4
+ 356 009f 37000000 		.4byte	0x37
+ 357 00a3 05       		.uleb128 0x5
+ 358 00a4 02010000 		.4byte	.LASF14
+ 359 00a8 04       		.byte	0x4
+ 360 00a9 E801     		.2byte	0x1e8
+ 361 00ab 3E000000 		.4byte	0x3e
+ 362 00af 05       		.uleb128 0x5
+ 363 00b0 1A010000 		.4byte	.LASF15
+ 364 00b4 04       		.byte	0x4
+ 365 00b5 E901     		.2byte	0x1e9
+ 366 00b7 57000000 		.4byte	0x57
+ 367 00bb 02       		.uleb128 0x2
+ 368 00bc 04       		.byte	0x4
+ 369 00bd 04       		.byte	0x4
+ 370 00be 5A000000 		.4byte	.LASF16
+ 371 00c2 02       		.uleb128 0x2
+ 372 00c3 08       		.byte	0x8
+ 373 00c4 04       		.byte	0x4
+ 374 00c5 3D010000 		.4byte	.LASF17
+ 375 00c9 02       		.uleb128 0x2
+ 376 00ca 01       		.byte	0x1
+ 377 00cb 08       		.byte	0x8
+ 378 00cc 4E020000 		.4byte	.LASF18
+ 379 00d0 02       		.uleb128 0x2
+ 380 00d1 08       		.byte	0x8
+ 381 00d2 04       		.byte	0x4
+ 382 00d3 A2020000 		.4byte	.LASF19
+ 383 00d7 02       		.uleb128 0x2
+ 384 00d8 04       		.byte	0x4
+ 385 00d9 07       		.byte	0x7
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cciWbK3G.s 			page 10
+
+
+ 386 00da 31020000 		.4byte	.LASF20
+ 387 00de 06       		.uleb128 0x6
+ 388 00df 81000000 		.4byte	0x81
+ 389 00e3 07       		.uleb128 0x7
+ 390 00e4 01       		.byte	0x1
+ 391 00e5 37000000 		.4byte	0x37
+ 392 00e9 05       		.byte	0x5
+ 393 00ea 15       		.byte	0x15
+ 394 00eb FC000000 		.4byte	0xfc
+ 395 00ef 08       		.uleb128 0x8
+ 396 00f0 93020000 		.4byte	.LASF21
+ 397 00f4 00       		.byte	0
+ 398 00f5 08       		.uleb128 0x8
+ 399 00f6 9C020000 		.4byte	.LASF22
+ 400 00fa 01       		.byte	0x1
+ 401 00fb 00       		.byte	0
+ 402 00fc 03       		.uleb128 0x3
+ 403 00fd 3E000000 		.4byte	.LASF23
+ 404 0101 05       		.byte	0x5
+ 405 0102 18       		.byte	0x18
+ 406 0103 E3000000 		.4byte	0xe3
+ 407 0107 09       		.uleb128 0x9
+ 408 0108 5E020000 		.4byte	.LASF40
+ 409 010c 01       		.byte	0x1
+ 410 010d 3B       		.byte	0x3b
+ 411 010e 00000000 		.4byte	.LFB64
+ 412 0112 80010000 		.4byte	.LFE64-.LFB64
+ 413 0116 01       		.uleb128 0x1
+ 414 0117 9C       		.byte	0x9c
+ 415 0118 21020000 		.4byte	0x221
+ 416 011c 0A       		.uleb128 0xa
+ 417 011d 06000000 		.4byte	.LVL0
+ 418 0121 D0020000 		.4byte	0x2d0
+ 419 0125 0A       		.uleb128 0xa
+ 420 0126 2C000000 		.4byte	.LVL1
+ 421 012a DB020000 		.4byte	0x2db
+ 422 012e 0B       		.uleb128 0xb
+ 423 012f 62000000 		.4byte	.LVL2
+ 424 0133 E6020000 		.4byte	0x2e6
+ 425 0137 4D010000 		.4byte	0x14d
+ 426 013b 0C       		.uleb128 0xc
+ 427 013c 01       		.uleb128 0x1
+ 428 013d 50       		.byte	0x50
+ 429 013e 01       		.uleb128 0x1
+ 430 013f 48       		.byte	0x48
+ 431 0140 0C       		.uleb128 0xc
+ 432 0141 01       		.uleb128 0x1
+ 433 0142 51       		.byte	0x51
+ 434 0143 02       		.uleb128 0x2
+ 435 0144 08       		.byte	0x8
+ 436 0145 23       		.byte	0x23
+ 437 0146 0C       		.uleb128 0xc
+ 438 0147 01       		.uleb128 0x1
+ 439 0148 52       		.byte	0x52
+ 440 0149 02       		.uleb128 0x2
+ 441 014a 09       		.byte	0x9
+ 442 014b 80       		.byte	0x80
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cciWbK3G.s 			page 11
+
+
+ 443 014c 00       		.byte	0
+ 444 014d 0B       		.uleb128 0xb
+ 445 014e 74000000 		.4byte	.LVL3
+ 446 0152 E6020000 		.4byte	0x2e6
+ 447 0156 6C010000 		.4byte	0x16c
+ 448 015a 0C       		.uleb128 0xc
+ 449 015b 01       		.uleb128 0x1
+ 450 015c 50       		.byte	0x50
+ 451 015d 01       		.uleb128 0x1
+ 452 015e 48       		.byte	0x48
+ 453 015f 0C       		.uleb128 0xc
+ 454 0160 01       		.uleb128 0x1
+ 455 0161 51       		.byte	0x51
+ 456 0162 02       		.uleb128 0x2
+ 457 0163 08       		.byte	0x8
+ 458 0164 36       		.byte	0x36
+ 459 0165 0C       		.uleb128 0xc
+ 460 0166 01       		.uleb128 0x1
+ 461 0167 52       		.byte	0x52
+ 462 0168 02       		.uleb128 0x2
+ 463 0169 08       		.byte	0x8
+ 464 016a 5E       		.byte	0x5e
+ 465 016b 00       		.byte	0
+ 466 016c 0B       		.uleb128 0xb
+ 467 016d AE000000 		.4byte	.LVL4
+ 468 0171 E6020000 		.4byte	0x2e6
+ 469 0175 8B010000 		.4byte	0x18b
+ 470 0179 0C       		.uleb128 0xc
+ 471 017a 01       		.uleb128 0x1
+ 472 017b 50       		.byte	0x50
+ 473 017c 01       		.uleb128 0x1
+ 474 017d 48       		.byte	0x48
+ 475 017e 0C       		.uleb128 0xc
+ 476 017f 01       		.uleb128 0x1
+ 477 0180 51       		.byte	0x51
+ 478 0181 02       		.uleb128 0x2
+ 479 0182 08       		.byte	0x8
+ 480 0183 23       		.byte	0x23
+ 481 0184 0C       		.uleb128 0xc
+ 482 0185 01       		.uleb128 0x1
+ 483 0186 52       		.byte	0x52
+ 484 0187 02       		.uleb128 0x2
+ 485 0188 09       		.byte	0x9
+ 486 0189 90       		.byte	0x90
+ 487 018a 00       		.byte	0
+ 488 018b 0B       		.uleb128 0xb
+ 489 018c C0000000 		.4byte	.LVL5
+ 490 0190 E6020000 		.4byte	0x2e6
+ 491 0194 AA010000 		.4byte	0x1aa
+ 492 0198 0C       		.uleb128 0xc
+ 493 0199 01       		.uleb128 0x1
+ 494 019a 50       		.byte	0x50
+ 495 019b 01       		.uleb128 0x1
+ 496 019c 48       		.byte	0x48
+ 497 019d 0C       		.uleb128 0xc
+ 498 019e 01       		.uleb128 0x1
+ 499 019f 51       		.byte	0x51
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cciWbK3G.s 			page 12
+
+
+ 500 01a0 02       		.uleb128 0x2
+ 501 01a1 08       		.byte	0x8
+ 502 01a2 36       		.byte	0x36
+ 503 01a3 0C       		.uleb128 0xc
+ 504 01a4 01       		.uleb128 0x1
+ 505 01a5 52       		.byte	0x52
+ 506 01a6 02       		.uleb128 0x2
+ 507 01a7 08       		.byte	0x8
+ 508 01a8 2F       		.byte	0x2f
+ 509 01a9 00       		.byte	0
+ 510 01aa 0B       		.uleb128 0xb
+ 511 01ab FA000000 		.4byte	.LVL6
+ 512 01af E6020000 		.4byte	0x2e6
+ 513 01b3 C9010000 		.4byte	0x1c9
+ 514 01b7 0C       		.uleb128 0xc
+ 515 01b8 01       		.uleb128 0x1
+ 516 01b9 50       		.byte	0x50
+ 517 01ba 01       		.uleb128 0x1
+ 518 01bb 48       		.byte	0x48
+ 519 01bc 0C       		.uleb128 0xc
+ 520 01bd 01       		.uleb128 0x1
+ 521 01be 51       		.byte	0x51
+ 522 01bf 02       		.uleb128 0x2
+ 523 01c0 08       		.byte	0x8
+ 524 01c1 23       		.byte	0x23
+ 525 01c2 0C       		.uleb128 0xc
+ 526 01c3 01       		.uleb128 0x1
+ 527 01c4 52       		.byte	0x52
+ 528 01c5 02       		.uleb128 0x2
+ 529 01c6 09       		.byte	0x9
+ 530 01c7 A0       		.byte	0xa0
+ 531 01c8 00       		.byte	0
+ 532 01c9 0B       		.uleb128 0xb
+ 533 01ca 0C010000 		.4byte	.LVL7
+ 534 01ce E6020000 		.4byte	0x2e6
+ 535 01d2 E7010000 		.4byte	0x1e7
+ 536 01d6 0C       		.uleb128 0xc
+ 537 01d7 01       		.uleb128 0x1
+ 538 01d8 50       		.byte	0x50
+ 539 01d9 01       		.uleb128 0x1
+ 540 01da 48       		.byte	0x48
+ 541 01db 0C       		.uleb128 0xc
+ 542 01dc 01       		.uleb128 0x1
+ 543 01dd 51       		.byte	0x51
+ 544 01de 02       		.uleb128 0x2
+ 545 01df 08       		.byte	0x8
+ 546 01e0 36       		.byte	0x36
+ 547 01e1 0C       		.uleb128 0xc
+ 548 01e2 01       		.uleb128 0x1
+ 549 01e3 52       		.byte	0x52
+ 550 01e4 01       		.uleb128 0x1
+ 551 01e5 48       		.byte	0x48
+ 552 01e6 00       		.byte	0
+ 553 01e7 0B       		.uleb128 0xb
+ 554 01e8 46010000 		.4byte	.LVL8
+ 555 01ec E6020000 		.4byte	0x2e6
+ 556 01f0 06020000 		.4byte	0x206
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cciWbK3G.s 			page 13
+
+
+ 557 01f4 0C       		.uleb128 0xc
+ 558 01f5 01       		.uleb128 0x1
+ 559 01f6 50       		.byte	0x50
+ 560 01f7 01       		.uleb128 0x1
+ 561 01f8 48       		.byte	0x48
+ 562 01f9 0C       		.uleb128 0xc
+ 563 01fa 01       		.uleb128 0x1
+ 564 01fb 51       		.byte	0x51
+ 565 01fc 02       		.uleb128 0x2
+ 566 01fd 08       		.byte	0x8
+ 567 01fe 23       		.byte	0x23
+ 568 01ff 0C       		.uleb128 0xc
+ 569 0200 01       		.uleb128 0x1
+ 570 0201 52       		.byte	0x52
+ 571 0202 02       		.uleb128 0x2
+ 572 0203 09       		.byte	0x9
+ 573 0204 B0       		.byte	0xb0
+ 574 0205 00       		.byte	0
+ 575 0206 0D       		.uleb128 0xd
+ 576 0207 58010000 		.4byte	.LVL9
+ 577 020b E6020000 		.4byte	0x2e6
+ 578 020f 0C       		.uleb128 0xc
+ 579 0210 01       		.uleb128 0x1
+ 580 0211 50       		.byte	0x50
+ 581 0212 01       		.uleb128 0x1
+ 582 0213 48       		.byte	0x48
+ 583 0214 0C       		.uleb128 0xc
+ 584 0215 01       		.uleb128 0x1
+ 585 0216 51       		.byte	0x51
+ 586 0217 02       		.uleb128 0x2
+ 587 0218 08       		.byte	0x8
+ 588 0219 36       		.byte	0x36
+ 589 021a 0C       		.uleb128 0xc
+ 590 021b 01       		.uleb128 0x1
+ 591 021c 52       		.byte	0x52
+ 592 021d 01       		.uleb128 0x1
+ 593 021e 38       		.byte	0x38
+ 594 021f 00       		.byte	0
+ 595 0220 00       		.byte	0
+ 596 0221 0E       		.uleb128 0xe
+ 597 0222 2D010000 		.4byte	.LASF24
+ 598 0226 06       		.byte	0x6
+ 599 0227 11       		.byte	0x11
+ 600 0228 32020000 		.4byte	0x232
+ 601 022c 05       		.uleb128 0x5
+ 602 022d 03       		.byte	0x3
+ 603 022e 00000000 		.4byte	fullscale_range
+ 604 0232 06       		.uleb128 0x6
+ 605 0233 A3000000 		.4byte	0xa3
+ 606 0237 0E       		.uleb128 0xe
+ 607 0238 00000000 		.4byte	.LASF25
+ 608 023c 06       		.byte	0x6
+ 609 023d 12       		.byte	0x12
+ 610 023e DE000000 		.4byte	0xde
+ 611 0242 05       		.uleb128 0x5
+ 612 0243 03       		.byte	0x3
+ 613 0244 00000000 		.4byte	sensitivity
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cciWbK3G.s 			page 14
+
+
+ 614 0248 0E       		.uleb128 0xe
+ 615 0249 6B020000 		.4byte	.LASF26
+ 616 024d 06       		.byte	0x6
+ 617 024e 13       		.byte	0x13
+ 618 024f DE000000 		.4byte	0xde
+ 619 0253 05       		.uleb128 0x5
+ 620 0254 03       		.byte	0x3
+ 621 0255 00000000 		.4byte	confidence_interval
+ 622 0259 0E       		.uleb128 0xe
+ 623 025a 53020000 		.4byte	.LASF27
+ 624 025e 06       		.byte	0x6
+ 625 025f 14       		.byte	0x14
+ 626 0260 97000000 		.4byte	0x97
+ 627 0264 05       		.uleb128 0x5
+ 628 0265 03       		.byte	0x3
+ 629 0266 00000000 		.4byte	Parameters
+ 630 026a 0F       		.uleb128 0xf
+ 631 026b 20010000 		.4byte	.LASF28
+ 632 026f 07       		.byte	0x7
+ 633 0270 1207     		.2byte	0x712
+ 634 0272 76020000 		.4byte	0x276
+ 635 0276 06       		.uleb128 0x6
+ 636 0277 8C000000 		.4byte	0x8c
+ 637 027b 0E       		.uleb128 0xe
+ 638 027c 19020000 		.4byte	.LASF29
+ 639 0280 01       		.byte	0x1
+ 640 0281 35       		.byte	0x35
+ 641 0282 AF000000 		.4byte	0xaf
+ 642 0286 05       		.uleb128 0x5
+ 643 0287 03       		.byte	0x3
+ 644 0288 00000000 		.4byte	value_digit_pot
+ 645 028c 0E       		.uleb128 0xe
+ 646 028d 89020000 		.4byte	.LASF30
+ 647 0291 01       		.byte	0x1
+ 648 0292 36       		.byte	0x36
+ 649 0293 A3000000 		.4byte	0xa3
+ 650 0297 05       		.uleb128 0x5
+ 651 0298 03       		.byte	0x3
+ 652 0299 00000000 		.4byte	value_pot
+ 653 029d 0E       		.uleb128 0xe
+ 654 029e 3A020000 		.4byte	.LASF31
+ 655 02a2 01       		.byte	0x1
+ 656 02a3 37       		.byte	0x37
+ 657 02a4 FC000000 		.4byte	0xfc
+ 658 02a8 05       		.uleb128 0x5
+ 659 02a9 03       		.byte	0x3
+ 660 02aa 00000000 		.4byte	error
+ 661 02ae 0E       		.uleb128 0xe
+ 662 02af 61010000 		.4byte	.LASF32
+ 663 02b3 01       		.byte	0x1
+ 664 02b4 38       		.byte	0x38
+ 665 02b5 81000000 		.4byte	0x81
+ 666 02b9 05       		.uleb128 0x5
+ 667 02ba 03       		.byte	0x3
+ 668 02bb 00000000 		.4byte	ctrl_reg4
+ 669 02bf 0E       		.uleb128 0xe
+ 670 02c0 29000000 		.4byte	.LASF33
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cciWbK3G.s 			page 15
+
+
+ 671 02c4 01       		.byte	0x1
+ 672 02c5 39       		.byte	0x39
+ 673 02c6 81000000 		.4byte	0x81
+ 674 02ca 05       		.uleb128 0x5
+ 675 02cb 03       		.byte	0x3
+ 676 02cc 00000000 		.4byte	int2_ths_reg
+ 677 02d0 10       		.uleb128 0x10
+ 678 02d1 48000000 		.4byte	.LASF34
+ 679 02d5 48000000 		.4byte	.LASF34
+ 680 02d9 08       		.byte	0x8
+ 681 02da 56       		.byte	0x56
+ 682 02db 10       		.uleb128 0x10
+ 683 02dc FE010000 		.4byte	.LASF35
+ 684 02e0 FE010000 		.4byte	.LASF35
+ 685 02e4 08       		.byte	0x8
+ 686 02e5 47       		.byte	0x47
+ 687 02e6 10       		.uleb128 0x10
+ 688 02e7 44010000 		.4byte	.LASF36
+ 689 02eb 44010000 		.4byte	.LASF36
+ 690 02ef 09       		.byte	0x9
+ 691 02f0 43       		.byte	0x43
+ 692 02f1 00       		.byte	0
+ 693              		.section	.debug_abbrev,"",%progbits
+ 694              	.Ldebug_abbrev0:
+ 695 0000 01       		.uleb128 0x1
+ 696 0001 11       		.uleb128 0x11
+ 697 0002 01       		.byte	0x1
+ 698 0003 25       		.uleb128 0x25
+ 699 0004 0E       		.uleb128 0xe
+ 700 0005 13       		.uleb128 0x13
+ 701 0006 0B       		.uleb128 0xb
+ 702 0007 03       		.uleb128 0x3
+ 703 0008 0E       		.uleb128 0xe
+ 704 0009 1B       		.uleb128 0x1b
+ 705 000a 0E       		.uleb128 0xe
+ 706 000b 55       		.uleb128 0x55
+ 707 000c 17       		.uleb128 0x17
+ 708 000d 11       		.uleb128 0x11
+ 709 000e 01       		.uleb128 0x1
+ 710 000f 10       		.uleb128 0x10
+ 711 0010 17       		.uleb128 0x17
+ 712 0011 00       		.byte	0
+ 713 0012 00       		.byte	0
+ 714 0013 02       		.uleb128 0x2
+ 715 0014 24       		.uleb128 0x24
+ 716 0015 00       		.byte	0
+ 717 0016 0B       		.uleb128 0xb
+ 718 0017 0B       		.uleb128 0xb
+ 719 0018 3E       		.uleb128 0x3e
+ 720 0019 0B       		.uleb128 0xb
+ 721 001a 03       		.uleb128 0x3
+ 722 001b 0E       		.uleb128 0xe
+ 723 001c 00       		.byte	0
+ 724 001d 00       		.byte	0
+ 725 001e 03       		.uleb128 0x3
+ 726 001f 16       		.uleb128 0x16
+ 727 0020 00       		.byte	0
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cciWbK3G.s 			page 16
+
+
+ 728 0021 03       		.uleb128 0x3
+ 729 0022 0E       		.uleb128 0xe
+ 730 0023 3A       		.uleb128 0x3a
+ 731 0024 0B       		.uleb128 0xb
+ 732 0025 3B       		.uleb128 0x3b
+ 733 0026 0B       		.uleb128 0xb
+ 734 0027 49       		.uleb128 0x49
+ 735 0028 13       		.uleb128 0x13
+ 736 0029 00       		.byte	0
+ 737 002a 00       		.byte	0
+ 738 002b 04       		.uleb128 0x4
+ 739 002c 24       		.uleb128 0x24
+ 740 002d 00       		.byte	0
+ 741 002e 0B       		.uleb128 0xb
+ 742 002f 0B       		.uleb128 0xb
+ 743 0030 3E       		.uleb128 0x3e
+ 744 0031 0B       		.uleb128 0xb
+ 745 0032 03       		.uleb128 0x3
+ 746 0033 08       		.uleb128 0x8
+ 747 0034 00       		.byte	0
+ 748 0035 00       		.byte	0
+ 749 0036 05       		.uleb128 0x5
+ 750 0037 16       		.uleb128 0x16
+ 751 0038 00       		.byte	0
+ 752 0039 03       		.uleb128 0x3
+ 753 003a 0E       		.uleb128 0xe
+ 754 003b 3A       		.uleb128 0x3a
+ 755 003c 0B       		.uleb128 0xb
+ 756 003d 3B       		.uleb128 0x3b
+ 757 003e 05       		.uleb128 0x5
+ 758 003f 49       		.uleb128 0x49
+ 759 0040 13       		.uleb128 0x13
+ 760 0041 00       		.byte	0
+ 761 0042 00       		.byte	0
+ 762 0043 06       		.uleb128 0x6
+ 763 0044 35       		.uleb128 0x35
+ 764 0045 00       		.byte	0
+ 765 0046 49       		.uleb128 0x49
+ 766 0047 13       		.uleb128 0x13
+ 767 0048 00       		.byte	0
+ 768 0049 00       		.byte	0
+ 769 004a 07       		.uleb128 0x7
+ 770 004b 04       		.uleb128 0x4
+ 771 004c 01       		.byte	0x1
+ 772 004d 0B       		.uleb128 0xb
+ 773 004e 0B       		.uleb128 0xb
+ 774 004f 49       		.uleb128 0x49
+ 775 0050 13       		.uleb128 0x13
+ 776 0051 3A       		.uleb128 0x3a
+ 777 0052 0B       		.uleb128 0xb
+ 778 0053 3B       		.uleb128 0x3b
+ 779 0054 0B       		.uleb128 0xb
+ 780 0055 01       		.uleb128 0x1
+ 781 0056 13       		.uleb128 0x13
+ 782 0057 00       		.byte	0
+ 783 0058 00       		.byte	0
+ 784 0059 08       		.uleb128 0x8
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cciWbK3G.s 			page 17
+
+
+ 785 005a 28       		.uleb128 0x28
+ 786 005b 00       		.byte	0
+ 787 005c 03       		.uleb128 0x3
+ 788 005d 0E       		.uleb128 0xe
+ 789 005e 1C       		.uleb128 0x1c
+ 790 005f 0B       		.uleb128 0xb
+ 791 0060 00       		.byte	0
+ 792 0061 00       		.byte	0
+ 793 0062 09       		.uleb128 0x9
+ 794 0063 2E       		.uleb128 0x2e
+ 795 0064 01       		.byte	0x1
+ 796 0065 3F       		.uleb128 0x3f
+ 797 0066 19       		.uleb128 0x19
+ 798 0067 03       		.uleb128 0x3
+ 799 0068 0E       		.uleb128 0xe
+ 800 0069 3A       		.uleb128 0x3a
+ 801 006a 0B       		.uleb128 0xb
+ 802 006b 3B       		.uleb128 0x3b
+ 803 006c 0B       		.uleb128 0xb
+ 804 006d 27       		.uleb128 0x27
+ 805 006e 19       		.uleb128 0x19
+ 806 006f 11       		.uleb128 0x11
+ 807 0070 01       		.uleb128 0x1
+ 808 0071 12       		.uleb128 0x12
+ 809 0072 06       		.uleb128 0x6
+ 810 0073 40       		.uleb128 0x40
+ 811 0074 18       		.uleb128 0x18
+ 812 0075 9742     		.uleb128 0x2117
+ 813 0077 19       		.uleb128 0x19
+ 814 0078 01       		.uleb128 0x1
+ 815 0079 13       		.uleb128 0x13
+ 816 007a 00       		.byte	0
+ 817 007b 00       		.byte	0
+ 818 007c 0A       		.uleb128 0xa
+ 819 007d 898201   		.uleb128 0x4109
+ 820 0080 00       		.byte	0
+ 821 0081 11       		.uleb128 0x11
+ 822 0082 01       		.uleb128 0x1
+ 823 0083 31       		.uleb128 0x31
+ 824 0084 13       		.uleb128 0x13
+ 825 0085 00       		.byte	0
+ 826 0086 00       		.byte	0
+ 827 0087 0B       		.uleb128 0xb
+ 828 0088 898201   		.uleb128 0x4109
+ 829 008b 01       		.byte	0x1
+ 830 008c 11       		.uleb128 0x11
+ 831 008d 01       		.uleb128 0x1
+ 832 008e 31       		.uleb128 0x31
+ 833 008f 13       		.uleb128 0x13
+ 834 0090 01       		.uleb128 0x1
+ 835 0091 13       		.uleb128 0x13
+ 836 0092 00       		.byte	0
+ 837 0093 00       		.byte	0
+ 838 0094 0C       		.uleb128 0xc
+ 839 0095 8A8201   		.uleb128 0x410a
+ 840 0098 00       		.byte	0
+ 841 0099 02       		.uleb128 0x2
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cciWbK3G.s 			page 18
+
+
+ 842 009a 18       		.uleb128 0x18
+ 843 009b 9142     		.uleb128 0x2111
+ 844 009d 18       		.uleb128 0x18
+ 845 009e 00       		.byte	0
+ 846 009f 00       		.byte	0
+ 847 00a0 0D       		.uleb128 0xd
+ 848 00a1 898201   		.uleb128 0x4109
+ 849 00a4 01       		.byte	0x1
+ 850 00a5 11       		.uleb128 0x11
+ 851 00a6 01       		.uleb128 0x1
+ 852 00a7 31       		.uleb128 0x31
+ 853 00a8 13       		.uleb128 0x13
+ 854 00a9 00       		.byte	0
+ 855 00aa 00       		.byte	0
+ 856 00ab 0E       		.uleb128 0xe
+ 857 00ac 34       		.uleb128 0x34
+ 858 00ad 00       		.byte	0
+ 859 00ae 03       		.uleb128 0x3
+ 860 00af 0E       		.uleb128 0xe
+ 861 00b0 3A       		.uleb128 0x3a
+ 862 00b1 0B       		.uleb128 0xb
+ 863 00b2 3B       		.uleb128 0x3b
+ 864 00b3 0B       		.uleb128 0xb
+ 865 00b4 49       		.uleb128 0x49
+ 866 00b5 13       		.uleb128 0x13
+ 867 00b6 3F       		.uleb128 0x3f
+ 868 00b7 19       		.uleb128 0x19
+ 869 00b8 02       		.uleb128 0x2
+ 870 00b9 18       		.uleb128 0x18
+ 871 00ba 00       		.byte	0
+ 872 00bb 00       		.byte	0
+ 873 00bc 0F       		.uleb128 0xf
+ 874 00bd 34       		.uleb128 0x34
+ 875 00be 00       		.byte	0
+ 876 00bf 03       		.uleb128 0x3
+ 877 00c0 0E       		.uleb128 0xe
+ 878 00c1 3A       		.uleb128 0x3a
+ 879 00c2 0B       		.uleb128 0xb
+ 880 00c3 3B       		.uleb128 0x3b
+ 881 00c4 05       		.uleb128 0x5
+ 882 00c5 49       		.uleb128 0x49
+ 883 00c6 13       		.uleb128 0x13
+ 884 00c7 3F       		.uleb128 0x3f
+ 885 00c8 19       		.uleb128 0x19
+ 886 00c9 3C       		.uleb128 0x3c
+ 887 00ca 19       		.uleb128 0x19
+ 888 00cb 00       		.byte	0
+ 889 00cc 00       		.byte	0
+ 890 00cd 10       		.uleb128 0x10
+ 891 00ce 2E       		.uleb128 0x2e
+ 892 00cf 00       		.byte	0
+ 893 00d0 3F       		.uleb128 0x3f
+ 894 00d1 19       		.uleb128 0x19
+ 895 00d2 3C       		.uleb128 0x3c
+ 896 00d3 19       		.uleb128 0x19
+ 897 00d4 6E       		.uleb128 0x6e
+ 898 00d5 0E       		.uleb128 0xe
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cciWbK3G.s 			page 19
+
+
+ 899 00d6 03       		.uleb128 0x3
+ 900 00d7 0E       		.uleb128 0xe
+ 901 00d8 3A       		.uleb128 0x3a
+ 902 00d9 0B       		.uleb128 0xb
+ 903 00da 3B       		.uleb128 0x3b
+ 904 00db 0B       		.uleb128 0xb
+ 905 00dc 00       		.byte	0
+ 906 00dd 00       		.byte	0
+ 907 00de 00       		.byte	0
+ 908              		.section	.debug_aranges,"",%progbits
+ 909 0000 1C000000 		.4byte	0x1c
+ 910 0004 0200     		.2byte	0x2
+ 911 0006 00000000 		.4byte	.Ldebug_info0
+ 912 000a 04       		.byte	0x4
+ 913 000b 00       		.byte	0
+ 914 000c 0000     		.2byte	0
+ 915 000e 0000     		.2byte	0
+ 916 0010 00000000 		.4byte	.LFB64
+ 917 0014 80010000 		.4byte	.LFE64-.LFB64
+ 918 0018 00000000 		.4byte	0
+ 919 001c 00000000 		.4byte	0
+ 920              		.section	.debug_ranges,"",%progbits
+ 921              	.Ldebug_ranges0:
+ 922 0000 00000000 		.4byte	.LFB64
+ 923 0004 80010000 		.4byte	.LFE64
+ 924 0008 00000000 		.4byte	0
+ 925 000c 00000000 		.4byte	0
+ 926              		.section	.debug_line,"",%progbits
+ 927              	.Ldebug_line0:
+ 928 0000 EC010000 		.section	.debug_str,"MS",%progbits,1
+ 928      0200A101 
+ 928      00000201 
+ 928      FB0E0D00 
+ 928      01010101 
+ 929              	.LASF25:
+ 930 0000 73656E73 		.ascii	"sensitivity\000"
+ 930      69746976 
+ 930      69747900 
+ 931              	.LASF4:
+ 932 000c 5F5F7569 		.ascii	"__uint8_t\000"
+ 932      6E74385F 
+ 932      7400
+ 933              	.LASF5:
+ 934 0016 5F5F696E 		.ascii	"__int32_t\000"
+ 934      7433325F 
+ 934      7400
+ 935              	.LASF6:
+ 936 0020 6C6F6E67 		.ascii	"long int\000"
+ 936      20696E74 
+ 936      00
+ 937              	.LASF33:
+ 938 0029 696E7432 		.ascii	"int2_ths_reg\000"
+ 938      5F746873 
+ 938      5F726567 
+ 938      00
+ 939              	.LASF11:
+ 940 0036 75696E74 		.ascii	"uint8_t\000"
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cciWbK3G.s 			page 20
+
+
+ 940      385F7400 
+ 941              	.LASF23:
+ 942 003e 4572726F 		.ascii	"ErrorCode\000"
+ 942      72436F64 
+ 942      6500
+ 943              	.LASF34:
+ 944 0048 4144435F 		.ascii	"ADC_DelSig_Read32\000"
+ 944      44656C53 
+ 944      69675F52 
+ 944      65616433 
+ 944      3200
+ 945              	.LASF16:
+ 946 005a 666C6F61 		.ascii	"float\000"
+ 946      7400
+ 947              	.LASF13:
+ 948 0060 75696E74 		.ascii	"uint8\000"
+ 948      3800
+ 949              	.LASF1:
+ 950 0066 756E7369 		.ascii	"unsigned char\000"
+ 950      676E6564 
+ 950      20636861 
+ 950      7200
+ 951              	.LASF37:
+ 952 0074 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 952      43313120 
+ 952      352E342E 
+ 952      31203230 
+ 952      31363036 
+ 953 00a7 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 953      20726576 
+ 953      6973696F 
+ 953      6E203233 
+ 953      37373135 
+ 954 00da 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 954      66756E63 
+ 954      74696F6E 
+ 954      2D736563 
+ 954      74696F6E 
+ 955              	.LASF14:
+ 956 0102 696E7431 		.ascii	"int16\000"
+ 956      3600
+ 957              	.LASF7:
+ 958 0108 6C6F6E67 		.ascii	"long unsigned int\000"
+ 958      20756E73 
+ 958      69676E65 
+ 958      6420696E 
+ 958      7400
+ 959              	.LASF15:
+ 960 011a 696E7433 		.ascii	"int32\000"
+ 960      3200
+ 961              	.LASF28:
+ 962 0120 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 962      52784275 
+ 962      66666572 
+ 962      00
+ 963              	.LASF24:
+ 964 012d 66756C6C 		.ascii	"fullscale_range\000"
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cciWbK3G.s 			page 21
+
+
+ 964      7363616C 
+ 964      655F7261 
+ 964      6E676500 
+ 965              	.LASF17:
+ 966 013d 646F7562 		.ascii	"double\000"
+ 966      6C6500
+ 967              	.LASF36:
+ 968 0144 4932435F 		.ascii	"I2C_Peripheral_WriteRegister\000"
+ 968      50657269 
+ 968      70686572 
+ 968      616C5F57 
+ 968      72697465 
+ 969              	.LASF32:
+ 970 0161 6374726C 		.ascii	"ctrl_reg4\000"
+ 970      5F726567 
+ 970      3400
+ 971              	.LASF10:
+ 972 016b 756E7369 		.ascii	"unsigned int\000"
+ 972      676E6564 
+ 972      20696E74 
+ 972      00
+ 973              	.LASF9:
+ 974 0178 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 974      206C6F6E 
+ 974      6720756E 
+ 974      7369676E 
+ 974      65642069 
+ 975              	.LASF39:
+ 976 018f 433A5C55 		.ascii	"C:\\Users\\Susanna\\Desktop\\Final_Project_DiGiacom"
+ 976      73657273 
+ 976      5C537573 
+ 976      616E6E61 
+ 976      5C446573 
+ 977 01be 6F5F5061 		.ascii	"o_Palmieri\\Final_Project_DiGiacomoPalmieri\\Final_"
+ 977      6C6D6965 
+ 977      72695C46 
+ 977      696E616C 
+ 977      5F50726F 
+ 978 01ef 50726F6A 		.ascii	"Project_.cydsn\000"
+ 978      6563745F 
+ 978      2E637964 
+ 978      736E00
+ 979              	.LASF35:
+ 980 01fe 4144435F 		.ascii	"ADC_DelSig_CountsTo_mVolts\000"
+ 980      44656C53 
+ 980      69675F43 
+ 980      6F756E74 
+ 980      73546F5F 
+ 981              	.LASF29:
+ 982 0219 76616C75 		.ascii	"value_digit_pot\000"
+ 982      655F6469 
+ 982      6769745F 
+ 982      706F7400 
+ 983              	.LASF12:
+ 984 0229 696E7433 		.ascii	"int32_t\000"
+ 984      325F7400 
+ 985              	.LASF20:
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cciWbK3G.s 			page 22
+
+
+ 986 0231 73697A65 		.ascii	"sizetype\000"
+ 986      74797065 
+ 986      00
+ 987              	.LASF31:
+ 988 023a 6572726F 		.ascii	"error\000"
+ 988      7200
+ 989              	.LASF8:
+ 990 0240 6C6F6E67 		.ascii	"long long int\000"
+ 990      206C6F6E 
+ 990      6720696E 
+ 990      7400
+ 991              	.LASF18:
+ 992 024e 63686172 		.ascii	"char\000"
+ 992      00
+ 993              	.LASF27:
+ 994 0253 50617261 		.ascii	"Parameters\000"
+ 994      6D657465 
+ 994      727300
+ 995              	.LASF40:
+ 996 025e 73657450 		.ascii	"setParameter\000"
+ 996      6172616D 
+ 996      65746572 
+ 996      00
+ 997              	.LASF26:
+ 998 026b 636F6E66 		.ascii	"confidence_interval\000"
+ 998      6964656E 
+ 998      63655F69 
+ 998      6E746572 
+ 998      76616C00 
+ 999              	.LASF2:
+ 1000 027f 73686F72 		.ascii	"short int\000"
+ 1000      7420696E 
+ 1000      7400
+ 1001              	.LASF30:
+ 1002 0289 76616C75 		.ascii	"value_pot\000"
+ 1002      655F706F 
+ 1002      7400
+ 1003              	.LASF21:
+ 1004 0293 4E4F5F45 		.ascii	"NO_ERROR\000"
+ 1004      52524F52 
+ 1004      00
+ 1005              	.LASF22:
+ 1006 029c 4552524F 		.ascii	"ERROR\000"
+ 1006      5200
+ 1007              	.LASF19:
+ 1008 02a2 6C6F6E67 		.ascii	"long double\000"
+ 1008      20646F75 
+ 1008      626C6500 
+ 1009              	.LASF0:
+ 1010 02ae 7369676E 		.ascii	"signed char\000"
+ 1010      65642063 
+ 1010      68617200 
+ 1011              	.LASF3:
+ 1012 02ba 73686F72 		.ascii	"short unsigned int\000"
+ 1012      7420756E 
+ 1012      7369676E 
+ 1012      65642069 
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cciWbK3G.s 			page 23
+
+
+ 1012      6E7400
+ 1013              	.LASF38:
+ 1014 02cd 53657474 		.ascii	"SettingParameter.c\000"
+ 1014      696E6750 
+ 1014      6172616D 
+ 1014      65746572 
+ 1014      2E6300
+ 1015              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
