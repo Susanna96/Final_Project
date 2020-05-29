@@ -30,15 +30,15 @@
 #define LIS3DH_CTRL_REG1 0x20
 
 /*Brief HEX value for CONTROL REGISTER 1: Low power mode at 50 Hz
-CTRL_REG1[3]=LPen=1 (Low power mode);
-CTRL_REG1[7:4]=ODR[3:0]=0100 (50 Hz)*/
+CTRL_REG1[3]=LPen=1 (Low power mode enable);
+CTRL_REG1[7:4]=ODR[3:0]=0100 (50 Hz) */
 #define LIS3DH_LP_MODE_50_HZ_CTRL_REG1 0x4F
 
 //Brieg CONTROL REGISTER 3 address
 #define LIS3DH_CTRL_REG3 0x22
 
 /*Brief HEX value for CONTROL REGISTER 3: 
-CTRL_REG3[1]=I1_OVERRUN=1 (FIFO overrun interrupt on INT1 enabled); */
+CTRL_REG3[1]=I1_OVERRUN=1 (FIFO overrun interrupt on INT1 enable) */
 #define LIS3DH_OVERRUN_INT_CTRL_REG3 0x02 
 
 //Brief CONTROL REGISTER 4 address
@@ -70,7 +70,7 @@ CTRL_REG4[5:4]=FS[1:0]=11 (16.0 g FSR) */
 /*Brief HEX value for CONTROL REGISTER 5:
 CTRL_REG5[6]=FIFO_EN=1 (enable FIFO buffer)
 CTRL_REG5[1]=LIR_INT2=1 (Latch interrupt request on INT2_SRC register)*/
-#define LIS3DH_FIFO_ENABLED 0x42 //0x40
+#define LIS3DH_FIFO_ENABLED 0x42
 
 //Brief CONTROL REGISTER 6 address
 #define LIS3DH_CTRL_REG6 0x25
@@ -448,6 +448,7 @@ int main(void)
     uint8_t int2_src_reg;
     uint8_t ctrl_reg4;
     uint8_t int2_ths_reg;
+    
     uint8_t i=0;
     uint8_t Parameters_read;
     
@@ -607,6 +608,7 @@ int main(void)
                         // Over-threshold in x-axis
                         if ((error == NO_ERROR) && (int2_src_reg & (X_HIGH)))
                         {                  
+                            // Set the flag overths_x
                             overths_x=1;
                         }
                         if (overths_x)
@@ -624,6 +626,8 @@ int main(void)
                                     EEPROM_waitForWriteComplete();                                
                                     
                                     EEPROM_readPage(0x0002,(uint8_t*)Data_read,DATA_BYTES);
+                                    
+                                    /* Print 5 overthreshold samples and timestamp */
                                     sprintf(message, "Over threshold data: %d %d %d %d %d Timestamp: %d seconds\r\n", Data_read[0],Data_read[1],Data_read[2],Data_read[3],Data_read[4],Data_read[5]);
             						UART_PutString(message);
                                 }                          
@@ -631,6 +635,7 @@ int main(void)
                         // Over-threshold in y-axis
                         else if ((error == NO_ERROR) && (int2_src_reg & (Y_HIGH)))
                         {                  
+                            // Set the flag overths_y
                             overths_y=1;
                         }
                         if (overths_y)
@@ -648,6 +653,8 @@ int main(void)
                                     EEPROM_waitForWriteComplete();                                
                                     
                                     EEPROM_readPage(0x0002,(uint8_t*)Data_read,DATA_BYTES);
+                                    
+                                    /* Print 5 overthreshold samples and timestamp */
                                     sprintf(message, "Over threshold data: %d %d %d %d %d Timestamp: %d seconds\r\n", Data_read[0],Data_read[1],Data_read[2],Data_read[3],Data_read[4],Data_read[5]);
             						UART_PutString(message);
                                 }                          
@@ -655,6 +662,7 @@ int main(void)
                         // Over-threshold in z-axis
                         else if ((error == NO_ERROR) && (int2_src_reg & (Z_HIGH)))
                         {                  
+                            // Set the flag overths_z
                             overths_z=1;
                         }
                         if (overths_z)
@@ -672,6 +680,8 @@ int main(void)
                                     EEPROM_waitForWriteComplete();                                
                                     
                                     EEPROM_readPage(0x0002,(uint8_t*)Data_read,DATA_BYTES);
+                                    
+                                    /* Print 5 overthreshold samples and timestamp */
                                     sprintf(message, "Over threshold data: %d %d %d %d %d Timestamp: %d seconds\r\n", Data_read[0],Data_read[1],Data_read[2],Data_read[3],Data_read[4],Data_read[5]);
             						UART_PutString(message);
                                 }                          
@@ -705,6 +715,7 @@ int main(void)
 //						
 //                      UART_PutArray(OutArray,12);
 						
+                        /* Print acceleration data and current parameters */
                         sprintf(message, "Acceleration data: %d %d %d \r\n Parameters: 0x%02X (0x%02X)\r\n\n", X_Out_mg[i],Y_Out_mg[i],Z_Out_mg[i], Parameters_read, Parameters);
 						UART_PutString(message);
                         
@@ -736,6 +747,7 @@ int main(void)
             EEPROM_waitForWriteComplete();
             Parameters_read=EEPROM_readByte(0x0000);
             
+            /* Print current parameters */
             sprintf(buffer_EEPROM," EEPROM Read Parameters = 0x%02X (0x%02X)\r\n", Parameters_read, Parameters);
             UART_PutString(buffer_EEPROM);
             
@@ -792,7 +804,7 @@ int main(void)
                   UART_PutString(buffer_EEPROM);
                 }
                 
-                /* Save new parameters in memory */
+                /* Save new parameters in memory and print */
                 Parameters_read=EEPROM_readByte(0x0000);
                 sprintf(buffer_EEPROM," EEPROM Read Parameters = 0x%02X (0x%02X)\r\n", Parameters_read, Parameters);
                 UART_PutString(buffer_EEPROM);

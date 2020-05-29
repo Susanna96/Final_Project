@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 1
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccEozrqP.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 1
   28:SPI_Interface.c **** */
   29:SPI_Interface.c **** uint8_t SPI_Interface_tradeByte(uint8_t byte) {
   28              		.loc 1 29 0
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 2
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccEozrqP.s 			page 2
 
 
   29              		.cfi_startproc
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 1
   64 0028 10BD     		pop	{r4, pc}
   65              		.cfi_endproc
   66              	.LFE0:
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 3
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccEozrqP.s 			page 3
 
 
   67              		.size	SPI_Interface_tradeByte, .-SPI_Interface_tradeByte
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 1
  103 001a 10F0010F 		tst	r0, #1
  104 001e FAD0     		beq	.L5
   67:SPI_Interface.c ****         
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 4
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccEozrqP.s 			page 4
 
 
   68:SPI_Interface.c ****         /* Read the RX Buffer */
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 1
  142              		.align	2
  143              		.global	SPI_Interface_Multi_RW
  144              		.thumb
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 5
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccEozrqP.s 			page 5
 
 
  145              		.thumb_func
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 1
  182              	.L11:
  102:SPI_Interface.c ****             
  103:SPI_Interface.c ****         	/* Load the TX buffer with Data*/
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 6
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccEozrqP.s 			page 6
 
 
  104:SPI_Interface.c ****             SPIM_PutArray(&dataTX[index*SPI_TxBufferSize], (count > SPI_TxBufferSize ? SPI_TxBuffer
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 1
  219 004a 0026     		movs	r6, #0
  220              	.LVL32:
  221 004c 0096     		str	r6, [sp]
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 7
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccEozrqP.s 			page 7
 
 
  222 004e 0196     		str	r6, [sp, #4]
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 1
  260              	.L14:
  134:SPI_Interface.c ****                 dataRX[j + index*SPI_RxBufferSize] = SPIM_ReadRxData();   
  261              		.loc 1 134 0 is_stmt 0 discriminator 1
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 8
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccEozrqP.s 			page 8
 
 
  262 0088 4C45     		cmp	r4, r9
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 1
  298              	.LFE3:
  299              		.size	SPI_Interface_Multi_RW, .-SPI_Interface_Multi_RW
  300 00b6 00BF     		.text
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 9
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccEozrqP.s 			page 9
 
 
  301              	.Letext0:
@@ -494,10 +494,10 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 1
  311 0006 00000000 		.4byte	.Ldebug_abbrev0
  312 000a 04       		.byte	0x4
  313 000b 01       		.uleb128 0x1
- 314 000c A6000000 		.4byte	.LASF43
+ 314 000c B3000000 		.4byte	.LASF43
  315 0010 0C       		.byte	0xc
- 316 0011 34010000 		.4byte	.LASF44
- 317 0015 5C010000 		.4byte	.LASF45
+ 316 0011 41010000 		.4byte	.LASF44
+ 317 0015 AD010000 		.4byte	.LASF45
  318 0019 00000000 		.4byte	.Ldebug_ranges0+0
  319 001d 00000000 		.4byte	0
  320 0021 00000000 		.4byte	.Ldebug_line0
@@ -509,7 +509,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 1
  326 0030 03       		.uleb128 0x3
  327 0031 01       		.byte	0x1
  328 0032 06       		.byte	0x6
- 329 0033 E4020000 		.4byte	.LASF2
+ 329 0033 E5020000 		.4byte	.LASF2
  330 0037 02       		.uleb128 0x2
  331 0038 09000000 		.4byte	.LASF1
  332 003c 02       		.byte	0x2
@@ -518,11 +518,11 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 1
  335 0042 03       		.uleb128 0x3
  336 0043 01       		.byte	0x1
  337 0044 08       		.byte	0x8
- 338 0045 98000000 		.4byte	.LASF3
+ 338 0045 A5000000 		.4byte	.LASF3
  339 0049 03       		.uleb128 0x3
  340 004a 02       		.byte	0x2
  341 004b 05       		.byte	0x5
- 342 004c A0020000 		.4byte	.LASF4
+ 342 004c A1020000 		.4byte	.LASF4
  343 0050 03       		.uleb128 0x3
  344 0051 02       		.byte	0x2
  345 0052 07       		.byte	0x7
@@ -530,22 +530,22 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 1
  347 0057 03       		.uleb128 0x3
  348 0058 04       		.byte	0x4
  349 0059 05       		.byte	0x5
- 350 005a CF020000 		.4byte	.LASF6
+ 350 005a D0020000 		.4byte	.LASF6
  351 005e 03       		.uleb128 0x3
  352 005f 04       		.byte	0x4
  353 0060 07       		.byte	0x7
- 354 0061 44010000 		.4byte	.LASF7
+ 354 0061 51010000 		.4byte	.LASF7
  355 0065 03       		.uleb128 0x3
  356 0066 08       		.byte	0x8
  357 0067 05       		.byte	0x5
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 10
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccEozrqP.s 			page 10
 
 
- 358 0068 61020000 		.4byte	.LASF8
+ 358 0068 62020000 		.4byte	.LASF8
  359 006c 03       		.uleb128 0x3
  360 006d 08       		.byte	0x8
  361 006e 07       		.byte	0x7
- 362 006f 1A020000 		.4byte	.LASF9
+ 362 006f 1B020000 		.4byte	.LASF9
  363 0073 04       		.uleb128 0x4
  364 0074 04       		.byte	0x4
  365 0075 05       		.byte	0x5
@@ -553,44 +553,44 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 1
  367 007a 03       		.uleb128 0x3
  368 007b 04       		.byte	0x4
  369 007c 07       		.byte	0x7
- 370 007d 0D020000 		.4byte	.LASF10
+ 370 007d 4D000000 		.4byte	.LASF10
  371 0081 02       		.uleb128 0x2
- 372 0082 6C000000 		.4byte	.LASF11
+ 372 0082 79000000 		.4byte	.LASF11
  373 0086 03       		.byte	0x3
  374 0087 14       		.byte	0x14
  375 0088 25000000 		.4byte	0x25
  376 008c 02       		.uleb128 0x2
- 377 008d 31020000 		.4byte	.LASF12
+ 377 008d 32020000 		.4byte	.LASF12
  378 0091 03       		.byte	0x3
  379 0092 18       		.byte	0x18
  380 0093 37000000 		.4byte	0x37
  381 0097 05       		.uleb128 0x5
- 382 0098 56010000 		.4byte	.LASF13
+ 382 0098 63010000 		.4byte	.LASF13
  383 009c 04       		.byte	0x4
  384 009d E401     		.2byte	0x1e4
  385 009f 42000000 		.4byte	0x42
  386 00a3 03       		.uleb128 0x3
  387 00a4 04       		.byte	0x4
  388 00a5 04       		.byte	0x4
- 389 00a6 7A000000 		.4byte	.LASF14
+ 389 00a6 87000000 		.4byte	.LASF14
  390 00aa 03       		.uleb128 0x3
  391 00ab 08       		.byte	0x8
  392 00ac 04       		.byte	0x4
- 393 00ad E7010000 		.4byte	.LASF15
+ 393 00ad 87010000 		.4byte	.LASF15
  394 00b1 03       		.uleb128 0x3
  395 00b2 01       		.byte	0x1
  396 00b3 08       		.byte	0x8
- 397 00b4 6F020000 		.4byte	.LASF16
+ 397 00b4 70020000 		.4byte	.LASF16
  398 00b8 03       		.uleb128 0x3
  399 00b9 08       		.byte	0x8
  400 00ba 04       		.byte	0x4
- 401 00bb D8020000 		.4byte	.LASF17
+ 401 00bb D9020000 		.4byte	.LASF17
  402 00bf 03       		.uleb128 0x3
  403 00c0 04       		.byte	0x4
  404 00c1 07       		.byte	0x7
- 405 00c2 58020000 		.4byte	.LASF18
+ 405 00c2 59020000 		.4byte	.LASF18
  406 00c6 06       		.uleb128 0x6
- 407 00c7 EE010000 		.4byte	.LASF19
+ 407 00c7 8E010000 		.4byte	.LASF19
  408 00cb 01       		.byte	0x1
  409 00cc 1D       		.byte	0x1d
  410 00cd 8C000000 		.4byte	0x8c
@@ -598,18 +598,18 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 1
  412 00d5 2A000000 		.4byte	.LFE0-.LFB0
  413 00d9 01       		.uleb128 0x1
  414 00da 9C       		.byte	0x9c
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 11
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccEozrqP.s 			page 11
 
 
  415 00db 44010000 		.4byte	0x144
  416 00df 07       		.uleb128 0x7
- 417 00e0 4D000000 		.4byte	.LASF21
+ 417 00e0 5A000000 		.4byte	.LASF21
  418 00e4 01       		.byte	0x1
  419 00e5 1D       		.byte	0x1d
  420 00e6 8C000000 		.4byte	0x8c
  421 00ea 00000000 		.4byte	.LLST0
  422 00ee 08       		.uleb128 0x8
- 423 00ef 80000000 		.4byte	.LASF23
+ 423 00ef 8D000000 		.4byte	.LASF23
  424 00f3 01       		.byte	0x1
  425 00f4 29       		.byte	0x29
  426 00f5 8C000000 		.4byte	0x8c
@@ -653,12 +653,12 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 1
  464 0142 00       		.byte	0
  465 0143 00       		.byte	0
  466 0144 06       		.uleb128 0x6
- 467 0145 F7020000 		.4byte	.LASF20
+ 467 0145 F8020000 		.4byte	.LASF20
  468 0149 01       		.byte	0x1
  469 014a 36       		.byte	0x36
  470 014b 8C000000 		.4byte	0x8c
  471 014f 00000000 		.4byte	.LFB1
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 12
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccEozrqP.s 			page 12
 
 
  472 0153 34000000 		.4byte	.LFE1-.LFB1
@@ -666,13 +666,13 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 1
  474 0158 9C       		.byte	0x9c
  475 0159 DE010000 		.4byte	0x1de
  476 015d 07       		.uleb128 0x7
- 477 015e 73000000 		.4byte	.LASF22
+ 477 015e 80000000 		.4byte	.LASF22
  478 0162 01       		.byte	0x1
  479 0163 36       		.byte	0x36
  480 0164 8C000000 		.4byte	0x8c
  481 0168 21000000 		.4byte	.LLST1
  482 016c 08       		.uleb128 0x8
- 483 016d 06020000 		.4byte	.LASF24
+ 483 016d A6010000 		.4byte	.LASF24
  484 0171 01       		.byte	0x1
  485 0172 46       		.byte	0x46
  486 0173 8C000000 		.4byte	0x8c
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 1
  526 01c5 0B       		.uleb128 0xb
  527 01c6 28000000 		.4byte	.LVL15
  528 01ca 9C030000 		.4byte	0x39c
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 13
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccEozrqP.s 			page 13
 
 
  529 01ce 0C       		.uleb128 0xc
@@ -732,7 +732,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 1
  537 01dc 00       		.byte	0
  538 01dd 00       		.byte	0
  539 01de 0D       		.uleb128 0xd
- 540 01df 52000000 		.4byte	.LASF28
+ 540 01df 5F000000 		.4byte	.LASF28
  541 01e3 01       		.byte	0x1
  542 01e4 54       		.byte	0x54
  543 01e5 00000000 		.4byte	.LFB2
@@ -741,14 +741,14 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 1
  546 01ee 9C       		.byte	0x9c
  547 01ef 1B020000 		.4byte	0x21b
  548 01f3 0E       		.uleb128 0xe
- 549 01f4 F0020000 		.4byte	.LASF25
+ 549 01f4 F1020000 		.4byte	.LASF25
  550 01f8 01       		.byte	0x1
  551 01f9 54       		.byte	0x54
  552 01fa 1B020000 		.4byte	0x21b
  553 01fe 01       		.uleb128 0x1
  554 01ff 50       		.byte	0x50
  555 0200 0E       		.uleb128 0xe
- 556 0201 49020000 		.4byte	.LASF26
+ 556 0201 4A020000 		.4byte	.LASF26
  557 0205 01       		.byte	0x1
  558 0206 54       		.byte	0x54
  559 0207 1B020000 		.4byte	0x21b
@@ -766,7 +766,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 1
  571 021c 04       		.byte	0x4
  572 021d 8C000000 		.4byte	0x8c
  573 0221 0D       		.uleb128 0xd
- 574 0222 89020000 		.4byte	.LASF29
+ 574 0222 8A020000 		.4byte	.LASF29
  575 0226 01       		.byte	0x1
  576 0227 5D       		.byte	0x5d
  577 0228 00000000 		.4byte	.LFB3
@@ -775,28 +775,28 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 1
  580 0231 9C       		.byte	0x9c
  581 0232 6B030000 		.4byte	0x36b
  582 0236 07       		.uleb128 0x7
- 583 0237 F0020000 		.4byte	.LASF25
+ 583 0237 F1020000 		.4byte	.LASF25
  584 023b 01       		.byte	0x1
  585 023c 5D       		.byte	0x5d
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 14
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccEozrqP.s 			page 14
 
 
  586 023d 1B020000 		.4byte	0x21b
  587 0241 42000000 		.4byte	.LLST2
  588 0245 07       		.uleb128 0x7
- 589 0246 50020000 		.4byte	.LASF30
+ 589 0246 51020000 		.4byte	.LASF30
  590 024a 01       		.byte	0x1
  591 024b 5D       		.byte	0x5d
  592 024c 8C000000 		.4byte	0x8c
  593 0250 6E000000 		.4byte	.LLST3
  594 0254 07       		.uleb128 0x7
- 595 0255 49020000 		.4byte	.LASF26
+ 595 0255 4A020000 		.4byte	.LASF26
  596 0259 01       		.byte	0x1
  597 025a 5D       		.byte	0x5d
  598 025b 1B020000 		.4byte	0x21b
  599 025f 8F000000 		.4byte	.LLST4
  600 0263 07       		.uleb128 0x7
- 601 0264 39020000 		.4byte	.LASF31
+ 601 0264 3A020000 		.4byte	.LASF31
  602 0268 01       		.byte	0x1
  603 0269 5D       		.byte	0x5d
  604 026a 8C000000 		.4byte	0x8c
@@ -808,13 +808,13 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 1
  610 0279 81000000 		.4byte	0x81
  611 027d CE000000 		.4byte	.LLST6
  612 0281 10       		.uleb128 0x10
- 613 0282 83020000 		.4byte	.LASF33
+ 613 0282 84020000 		.4byte	.LASF33
  614 0286 01       		.byte	0x1
  615 0287 62       		.byte	0x62
  616 0288 81000000 		.4byte	0x81
  617 028c 02010000 		.4byte	.LLST7
  618 0290 08       		.uleb128 0x8
- 619 0291 41020000 		.4byte	.LASF34
+ 619 0291 42020000 		.4byte	.LASF34
  620 0295 01       		.byte	0x1
  621 0296 77       		.byte	0x77
  622 0297 6B030000 		.4byte	0x36b
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 1
  640 02c2 09       		.uleb128 0x9
  641 02c3 14000000 		.4byte	.LVL21
  642 02c7 7B030000 		.4byte	0x37b
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 15
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccEozrqP.s 			page 15
 
 
  643 02cb D5020000 		.4byte	0x2d5
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 1
  697 0329 02       		.uleb128 0x2
  698 032a 7D       		.byte	0x7d
  699 032b 00       		.sleb128 0
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 16
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccEozrqP.s 			page 16
 
 
  700 032c 0A       		.uleb128 0xa
@@ -949,36 +949,36 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 1
  745 038f 06       		.byte	0x6
  746 0390 5E       		.byte	0x5e
  747 0391 15       		.uleb128 0x15
- 748 0392 BD020000 		.4byte	.LASF37
- 749 0396 BD020000 		.4byte	.LASF37
+ 748 0392 BE020000 		.4byte	.LASF37
+ 749 0396 BE020000 		.4byte	.LASF37
  750 039a 06       		.byte	0x6
  751 039b 5C       		.byte	0x5c
  752 039c 15       		.uleb128 0x15
- 753 039d D7010000 		.4byte	.LASF38
- 754 03a1 D7010000 		.4byte	.LASF38
+ 753 039d 77010000 		.4byte	.LASF38
+ 754 03a1 77010000 		.4byte	.LASF38
  755 03a5 06       		.byte	0x6
  756 03a6 60       		.byte	0x60
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 17
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccEozrqP.s 			page 17
 
 
  757 03a7 15       		.uleb128 0x15
- 758 03a8 C9010000 		.4byte	.LASF39
- 759 03ac C9010000 		.4byte	.LASF39
+ 758 03a8 69010000 		.4byte	.LASF39
+ 759 03ac 69010000 		.4byte	.LASF39
  760 03b0 06       		.byte	0x6
  761 03b1 67       		.byte	0x67
  762 03b2 15       		.uleb128 0x15
- 763 03b3 74020000 		.4byte	.LASF40
- 764 03b7 74020000 		.4byte	.LASF40
+ 763 03b3 75020000 		.4byte	.LASF40
+ 764 03b7 75020000 		.4byte	.LASF40
  765 03bb 06       		.byte	0x6
  766 03bc 66       		.byte	0x66
  767 03bd 15       		.uleb128 0x15
- 768 03be 85000000 		.4byte	.LASF41
- 769 03c2 85000000 		.4byte	.LASF41
+ 768 03be 92000000 		.4byte	.LASF41
+ 769 03c2 92000000 		.4byte	.LASF41
  770 03c6 06       		.byte	0x6
  771 03c7 64       		.byte	0x64
  772 03c8 15       		.uleb128 0x15
- 773 03c9 AA020000 		.4byte	.LASF42
- 774 03cd AA020000 		.4byte	.LASF42
+ 773 03c9 AB020000 		.4byte	.LASF42
+ 774 03cd AB020000 		.4byte	.LASF42
  775 03d1 06       		.byte	0x6
  776 03d2 65       		.byte	0x65
  777 03d3 00       		.byte	0
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 1
  811 001f 00       		.byte	0
  812 0020 03       		.uleb128 0x3
  813 0021 24       		.uleb128 0x24
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 18
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccEozrqP.s 			page 18
 
 
  814 0022 00       		.byte	0
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 1
  868 0058 9742     		.uleb128 0x2117
  869 005a 19       		.uleb128 0x19
  870 005b 01       		.uleb128 0x1
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 19
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccEozrqP.s 			page 19
 
 
  871 005c 13       		.uleb128 0x13
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 1
  925 0097 898201   		.uleb128 0x4109
  926 009a 00       		.byte	0
  927 009b 11       		.uleb128 0x11
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 20
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccEozrqP.s 			page 20
 
 
  928 009c 01       		.uleb128 0x1
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 1
  982 00d5 0F       		.uleb128 0xf
  983 00d6 0F       		.uleb128 0xf
  984 00d7 00       		.byte	0
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 21
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccEozrqP.s 			page 21
 
 
  985 00d8 0B       		.uleb128 0xb
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 1
  1039 010e 00       		.byte	0
  1040 010f 00       		.byte	0
  1041 0110 14       		.uleb128 0x14
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 22
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccEozrqP.s 			page 22
 
 
  1042 0111 21       		.uleb128 0x21
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 1
  1096 003a 00000000 		.4byte	0
  1097 003e 00000000 		.4byte	0
  1098              	.LLST2:
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 23
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccEozrqP.s 			page 23
 
 
  1099 0042 00000000 		.4byte	.LVL19
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 1
  1153 00c6 00000000 		.4byte	0
  1154 00ca 00000000 		.4byte	0
  1155              	.LLST6:
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 24
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccEozrqP.s 			page 24
 
 
  1156 00ce 16000000 		.4byte	.LVL22
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 1
  1210 0161 0100     		.2byte	0x1
  1211 0163 54       		.byte	0x54
  1212 0164 00000000 		.4byte	0
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 25
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccEozrqP.s 			page 25
 
 
  1213 0168 00000000 		.4byte	0
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 1
  1254      72697465 
  1254      00
  1255              	.LASF32:
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 26
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccEozrqP.s 			page 26
 
 
  1256 002d 636F756E 		.ascii	"count\000"
@@ -1512,199 +1512,199 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 1
  1260      7369676E 
  1260      65642069 
  1260      6E7400
- 1261              	.LASF21:
- 1262 004d 62797465 		.ascii	"byte\000"
+ 1261              	.LASF10:
+ 1262 004d 756E7369 		.ascii	"unsigned int\000"
+ 1262      676E6564 
+ 1262      20696E74 
  1262      00
- 1263              	.LASF28:
- 1264 0052 5350495F 		.ascii	"SPI_Interface_Multi_Trade\000"
- 1264      496E7465 
- 1264      72666163 
- 1264      655F4D75 
- 1264      6C74695F 
- 1265              	.LASF11:
- 1266 006c 696E7438 		.ascii	"int8_t\000"
- 1266      5F7400
- 1267              	.LASF22:
- 1268 0073 62797465 		.ascii	"byteTX\000"
- 1268      545800
- 1269              	.LASF14:
- 1270 007a 666C6F61 		.ascii	"float\000"
- 1270      7400
- 1271              	.LASF23:
- 1272 0080 64617461 		.ascii	"data\000"
- 1272      00
- 1273              	.LASF41:
- 1274 0085 5350494D 		.ascii	"SPIM_ClearRxBuffer\000"
- 1274      5F436C65 
- 1274      61725278 
- 1274      42756666 
- 1274      657200
- 1275              	.LASF3:
- 1276 0098 756E7369 		.ascii	"unsigned char\000"
- 1276      676E6564 
- 1276      20636861 
- 1276      7200
- 1277              	.LASF43:
- 1278 00a6 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 1278      43313120 
- 1278      352E342E 
- 1278      31203230 
- 1278      31363036 
- 1279 00d9 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
- 1279      20726576 
- 1279      6973696F 
- 1279      6E203233 
- 1279      37373135 
- 1280 010c 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 1280      66756E63 
- 1280      74696F6E 
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 27
+ 1263              	.LASF21:
+ 1264 005a 62797465 		.ascii	"byte\000"
+ 1264      00
+ 1265              	.LASF28:
+ 1266 005f 5350495F 		.ascii	"SPI_Interface_Multi_Trade\000"
+ 1266      496E7465 
+ 1266      72666163 
+ 1266      655F4D75 
+ 1266      6C74695F 
+ 1267              	.LASF11:
+ 1268 0079 696E7438 		.ascii	"int8_t\000"
+ 1268      5F7400
+ 1269              	.LASF22:
+ 1270 0080 62797465 		.ascii	"byteTX\000"
+ 1270      545800
+ 1271              	.LASF14:
+ 1272 0087 666C6F61 		.ascii	"float\000"
+ 1272      7400
+ 1273              	.LASF23:
+ 1274 008d 64617461 		.ascii	"data\000"
+ 1274      00
+ 1275              	.LASF41:
+ 1276 0092 5350494D 		.ascii	"SPIM_ClearRxBuffer\000"
+ 1276      5F436C65 
+ 1276      61725278 
+ 1276      42756666 
+ 1276      657200
+ 1277              	.LASF3:
+ 1278 00a5 756E7369 		.ascii	"unsigned char\000"
+ 1278      676E6564 
+ 1278      20636861 
+ 1278      7200
+ 1279              	.LASF43:
+ 1280 00b3 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1280      43313120 
+ 1280      352E342E 
+ 1280      31203230 
+ 1280      31363036 
+ 1281 00e6 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1281      20726576 
+ 1281      6973696F 
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccEozrqP.s 			page 27
 
 
- 1280      2D736563 
- 1280      74696F6E 
- 1281              	.LASF44:
- 1282 0134 5350495F 		.ascii	"SPI_Interface.c\000"
- 1282      496E7465 
- 1282      72666163 
- 1282      652E6300 
- 1283              	.LASF7:
- 1284 0144 6C6F6E67 		.ascii	"long unsigned int\000"
- 1284      20756E73 
- 1284      69676E65 
- 1284      6420696E 
- 1284      7400
- 1285              	.LASF13:
- 1286 0156 75696E74 		.ascii	"uint8\000"
- 1286      3800
- 1287              	.LASF45:
- 1288 015c 433A5C55 		.ascii	"C:\\Users\\Susanna\\Desktop\\Final_Project_DiGiacom"
- 1288      73657273 
- 1288      5C537573 
- 1288      616E6E61 
- 1288      5C446573 
- 1289 018b 6F5F5061 		.ascii	"o_Palmieri\\Final_Project2.cydsn\\Low_power_prova_C"
- 1289      6C6D6965 
- 1289      72695C46 
- 1289      696E616C 
- 1289      5F50726F 
- 1290 01bc 6F70795F 		.ascii	"opy_01.cydsn\000"
- 1290      30312E63 
- 1290      7964736E 
- 1290      00
- 1291              	.LASF39:
- 1292 01c9 5350494D 		.ascii	"SPIM_PutArray\000"
- 1292      5F507574 
- 1292      41727261 
- 1292      7900
- 1293              	.LASF38:
- 1294 01d7 5350494D 		.ascii	"SPIM_ReadRxData\000"
- 1294      5F526561 
- 1294      64527844 
- 1294      61746100 
- 1295              	.LASF15:
- 1296 01e7 646F7562 		.ascii	"double\000"
- 1296      6C6500
- 1297              	.LASF19:
- 1298 01ee 5350495F 		.ascii	"SPI_Interface_tradeByte\000"
- 1298      496E7465 
- 1298      72666163 
- 1298      655F7472 
- 1298      61646542 
- 1299              	.LASF24:
- 1300 0206 62797465 		.ascii	"byteRX\000"
- 1300      525800
- 1301              	.LASF10:
- 1302 020d 756E7369 		.ascii	"unsigned int\000"
- 1302      676E6564 
- 1302      20696E74 
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 28
+ 1281      6E203233 
+ 1281      37373135 
+ 1282 0119 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1282      66756E63 
+ 1282      74696F6E 
+ 1282      2D736563 
+ 1282      74696F6E 
+ 1283              	.LASF44:
+ 1284 0141 5350495F 		.ascii	"SPI_Interface.c\000"
+ 1284      496E7465 
+ 1284      72666163 
+ 1284      652E6300 
+ 1285              	.LASF7:
+ 1286 0151 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1286      20756E73 
+ 1286      69676E65 
+ 1286      6420696E 
+ 1286      7400
+ 1287              	.LASF13:
+ 1288 0163 75696E74 		.ascii	"uint8\000"
+ 1288      3800
+ 1289              	.LASF39:
+ 1290 0169 5350494D 		.ascii	"SPIM_PutArray\000"
+ 1290      5F507574 
+ 1290      41727261 
+ 1290      7900
+ 1291              	.LASF38:
+ 1292 0177 5350494D 		.ascii	"SPIM_ReadRxData\000"
+ 1292      5F526561 
+ 1292      64527844 
+ 1292      61746100 
+ 1293              	.LASF15:
+ 1294 0187 646F7562 		.ascii	"double\000"
+ 1294      6C6500
+ 1295              	.LASF19:
+ 1296 018e 5350495F 		.ascii	"SPI_Interface_tradeByte\000"
+ 1296      496E7465 
+ 1296      72666163 
+ 1296      655F7472 
+ 1296      61646542 
+ 1297              	.LASF24:
+ 1298 01a6 62797465 		.ascii	"byteRX\000"
+ 1298      525800
+ 1299              	.LASF45:
+ 1300 01ad 433A5C55 		.ascii	"C:\\Users\\Susanna\\Desktop\\Final_Project_DiGiacom"
+ 1300      73657273 
+ 1300      5C537573 
+ 1300      616E6E61 
+ 1300      5C446573 
+ 1301 01dc 6F5F5061 		.ascii	"o_Palmieri\\Final_Project_DiGiacomoPalmieri\\Final_"
+ 1301      6C6D6965 
+ 1301      72695C46 
+ 1301      696E616C 
+ 1301      5F50726F 
+ 1302 020d 50726F6A 		.ascii	"Project.cydsn\000"
+ 1302      6563742E 
+ 1302      63796473 
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccEozrqP.s 			page 28
 
 
- 1302      00
+ 1302      6E00
  1303              	.LASF9:
- 1304 021a 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1304 021b 6C6F6E67 		.ascii	"long long unsigned int\000"
  1304      206C6F6E 
  1304      6720756E 
  1304      7369676E 
  1304      65642069 
  1305              	.LASF12:
- 1306 0231 75696E74 		.ascii	"uint8_t\000"
+ 1306 0232 75696E74 		.ascii	"uint8_t\000"
  1306      385F7400 
  1307              	.LASF31:
- 1308 0239 62797465 		.ascii	"bytesRX\000"
+ 1308 023a 62797465 		.ascii	"bytesRX\000"
  1308      73525800 
  1309              	.LASF34:
- 1310 0241 64756D6D 		.ascii	"dummyTX\000"
+ 1310 0242 64756D6D 		.ascii	"dummyTX\000"
  1310      79545800 
  1311              	.LASF26:
- 1312 0249 64617461 		.ascii	"dataRX\000"
+ 1312 024a 64617461 		.ascii	"dataRX\000"
  1312      525800
  1313              	.LASF30:
- 1314 0250 62797465 		.ascii	"bytesTX\000"
+ 1314 0251 62797465 		.ascii	"bytesTX\000"
  1314      73545800 
  1315              	.LASF18:
- 1316 0258 73697A65 		.ascii	"sizetype\000"
+ 1316 0259 73697A65 		.ascii	"sizetype\000"
  1316      74797065 
  1316      00
  1317              	.LASF8:
- 1318 0261 6C6F6E67 		.ascii	"long long int\000"
+ 1318 0262 6C6F6E67 		.ascii	"long long int\000"
  1318      206C6F6E 
  1318      6720696E 
  1318      7400
  1319              	.LASF16:
- 1320 026f 63686172 		.ascii	"char\000"
+ 1320 0270 63686172 		.ascii	"char\000"
  1320      00
  1321              	.LASF40:
- 1322 0274 5350494D 		.ascii	"SPIM_ClearFIFO\000"
+ 1322 0275 5350494D 		.ascii	"SPIM_ClearFIFO\000"
  1322      5F436C65 
  1322      61724649 
  1322      464F00
  1323              	.LASF33:
- 1324 0283 696E6465 		.ascii	"index\000"
+ 1324 0284 696E6465 		.ascii	"index\000"
  1324      7800
  1325              	.LASF29:
- 1326 0289 5350495F 		.ascii	"SPI_Interface_Multi_RW\000"
+ 1326 028a 5350495F 		.ascii	"SPI_Interface_Multi_RW\000"
  1326      496E7465 
  1326      72666163 
  1326      655F4D75 
  1326      6C74695F 
  1327              	.LASF4:
- 1328 02a0 73686F72 		.ascii	"short int\000"
+ 1328 02a1 73686F72 		.ascii	"short int\000"
  1328      7420696E 
  1328      7400
  1329              	.LASF42:
- 1330 02aa 5350494D 		.ascii	"SPIM_ClearTxBuffer\000"
+ 1330 02ab 5350494D 		.ascii	"SPIM_ClearTxBuffer\000"
  1330      5F436C65 
  1330      61725478 
  1330      42756666 
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccHUVUmZ.s 			page 29
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccEozrqP.s 			page 29
 
 
  1330      657200
  1331              	.LASF37:
- 1332 02bd 5350494D 		.ascii	"SPIM_ReadTxStatus\000"
+ 1332 02be 5350494D 		.ascii	"SPIM_ReadTxStatus\000"
  1332      5F526561 
  1332      64547853 
  1332      74617475 
  1332      7300
  1333              	.LASF6:
- 1334 02cf 6C6F6E67 		.ascii	"long int\000"
+ 1334 02d0 6C6F6E67 		.ascii	"long int\000"
  1334      20696E74 
  1334      00
  1335              	.LASF17:
- 1336 02d8 6C6F6E67 		.ascii	"long double\000"
+ 1336 02d9 6C6F6E67 		.ascii	"long double\000"
  1336      20646F75 
  1336      626C6500 
  1337              	.LASF2:
- 1338 02e4 7369676E 		.ascii	"signed char\000"
+ 1338 02e5 7369676E 		.ascii	"signed char\000"
  1338      65642063 
  1338      68617200 
  1339              	.LASF25:
- 1340 02f0 64617461 		.ascii	"dataTX\000"
+ 1340 02f1 64617461 		.ascii	"dataTX\000"
  1340      545800
  1341              	.LASF20:
- 1342 02f7 5350495F 		.ascii	"SPI_Interface_ReadByte\000"
+ 1342 02f8 5350495F 		.ascii	"SPI_Interface_ReadByte\000"
  1342      496E7465 
  1342      72666163 
  1342      655F5265 

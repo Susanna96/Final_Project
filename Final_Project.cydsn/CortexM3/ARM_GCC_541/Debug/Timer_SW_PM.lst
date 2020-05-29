@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccTDaBrj.s 			page 1
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccKgDXDa.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccTDaBrj.s 			page 1
   28:Generated_Source\PSoC5/Timer_SW_PM.c **** * Summary:
   29:Generated_Source\PSoC5/Timer_SW_PM.c **** *     Save the current user configuration
   30:Generated_Source\PSoC5/Timer_SW_PM.c **** *
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccTDaBrj.s 			page 2
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccKgDXDa.s 			page 2
 
 
   31:Generated_Source\PSoC5/Timer_SW_PM.c **** * Parameters:
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccTDaBrj.s 			page 1
   59              		.align	2
   60              		.global	Timer_SW_RestoreConfig
   61              		.thumb
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccTDaBrj.s 			page 3
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccKgDXDa.s 			page 3
 
 
   62              		.thumb_func
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccTDaBrj.s 			page 1
   87:Generated_Source\PSoC5/Timer_SW_PM.c ****         #if(!Timer_SW_UDB_CONTROL_REG_REMOVED)
   88:Generated_Source\PSoC5/Timer_SW_PM.c ****             Timer_SW_WriteControlRegister(Timer_SW_backup.TimerControlRegister);
   83              		.loc 1 88 0
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccTDaBrj.s 			page 4
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccKgDXDa.s 			page 4
 
 
   84 0010 E078     		ldrb	r0, [r4, #3]	@ zero_extendqisi2
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccTDaBrj.s 			page 1
  115:Generated_Source\PSoC5/Timer_SW_PM.c ****         /* Save Counter's enable state */
  116:Generated_Source\PSoC5/Timer_SW_PM.c ****         if(Timer_SW_CTRL_ENABLE == (Timer_SW_CONTROL & Timer_SW_CTRL_ENABLE))
  112              		.loc 1 116 0
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccTDaBrj.s 			page 5
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccKgDXDa.s 			page 5
 
 
  113 0002 084B     		ldr	r3, .L13
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccTDaBrj.s 			page 1
  133:Generated_Source\PSoC5/Timer_SW_PM.c **** * Function Name: Timer_SW_Wakeup
  134:Generated_Source\PSoC5/Timer_SW_PM.c **** ********************************************************************************
  135:Generated_Source\PSoC5/Timer_SW_PM.c **** *
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccTDaBrj.s 			page 6
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccKgDXDa.s 			page 6
 
 
  136:Generated_Source\PSoC5/Timer_SW_PM.c **** * Summary:
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccTDaBrj.s 			page 1
  184              	Timer_SW_backup:
  185 0000 00000000 		.space	4
  186              		.text
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccTDaBrj.s 			page 7
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccKgDXDa.s 			page 7
 
 
  187              	.Letext0:
@@ -371,45 +371,45 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccTDaBrj.s 			page 1
  194 0006 00000000 		.4byte	.Ldebug_abbrev0
  195 000a 04       		.byte	0x4
  196 000b 01       		.uleb128 0x1
- 197 000c 0E010000 		.4byte	.LASF31
+ 197 000c AE000000 		.4byte	.LASF31
  198 0010 0C       		.byte	0xc
- 199 0011 00020000 		.4byte	.LASF32
- 200 0015 45000000 		.4byte	.LASF33
+ 199 0011 01020000 		.4byte	.LASF32
+ 200 0015 93010000 		.4byte	.LASF33
  201 0019 00000000 		.4byte	.Ldebug_ranges0+0
  202 001d 00000000 		.4byte	0
  203 0021 00000000 		.4byte	.Ldebug_line0
  204 0025 02       		.uleb128 0x2
  205 0026 01       		.byte	0x1
  206 0027 06       		.byte	0x6
- 207 0028 C0020000 		.4byte	.LASF0
+ 207 0028 C1020000 		.4byte	.LASF0
  208 002c 02       		.uleb128 0x2
  209 002d 01       		.byte	0x1
  210 002e 08       		.byte	0x8
- 211 002f 00010000 		.4byte	.LASF1
+ 211 002f A0000000 		.4byte	.LASF1
  212 0033 02       		.uleb128 0x2
  213 0034 02       		.byte	0x2
  214 0035 05       		.byte	0x5
- 215 0036 D6010000 		.4byte	.LASF2
+ 215 0036 76010000 		.4byte	.LASF2
  216 003a 02       		.uleb128 0x2
  217 003b 02       		.byte	0x2
  218 003c 07       		.byte	0x7
- 219 003d B2000000 		.4byte	.LASF3
+ 219 003d 45000000 		.4byte	.LASF3
  220 0041 02       		.uleb128 0x2
  221 0042 04       		.byte	0x4
  222 0043 05       		.byte	0x5
- 223 0044 91020000 		.4byte	.LASF4
+ 223 0044 92020000 		.4byte	.LASF4
  224 0048 02       		.uleb128 0x2
  225 0049 04       		.byte	0x4
  226 004a 07       		.byte	0x7
- 227 004b A1010000 		.4byte	.LASF5
+ 227 004b 41010000 		.4byte	.LASF5
  228 004f 02       		.uleb128 0x2
  229 0050 08       		.byte	0x8
  230 0051 05       		.byte	0x5
- 231 0052 60020000 		.4byte	.LASF6
+ 231 0052 61020000 		.4byte	.LASF6
  232 0056 02       		.uleb128 0x2
  233 0057 08       		.byte	0x8
  234 0058 07       		.byte	0x7
- 235 0059 25020000 		.4byte	.LASF7
+ 235 0059 26020000 		.4byte	.LASF7
  236 005d 03       		.uleb128 0x3
  237 005e 04       		.byte	0x4
  238 005f 05       		.byte	0x5
@@ -417,29 +417,29 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccTDaBrj.s 			page 1
  240 0064 02       		.uleb128 0x2
  241 0065 04       		.byte	0x4
  242 0066 07       		.byte	0x7
- 243 0067 F3010000 		.4byte	.LASF8
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccTDaBrj.s 			page 8
+ 243 0067 58000000 		.4byte	.LASF8
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccKgDXDa.s 			page 8
 
 
  244 006b 04       		.uleb128 0x4
- 245 006c B3010000 		.4byte	.LASF12
+ 245 006c 53010000 		.4byte	.LASF12
  246 0070 02       		.byte	0x2
  247 0071 E401     		.2byte	0x1e4
  248 0073 2C000000 		.4byte	0x2c
  249 0077 02       		.uleb128 0x2
  250 0078 04       		.byte	0x4
  251 0079 04       		.byte	0x4
- 252 007a FA000000 		.4byte	.LASF9
+ 252 007a 9A000000 		.4byte	.LASF9
  253 007e 02       		.uleb128 0x2
  254 007f 08       		.byte	0x8
  255 0080 04       		.byte	0x4
- 256 0081 B9010000 		.4byte	.LASF10
+ 256 0081 59010000 		.4byte	.LASF10
  257 0085 02       		.uleb128 0x2
  258 0086 01       		.byte	0x1
  259 0087 08       		.byte	0x8
- 260 0088 6E020000 		.4byte	.LASF11
+ 260 0088 6F020000 		.4byte	.LASF11
  261 008c 04       		.uleb128 0x4
- 262 008d 9C010000 		.4byte	.LASF13
+ 262 008d 3C010000 		.4byte	.LASF13
  263 0091 02       		.byte	0x2
  264 0092 8E02     		.2byte	0x28e
  265 0094 98000000 		.4byte	0x98
@@ -448,11 +448,11 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccTDaBrj.s 			page 1
  268 009d 02       		.uleb128 0x2
  269 009e 08       		.byte	0x8
  270 009f 04       		.byte	0x4
- 271 00a0 4B020000 		.4byte	.LASF14
+ 271 00a0 4C020000 		.4byte	.LASF14
  272 00a4 02       		.uleb128 0x2
  273 00a5 04       		.byte	0x4
  274 00a6 07       		.byte	0x7
- 275 00a7 57020000 		.4byte	.LASF15
+ 275 00a7 58020000 		.4byte	.LASF15
  276 00ab 06       		.uleb128 0x6
  277 00ac 04       		.byte	0x4
  278 00ad 03       		.byte	0x3
@@ -465,20 +465,20 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccTDaBrj.s 			page 1
  285 00ba 6B000000 		.4byte	0x6b
  286 00be 00       		.byte	0
  287 00bf 07       		.uleb128 0x7
- 288 00c0 DA000000 		.4byte	.LASF17
+ 288 00c0 7A000000 		.4byte	.LASF17
  289 00c4 03       		.byte	0x3
  290 00c5 48       		.byte	0x48
  291 00c6 6B000000 		.4byte	0x6b
  292 00ca 01       		.byte	0x1
  293 00cb 07       		.uleb128 0x7
- 294 00cc E0010000 		.4byte	.LASF18
+ 294 00cc 80010000 		.4byte	.LASF18
  295 00d0 03       		.byte	0x3
  296 00d1 49       		.byte	0x49
  297 00d2 6B000000 		.4byte	0x6b
  298 00d6 02       		.byte	0x2
  299 00d7 07       		.uleb128 0x7
- 300 00d8 F7020000 		.4byte	.LASF19
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccTDaBrj.s 			page 9
+ 300 00d8 F8020000 		.4byte	.LASF19
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccKgDXDa.s 			page 9
 
 
  301 00dc 03       		.byte	0x3
@@ -487,7 +487,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccTDaBrj.s 			page 1
  304 00e2 03       		.byte	0x3
  305 00e3 00       		.byte	0
  306 00e4 08       		.uleb128 0x8
- 307 00e5 AA020000 		.4byte	.LASF20
+ 307 00e5 AB020000 		.4byte	.LASF20
  308 00e9 03       		.byte	0x3
  309 00ea 53       		.byte	0x53
  310 00eb AB000000 		.4byte	0xab
@@ -508,7 +508,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccTDaBrj.s 			page 1
  325 0112 AB010000 		.4byte	0x1ab
  326 0116 00       		.byte	0
  327 0117 09       		.uleb128 0x9
- 328 0118 E3000000 		.4byte	.LASF22
+ 328 0118 83000000 		.4byte	.LASF22
  329 011c 01       		.byte	0x1
  330 011d 4D       		.byte	0x4d
  331 011e 00000000 		.4byte	.LFB1
@@ -524,7 +524,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccTDaBrj.s 			page 1
  341 013a C1010000 		.4byte	0x1c1
  342 013e 00       		.byte	0
  343 013f 09       		.uleb128 0x9
- 344 0140 3C020000 		.4byte	.LASF23
+ 344 0140 3D020000 		.4byte	.LASF23
  345 0144 01       		.byte	0x1
  346 0145 70       		.byte	0x70
  347 0146 00000000 		.4byte	.LFB2
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccTDaBrj.s 			page 1
  355 015d 0A       		.uleb128 0xa
  356 015e 22000000 		.4byte	.LVL5
  357 0162 EF000000 		.4byte	0xef
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccTDaBrj.s 			page 10
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccKgDXDa.s 			page 10
 
 
  358 0166 00       		.byte	0
@@ -567,38 +567,38 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccTDaBrj.s 			page 1
  381 019b 03       		.byte	0x3
  382 019c 00000000 		.4byte	Timer_SW_backup
  383 01a0 0C       		.uleb128 0xc
- 384 01a1 C5000000 		.4byte	.LASF25
- 385 01a5 C5000000 		.4byte	.LASF25
+ 384 01a1 65000000 		.4byte	.LASF25
+ 385 01a5 65000000 		.4byte	.LASF25
  386 01a9 03       		.byte	0x3
  387 01aa 69       		.byte	0x69
  388 01ab 0C       		.uleb128 0xc
- 389 01ac DA020000 		.4byte	.LASF26
- 390 01b0 DA020000 		.4byte	.LASF26
+ 389 01ac DB020000 		.4byte	.LASF26
+ 390 01b0 DB020000 		.4byte	.LASF26
  391 01b4 03       		.byte	0x3
  392 01b5 63       		.byte	0x63
  393 01b6 0C       		.uleb128 0xc
- 394 01b7 C0010000 		.4byte	.LASF27
- 395 01bb C0010000 		.4byte	.LASF27
+ 394 01b7 60010000 		.4byte	.LASF27
+ 395 01bb 60010000 		.4byte	.LASF27
  396 01bf 03       		.byte	0x3
  397 01c0 6A       		.byte	0x6a
  398 01c1 0C       		.uleb128 0xc
- 399 01c2 73020000 		.4byte	.LASF28
- 400 01c6 73020000 		.4byte	.LASF28
+ 399 01c2 74020000 		.4byte	.LASF28
+ 400 01c6 74020000 		.4byte	.LASF28
  401 01ca 03       		.byte	0x3
  402 01cb 64       		.byte	0x64
  403 01cc 0C       		.uleb128 0xc
- 404 01cd CC020000 		.4byte	.LASF29
- 405 01d1 CC020000 		.4byte	.LASF29
+ 404 01cd CD020000 		.4byte	.LASF29
+ 405 01d1 CD020000 		.4byte	.LASF29
  406 01d5 03       		.byte	0x3
  407 01d6 5B       		.byte	0x5b
  408 01d7 0C       		.uleb128 0xc
- 409 01d8 9A020000 		.4byte	.LASF30
- 410 01dc 9A020000 		.4byte	.LASF30
+ 409 01d8 9B020000 		.4byte	.LASF30
+ 410 01dc 9B020000 		.4byte	.LASF30
  411 01e0 03       		.byte	0x3
  412 01e1 8B       		.byte	0x8b
  413 01e2 00       		.byte	0
  414              		.section	.debug_abbrev,"",%progbits
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccTDaBrj.s 			page 11
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccKgDXDa.s 			page 11
 
 
  415              	.Ldebug_abbrev0:
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccTDaBrj.s 			page 1
  469 0035 00       		.byte	0
  470 0036 05       		.uleb128 0x5
  471 0037 35       		.uleb128 0x35
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccTDaBrj.s 			page 12
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccKgDXDa.s 			page 12
 
 
  472 0038 00       		.byte	0
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccTDaBrj.s 			page 1
  526 006e 0B       		.uleb128 0xb
  527 006f 3B       		.uleb128 0x3b
  528 0070 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccTDaBrj.s 			page 13
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccKgDXDa.s 			page 13
 
 
  529 0071 27       		.uleb128 0x27
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccTDaBrj.s 			page 1
  583 00aa 00       		.byte	0
  584 00ab 00       		.byte	0
  585              		.section	.debug_aranges,"",%progbits
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccTDaBrj.s 			page 14
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccKgDXDa.s 			page 14
 
 
  586 0000 34000000 		.4byte	0x34
@@ -838,187 +838,187 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccTDaBrj.s 			page 1
  625 0035 54696D65 		.ascii	"Timer_SW_Wakeup\000"
  625      725F5357 
  625      5F57616B 
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccTDaBrj.s 			page 15
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccKgDXDa.s 			page 15
 
 
  625      65757000 
- 626              	.LASF33:
- 627 0045 433A5C55 		.ascii	"C:\\Users\\Susanna\\Desktop\\Final_Project_DiGiacom"
- 627      73657273 
- 627      5C537573 
- 627      616E6E61 
- 627      5C446573 
- 628 0074 6F5F5061 		.ascii	"o_Palmieri\\Final_Project2.cydsn\\Low_power_prova_C"
- 628      6C6D6965 
- 628      72695C46 
- 628      696E616C 
- 628      5F50726F 
- 629 00a5 6F70795F 		.ascii	"opy_01.cydsn\000"
- 629      30312E63 
- 629      7964736E 
+ 626              	.LASF3:
+ 627 0045 73686F72 		.ascii	"short unsigned int\000"
+ 627      7420756E 
+ 627      7369676E 
+ 627      65642069 
+ 627      6E7400
+ 628              	.LASF8:
+ 629 0058 756E7369 		.ascii	"unsigned int\000"
+ 629      676E6564 
+ 629      20696E74 
  629      00
- 630              	.LASF3:
- 631 00b2 73686F72 		.ascii	"short unsigned int\000"
- 631      7420756E 
- 631      7369676E 
- 631      65642069 
- 631      6E7400
- 632              	.LASF25:
- 633 00c5 54696D65 		.ascii	"Timer_SW_ReadCounter\000"
- 633      725F5357 
- 633      5F526561 
- 633      64436F75 
- 633      6E746572 
- 634              	.LASF17:
- 635 00da 54696D65 		.ascii	"TimerUdb\000"
- 635      72556462 
- 635      00
- 636              	.LASF22:
- 637 00e3 54696D65 		.ascii	"Timer_SW_RestoreConfig\000"
- 637      725F5357 
- 637      5F526573 
- 637      746F7265 
- 637      436F6E66 
- 638              	.LASF9:
- 639 00fa 666C6F61 		.ascii	"float\000"
- 639      7400
- 640              	.LASF1:
- 641 0100 756E7369 		.ascii	"unsigned char\000"
- 641      676E6564 
- 641      20636861 
- 641      7200
- 642              	.LASF31:
- 643 010e 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 643      43313120 
- 643      352E342E 
- 643      31203230 
- 643      31363036 
- 644 0141 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
- 644      20726576 
- 644      6973696F 
- 644      6E203233 
- 644      37373135 
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccTDaBrj.s 			page 16
+ 630              	.LASF25:
+ 631 0065 54696D65 		.ascii	"Timer_SW_ReadCounter\000"
+ 631      725F5357 
+ 631      5F526561 
+ 631      64436F75 
+ 631      6E746572 
+ 632              	.LASF17:
+ 633 007a 54696D65 		.ascii	"TimerUdb\000"
+ 633      72556462 
+ 633      00
+ 634              	.LASF22:
+ 635 0083 54696D65 		.ascii	"Timer_SW_RestoreConfig\000"
+ 635      725F5357 
+ 635      5F526573 
+ 635      746F7265 
+ 635      436F6E66 
+ 636              	.LASF9:
+ 637 009a 666C6F61 		.ascii	"float\000"
+ 637      7400
+ 638              	.LASF1:
+ 639 00a0 756E7369 		.ascii	"unsigned char\000"
+ 639      676E6564 
+ 639      20636861 
+ 639      7200
+ 640              	.LASF31:
+ 641 00ae 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 641      43313120 
+ 641      352E342E 
+ 641      31203230 
+ 641      31363036 
+ 642 00e1 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 642      20726576 
+ 642      6973696F 
+ 642      6E203233 
+ 642      37373135 
+ 643 0114 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 643      66756E63 
+ 643      74696F6E 
+ 643      2D736563 
+ 643      74696F6E 
+ 644              	.LASF13:
+ 645 013c 72656738 		.ascii	"reg8\000"
+ 645      00
+ 646              	.LASF5:
+ 647 0141 6C6F6E67 		.ascii	"long unsigned int\000"
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccKgDXDa.s 			page 16
 
 
- 645 0174 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 645      66756E63 
- 645      74696F6E 
- 645      2D736563 
- 645      74696F6E 
- 646              	.LASF13:
- 647 019c 72656738 		.ascii	"reg8\000"
- 647      00
- 648              	.LASF5:
- 649 01a1 6C6F6E67 		.ascii	"long unsigned int\000"
- 649      20756E73 
- 649      69676E65 
- 649      6420696E 
- 649      7400
- 650              	.LASF12:
- 651 01b3 75696E74 		.ascii	"uint8\000"
- 651      3800
- 652              	.LASF10:
- 653 01b9 646F7562 		.ascii	"double\000"
- 653      6C6500
- 654              	.LASF27:
- 655 01c0 54696D65 		.ascii	"Timer_SW_WriteCounter\000"
- 655      725F5357 
- 655      5F577269 
- 655      7465436F 
- 655      756E7465 
- 656              	.LASF2:
- 657 01d6 73686F72 		.ascii	"short int\000"
- 657      7420696E 
- 657      7400
- 658              	.LASF18:
- 659 01e0 496E7465 		.ascii	"InterruptMaskValue\000"
- 659      72727570 
- 659      744D6173 
- 659      6B56616C 
- 659      756500
- 660              	.LASF8:
- 661 01f3 756E7369 		.ascii	"unsigned int\000"
- 661      676E6564 
- 661      20696E74 
- 661      00
+ 647      20756E73 
+ 647      69676E65 
+ 647      6420696E 
+ 647      7400
+ 648              	.LASF12:
+ 649 0153 75696E74 		.ascii	"uint8\000"
+ 649      3800
+ 650              	.LASF10:
+ 651 0159 646F7562 		.ascii	"double\000"
+ 651      6C6500
+ 652              	.LASF27:
+ 653 0160 54696D65 		.ascii	"Timer_SW_WriteCounter\000"
+ 653      725F5357 
+ 653      5F577269 
+ 653      7465436F 
+ 653      756E7465 
+ 654              	.LASF2:
+ 655 0176 73686F72 		.ascii	"short int\000"
+ 655      7420696E 
+ 655      7400
+ 656              	.LASF18:
+ 657 0180 496E7465 		.ascii	"InterruptMaskValue\000"
+ 657      72727570 
+ 657      744D6173 
+ 657      6B56616C 
+ 657      756500
+ 658              	.LASF33:
+ 659 0193 433A5C55 		.ascii	"C:\\Users\\Susanna\\Desktop\\Final_Project_DiGiacom"
+ 659      73657273 
+ 659      5C537573 
+ 659      616E6E61 
+ 659      5C446573 
+ 660 01c2 6F5F5061 		.ascii	"o_Palmieri\\Final_Project_DiGiacomoPalmieri\\Final_"
+ 660      6C6D6965 
+ 660      72695C46 
+ 660      696E616C 
+ 660      5F50726F 
+ 661 01f3 50726F6A 		.ascii	"Project.cydsn\000"
+ 661      6563742E 
+ 661      63796473 
+ 661      6E00
  662              	.LASF32:
- 663 0200 47656E65 		.ascii	"Generated_Source\\PSoC5\\Timer_SW_PM.c\000"
+ 663 0201 47656E65 		.ascii	"Generated_Source\\PSoC5\\Timer_SW_PM.c\000"
  663      72617465 
  663      645F536F 
  663      75726365 
  663      5C50536F 
  664              	.LASF7:
- 665 0225 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 665 0226 6C6F6E67 		.ascii	"long long unsigned int\000"
  665      206C6F6E 
  665      6720756E 
  665      7369676E 
  665      65642069 
  666              	.LASF23:
- 667 023c 54696D65 		.ascii	"Timer_SW_Sleep\000"
+ 667 023d 54696D65 		.ascii	"Timer_SW_Sleep\000"
  667      725F5357 
  667      5F536C65 
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccTDaBrj.s 			page 17
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccKgDXDa.s 			page 17
 
 
  667      657000
  668              	.LASF14:
- 669 024b 6C6F6E67 		.ascii	"long double\000"
+ 669 024c 6C6F6E67 		.ascii	"long double\000"
  669      20646F75 
  669      626C6500 
  670              	.LASF15:
- 671 0257 73697A65 		.ascii	"sizetype\000"
+ 671 0258 73697A65 		.ascii	"sizetype\000"
  671      74797065 
  671      00
  672              	.LASF6:
- 673 0260 6C6F6E67 		.ascii	"long long int\000"
+ 673 0261 6C6F6E67 		.ascii	"long long int\000"
  673      206C6F6E 
  673      6720696E 
  673      7400
  674              	.LASF11:
- 675 026e 63686172 		.ascii	"char\000"
+ 675 026f 63686172 		.ascii	"char\000"
  675      00
  676              	.LASF28:
- 677 0273 54696D65 		.ascii	"Timer_SW_WriteControlRegister\000"
+ 677 0274 54696D65 		.ascii	"Timer_SW_WriteControlRegister\000"
  677      725F5357 
  677      5F577269 
  677      7465436F 
  677      6E74726F 
  678              	.LASF4:
- 679 0291 6C6F6E67 		.ascii	"long int\000"
+ 679 0292 6C6F6E67 		.ascii	"long int\000"
  679      20696E74 
  679      00
  680              	.LASF30:
- 681 029a 54696D65 		.ascii	"Timer_SW_Enable\000"
+ 681 029b 54696D65 		.ascii	"Timer_SW_Enable\000"
  681      725F5357 
  681      5F456E61 
  681      626C6500 
  682              	.LASF20:
- 683 02aa 54696D65 		.ascii	"Timer_SW_backupStruct\000"
+ 683 02ab 54696D65 		.ascii	"Timer_SW_backupStruct\000"
  683      725F5357 
  683      5F626163 
  683      6B757053 
  683      74727563 
  684              	.LASF0:
- 685 02c0 7369676E 		.ascii	"signed char\000"
+ 685 02c1 7369676E 		.ascii	"signed char\000"
  685      65642063 
  685      68617200 
  686              	.LASF29:
- 687 02cc 54696D65 		.ascii	"Timer_SW_Stop\000"
+ 687 02cd 54696D65 		.ascii	"Timer_SW_Stop\000"
  687      725F5357 
  687      5F53746F 
  687      7000
  688              	.LASF26:
- 689 02da 54696D65 		.ascii	"Timer_SW_ReadControlRegister\000"
+ 689 02db 54696D65 		.ascii	"Timer_SW_ReadControlRegister\000"
  689      725F5357 
  689      5F526561 
  689      64436F6E 
  689      74726F6C 
  690              	.LASF19:
- 691 02f7 54696D65 		.ascii	"TimerControlRegister\000"
+ 691 02f8 54696D65 		.ascii	"TimerControlRegister\000"
  691      72436F6E 
  691      74726F6C 
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccTDaBrj.s 			page 18
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccKgDXDa.s 			page 18
 
 
  691      52656769 

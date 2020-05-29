@@ -21,13 +21,17 @@ int  time_elapsed    = 0;
 
 int Switch_State(void)
 {
-
+    /* Reset timer each time the button is pressed */
     Timer_SW_Stop();
     Timer_SW_WriteCounter(20);
     Timer_SW_Start();
+    
+    /* Set the flag to 0 each time the button is pressed */
     button_pressed = 0;
+    
     while ((BUTTON_Read() == 0))
     {
+        /* Count for how much time the button is pressed */
         time_elapsed = Timer_SW_ReadCounter();
     }
     if ((time_elapsed < LONG_PRESS) && ((device_state == START) || (device_state == STOP)))

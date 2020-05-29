@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccDYtY20.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
   28              		.loc 1 27 0
   29              		.cfi_startproc
   30              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 2
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccDYtY20.s 			page 2
 
 
   31              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
   77              		.type	set_PWM, %function
   78              	set_PWM:
   79              	.LFB65:
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 3
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccDYtY20.s 			page 3
 
 
   36:RGBLedDriver.c **** }
@@ -141,8 +141,9 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
   91 0002 0446     		mov	r4, r0
   92 0004 0D46     		mov	r5, r1
   93 0006 1646     		mov	r6, r2
-  42:RGBLedDriver.c ****     step=(fullscale_range-(G+confidence_interval))/LEVELS;
-  94              		.loc 1 42 0
+  42:RGBLedDriver.c ****     /* Calculate the interval width in order to divide the fullscale range (after the g value) into
+  43:RGBLedDriver.c ****     step=(fullscale_range-(G+confidence_interval))/LEVELS;
+  94              		.loc 1 43 0
   95 0008 BB4B     		ldr	r3, .L24
   96 000a 1B88     		ldrh	r3, [r3]
   97 000c 1BB2     		sxth	r3, r3
@@ -157,169 +158,172 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  106 001c 9B10     		asrs	r3, r3, #2
  107 001e B84A     		ldr	r2, .L24+8
  108 0020 1380     		strh	r3, [r2]	@ movhi
-  43:RGBLedDriver.c ****     
-  44:RGBLedDriver.c ****     if((X_Out>=G-confidence_interval) && (X_Out<=G+confidence_interval))
- 109              		.loc 1 44 0
+  44:RGBLedDriver.c ****     
+  45:RGBLedDriver.c ****     /* Verify which axis measures g acceleration (whithin a confidence interval) to set the directi
+  46:RGBLedDriver.c ****     if((X_Out>=G-confidence_interval) && (X_Out<=G+confidence_interval))
+ 109              		.loc 1 46 0
  110 0022 B64B     		ldr	r3, .L24+4
  111 0024 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  112 0026 C3F57A73 		rsb	r3, r3, #1000
  113 002a 9C42     		cmp	r4, r3
  114 002c 09DB     		blt	.L7
- 115              		.loc 1 44 0 is_stmt 0 discriminator 1
+ 115              		.loc 1 46 0 is_stmt 0 discriminator 1
  116 002e B34B     		ldr	r3, .L24+4
  117 0030 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  118 0032 03F57A73 		add	r3, r3, #1000
  119 0036 9C42     		cmp	r4, r3
  120 0038 03DC     		bgt	.L7
-  45:RGBLedDriver.c ****     {
-  46:RGBLedDriver.c ****         direction=X;   
- 121              		.loc 1 46 0 is_stmt 1
+  47:RGBLedDriver.c ****     {
+  48:RGBLedDriver.c ****         direction=X;   
+ 121              		.loc 1 48 0 is_stmt 1
  122 003a 0022     		movs	r2, #0
  123 003c B14B     		ldr	r3, .L24+12
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccDYtY20.s 			page 4
+
+
  124 003e 1A70     		strb	r2, [r3]
  125 0040 1EE0     		b	.L8
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 4
-
-
  126              	.L7:
-  47:RGBLedDriver.c ****     }
-  48:RGBLedDriver.c ****     
-  49:RGBLedDriver.c ****     else if((Y_Out>=G-confidence_interval) && (Y_Out<=G+confidence_interval))
- 127              		.loc 1 49 0
+  49:RGBLedDriver.c ****     }
+  50:RGBLedDriver.c ****     
+  51:RGBLedDriver.c ****     else if((Y_Out>=G-confidence_interval) && (Y_Out<=G+confidence_interval))
+ 127              		.loc 1 51 0
  128 0042 AE4B     		ldr	r3, .L24+4
  129 0044 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  130 0046 C3F57A73 		rsb	r3, r3, #1000
  131 004a 9D42     		cmp	r5, r3
  132 004c 09DB     		blt	.L9
- 133              		.loc 1 49 0 is_stmt 0 discriminator 1
+ 133              		.loc 1 51 0 is_stmt 0 discriminator 1
  134 004e AB4B     		ldr	r3, .L24+4
  135 0050 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  136 0052 03F57A73 		add	r3, r3, #1000
  137 0056 9D42     		cmp	r5, r3
  138 0058 03DC     		bgt	.L9
-  50:RGBLedDriver.c ****     {
-  51:RGBLedDriver.c ****         direction=Y;
- 139              		.loc 1 51 0 is_stmt 1
+  52:RGBLedDriver.c ****     {
+  53:RGBLedDriver.c ****         direction=Y;
+ 139              		.loc 1 53 0 is_stmt 1
  140 005a 0122     		movs	r2, #1
  141 005c A94B     		ldr	r3, .L24+12
  142 005e 1A70     		strb	r2, [r3]
  143 0060 0EE0     		b	.L8
  144              	.L9:
-  52:RGBLedDriver.c ****     }
-  53:RGBLedDriver.c ****     
-  54:RGBLedDriver.c ****     else if((Z_Out>=G-confidence_interval) && (Z_Out<=G+confidence_interval))
- 145              		.loc 1 54 0
+  54:RGBLedDriver.c ****     }
+  55:RGBLedDriver.c ****     
+  56:RGBLedDriver.c ****     else if((Z_Out>=G-confidence_interval) && (Z_Out<=G+confidence_interval))
+ 145              		.loc 1 56 0
  146 0062 A64B     		ldr	r3, .L24+4
  147 0064 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  148 0066 C3F57A73 		rsb	r3, r3, #1000
  149 006a 9E42     		cmp	r6, r3
  150 006c 08DB     		blt	.L8
- 151              		.loc 1 54 0 is_stmt 0 discriminator 1
+ 151              		.loc 1 56 0 is_stmt 0 discriminator 1
  152 006e A34B     		ldr	r3, .L24+4
  153 0070 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  154 0072 03F57A73 		add	r3, r3, #1000
  155 0076 9E42     		cmp	r6, r3
  156 0078 02DC     		bgt	.L8
-  55:RGBLedDriver.c ****     {
-  56:RGBLedDriver.c ****         direction=Z;            
- 157              		.loc 1 56 0 is_stmt 1
+  57:RGBLedDriver.c ****     {
+  58:RGBLedDriver.c ****         direction=Z;            
+ 157              		.loc 1 58 0 is_stmt 1
  158 007a 0222     		movs	r2, #2
  159 007c A14B     		ldr	r3, .L24+12
  160 007e 1A70     		strb	r2, [r3]
  161              	.L8:
-  57:RGBLedDriver.c ****     }
-  58:RGBLedDriver.c ****    
-  59:RGBLedDriver.c ****     switch(direction)
- 162              		.loc 1 59 0
+  59:RGBLedDriver.c ****     }
+  60:RGBLedDriver.c ****    
+  61:RGBLedDriver.c ****     switch(direction)
+ 162              		.loc 1 61 0
  163 0080 A04B     		ldr	r3, .L24+12
  164 0082 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  165 0084 012B     		cmp	r3, #1
  166 0086 7ED0     		beq	.L11
  167 0088 1BB1     		cbz	r3, .L12
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccDYtY20.s 			page 5
+
+
  168 008a 022B     		cmp	r3, #2
  169 008c 00F0F580 		beq	.L13
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 5
-
-
  170 0090 70BD     		pop	{r4, r5, r6, pc}
  171              	.L12:
-  60:RGBLedDriver.c ****     {
-  61:RGBLedDriver.c ****         case X:
-  62:RGBLedDriver.c ****         RGBLed_Stop();
- 172              		.loc 1 62 0
+  62:RGBLedDriver.c ****     {
+  63:RGBLedDriver.c ****         case X:
+  64:RGBLedDriver.c ****         /* Turn off green and blue channels */
+  65:RGBLedDriver.c ****         RGBLed_Stop();
+ 172              		.loc 1 65 0
  173 0092 FFF7FEFF 		bl	RGBLed_Stop
  174              	.LVL6:
-  63:RGBLedDriver.c ****         PWM_RG_WritePeriod(255);
- 175              		.loc 1 63 0
+  66:RGBLedDriver.c ****         PWM_RG_WritePeriod(255);
+ 175              		.loc 1 66 0
  176 0096 FF20     		movs	r0, #255
  177 0098 FFF7FEFF 		bl	PWM_RG_WritePeriod
  178              	.LVL7:
-  64:RGBLedDriver.c ****         PWM_RG_WriteCompare2(0);
- 179              		.loc 1 64 0
+  67:RGBLedDriver.c ****         PWM_RG_WriteCompare2(0);
+ 179              		.loc 1 67 0
  180 009c 0020     		movs	r0, #0
  181 009e FFF7FEFF 		bl	PWM_RG_WriteCompare2
  182              	.LVL8:
-  65:RGBLedDriver.c ****         PWM_B_WritePeriod(255);
- 183              		.loc 1 65 0
+  68:RGBLedDriver.c ****         PWM_B_WritePeriod(255);
+ 183              		.loc 1 68 0
  184 00a2 FF20     		movs	r0, #255
  185 00a4 FFF7FEFF 		bl	PWM_B_WritePeriod
  186              	.LVL9:
-  66:RGBLedDriver.c ****         PWM_B_WriteCompare(0);
- 187              		.loc 1 66 0
+  69:RGBLedDriver.c ****         PWM_B_WriteCompare(0);
+ 187              		.loc 1 69 0
  188 00a8 0020     		movs	r0, #0
  189 00aa FFF7FEFF 		bl	PWM_B_WriteCompare
  190              	.LVL10:
-  67:RGBLedDriver.c ****         RGBLed_Start();
- 191              		.loc 1 67 0
+  70:RGBLedDriver.c ****         RGBLed_Start();
+ 191              		.loc 1 70 0
  192 00ae FFF7FEFF 		bl	RGBLed_Start
  193              	.LVL11:
-  68:RGBLedDriver.c ****         if ((X_Out>=G-confidence_interval) && (X_Out<=G+confidence_interval))
- 194              		.loc 1 68 0
+  71:RGBLedDriver.c ****         if ((X_Out>=G-confidence_interval) && (X_Out<=G+confidence_interval))
+ 194              		.loc 1 71 0
  195 00b2 924B     		ldr	r3, .L24+4
  196 00b4 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  197 00b6 C3F57A73 		rsb	r3, r3, #1000
  198 00ba 9C42     		cmp	r4, r3
  199 00bc 10DB     		blt	.L14
- 200              		.loc 1 68 0 is_stmt 0 discriminator 1
+ 200              		.loc 1 71 0 is_stmt 0 discriminator 1
  201 00be 8F4B     		ldr	r3, .L24+4
  202 00c0 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  203 00c2 03F57A73 		add	r3, r3, #1000
  204 00c6 9C42     		cmp	r4, r3
  205 00c8 0ADC     		bgt	.L14
-  69:RGBLedDriver.c ****         {
-  70:RGBLedDriver.c ****           RGBLed_Stop();
- 206              		.loc 1 70 0 is_stmt 1
+  72:RGBLedDriver.c ****         {
+  73:RGBLedDriver.c ****           /* Steady red light if the device is still */
+  74:RGBLedDriver.c ****           RGBLed_Stop();
+ 206              		.loc 1 74 0 is_stmt 1
  207 00ca FFF7FEFF 		bl	RGBLed_Stop
  208              	.LVL12:
-  71:RGBLedDriver.c ****           PWM_RG_WritePeriod(255);
- 209              		.loc 1 71 0
+  75:RGBLedDriver.c ****           PWM_RG_WritePeriod(255);
+ 209              		.loc 1 75 0
  210 00ce FF20     		movs	r0, #255
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccDYtY20.s 			page 6
+
+
  211 00d0 FFF7FEFF 		bl	PWM_RG_WritePeriod
  212              	.LVL13:
-  72:RGBLedDriver.c ****           PWM_RG_WriteCompare1(255);
- 213              		.loc 1 72 0
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 6
-
-
+  76:RGBLedDriver.c ****           PWM_RG_WriteCompare1(255);
+ 213              		.loc 1 76 0
  214 00d4 FF20     		movs	r0, #255
  215 00d6 FFF7FEFF 		bl	PWM_RG_WriteCompare1
  216              	.LVL14:
-  73:RGBLedDriver.c ****           RGBLed_Start();
- 217              		.loc 1 73 0
+  77:RGBLedDriver.c ****           RGBLed_Start();
+ 217              		.loc 1 77 0
  218 00da FFF7FEFF 		bl	RGBLed_Start
  219              	.LVL15:
  220 00de 70BD     		pop	{r4, r5, r6, pc}
  221              	.L14:
-  74:RGBLedDriver.c ****         }
-  75:RGBLedDriver.c ****         
-  76:RGBLedDriver.c ****         else if((X_Out>G+confidence_interval) && (X_Out<=G+confidence_interval+step))
- 222              		.loc 1 76 0
+  78:RGBLedDriver.c ****         }
+  79:RGBLedDriver.c ****         
+  80:RGBLedDriver.c ****         else if((X_Out>G+confidence_interval) && (X_Out<=G+confidence_interval+step))
+ 222              		.loc 1 80 0
  223 00e0 864B     		ldr	r3, .L24+4
  224 00e2 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  225 00e4 03F57A73 		add	r3, r3, #1000
  226 00e8 9C42     		cmp	r4, r3
  227 00ea 13DD     		ble	.L15
- 228              		.loc 1 76 0 is_stmt 0 discriminator 1
+ 228              		.loc 1 80 0 is_stmt 0 discriminator 1
  229 00ec 834B     		ldr	r3, .L24+4
  230 00ee 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  231 00f0 03F57A73 		add	r3, r3, #1000
@@ -328,188 +332,193 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  234 00f8 1344     		add	r3, r3, r2
  235 00fa 9C42     		cmp	r4, r3
  236 00fc 0ADC     		bgt	.L15
-  77:RGBLedDriver.c ****         {
-  78:RGBLedDriver.c ****           RGBLed_Stop();
- 237              		.loc 1 78 0 is_stmt 1
+  81:RGBLedDriver.c ****         {
+  82:RGBLedDriver.c ****           /* Blinking of red light with a period of 0.5 sec */  
+  83:RGBLedDriver.c ****           RGBLed_Stop();
+ 237              		.loc 1 83 0 is_stmt 1
  238 00fe FFF7FEFF 		bl	RGBLed_Stop
  239              	.LVL16:
-  79:RGBLedDriver.c ****           PWM_RG_WritePeriod(65);
- 240              		.loc 1 79 0
+  84:RGBLedDriver.c ****           PWM_RG_WritePeriod(65);
+ 240              		.loc 1 84 0
  241 0102 4120     		movs	r0, #65
  242 0104 FFF7FEFF 		bl	PWM_RG_WritePeriod
  243              	.LVL17:
-  80:RGBLedDriver.c ****           PWM_RG_WriteCompare1(32);  
- 244              		.loc 1 80 0
+  85:RGBLedDriver.c ****           PWM_RG_WriteCompare1(32);  
+ 244              		.loc 1 85 0
  245 0108 2020     		movs	r0, #32
  246 010a FFF7FEFF 		bl	PWM_RG_WriteCompare1
  247              	.LVL18:
-  81:RGBLedDriver.c ****           RGBLed_Start();
- 248              		.loc 1 81 0
+  86:RGBLedDriver.c ****           RGBLed_Start();
+ 248              		.loc 1 86 0
  249 010e FFF7FEFF 		bl	RGBLed_Start
  250              	.LVL19:
  251 0112 70BD     		pop	{r4, r5, r6, pc}
  252              	.L15:
-  82:RGBLedDriver.c ****         }   
-  83:RGBLedDriver.c ****         else if ((X_Out>G+confidence_interval+step) && (X_Out<=G+confidence_interval+2*step))
- 253              		.loc 1 83 0
+  87:RGBLedDriver.c ****         }   
+  88:RGBLedDriver.c ****         else if ((X_Out>G+confidence_interval+step) && (X_Out<=G+confidence_interval+2*step))
+ 253              		.loc 1 88 0
  254 0114 794B     		ldr	r3, .L24+4
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccDYtY20.s 			page 7
+
+
  255 0116 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  256 0118 03F57A73 		add	r3, r3, #1000
  257 011c 784A     		ldr	r2, .L24+8
  258 011e 1288     		ldrh	r2, [r2]
  259 0120 1344     		add	r3, r3, r2
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 7
-
-
  260 0122 9C42     		cmp	r4, r3
  261 0124 12DD     		ble	.L16
- 262              		.loc 1 83 0 is_stmt 0 discriminator 1
+ 262              		.loc 1 88 0 is_stmt 0 discriminator 1
  263 0126 754B     		ldr	r3, .L24+4
  264 0128 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  265 012a 03F57A73 		add	r3, r3, #1000
  266 012e 03EB4203 		add	r3, r3, r2, lsl #1
  267 0132 9C42     		cmp	r4, r3
  268 0134 0ADC     		bgt	.L16
-  84:RGBLedDriver.c ****         {
-  85:RGBLedDriver.c ****           RGBLed_Stop();
- 269              		.loc 1 85 0 is_stmt 1
+  89:RGBLedDriver.c ****         {
+  90:RGBLedDriver.c ****           /* Blinking of red light with a period of 0.25 sec */   
+  91:RGBLedDriver.c ****           RGBLed_Stop();
+ 269              		.loc 1 91 0 is_stmt 1
  270 0136 FFF7FEFF 		bl	RGBLed_Stop
  271              	.LVL20:
-  86:RGBLedDriver.c ****           PWM_RG_WritePeriod(32);
- 272              		.loc 1 86 0
+  92:RGBLedDriver.c ****           PWM_RG_WritePeriod(32);
+ 272              		.loc 1 92 0
  273 013a 2020     		movs	r0, #32
  274 013c FFF7FEFF 		bl	PWM_RG_WritePeriod
  275              	.LVL21:
-  87:RGBLedDriver.c ****           PWM_RG_WriteCompare1(16);  
- 276              		.loc 1 87 0
+  93:RGBLedDriver.c ****           PWM_RG_WriteCompare1(16);  
+ 276              		.loc 1 93 0
  277 0140 1020     		movs	r0, #16
  278 0142 FFF7FEFF 		bl	PWM_RG_WriteCompare1
  279              	.LVL22:
-  88:RGBLedDriver.c ****           RGBLed_Start();
- 280              		.loc 1 88 0
+  94:RGBLedDriver.c ****           RGBLed_Start();
+ 280              		.loc 1 94 0
  281 0146 FFF7FEFF 		bl	RGBLed_Start
  282              	.LVL23:
  283 014a 70BD     		pop	{r4, r5, r6, pc}
  284              	.L16:
-  89:RGBLedDriver.c ****         }  
-  90:RGBLedDriver.c ****         else if ((X_Out>G+confidence_interval+2*step) && (X_Out<=G+confidence_interval+4*step))
- 285              		.loc 1 90 0
+  95:RGBLedDriver.c ****         }  
+  96:RGBLedDriver.c ****         else if ((X_Out>G+confidence_interval+2*step) && (X_Out<=G+confidence_interval+4*step))
+ 285              		.loc 1 96 0
  286 014c 6B4B     		ldr	r3, .L24+4
  287 014e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  288 0150 03F57A73 		add	r3, r3, #1000
  289 0154 03EB4203 		add	r3, r3, r2, lsl #1
  290 0158 9C42     		cmp	r4, r3
  291 015a 40F30B81 		ble	.L5
- 292              		.loc 1 90 0 is_stmt 0 discriminator 1
+ 292              		.loc 1 96 0 is_stmt 0 discriminator 1
  293 015e 674B     		ldr	r3, .L24+4
  294 0160 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  295 0162 03F57A73 		add	r3, r3, #1000
  296 0166 03EB8202 		add	r2, r3, r2, lsl #2
  297 016a 9442     		cmp	r4, r2
  298 016c 00F30281 		bgt	.L5
-  91:RGBLedDriver.c ****         {
-  92:RGBLedDriver.c ****           RGBLed_Stop();
- 299              		.loc 1 92 0 is_stmt 1
+  97:RGBLedDriver.c ****         {
+  98:RGBLedDriver.c ****           /* Blinking of red light with a period of 0.125 sec */   
+  99:RGBLedDriver.c ****           RGBLed_Stop();
+ 299              		.loc 1 99 0 is_stmt 1
  300 0170 FFF7FEFF 		bl	RGBLed_Stop
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccDYtY20.s 			page 8
+
+
  301              	.LVL24:
-  93:RGBLedDriver.c ****           PWM_RG_WritePeriod(16);
- 302              		.loc 1 93 0
+ 100:RGBLedDriver.c ****           PWM_RG_WritePeriod(16);
+ 302              		.loc 1 100 0
  303 0174 1020     		movs	r0, #16
  304 0176 FFF7FEFF 		bl	PWM_RG_WritePeriod
  305              	.LVL25:
-  94:RGBLedDriver.c ****           PWM_RG_WriteCompare1(8);
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 8
-
-
- 306              		.loc 1 94 0
+ 101:RGBLedDriver.c ****           PWM_RG_WriteCompare1(8);
+ 306              		.loc 1 101 0
  307 017a 0820     		movs	r0, #8
  308 017c FFF7FEFF 		bl	PWM_RG_WriteCompare1
  309              	.LVL26:
-  95:RGBLedDriver.c ****           RGBLed_Start();
- 310              		.loc 1 95 0
+ 102:RGBLedDriver.c ****           RGBLed_Start();
+ 310              		.loc 1 102 0
  311 0180 FFF7FEFF 		bl	RGBLed_Start
  312              	.LVL27:
  313 0184 70BD     		pop	{r4, r5, r6, pc}
  314              	.LVL28:
  315              	.L11:
-  96:RGBLedDriver.c ****         }  
-  97:RGBLedDriver.c ****         break;
-  98:RGBLedDriver.c ****         
-  99:RGBLedDriver.c ****         case Y:
- 100:RGBLedDriver.c ****         RGBLed_Stop();
- 316              		.loc 1 100 0
+ 103:RGBLedDriver.c ****         }  
+ 104:RGBLedDriver.c ****         break;
+ 105:RGBLedDriver.c ****         
+ 106:RGBLedDriver.c ****         case Y:
+ 107:RGBLedDriver.c ****         /* Turn off red and blue channels */
+ 108:RGBLedDriver.c ****         RGBLed_Stop();
+ 316              		.loc 1 108 0
  317 0186 FFF7FEFF 		bl	RGBLed_Stop
  318              	.LVL29:
- 101:RGBLedDriver.c ****         PWM_RG_WritePeriod(255);
- 319              		.loc 1 101 0
+ 109:RGBLedDriver.c ****         PWM_RG_WritePeriod(255);
+ 319              		.loc 1 109 0
  320 018a FF20     		movs	r0, #255
  321 018c FFF7FEFF 		bl	PWM_RG_WritePeriod
  322              	.LVL30:
- 102:RGBLedDriver.c ****         PWM_RG_WriteCompare1(0);
- 323              		.loc 1 102 0
+ 110:RGBLedDriver.c ****         PWM_RG_WriteCompare1(0);
+ 323              		.loc 1 110 0
  324 0190 0020     		movs	r0, #0
  325 0192 FFF7FEFF 		bl	PWM_RG_WriteCompare1
  326              	.LVL31:
- 103:RGBLedDriver.c ****         PWM_B_WritePeriod(255);
- 327              		.loc 1 103 0
+ 111:RGBLedDriver.c ****         PWM_B_WritePeriod(255);
+ 327              		.loc 1 111 0
  328 0196 FF20     		movs	r0, #255
  329 0198 FFF7FEFF 		bl	PWM_B_WritePeriod
  330              	.LVL32:
- 104:RGBLedDriver.c ****         PWM_B_WriteCompare(0);
- 331              		.loc 1 104 0
+ 112:RGBLedDriver.c ****         PWM_B_WriteCompare(0);
+ 331              		.loc 1 112 0
  332 019c 0020     		movs	r0, #0
  333 019e FFF7FEFF 		bl	PWM_B_WriteCompare
  334              	.LVL33:
- 105:RGBLedDriver.c ****         RGBLed_Start();
- 335              		.loc 1 105 0
+ 113:RGBLedDriver.c ****         RGBLed_Start();
+ 335              		.loc 1 113 0
  336 01a2 FFF7FEFF 		bl	RGBLed_Start
  337              	.LVL34:
- 106:RGBLedDriver.c ****         if ((Y_Out>=G-confidence_interval) && (Y_Out<=G+confidence_interval))
- 338              		.loc 1 106 0
+ 114:RGBLedDriver.c ****         if ((Y_Out>=G-confidence_interval) && (Y_Out<=G+confidence_interval))
+ 338              		.loc 1 114 0
  339 01a6 554B     		ldr	r3, .L24+4
  340 01a8 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  341 01aa C3F57A73 		rsb	r3, r3, #1000
  342 01ae 9D42     		cmp	r5, r3
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccDYtY20.s 			page 9
+
+
  343 01b0 10DB     		blt	.L17
- 344              		.loc 1 106 0 is_stmt 0 discriminator 1
+ 344              		.loc 1 114 0 is_stmt 0 discriminator 1
  345 01b2 524B     		ldr	r3, .L24+4
  346 01b4 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  347 01b6 03F57A73 		add	r3, r3, #1000
  348 01ba 9D42     		cmp	r5, r3
  349 01bc 0ADC     		bgt	.L17
- 107:RGBLedDriver.c ****         {
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 9
-
-
- 108:RGBLedDriver.c ****           RGBLed_Stop();
- 350              		.loc 1 108 0 is_stmt 1
+ 115:RGBLedDriver.c ****         {
+ 116:RGBLedDriver.c ****           /* Steady green light if the device is still */  
+ 117:RGBLedDriver.c ****           RGBLed_Stop();
+ 350              		.loc 1 117 0 is_stmt 1
  351 01be FFF7FEFF 		bl	RGBLed_Stop
  352              	.LVL35:
- 109:RGBLedDriver.c ****           PWM_RG_WritePeriod(255);
- 353              		.loc 1 109 0
+ 118:RGBLedDriver.c ****           PWM_RG_WritePeriod(255);
+ 353              		.loc 1 118 0
  354 01c2 FF20     		movs	r0, #255
  355 01c4 FFF7FEFF 		bl	PWM_RG_WritePeriod
  356              	.LVL36:
- 110:RGBLedDriver.c ****           PWM_RG_WriteCompare2(255);
- 357              		.loc 1 110 0
+ 119:RGBLedDriver.c ****           PWM_RG_WriteCompare2(255);
+ 357              		.loc 1 119 0
  358 01c8 FF20     		movs	r0, #255
  359 01ca FFF7FEFF 		bl	PWM_RG_WriteCompare2
  360              	.LVL37:
- 111:RGBLedDriver.c ****           RGBLed_Start();
- 361              		.loc 1 111 0
+ 120:RGBLedDriver.c ****           RGBLed_Start();
+ 361              		.loc 1 120 0
  362 01ce FFF7FEFF 		bl	RGBLed_Start
  363              	.LVL38:
  364 01d2 70BD     		pop	{r4, r5, r6, pc}
  365              	.L17:
- 112:RGBLedDriver.c ****         }
- 113:RGBLedDriver.c ****         else if((Y_Out>G+confidence_interval) && (Y_Out<=G+confidence_interval+step))
- 366              		.loc 1 113 0
+ 121:RGBLedDriver.c ****         }
+ 122:RGBLedDriver.c ****         else if((Y_Out>G+confidence_interval) && (Y_Out<=G+confidence_interval+step))
+ 366              		.loc 1 122 0
  367 01d4 494B     		ldr	r3, .L24+4
  368 01d6 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  369 01d8 03F57A73 		add	r3, r3, #1000
  370 01dc 9D42     		cmp	r5, r3
  371 01de 13DD     		ble	.L18
- 372              		.loc 1 113 0 is_stmt 0 discriminator 1
+ 372              		.loc 1 122 0 is_stmt 0 discriminator 1
  373 01e0 464B     		ldr	r3, .L24+4
  374 01e2 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  375 01e4 03F57A73 		add	r3, r3, #1000
@@ -518,33 +527,34 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  378 01ec 1344     		add	r3, r3, r2
  379 01ee 9D42     		cmp	r5, r3
  380 01f0 0ADC     		bgt	.L18
- 114:RGBLedDriver.c ****         {
- 115:RGBLedDriver.c ****           RGBLed_Stop();
- 381              		.loc 1 115 0 is_stmt 1
+ 123:RGBLedDriver.c ****         {
+ 124:RGBLedDriver.c ****           /* Blinking of green light with a period of 0.5 sec */  
+ 125:RGBLedDriver.c ****           RGBLed_Stop();
+ 381              		.loc 1 125 0 is_stmt 1
  382 01f2 FFF7FEFF 		bl	RGBLed_Stop
  383              	.LVL39:
- 116:RGBLedDriver.c ****           PWM_RG_WritePeriod(65);
- 384              		.loc 1 116 0
+ 126:RGBLedDriver.c ****           PWM_RG_WritePeriod(65);
+ 384              		.loc 1 126 0
  385 01f6 4120     		movs	r0, #65
  386 01f8 FFF7FEFF 		bl	PWM_RG_WritePeriod
  387              	.LVL40:
- 117:RGBLedDriver.c ****           PWM_RG_WriteCompare2(32);  
- 388              		.loc 1 117 0
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccDYtY20.s 			page 10
+
+
+ 127:RGBLedDriver.c ****           PWM_RG_WriteCompare2(32);  
+ 388              		.loc 1 127 0
  389 01fc 2020     		movs	r0, #32
  390 01fe FFF7FEFF 		bl	PWM_RG_WriteCompare2
  391              	.LVL41:
- 118:RGBLedDriver.c ****           RGBLed_Start();
- 392              		.loc 1 118 0
+ 128:RGBLedDriver.c ****           RGBLed_Start();
+ 392              		.loc 1 128 0
  393 0202 FFF7FEFF 		bl	RGBLed_Start
  394              	.LVL42:
  395 0206 70BD     		pop	{r4, r5, r6, pc}
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 10
-
-
  396              	.L18:
- 119:RGBLedDriver.c ****         }   
- 120:RGBLedDriver.c ****         else if ((Y_Out>G+confidence_interval+step) && (Y_Out<=G+confidence_interval+2*step))
- 397              		.loc 1 120 0
+ 129:RGBLedDriver.c ****         }   
+ 130:RGBLedDriver.c ****         else if ((Y_Out>G+confidence_interval+step) && (Y_Out<=G+confidence_interval+2*step))
+ 397              		.loc 1 130 0
  398 0208 3C4B     		ldr	r3, .L24+4
  399 020a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  400 020c 03F57A73 		add	r3, r3, #1000
@@ -553,148 +563,152 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  403 0214 1344     		add	r3, r3, r2
  404 0216 9D42     		cmp	r5, r3
  405 0218 12DD     		ble	.L19
- 406              		.loc 1 120 0 is_stmt 0 discriminator 1
+ 406              		.loc 1 130 0 is_stmt 0 discriminator 1
  407 021a 384B     		ldr	r3, .L24+4
  408 021c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  409 021e 03F57A73 		add	r3, r3, #1000
  410 0222 03EB4203 		add	r3, r3, r2, lsl #1
  411 0226 9D42     		cmp	r5, r3
  412 0228 0ADC     		bgt	.L19
- 121:RGBLedDriver.c ****         {
- 122:RGBLedDriver.c ****           RGBLed_Stop();
- 413              		.loc 1 122 0 is_stmt 1
+ 131:RGBLedDriver.c ****         {
+ 132:RGBLedDriver.c ****           /* Blinking of green light with a period of 0.25 sec */  
+ 133:RGBLedDriver.c ****           RGBLed_Stop();
+ 413              		.loc 1 133 0 is_stmt 1
  414 022a FFF7FEFF 		bl	RGBLed_Stop
  415              	.LVL43:
- 123:RGBLedDriver.c ****           PWM_RG_WritePeriod(32);
- 416              		.loc 1 123 0
+ 134:RGBLedDriver.c ****           PWM_RG_WritePeriod(32);
+ 416              		.loc 1 134 0
  417 022e 2020     		movs	r0, #32
  418 0230 FFF7FEFF 		bl	PWM_RG_WritePeriod
  419              	.LVL44:
- 124:RGBLedDriver.c ****           PWM_RG_WriteCompare2(16);  
- 420              		.loc 1 124 0
+ 135:RGBLedDriver.c ****           PWM_RG_WriteCompare2(16);  
+ 420              		.loc 1 135 0
  421 0234 1020     		movs	r0, #16
  422 0236 FFF7FEFF 		bl	PWM_RG_WriteCompare2
  423              	.LVL45:
- 125:RGBLedDriver.c ****           RGBLed_Start();
- 424              		.loc 1 125 0
+ 136:RGBLedDriver.c ****           RGBLed_Start();
+ 424              		.loc 1 136 0
  425 023a FFF7FEFF 		bl	RGBLed_Start
  426              	.LVL46:
  427 023e 70BD     		pop	{r4, r5, r6, pc}
  428              	.L19:
- 126:RGBLedDriver.c ****         }  
- 127:RGBLedDriver.c ****         else if ((Y_Out>G+confidence_interval+2*step) && (Y_Out<=G+confidence_interval+4*step))
- 429              		.loc 1 127 0
+ 137:RGBLedDriver.c ****         }  
+ 138:RGBLedDriver.c ****         else if ((Y_Out>G+confidence_interval+2*step) && (Y_Out<=G+confidence_interval+4*step))
+ 429              		.loc 1 138 0
  430 0240 2E4B     		ldr	r3, .L24+4
  431 0242 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  432 0244 03F57A73 		add	r3, r3, #1000
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccDYtY20.s 			page 11
+
+
  433 0248 03EB4203 		add	r3, r3, r2, lsl #1
  434 024c 9D42     		cmp	r5, r3
  435 024e 40F39180 		ble	.L5
- 436              		.loc 1 127 0 is_stmt 0 discriminator 1
+ 436              		.loc 1 138 0 is_stmt 0 discriminator 1
  437 0252 2A4B     		ldr	r3, .L24+4
  438 0254 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  439 0256 03F57A73 		add	r3, r3, #1000
  440 025a 03EB8202 		add	r2, r3, r2, lsl #2
  441 025e 9542     		cmp	r5, r2
  442 0260 00F38880 		bgt	.L5
- 128:RGBLedDriver.c ****         {
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 11
-
-
- 129:RGBLedDriver.c ****           RGBLed_Stop();
- 443              		.loc 1 129 0 is_stmt 1
+ 139:RGBLedDriver.c ****         {
+ 140:RGBLedDriver.c ****           /* Blinking of green light with a period of 0.125 sec */  
+ 141:RGBLedDriver.c ****           RGBLed_Stop();
+ 443              		.loc 1 141 0 is_stmt 1
  444 0264 FFF7FEFF 		bl	RGBLed_Stop
  445              	.LVL47:
- 130:RGBLedDriver.c ****           PWM_RG_WritePeriod(16);
- 446              		.loc 1 130 0
+ 142:RGBLedDriver.c ****           PWM_RG_WritePeriod(16);
+ 446              		.loc 1 142 0
  447 0268 1020     		movs	r0, #16
  448 026a FFF7FEFF 		bl	PWM_RG_WritePeriod
  449              	.LVL48:
- 131:RGBLedDriver.c ****           PWM_RG_WriteCompare2(8); 
- 450              		.loc 1 131 0
+ 143:RGBLedDriver.c ****           PWM_RG_WriteCompare2(8); 
+ 450              		.loc 1 143 0
  451 026e 0820     		movs	r0, #8
  452 0270 FFF7FEFF 		bl	PWM_RG_WriteCompare2
  453              	.LVL49:
- 132:RGBLedDriver.c ****           RGBLed_Start();
- 454              		.loc 1 132 0
+ 144:RGBLedDriver.c ****           RGBLed_Start();
+ 454              		.loc 1 144 0
  455 0274 FFF7FEFF 		bl	RGBLed_Start
  456              	.LVL50:
  457 0278 70BD     		pop	{r4, r5, r6, pc}
  458              	.LVL51:
  459              	.L13:
- 133:RGBLedDriver.c ****         }  
- 134:RGBLedDriver.c ****         break;
- 135:RGBLedDriver.c ****         
- 136:RGBLedDriver.c ****         case Z:
- 137:RGBLedDriver.c ****         RGBLed_Stop();
- 460              		.loc 1 137 0
+ 145:RGBLedDriver.c ****         }  
+ 146:RGBLedDriver.c ****         break;
+ 147:RGBLedDriver.c ****         
+ 148:RGBLedDriver.c ****         case Z:
+ 149:RGBLedDriver.c ****         /* Turn off red and green channels */
+ 150:RGBLedDriver.c ****         RGBLed_Stop();
+ 460              		.loc 1 150 0
  461 027a FFF7FEFF 		bl	RGBLed_Stop
  462              	.LVL52:
- 138:RGBLedDriver.c ****         PWM_RG_WritePeriod(255);
- 463              		.loc 1 138 0
+ 151:RGBLedDriver.c ****         PWM_RG_WritePeriod(255);
+ 463              		.loc 1 151 0
  464 027e FF20     		movs	r0, #255
  465 0280 FFF7FEFF 		bl	PWM_RG_WritePeriod
  466              	.LVL53:
- 139:RGBLedDriver.c ****         PWM_RG_WriteCompare1(0);
- 467              		.loc 1 139 0
+ 152:RGBLedDriver.c ****         PWM_RG_WriteCompare1(0);
+ 467              		.loc 1 152 0
  468 0284 0020     		movs	r0, #0
  469 0286 FFF7FEFF 		bl	PWM_RG_WriteCompare1
  470              	.LVL54:
- 140:RGBLedDriver.c ****         PWM_RG_WriteCompare2(0);
- 471              		.loc 1 140 0
+ 153:RGBLedDriver.c ****         PWM_RG_WriteCompare2(0);
+ 471              		.loc 1 153 0
  472 028a 0020     		movs	r0, #0
  473 028c FFF7FEFF 		bl	PWM_RG_WriteCompare2
  474              	.LVL55:
- 141:RGBLedDriver.c ****         RGBLed_Start();
- 475              		.loc 1 141 0
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccDYtY20.s 			page 12
+
+
+ 154:RGBLedDriver.c ****         RGBLed_Start();
+ 475              		.loc 1 154 0
  476 0290 FFF7FEFF 		bl	RGBLed_Start
  477              	.LVL56:
- 142:RGBLedDriver.c ****         if ((Z_Out>=G-confidence_interval) && (Z_Out<=G+confidence_interval))
- 478              		.loc 1 142 0
+ 155:RGBLedDriver.c ****         if ((Z_Out>=G-confidence_interval) && (Z_Out<=G+confidence_interval))
+ 478              		.loc 1 155 0
  479 0294 194B     		ldr	r3, .L24+4
  480 0296 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  481 0298 C3F57A73 		rsb	r3, r3, #1000
  482 029c 9E42     		cmp	r6, r3
  483 029e 10DB     		blt	.L20
- 484              		.loc 1 142 0 is_stmt 0 discriminator 1
+ 484              		.loc 1 155 0 is_stmt 0 discriminator 1
  485 02a0 164B     		ldr	r3, .L24+4
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 12
-
-
  486 02a2 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  487 02a4 03F57A73 		add	r3, r3, #1000
  488 02a8 9E42     		cmp	r6, r3
  489 02aa 0ADC     		bgt	.L20
- 143:RGBLedDriver.c ****         {
- 144:RGBLedDriver.c ****           RGBLed_Stop();
- 490              		.loc 1 144 0 is_stmt 1
+ 156:RGBLedDriver.c ****         {
+ 157:RGBLedDriver.c ****           /* Steady blue light if the device is still */  
+ 158:RGBLedDriver.c ****           RGBLed_Stop();
+ 490              		.loc 1 158 0 is_stmt 1
  491 02ac FFF7FEFF 		bl	RGBLed_Stop
  492              	.LVL57:
- 145:RGBLedDriver.c ****           PWM_B_WritePeriod(255);
- 493              		.loc 1 145 0
+ 159:RGBLedDriver.c ****           PWM_B_WritePeriod(255);
+ 493              		.loc 1 159 0
  494 02b0 FF20     		movs	r0, #255
  495 02b2 FFF7FEFF 		bl	PWM_B_WritePeriod
  496              	.LVL58:
- 146:RGBLedDriver.c ****           PWM_B_WriteCompare(255);
- 497              		.loc 1 146 0
+ 160:RGBLedDriver.c ****           PWM_B_WriteCompare(255);
+ 497              		.loc 1 160 0
  498 02b6 FF20     		movs	r0, #255
  499 02b8 FFF7FEFF 		bl	PWM_B_WriteCompare
  500              	.LVL59:
- 147:RGBLedDriver.c ****           RGBLed_Start();
- 501              		.loc 1 147 0
+ 161:RGBLedDriver.c ****           RGBLed_Start();
+ 501              		.loc 1 161 0
  502 02bc FFF7FEFF 		bl	RGBLed_Start
  503              	.LVL60:
  504 02c0 70BD     		pop	{r4, r5, r6, pc}
  505              	.L20:
- 148:RGBLedDriver.c ****         }
- 149:RGBLedDriver.c ****         else if((Z_Out>G+confidence_interval) && (Z_Out<=G+confidence_interval+step))
- 506              		.loc 1 149 0
+ 162:RGBLedDriver.c ****         }
+ 163:RGBLedDriver.c ****         else if((Z_Out>G+confidence_interval) && (Z_Out<=G+confidence_interval+step))
+ 506              		.loc 1 163 0
  507 02c2 0E4B     		ldr	r3, .L24+4
  508 02c4 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  509 02c6 03F57A73 		add	r3, r3, #1000
  510 02ca 9E42     		cmp	r6, r3
  511 02cc 1CDD     		ble	.L21
- 512              		.loc 1 149 0 is_stmt 0 discriminator 1
+ 512              		.loc 1 163 0 is_stmt 0 discriminator 1
  513 02ce 0B4B     		ldr	r3, .L24+4
  514 02d0 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  515 02d2 03F57A73 		add	r3, r3, #1000
@@ -703,26 +717,27 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  518 02da 1344     		add	r3, r3, r2
  519 02dc 9E42     		cmp	r6, r3
  520 02de 13DC     		bgt	.L21
- 150:RGBLedDriver.c ****         {
- 151:RGBLedDriver.c ****           RGBLed_Stop();
- 521              		.loc 1 151 0 is_stmt 1
+ 164:RGBLedDriver.c ****         {
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccDYtY20.s 			page 13
+
+
+ 165:RGBLedDriver.c ****           /* Blinking of blue light with a period of 0.5 sec */
+ 166:RGBLedDriver.c ****           RGBLed_Stop();
+ 521              		.loc 1 166 0 is_stmt 1
  522 02e0 FFF7FEFF 		bl	RGBLed_Stop
  523              	.LVL61:
- 152:RGBLedDriver.c ****           PWM_B_WritePeriod(65);
- 524              		.loc 1 152 0
+ 167:RGBLedDriver.c ****           PWM_B_WritePeriod(65);
+ 524              		.loc 1 167 0
  525 02e4 4120     		movs	r0, #65
  526 02e6 FFF7FEFF 		bl	PWM_B_WritePeriod
  527              	.LVL62:
- 153:RGBLedDriver.c ****           PWM_B_WriteCompare(32); 
- 528              		.loc 1 153 0
+ 168:RGBLedDriver.c ****           PWM_B_WriteCompare(32); 
+ 528              		.loc 1 168 0
  529 02ea 2020     		movs	r0, #32
  530 02ec FFF7FEFF 		bl	PWM_B_WriteCompare
  531              	.LVL63:
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 13
-
-
- 154:RGBLedDriver.c ****           RGBLed_Start();
- 532              		.loc 1 154 0
+ 169:RGBLedDriver.c ****           RGBLed_Start();
+ 532              		.loc 1 169 0
  533 02f0 FFF7FEFF 		bl	RGBLed_Start
  534              	.LVL64:
  535 02f4 70BD     		pop	{r4, r5, r6, pc}
@@ -734,9 +749,9 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  541 0300 00000000 		.word	step
  542 0304 00000000 		.word	direction
  543              	.L21:
- 155:RGBLedDriver.c ****         }   
- 156:RGBLedDriver.c ****         else if ((Z_Out>G+confidence_interval+step) && (Z_Out<=G+confidence_interval+2*step))
- 544              		.loc 1 156 0
+ 170:RGBLedDriver.c ****         }   
+ 171:RGBLedDriver.c ****         else if ((Z_Out>G+confidence_interval+step) && (Z_Out<=G+confidence_interval+2*step))
+ 544              		.loc 1 171 0
  545 0308 1B4B     		ldr	r3, .L26
  546 030a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  547 030c 03F57A73 		add	r3, r3, #1000
@@ -745,70 +760,72 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  550 0314 1344     		add	r3, r3, r2
  551 0316 9E42     		cmp	r6, r3
  552 0318 12DD     		ble	.L22
- 553              		.loc 1 156 0 is_stmt 0 discriminator 1
+ 553              		.loc 1 171 0 is_stmt 0 discriminator 1
  554 031a 174B     		ldr	r3, .L26
  555 031c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  556 031e 03F57A73 		add	r3, r3, #1000
  557 0322 03EB4203 		add	r3, r3, r2, lsl #1
  558 0326 9E42     		cmp	r6, r3
  559 0328 0ADC     		bgt	.L22
- 157:RGBLedDriver.c ****         {
- 158:RGBLedDriver.c ****           RGBLed_Stop();
- 560              		.loc 1 158 0 is_stmt 1
+ 172:RGBLedDriver.c ****         {
+ 173:RGBLedDriver.c ****           /* Blinking of blue light with a period of 0.25 sec */  
+ 174:RGBLedDriver.c ****           RGBLed_Stop();
+ 560              		.loc 1 174 0 is_stmt 1
  561 032a FFF7FEFF 		bl	RGBLed_Stop
  562              	.LVL65:
- 159:RGBLedDriver.c ****           PWM_B_WritePeriod(32);
- 563              		.loc 1 159 0
+ 175:RGBLedDriver.c ****           PWM_B_WritePeriod(32);
+ 563              		.loc 1 175 0
  564 032e 2020     		movs	r0, #32
  565 0330 FFF7FEFF 		bl	PWM_B_WritePeriod
  566              	.LVL66:
- 160:RGBLedDriver.c ****           PWM_B_WriteCompare(16);
- 567              		.loc 1 160 0
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccDYtY20.s 			page 14
+
+
+ 176:RGBLedDriver.c ****           PWM_B_WriteCompare(16);
+ 567              		.loc 1 176 0
  568 0334 1020     		movs	r0, #16
  569 0336 FFF7FEFF 		bl	PWM_B_WriteCompare
  570              	.LVL67:
- 161:RGBLedDriver.c ****           RGBLed_Start();
- 571              		.loc 1 161 0
+ 177:RGBLedDriver.c ****           RGBLed_Start();
+ 571              		.loc 1 177 0
  572 033a FFF7FEFF 		bl	RGBLed_Start
  573              	.LVL68:
  574 033e 70BD     		pop	{r4, r5, r6, pc}
  575              	.L22:
- 162:RGBLedDriver.c ****         }  
- 163:RGBLedDriver.c ****         else if ((Z_Out>G+confidence_interval+2*step) && (Z_Out<=G+confidence_interval+4*step))
- 576              		.loc 1 163 0
+ 178:RGBLedDriver.c ****         }  
+ 179:RGBLedDriver.c ****         else if ((Z_Out>G+confidence_interval+2*step) && (Z_Out<=G+confidence_interval+4*step))
+ 576              		.loc 1 179 0
  577 0340 0D4B     		ldr	r3, .L26
  578 0342 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 14
-
-
  579 0344 03F57A73 		add	r3, r3, #1000
  580 0348 03EB4203 		add	r3, r3, r2, lsl #1
  581 034c 9E42     		cmp	r6, r3
  582 034e 11DD     		ble	.L5
- 583              		.loc 1 163 0 is_stmt 0 discriminator 1
+ 583              		.loc 1 179 0 is_stmt 0 discriminator 1
  584 0350 094B     		ldr	r3, .L26
  585 0352 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  586 0354 03F57A73 		add	r3, r3, #1000
  587 0358 03EB8202 		add	r2, r3, r2, lsl #2
  588 035c 9642     		cmp	r6, r2
  589 035e 09DC     		bgt	.L5
- 164:RGBLedDriver.c ****         {
- 165:RGBLedDriver.c ****           RGBLed_Stop();
- 590              		.loc 1 165 0 is_stmt 1
+ 180:RGBLedDriver.c ****         {
+ 181:RGBLedDriver.c ****           /* Blinking of blue light with a period of 0.125 sec */  
+ 182:RGBLedDriver.c ****           RGBLed_Stop();
+ 590              		.loc 1 182 0 is_stmt 1
  591 0360 FFF7FEFF 		bl	RGBLed_Stop
  592              	.LVL69:
- 166:RGBLedDriver.c ****           PWM_B_WritePeriod(16);
- 593              		.loc 1 166 0
+ 183:RGBLedDriver.c ****           PWM_B_WritePeriod(16);
+ 593              		.loc 1 183 0
  594 0364 1020     		movs	r0, #16
  595 0366 FFF7FEFF 		bl	PWM_B_WritePeriod
  596              	.LVL70:
- 167:RGBLedDriver.c ****           PWM_B_WriteCompare(8);  
- 597              		.loc 1 167 0
+ 184:RGBLedDriver.c ****           PWM_B_WriteCompare(8);  
+ 597              		.loc 1 184 0
  598 036a 0820     		movs	r0, #8
  599 036c FFF7FEFF 		bl	PWM_B_WriteCompare
  600              	.LVL71:
- 168:RGBLedDriver.c ****           RGBLed_Start();
- 601              		.loc 1 168 0
+ 185:RGBLedDriver.c ****           RGBLed_Start();
+ 601              		.loc 1 185 0
  602 0370 FFF7FEFF 		bl	RGBLed_Start
  603              	.LVL72:
  604              	.L5:
@@ -821,6 +838,9 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  611              		.cfi_endproc
  612              	.LFE65:
  613              		.size	set_PWM, .-set_PWM
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccDYtY20.s 			page 15
+
+
  614              		.comm	direction,1,1
  615              		.comm	step,2,2
  616              		.comm	Parameters,1,1
@@ -838,17 +858,14 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  628              		.file 8 "Generated_Source\\PSoC5/PWM_B.h"
  629              		.section	.debug_info,"",%progbits
  630              	.Ldebug_info0:
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 15
-
-
  631 0000 2D060000 		.4byte	0x62d
  632 0004 0400     		.2byte	0x4
  633 0006 00000000 		.4byte	.Ldebug_abbrev0
  634 000a 04       		.byte	0x4
  635 000b 01       		.uleb128 0x1
- 636 000c 09010000 		.4byte	.LASF46
+ 636 000c 0A010000 		.4byte	.LASF46
  637 0010 0C       		.byte	0xc
- 638 0011 86020000 		.4byte	.LASF47
+ 638 0011 87020000 		.4byte	.LASF47
  639 0015 47000000 		.4byte	.LASF48
  640 0019 00000000 		.4byte	.Ldebug_ranges0+0
  641 001d 00000000 		.4byte	0
@@ -856,7 +873,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  643 0025 02       		.uleb128 0x2
  644 0026 01       		.byte	0x1
  645 0027 06       		.byte	0x6
- 646 0028 EF000000 		.4byte	.LASF0
+ 646 0028 F0000000 		.4byte	.LASF0
  647 002c 03       		.uleb128 0x3
  648 002d 0C000000 		.4byte	.LASF2
  649 0031 02       		.byte	0x2
@@ -865,7 +882,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  652 0037 02       		.uleb128 0x2
  653 0038 01       		.byte	0x1
  654 0039 08       		.byte	0x8
- 655 003a FB000000 		.4byte	.LASF1
+ 655 003a FC000000 		.4byte	.LASF1
  656 003e 03       		.uleb128 0x3
  657 003f 1C000000 		.4byte	.LASF3
  658 0043 02       		.byte	0x2
@@ -874,16 +891,19 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  661 0049 02       		.uleb128 0x2
  662 004a 02       		.byte	0x2
  663 004b 05       		.byte	0x5
- 664 004c EB020000 		.4byte	.LASF4
+ 664 004c EC020000 		.4byte	.LASF4
  665 0050 03       		.uleb128 0x3
- 666 0051 F8010000 		.4byte	.LASF5
+ 666 0051 F9010000 		.4byte	.LASF5
  667 0055 02       		.byte	0x2
  668 0056 2B       		.byte	0x2b
  669 0057 5B000000 		.4byte	0x5b
  670 005b 02       		.uleb128 0x2
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccDYtY20.s 			page 16
+
+
  671 005c 02       		.byte	0x2
  672 005d 07       		.byte	0x7
- 673 005e C8010000 		.4byte	.LASF6
+ 673 005e C9010000 		.4byte	.LASF6
  674 0062 03       		.uleb128 0x3
  675 0063 38000000 		.4byte	.LASF7
  676 0067 02       		.byte	0x2
@@ -892,22 +912,19 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  679 006d 02       		.uleb128 0x2
  680 006e 04       		.byte	0x4
  681 006f 05       		.byte	0x5
- 682 0070 0A030000 		.4byte	.LASF8
+ 682 0070 0B030000 		.4byte	.LASF8
  683 0074 02       		.uleb128 0x2
  684 0075 04       		.byte	0x4
  685 0076 07       		.byte	0x7
- 686 0077 A9010000 		.4byte	.LASF9
+ 686 0077 AA010000 		.4byte	.LASF9
  687 007b 02       		.uleb128 0x2
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 16
-
-
  688 007c 08       		.byte	0x8
  689 007d 05       		.byte	0x5
- 690 007e A6020000 		.4byte	.LASF10
+ 690 007e A7020000 		.4byte	.LASF10
  691 0082 02       		.uleb128 0x2
  692 0083 08       		.byte	0x8
  693 0084 07       		.byte	0x7
- 694 0085 53020000 		.4byte	.LASF11
+ 694 0085 54020000 		.4byte	.LASF11
  695 0089 04       		.uleb128 0x4
  696 008a 04       		.byte	0x4
  697 008b 05       		.byte	0x5
@@ -915,64 +932,64 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  699 0090 02       		.uleb128 0x2
  700 0091 04       		.byte	0x4
  701 0092 07       		.byte	0x7
- 702 0093 46020000 		.4byte	.LASF12
+ 702 0093 47020000 		.4byte	.LASF12
  703 0097 03       		.uleb128 0x3
- 704 0098 6A020000 		.4byte	.LASF13
+ 704 0098 6B020000 		.4byte	.LASF13
  705 009c 03       		.byte	0x3
  706 009d 18       		.byte	0x18
  707 009e 2C000000 		.4byte	0x2c
  708 00a2 03       		.uleb128 0x3
- 709 00a3 7E020000 		.4byte	.LASF14
+ 709 00a3 7F020000 		.4byte	.LASF14
  710 00a7 03       		.byte	0x3
  711 00a8 20       		.byte	0x20
  712 00a9 3E000000 		.4byte	0x3e
  713 00ad 03       		.uleb128 0x3
- 714 00ae F5020000 		.4byte	.LASF15
+ 714 00ae F6020000 		.4byte	.LASF15
  715 00b2 03       		.byte	0x3
  716 00b3 24       		.byte	0x24
  717 00b4 50000000 		.4byte	0x50
  718 00b8 03       		.uleb128 0x3
- 719 00b9 95020000 		.4byte	.LASF16
+ 719 00b9 96020000 		.4byte	.LASF16
  720 00bd 03       		.byte	0x3
  721 00be 2C       		.byte	0x2c
  722 00bf 62000000 		.4byte	0x62
  723 00c3 05       		.uleb128 0x5
- 724 00c4 BB000000 		.4byte	.LASF17
+ 724 00c4 BC000000 		.4byte	.LASF17
  725 00c8 04       		.byte	0x4
  726 00c9 E401     		.2byte	0x1e4
  727 00cb 37000000 		.4byte	0x37
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccDYtY20.s 			page 17
+
+
  728 00cf 05       		.uleb128 0x5
- 729 00d0 A3010000 		.4byte	.LASF18
+ 729 00d0 A4010000 		.4byte	.LASF18
  730 00d4 04       		.byte	0x4
  731 00d5 E801     		.2byte	0x1e8
  732 00d7 49000000 		.4byte	0x49
  733 00db 02       		.uleb128 0x2
  734 00dc 04       		.byte	0x4
  735 00dd 04       		.byte	0x4
- 736 00de E9000000 		.4byte	.LASF19
+ 736 00de EA000000 		.4byte	.LASF19
  737 00e2 02       		.uleb128 0x2
  738 00e3 08       		.byte	0x8
  739 00e4 04       		.byte	0x4
- 740 00e5 B4000000 		.4byte	.LASF20
+ 740 00e5 B5000000 		.4byte	.LASF20
  741 00e9 02       		.uleb128 0x2
  742 00ea 01       		.byte	0x1
  743 00eb 08       		.byte	0x8
- 744 00ec B4020000 		.4byte	.LASF21
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 17
-
-
+ 744 00ec B5020000 		.4byte	.LASF21
  745 00f0 02       		.uleb128 0x2
  746 00f1 08       		.byte	0x8
  747 00f2 04       		.byte	0x4
- 748 00f3 13030000 		.4byte	.LASF22
+ 748 00f3 14030000 		.4byte	.LASF22
  749 00f7 02       		.uleb128 0x2
  750 00f8 04       		.byte	0x4
  751 00f9 07       		.byte	0x7
- 752 00fa 9D020000 		.4byte	.LASF23
+ 752 00fa 9E020000 		.4byte	.LASF23
  753 00fe 06       		.uleb128 0x6
  754 00ff 97000000 		.4byte	0x97
  755 0103 07       		.uleb128 0x7
- 756 0104 D1000000 		.4byte	.LASF24
+ 756 0104 D2000000 		.4byte	.LASF24
  757 0108 01       		.byte	0x1
  758 0109 1A       		.byte	0x1a
  759 010a 00000000 		.4byte	.LFB63
@@ -988,7 +1005,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  769 0126 D8050000 		.4byte	0x5d8
  770 012a 00       		.byte	0
  771 012b 07       		.uleb128 0x7
- 772 012c 97010000 		.4byte	.LASF25
+ 772 012c 98010000 		.4byte	.LASF25
  773 0130 01       		.byte	0x1
  774 0131 20       		.byte	0x20
  775 0132 00000000 		.4byte	.LFB64
@@ -1001,10 +1018,13 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  782 0145 E3050000 		.4byte	0x5e3
  783 0149 08       		.uleb128 0x8
  784 014a 0A000000 		.4byte	.LVL3
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccDYtY20.s 			page 18
+
+
  785 014e EE050000 		.4byte	0x5ee
  786 0152 00       		.byte	0
  787 0153 07       		.uleb128 0x7
- 788 0154 1F030000 		.4byte	.LASF26
+ 788 0154 20030000 		.4byte	.LASF26
  789 0158 01       		.byte	0x1
  790 0159 28       		.byte	0x28
  791 015a 00000000 		.4byte	.LFB65
@@ -1013,16 +1033,13 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  794 0163 9C       		.byte	0x9c
  795 0164 51050000 		.4byte	0x551
  796 0168 09       		.uleb128 0x9
- 797 0169 40020000 		.4byte	.LASF27
+ 797 0169 41020000 		.4byte	.LASF27
  798 016d 01       		.byte	0x1
  799 016e 28       		.byte	0x28
  800 016f A2000000 		.4byte	0xa2
  801 0173 00000000 		.4byte	.LLST0
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 18
-
-
  802 0177 09       		.uleb128 0x9
- 803 0178 CB000000 		.4byte	.LASF28
+ 803 0178 CC000000 		.4byte	.LASF28
  804 017c 01       		.byte	0x1
  805 017d 28       		.byte	0x28
  806 017e A2000000 		.4byte	0xa2
@@ -1061,6 +1078,9 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  839 01c6 A8000000 		.4byte	.LVL9
  840 01ca 0F060000 		.4byte	0x60f
  841 01ce D9010000 		.4byte	0x1d9
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccDYtY20.s 			page 19
+
+
  842 01d2 0B       		.uleb128 0xb
  843 01d3 01       		.uleb128 0x1
  844 01d4 50       		.byte	0x50
@@ -1078,9 +1098,6 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  856 01e9 01       		.uleb128 0x1
  857 01ea 30       		.byte	0x30
  858 01eb 00       		.byte	0
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 19
-
-
  859 01ec 08       		.uleb128 0x8
  860 01ed B2000000 		.4byte	.LVL11
  861 01f1 03010000 		.4byte	0x103
@@ -1121,6 +1138,9 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  896 0241 4C020000 		.4byte	0x24c
  897 0245 0B       		.uleb128 0xb
  898 0246 01       		.uleb128 0x1
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccDYtY20.s 			page 20
+
+
  899 0247 50       		.byte	0x50
  900 0248 02       		.uleb128 0x2
  901 0249 08       		.byte	0x8
@@ -1138,9 +1158,6 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  913 025e 20       		.byte	0x20
  914 025f 00       		.byte	0
  915 0260 08       		.uleb128 0x8
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 20
-
-
  916 0261 12010000 		.4byte	.LVL19
  917 0265 03010000 		.4byte	0x103
  918 0269 08       		.uleb128 0x8
@@ -1181,6 +1198,9 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  953 02b9 01       		.uleb128 0x1
  954 02ba 50       		.byte	0x50
  955 02bb 01       		.uleb128 0x1
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccDYtY20.s 			page 21
+
+
  956 02bc 40       		.byte	0x40
  957 02bd 00       		.byte	0
  958 02be 0A       		.uleb128 0xa
@@ -1198,9 +1218,6 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  970 02d6 03010000 		.4byte	0x103
  971 02da 08       		.uleb128 0x8
  972 02db 8A010000 		.4byte	.LVL29
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 21
-
-
  973 02df 2B010000 		.4byte	0x12b
  974 02e3 0A       		.uleb128 0xa
  975 02e4 90010000 		.4byte	.LVL30
@@ -1241,6 +1258,9 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  1010 032b 0B       		.uleb128 0xb
  1011 032c 01       		.uleb128 0x1
  1012 032d 50       		.byte	0x50
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccDYtY20.s 			page 22
+
+
  1013 032e 01       		.uleb128 0x1
  1014 032f 30       		.byte	0x30
  1015 0330 00       		.byte	0
@@ -1258,9 +1278,6 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  1027 0351 01       		.uleb128 0x1
  1028 0352 50       		.byte	0x50
  1029 0353 02       		.uleb128 0x2
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 22
-
-
  1030 0354 09       		.byte	0x9
  1031 0355 FF       		.byte	0xff
  1032 0356 00       		.byte	0
@@ -1301,6 +1318,9 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  1067 03a0 50       		.byte	0x50
  1068 03a1 02       		.uleb128 0x2
  1069 03a2 08       		.byte	0x8
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccDYtY20.s 			page 23
+
+
  1070 03a3 20       		.byte	0x20
  1071 03a4 00       		.byte	0
  1072 03a5 08       		.uleb128 0x8
@@ -1318,9 +1338,6 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  1084 03c6 50       		.byte	0x50
  1085 03c7 02       		.uleb128 0x2
  1086 03c8 08       		.byte	0x8
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 23
-
-
  1087 03c9 20       		.byte	0x20
  1088 03ca 00       		.byte	0
  1089 03cb 0A       		.uleb128 0xa
@@ -1361,6 +1378,9 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  1124 0415 00       		.byte	0
  1125 0416 08       		.uleb128 0x8
  1126 0417 78020000 		.4byte	.LVL50
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccDYtY20.s 			page 24
+
+
  1127 041b 03010000 		.4byte	0x103
  1128 041f 08       		.uleb128 0x8
  1129 0420 7E020000 		.4byte	.LVL52
@@ -1378,9 +1398,6 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  1141 043b 00       		.byte	0
  1142 043c 0A       		.uleb128 0xa
  1143 043d 8A020000 		.4byte	.LVL54
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 24
-
-
  1144 0441 25060000 		.4byte	0x625
  1145 0445 4F040000 		.4byte	0x44f
  1146 0449 0B       		.uleb128 0xb
@@ -1421,6 +1438,9 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  1181 048d 1A060000 		.4byte	0x61a
  1182 0491 9C040000 		.4byte	0x49c
  1183 0495 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccDYtY20.s 			page 25
+
+
  1184 0496 01       		.uleb128 0x1
  1185 0497 50       		.byte	0x50
  1186 0498 02       		.uleb128 0x2
@@ -1438,9 +1458,6 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  1198 04b3 0F060000 		.4byte	0x60f
  1199 04b7 C2040000 		.4byte	0x4c2
  1200 04bb 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 25
-
-
  1201 04bc 01       		.uleb128 0x1
  1202 04bd 50       		.byte	0x50
  1203 04be 02       		.uleb128 0x2
@@ -1481,6 +1498,9 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  1238 0505 0F050000 		.4byte	0x50f
  1239 0509 0B       		.uleb128 0xb
  1240 050a 01       		.uleb128 0x1
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccDYtY20.s 			page 26
+
+
  1241 050b 50       		.byte	0x50
  1242 050c 01       		.uleb128 0x1
  1243 050d 40       		.byte	0x40
@@ -1498,9 +1518,6 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  1255 052e 0B       		.uleb128 0xb
  1256 052f 01       		.uleb128 0x1
  1257 0530 50       		.byte	0x50
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 26
-
-
  1258 0531 01       		.uleb128 0x1
  1259 0532 40       		.byte	0x40
  1260 0533 00       		.byte	0
@@ -1519,14 +1536,14 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  1273 054c 03010000 		.4byte	0x103
  1274 0550 00       		.byte	0
  1275 0551 0C       		.uleb128 0xc
- 1276 0552 DB010000 		.4byte	.LASF30
+ 1276 0552 DC010000 		.4byte	.LASF30
  1277 0556 05       		.byte	0x5
  1278 0557 1207     		.2byte	0x712
  1279 0559 5D050000 		.4byte	0x55d
  1280 055d 06       		.uleb128 0x6
  1281 055e B8000000 		.4byte	0xb8
  1282 0562 0D       		.uleb128 0xd
- 1283 0563 E8010000 		.4byte	.LASF31
+ 1283 0563 E9010000 		.4byte	.LASF31
  1284 0567 06       		.byte	0x6
  1285 0568 11       		.byte	0x11
  1286 0569 73050000 		.4byte	0x573
@@ -1541,10 +1558,13 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  1295 057e 12       		.byte	0x12
  1296 057f FE000000 		.4byte	0xfe
  1297 0583 05       		.uleb128 0x5
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccDYtY20.s 			page 27
+
+
  1298 0584 03       		.byte	0x3
  1299 0585 00000000 		.4byte	sensitivity
  1300 0589 0D       		.uleb128 0xd
- 1301 058a C4020000 		.4byte	.LASF33
+ 1301 058a C5020000 		.4byte	.LASF33
  1302 058e 06       		.byte	0x6
  1303 058f 13       		.byte	0x13
  1304 0590 FE000000 		.4byte	0xfe
@@ -1552,15 +1572,12 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  1306 0595 03       		.byte	0x3
  1307 0596 00000000 		.4byte	confidence_interval
  1308 059a 0D       		.uleb128 0xd
- 1309 059b B9020000 		.4byte	.LASF34
+ 1309 059b BA020000 		.4byte	.LASF34
  1310 059f 06       		.byte	0x6
  1311 05a0 14       		.byte	0x14
  1312 05a1 C3000000 		.4byte	0xc3
  1313 05a5 05       		.uleb128 0x5
  1314 05a6 03       		.byte	0x3
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 27
-
-
  1315 05a7 00000000 		.4byte	Parameters
  1316 05ab 0D       		.uleb128 0xd
  1317 05ac 42000000 		.4byte	.LASF35
@@ -1571,7 +1588,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  1322 05b7 03       		.byte	0x3
  1323 05b8 00000000 		.4byte	step
  1324 05bc 0D       		.uleb128 0xd
- 1325 05bd C1000000 		.4byte	.LASF36
+ 1325 05bd C2000000 		.4byte	.LASF36
  1326 05c1 01       		.byte	0x1
  1327 05c2 17       		.byte	0x17
  1328 05c3 97000000 		.4byte	0x97
@@ -1579,33 +1596,36 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  1330 05c8 03       		.byte	0x3
  1331 05c9 00000000 		.4byte	direction
  1332 05cd 0E       		.uleb128 0xe
- 1333 05ce BB010000 		.4byte	.LASF37
- 1334 05d2 BB010000 		.4byte	.LASF37
+ 1333 05ce BC010000 		.4byte	.LASF37
+ 1334 05d2 BC010000 		.4byte	.LASF37
  1335 05d6 07       		.byte	0x7
  1336 05d7 92       		.byte	0x92
  1337 05d8 0E       		.uleb128 0xe
- 1338 05d9 FE020000 		.4byte	.LASF38
- 1339 05dd FE020000 		.4byte	.LASF38
+ 1338 05d9 FF020000 		.4byte	.LASF38
+ 1339 05dd FF020000 		.4byte	.LASF38
  1340 05e1 08       		.byte	0x8
  1341 05e2 92       		.byte	0x92
  1342 05e3 0E       		.uleb128 0xe
- 1343 05e4 72020000 		.4byte	.LASF39
- 1344 05e8 72020000 		.4byte	.LASF39
+ 1343 05e4 73020000 		.4byte	.LASF39
+ 1344 05e8 73020000 		.4byte	.LASF39
  1345 05ec 07       		.byte	0x7
  1346 05ed 93       		.byte	0x93
  1347 05ee 0E       		.uleb128 0xe
- 1348 05ef DE000000 		.4byte	.LASF40
- 1349 05f3 DE000000 		.4byte	.LASF40
+ 1348 05ef DF000000 		.4byte	.LASF40
+ 1349 05f3 DF000000 		.4byte	.LASF40
  1350 05f7 08       		.byte	0x8
  1351 05f8 93       		.byte	0x93
  1352 05f9 0E       		.uleb128 0xe
- 1353 05fa 2D020000 		.4byte	.LASF41
- 1354 05fe 2D020000 		.4byte	.LASF41
+ 1353 05fa 2E020000 		.4byte	.LASF41
+ 1354 05fe 2E020000 		.4byte	.LASF41
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccDYtY20.s 			page 28
+
+
  1355 0602 07       		.byte	0x7
  1356 0603 BE       		.byte	0xbe
  1357 0604 0E       		.uleb128 0xe
- 1358 0605 18020000 		.4byte	.LASF42
- 1359 0609 18020000 		.4byte	.LASF42
+ 1358 0605 19020000 		.4byte	.LASF42
+ 1359 0609 19020000 		.4byte	.LASF42
  1360 060d 07       		.byte	0x7
  1361 060e CA       		.byte	0xca
  1362 060f 0E       		.uleb128 0xe
@@ -1614,16 +1634,13 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  1365 0618 08       		.byte	0x8
  1366 0619 BE       		.byte	0xbe
  1367 061a 0E       		.uleb128 0xe
- 1368 061b D8020000 		.4byte	.LASF44
- 1369 061f D8020000 		.4byte	.LASF44
+ 1368 061b D9020000 		.4byte	.LASF44
+ 1369 061f D9020000 		.4byte	.LASF44
  1370 0623 08       		.byte	0x8
  1371 0624 C3       		.byte	0xc3
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 28
-
-
  1372 0625 0E       		.uleb128 0xe
- 1373 0626 03020000 		.4byte	.LASF45
- 1374 062a 03020000 		.4byte	.LASF45
+ 1373 0626 04020000 		.4byte	.LASF45
+ 1374 062a 04020000 		.4byte	.LASF45
  1375 062e 07       		.byte	0x7
  1376 062f C7       		.byte	0xc7
  1377 0630 00       		.byte	0
@@ -1661,6 +1678,9 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  1409 001d 00       		.byte	0
  1410 001e 03       		.uleb128 0x3
  1411 001f 16       		.uleb128 0x16
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccDYtY20.s 			page 29
+
+
  1412 0020 00       		.byte	0
  1413 0021 03       		.uleb128 0x3
  1414 0022 0E       		.uleb128 0xe
@@ -1678,9 +1698,6 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  1426 002e 0B       		.uleb128 0xb
  1427 002f 0B       		.uleb128 0xb
  1428 0030 3E       		.uleb128 0x3e
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 29
-
-
  1429 0031 0B       		.uleb128 0xb
  1430 0032 03       		.uleb128 0x3
  1431 0033 08       		.uleb128 0x8
@@ -1721,6 +1738,9 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  1466 0056 19       		.uleb128 0x19
  1467 0057 11       		.uleb128 0x11
  1468 0058 01       		.uleb128 0x1
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccDYtY20.s 			page 30
+
+
  1469 0059 12       		.uleb128 0x12
  1470 005a 06       		.uleb128 0x6
  1471 005b 40       		.uleb128 0x40
@@ -1738,9 +1758,6 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  1483 006a 01       		.uleb128 0x1
  1484 006b 31       		.uleb128 0x31
  1485 006c 13       		.uleb128 0x13
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 30
-
-
  1486 006d 00       		.byte	0
  1487 006e 00       		.byte	0
  1488 006f 09       		.uleb128 0x9
@@ -1781,6 +1798,9 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  1523 0097 0C       		.uleb128 0xc
  1524 0098 34       		.uleb128 0x34
  1525 0099 00       		.byte	0
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccDYtY20.s 			page 31
+
+
  1526 009a 03       		.uleb128 0x3
  1527 009b 0E       		.uleb128 0xe
  1528 009c 3A       		.uleb128 0x3a
@@ -1798,9 +1818,6 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  1540 00a8 0D       		.uleb128 0xd
  1541 00a9 34       		.uleb128 0x34
  1542 00aa 00       		.byte	0
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 31
-
-
  1543 00ab 03       		.uleb128 0x3
  1544 00ac 0E       		.uleb128 0xe
  1545 00ad 3A       		.uleb128 0x3a
@@ -1841,6 +1858,9 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  1580 0008 0100     		.2byte	0x1
  1581 000a 50       		.byte	0x50
  1582 000b 95000000 		.4byte	.LVL6-1
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccDYtY20.s 			page 32
+
+
  1583 000f 86010000 		.4byte	.LVL28
  1584 0013 0400     		.2byte	0x4
  1585 0015 F3       		.byte	0xf3
@@ -1858,9 +1878,6 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  1597 002f 01       		.uleb128 0x1
  1598 0030 50       		.byte	0x50
  1599 0031 9F       		.byte	0x9f
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 32
-
-
  1600 0032 7A020000 		.4byte	.LVL51
  1601 0036 7D020000 		.4byte	.LVL52-1
  1602 003a 0100     		.2byte	0x1
@@ -1901,6 +1918,9 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  1637 0089 7D020000 		.4byte	.LVL52-1
  1638 008d 0100     		.2byte	0x1
  1639 008f 51       		.byte	0x51
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccDYtY20.s 			page 33
+
+
  1640 0090 7D020000 		.4byte	.LVL52-1
  1641 0094 80030000 		.4byte	.LFE65
  1642 0098 0400     		.2byte	0x4
@@ -1918,9 +1938,6 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  1654 00b1 10000000 		.4byte	.LVL5
  1655 00b5 80030000 		.4byte	.LFE65
  1656 00b9 0400     		.2byte	0x4
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 33
-
-
  1657 00bb F3       		.byte	0xf3
  1658 00bc 01       		.uleb128 0x1
  1659 00bd 52       		.byte	0x52
@@ -1961,6 +1978,9 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  1691      FB0E0D00 
  1691      01010101 
  1692              	.LASF32:
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccDYtY20.s 			page 34
+
+
  1693 0000 73656E73 		.ascii	"sensitivity\000"
  1693      69746976 
  1693      69747900 
@@ -1978,9 +1998,6 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  1700              	.LASF43:
  1701 0026 50574D5F 		.ascii	"PWM_B_WritePeriod\000"
  1701      425F5772 
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 34
-
-
  1701      69746550 
  1701      6572696F 
  1701      6400
@@ -1997,211 +2014,214 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 1
  1707      5C537573 
  1707      616E6E61 
  1707      5C446573 
- 1708 0076 6F5F5061 		.ascii	"o_Palmieri\\Final_Project2.cydsn\\Low_power_prova_C"
+ 1708 0076 6F5F5061 		.ascii	"o_Palmieri\\Final_Project_DiGiacomoPalmieri\\Final_"
  1708      6C6D6965 
  1708      72695C46 
  1708      696E616C 
  1708      5F50726F 
- 1709 00a7 6F70795F 		.ascii	"opy_01.cydsn\000"
- 1709      30312E63 
- 1709      7964736E 
- 1709      00
+ 1709 00a7 50726F6A 		.ascii	"Project.cydsn\000"
+ 1709      6563742E 
+ 1709      63796473 
+ 1709      6E00
  1710              	.LASF20:
- 1711 00b4 646F7562 		.ascii	"double\000"
+ 1711 00b5 646F7562 		.ascii	"double\000"
  1711      6C6500
  1712              	.LASF17:
- 1713 00bb 75696E74 		.ascii	"uint8\000"
+ 1713 00bc 75696E74 		.ascii	"uint8\000"
  1713      3800
  1714              	.LASF36:
- 1715 00c1 64697265 		.ascii	"direction\000"
+ 1715 00c2 64697265 		.ascii	"direction\000"
  1715      6374696F 
  1715      6E00
  1716              	.LASF28:
- 1717 00cb 595F4F75 		.ascii	"Y_Out\000"
+ 1717 00cc 595F4F75 		.ascii	"Y_Out\000"
  1717      7400
  1718              	.LASF24:
- 1719 00d1 5247424C 		.ascii	"RGBLed_Start\000"
+ 1719 00d2 5247424C 		.ascii	"RGBLed_Start\000"
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccDYtY20.s 			page 35
+
+
  1719      65645F53 
  1719      74617274 
  1719      00
  1720              	.LASF40:
- 1721 00de 50574D5F 		.ascii	"PWM_B_Stop\000"
+ 1721 00df 50574D5F 		.ascii	"PWM_B_Stop\000"
  1721      425F5374 
  1721      6F7000
  1722              	.LASF19:
- 1723 00e9 666C6F61 		.ascii	"float\000"
+ 1723 00ea 666C6F61 		.ascii	"float\000"
  1723      7400
  1724              	.LASF0:
- 1725 00ef 7369676E 		.ascii	"signed char\000"
+ 1725 00f0 7369676E 		.ascii	"signed char\000"
  1725      65642063 
  1725      68617200 
  1726              	.LASF1:
- 1727 00fb 756E7369 		.ascii	"unsigned char\000"
+ 1727 00fc 756E7369 		.ascii	"unsigned char\000"
  1727      676E6564 
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 35
-
-
  1727      20636861 
  1727      7200
  1728              	.LASF46:
- 1729 0109 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1729 010a 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
  1729      43313120 
  1729      352E342E 
  1729      31203230 
  1729      31363036 
- 1730 013c 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1730 013d 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
  1730      20726576 
  1730      6973696F 
  1730      6E203233 
  1730      37373135 
- 1731 016f 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1731 0170 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
  1731      66756E63 
  1731      74696F6E 
  1731      2D736563 
  1731      74696F6E 
  1732              	.LASF25:
- 1733 0197 5247424C 		.ascii	"RGBLed_Stop\000"
+ 1733 0198 5247424C 		.ascii	"RGBLed_Stop\000"
  1733      65645F53 
  1733      746F7000 
  1734              	.LASF18:
- 1735 01a3 696E7431 		.ascii	"int16\000"
+ 1735 01a4 696E7431 		.ascii	"int16\000"
  1735      3600
  1736              	.LASF9:
- 1737 01a9 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1737 01aa 6C6F6E67 		.ascii	"long unsigned int\000"
  1737      20756E73 
  1737      69676E65 
  1737      6420696E 
  1737      7400
  1738              	.LASF37:
- 1739 01bb 50574D5F 		.ascii	"PWM_RG_Start\000"
+ 1739 01bc 50574D5F 		.ascii	"PWM_RG_Start\000"
  1739      52475F53 
  1739      74617274 
  1739      00
  1740              	.LASF6:
- 1741 01c8 73686F72 		.ascii	"short unsigned int\000"
+ 1741 01c9 73686F72 		.ascii	"short unsigned int\000"
  1741      7420756E 
  1741      7369676E 
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccDYtY20.s 			page 36
+
+
  1741      65642069 
  1741      6E7400
  1742              	.LASF30:
- 1743 01db 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 1743 01dc 49544D5F 		.ascii	"ITM_RxBuffer\000"
  1743      52784275 
  1743      66666572 
  1743      00
  1744              	.LASF31:
- 1745 01e8 66756C6C 		.ascii	"fullscale_range\000"
+ 1745 01e9 66756C6C 		.ascii	"fullscale_range\000"
  1745      7363616C 
  1745      655F7261 
  1745      6E676500 
  1746              	.LASF5:
- 1747 01f8 5F5F7569 		.ascii	"__uint16_t\000"
+ 1747 01f9 5F5F7569 		.ascii	"__uint16_t\000"
  1747      6E743136 
  1747      5F7400
  1748              	.LASF45:
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 36
-
-
- 1749 0203 50574D5F 		.ascii	"PWM_RG_WriteCompare1\000"
+ 1749 0204 50574D5F 		.ascii	"PWM_RG_WriteCompare1\000"
  1749      52475F57 
  1749      72697465 
  1749      436F6D70 
  1749      61726531 
  1750              	.LASF42:
- 1751 0218 50574D5F 		.ascii	"PWM_RG_WriteCompare2\000"
+ 1751 0219 50574D5F 		.ascii	"PWM_RG_WriteCompare2\000"
  1751      52475F57 
  1751      72697465 
  1751      436F6D70 
  1751      61726532 
  1752              	.LASF41:
- 1753 022d 50574D5F 		.ascii	"PWM_RG_WritePeriod\000"
+ 1753 022e 50574D5F 		.ascii	"PWM_RG_WritePeriod\000"
  1753      52475F57 
  1753      72697465 
  1753      50657269 
  1753      6F6400
  1754              	.LASF27:
- 1755 0240 585F4F75 		.ascii	"X_Out\000"
+ 1755 0241 585F4F75 		.ascii	"X_Out\000"
  1755      7400
  1756              	.LASF12:
- 1757 0246 756E7369 		.ascii	"unsigned int\000"
+ 1757 0247 756E7369 		.ascii	"unsigned int\000"
  1757      676E6564 
  1757      20696E74 
  1757      00
  1758              	.LASF11:
- 1759 0253 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1759 0254 6C6F6E67 		.ascii	"long long unsigned int\000"
  1759      206C6F6E 
  1759      6720756E 
  1759      7369676E 
  1759      65642069 
  1760              	.LASF13:
- 1761 026a 75696E74 		.ascii	"uint8_t\000"
+ 1761 026b 75696E74 		.ascii	"uint8_t\000"
  1761      385F7400 
  1762              	.LASF39:
- 1763 0272 50574D5F 		.ascii	"PWM_RG_Stop\000"
+ 1763 0273 50574D5F 		.ascii	"PWM_RG_Stop\000"
  1763      52475F53 
  1763      746F7000 
  1764              	.LASF14:
- 1765 027e 696E7431 		.ascii	"int16_t\000"
+ 1765 027f 696E7431 		.ascii	"int16_t\000"
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccDYtY20.s 			page 37
+
+
  1765      365F7400 
  1766              	.LASF47:
- 1767 0286 5247424C 		.ascii	"RGBLedDriver.c\000"
+ 1767 0287 5247424C 		.ascii	"RGBLedDriver.c\000"
  1767      65644472 
  1767      69766572 
  1767      2E6300
  1768              	.LASF16:
- 1769 0295 696E7433 		.ascii	"int32_t\000"
+ 1769 0296 696E7433 		.ascii	"int32_t\000"
  1769      325F7400 
  1770              	.LASF23:
- 1771 029d 73697A65 		.ascii	"sizetype\000"
+ 1771 029e 73697A65 		.ascii	"sizetype\000"
  1771      74797065 
  1771      00
  1772              	.LASF10:
- 1773 02a6 6C6F6E67 		.ascii	"long long int\000"
+ 1773 02a7 6C6F6E67 		.ascii	"long long int\000"
  1773      206C6F6E 
  1773      6720696E 
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc96WbNu.s 			page 37
-
-
  1773      7400
  1774              	.LASF21:
- 1775 02b4 63686172 		.ascii	"char\000"
+ 1775 02b5 63686172 		.ascii	"char\000"
  1775      00
  1776              	.LASF34:
- 1777 02b9 50617261 		.ascii	"Parameters\000"
+ 1777 02ba 50617261 		.ascii	"Parameters\000"
  1777      6D657465 
  1777      727300
  1778              	.LASF33:
- 1779 02c4 636F6E66 		.ascii	"confidence_interval\000"
+ 1779 02c5 636F6E66 		.ascii	"confidence_interval\000"
  1779      6964656E 
  1779      63655F69 
  1779      6E746572 
  1779      76616C00 
  1780              	.LASF44:
- 1781 02d8 50574D5F 		.ascii	"PWM_B_WriteCompare\000"
+ 1781 02d9 50574D5F 		.ascii	"PWM_B_WriteCompare\000"
  1781      425F5772 
  1781      69746543 
  1781      6F6D7061 
  1781      726500
  1782              	.LASF4:
- 1783 02eb 73686F72 		.ascii	"short int\000"
+ 1783 02ec 73686F72 		.ascii	"short int\000"
  1783      7420696E 
  1783      7400
  1784              	.LASF15:
- 1785 02f5 75696E74 		.ascii	"uint16_t\000"
+ 1785 02f6 75696E74 		.ascii	"uint16_t\000"
  1785      31365F74 
  1785      00
  1786              	.LASF38:
- 1787 02fe 50574D5F 		.ascii	"PWM_B_Start\000"
+ 1787 02ff 50574D5F 		.ascii	"PWM_B_Start\000"
  1787      425F5374 
  1787      61727400 
  1788              	.LASF8:
- 1789 030a 6C6F6E67 		.ascii	"long int\000"
+ 1789 030b 6C6F6E67 		.ascii	"long int\000"
  1789      20696E74 
  1789      00
  1790              	.LASF22:
- 1791 0313 6C6F6E67 		.ascii	"long double\000"
+ 1791 0314 6C6F6E67 		.ascii	"long double\000"
  1791      20646F75 
  1791      626C6500 
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\ccDYtY20.s 			page 38
+
+
  1792              	.LASF26:
- 1793 031f 7365745F 		.ascii	"set_PWM\000"
+ 1793 0320 7365745F 		.ascii	"set_PWM\000"
  1793      50574D00 
  1794              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

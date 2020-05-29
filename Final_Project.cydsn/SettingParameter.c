@@ -16,6 +16,7 @@
 
 //Brief slave device address
 #define LIS3DH_DEVICE_ADDRESS 0x18
+
 //Brief CONTROL REGISTER 4 address
 #define LIS3DH_CTRL_REG4 0x23
 
@@ -47,17 +48,17 @@ CTRL_REG4[5:4]=FS[1:0]=11 (16.0 g FSR) */
 #define LIS3DH_THRESHOLD_EVENTS_2g  0x5E   // about 1500g
 #define LIS3DH_THRESHOLD_EVENTS_4g  0x2F   // about 1500g
 #define LIS3DH_THRESHOLD_EVENTS_8g  0x18   // about 1500g
-#define LIS3DH_THRESHOLD_EVENTS_16g 0x08  // about 1500g
+#define LIS3DH_THRESHOLD_EVENTS_16g 0x08   // about 1500g
 
 int32 value_digit_pot;
 int16 value_pot;
 ErrorCode error;
 uint8_t ctrl_reg4;
 uint8_t int2_ths_reg;
-char message[50];
 
 void setParameter(void)
 {
+    /* Acquisition and conversion to mV of the potentiometer signal */
     value_digit_pot=ADC_DelSig_Read32();
     
     if(value_digit_pot<0) value_digit_pot=0;
@@ -65,6 +66,9 @@ void setParameter(void)
             
     value_pot=ADC_DelSig_CountsTo_mVolts(value_digit_pot);
     
+    /* Set the variables Parameters, fullscale_range, sensitivity, confidence_interval, 
+    write in the CTRL_REG4 the FSR and in the INT2_THS regiter the value of the threhsold 
+    according to the value of the potentiometer signal */
     if((value_pot>=0) && (value_pot<1250))
     {
         Parameters=0x00;

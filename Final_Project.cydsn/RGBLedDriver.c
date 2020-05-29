@@ -39,8 +39,10 @@ void RGBLed_Stop(void)
 
 void set_PWM(int16_t X_Out,int16_t Y_Out,int16_t Z_Out)
 {
+    /* Calculate the interval width in order to divide the fullscale range (after the g value) into 4 intervals */
     step=(fullscale_range-(G+confidence_interval))/LEVELS;
     
+    /* Verify which axis measures g acceleration (whithin a confidence interval) to set the direction of the device */
     if((X_Out>=G-confidence_interval) && (X_Out<=G+confidence_interval))
     {
         direction=X;   
@@ -59,6 +61,7 @@ void set_PWM(int16_t X_Out,int16_t Y_Out,int16_t Z_Out)
     switch(direction)
     {
         case X:
+        /* Turn off green and blue channels */
         RGBLed_Stop();
         PWM_RG_WritePeriod(255);
         PWM_RG_WriteCompare2(0);
@@ -67,6 +70,7 @@ void set_PWM(int16_t X_Out,int16_t Y_Out,int16_t Z_Out)
         RGBLed_Start();
         if ((X_Out>=G-confidence_interval) && (X_Out<=G+confidence_interval))
         {
+          /* Steady red light if the device is still */
           RGBLed_Stop();
           PWM_RG_WritePeriod(255);
           PWM_RG_WriteCompare1(255);
@@ -75,6 +79,7 @@ void set_PWM(int16_t X_Out,int16_t Y_Out,int16_t Z_Out)
         
         else if((X_Out>G+confidence_interval) && (X_Out<=G+confidence_interval+step))
         {
+          /* Blinking of red light with a period of 0.5 sec */  
           RGBLed_Stop();
           PWM_RG_WritePeriod(65);
           PWM_RG_WriteCompare1(32);  
@@ -82,6 +87,7 @@ void set_PWM(int16_t X_Out,int16_t Y_Out,int16_t Z_Out)
         }   
         else if ((X_Out>G+confidence_interval+step) && (X_Out<=G+confidence_interval+2*step))
         {
+          /* Blinking of red light with a period of 0.25 sec */   
           RGBLed_Stop();
           PWM_RG_WritePeriod(32);
           PWM_RG_WriteCompare1(16);  
@@ -89,6 +95,7 @@ void set_PWM(int16_t X_Out,int16_t Y_Out,int16_t Z_Out)
         }  
         else if ((X_Out>G+confidence_interval+2*step) && (X_Out<=G+confidence_interval+4*step))
         {
+          /* Blinking of red light with a period of 0.125 sec */   
           RGBLed_Stop();
           PWM_RG_WritePeriod(16);
           PWM_RG_WriteCompare1(8);
@@ -97,6 +104,7 @@ void set_PWM(int16_t X_Out,int16_t Y_Out,int16_t Z_Out)
         break;
         
         case Y:
+        /* Turn off red and blue channels */
         RGBLed_Stop();
         PWM_RG_WritePeriod(255);
         PWM_RG_WriteCompare1(0);
@@ -105,6 +113,7 @@ void set_PWM(int16_t X_Out,int16_t Y_Out,int16_t Z_Out)
         RGBLed_Start();
         if ((Y_Out>=G-confidence_interval) && (Y_Out<=G+confidence_interval))
         {
+          /* Steady green light if the device is still */  
           RGBLed_Stop();
           PWM_RG_WritePeriod(255);
           PWM_RG_WriteCompare2(255);
@@ -112,6 +121,7 @@ void set_PWM(int16_t X_Out,int16_t Y_Out,int16_t Z_Out)
         }
         else if((Y_Out>G+confidence_interval) && (Y_Out<=G+confidence_interval+step))
         {
+          /* Blinking of green light with a period of 0.5 sec */  
           RGBLed_Stop();
           PWM_RG_WritePeriod(65);
           PWM_RG_WriteCompare2(32);  
@@ -119,6 +129,7 @@ void set_PWM(int16_t X_Out,int16_t Y_Out,int16_t Z_Out)
         }   
         else if ((Y_Out>G+confidence_interval+step) && (Y_Out<=G+confidence_interval+2*step))
         {
+          /* Blinking of green light with a period of 0.25 sec */  
           RGBLed_Stop();
           PWM_RG_WritePeriod(32);
           PWM_RG_WriteCompare2(16);  
@@ -126,6 +137,7 @@ void set_PWM(int16_t X_Out,int16_t Y_Out,int16_t Z_Out)
         }  
         else if ((Y_Out>G+confidence_interval+2*step) && (Y_Out<=G+confidence_interval+4*step))
         {
+          /* Blinking of green light with a period of 0.125 sec */  
           RGBLed_Stop();
           PWM_RG_WritePeriod(16);
           PWM_RG_WriteCompare2(8); 
@@ -134,6 +146,7 @@ void set_PWM(int16_t X_Out,int16_t Y_Out,int16_t Z_Out)
         break;
         
         case Z:
+        /* Turn off red and green channels */
         RGBLed_Stop();
         PWM_RG_WritePeriod(255);
         PWM_RG_WriteCompare1(0);
@@ -141,6 +154,7 @@ void set_PWM(int16_t X_Out,int16_t Y_Out,int16_t Z_Out)
         RGBLed_Start();
         if ((Z_Out>=G-confidence_interval) && (Z_Out<=G+confidence_interval))
         {
+          /* Steady blue light if the device is still */  
           RGBLed_Stop();
           PWM_B_WritePeriod(255);
           PWM_B_WriteCompare(255);
@@ -148,6 +162,7 @@ void set_PWM(int16_t X_Out,int16_t Y_Out,int16_t Z_Out)
         }
         else if((Z_Out>G+confidence_interval) && (Z_Out<=G+confidence_interval+step))
         {
+          /* Blinking of blue light with a period of 0.5 sec */
           RGBLed_Stop();
           PWM_B_WritePeriod(65);
           PWM_B_WriteCompare(32); 
@@ -155,6 +170,7 @@ void set_PWM(int16_t X_Out,int16_t Y_Out,int16_t Z_Out)
         }   
         else if ((Z_Out>G+confidence_interval+step) && (Z_Out<=G+confidence_interval+2*step))
         {
+          /* Blinking of blue light with a period of 0.25 sec */  
           RGBLed_Stop();
           PWM_B_WritePeriod(32);
           PWM_B_WriteCompare(16);
@@ -162,6 +178,7 @@ void set_PWM(int16_t X_Out,int16_t Y_Out,int16_t Z_Out)
         }  
         else if ((Z_Out>G+confidence_interval+2*step) && (Z_Out<=G+confidence_interval+4*step))
         {
+          /* Blinking of blue light with a period of 0.125 sec */  
           RGBLed_Stop();
           PWM_B_WritePeriod(16);
           PWM_B_WriteCompare(8);  
