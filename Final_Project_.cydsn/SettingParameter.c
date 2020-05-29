@@ -1,11 +1,8 @@
 /* ========================================
- *
- * Copyright YOUR COMPANY, THE YEAR
- * All Rights Reserved
- * UNPUBLISHED, LICENSED SOFTWARE.
- *
- * CONFIDENTIAL AND PROPRIETARY INFORMATION
- * WHICH IS THE PROPERTY OF your company.
+ *  This file includes all the required source
+ *  code to determine the parameters to be
+ *  set when in CONFIGURATION MODE according 
+ *  to the range of values of the potentiometer.
  *
  * ========================================
 */
