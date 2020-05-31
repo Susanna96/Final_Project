@@ -1,0 +1,3406 @@
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"cymetadata.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	cy_metadata
+  20              		.global	cy_meta_flashprotect
+  21              		.global	cy_meta_wonvl
+  22              		.global	cy_meta_custnvl
+  23              		.global	cy_meta_configecc
+  24              		.section	.cyconfigecc,"a",%progbits
+  25              		.align	2
+  26              		.type	cy_meta_configecc, %object
+  27              		.size	cy_meta_configecc, 2752
+  28              	cy_meta_configecc:
+  29 0000 04       		.byte	4
+  30 0001 52       		.byte	82
+  31 0002 00       		.byte	0
+  32 0003 40       		.byte	64
+  33 0004 05       		.byte	5
+  34 0005 64       		.byte	100
+  35 0006 00       		.byte	0
+  36 0007 40       		.byte	64
+  37 0008 04       		.byte	4
+  38 0009 65       		.byte	101
+  39 000a 00       		.byte	0
+  40 000b 40       		.byte	64
+  41 000c 11       		.byte	17
+  42 000d 02       		.byte	2
+  43 000e 01       		.byte	1
+  44 000f 40       		.byte	64
+  45 0010 32       		.byte	50
+  46 0011 03       		.byte	3
+  47 0012 01       		.byte	1
+  48 0013 40       		.byte	64
+  49 0014 5D       		.byte	93
+  50 0015 04       		.byte	4
+  51 0016 01       		.byte	1
+  52 0017 40       		.byte	64
+  53 0018 43       		.byte	67
+  54 0019 05       		.byte	5
+  55 001a 01       		.byte	1
+  56 001b 40       		.byte	64
+  57 001c 62       		.byte	98
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 2
+
+
+  58 001d 06       		.byte	6
+  59 001e 01       		.byte	1
+  60 001f 40       		.byte	64
+  61 0020 4E       		.byte	78
+  62 0021 07       		.byte	7
+  63 0022 01       		.byte	1
+  64 0023 40       		.byte	64
+  65 0024 52       		.byte	82
+  66 0025 08       		.byte	8
+  67 0026 01       		.byte	1
+  68 0027 40       		.byte	64
+  69 0028 37       		.byte	55
+  70 0029 09       		.byte	9
+  71 002a 01       		.byte	1
+  72 002b 40       		.byte	64
+  73 002c 02       		.byte	2
+  74 002d 0B       		.byte	11
+  75 002e 01       		.byte	1
+  76 002f 40       		.byte	64
+  77 0030 04       		.byte	4
+  78 0031 0C       		.byte	12
+  79 0032 01       		.byte	1
+  80 0033 40       		.byte	64
+  81 0034 03       		.byte	3
+  82 0035 0D       		.byte	13
+  83 0036 01       		.byte	1
+  84 0037 40       		.byte	64
+  85 0038 16       		.byte	22
+  86 0039 14       		.byte	20
+  87 003a 01       		.byte	1
+  88 003b 40       		.byte	64
+  89 003c 5D       		.byte	93
+  90 003d 15       		.byte	21
+  91 003e 01       		.byte	1
+  92 003f 40       		.byte	64
+  93 0040 4A       		.byte	74
+  94 0041 16       		.byte	22
+  95 0042 01       		.byte	1
+  96 0043 40       		.byte	64
+  97 0044 4E       		.byte	78
+  98 0045 17       		.byte	23
+  99 0046 01       		.byte	1
+ 100 0047 40       		.byte	64
+ 101 0048 21       		.byte	33
+ 102 0049 19       		.byte	25
+ 103 004a 01       		.byte	1
+ 104 004b 40       		.byte	64
+ 105 004c 50       		.byte	80
+ 106 004d 1A       		.byte	26
+ 107 004e 01       		.byte	1
+ 108 004f 40       		.byte	64
+ 109 0050 51       		.byte	81
+ 110 0051 1B       		.byte	27
+ 111 0052 01       		.byte	1
+ 112 0053 40       		.byte	64
+ 113 0054 05       		.byte	5
+ 114 0055 40       		.byte	64
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 3
+
+
+ 115 0056 01       		.byte	1
+ 116 0057 40       		.byte	64
+ 117 0058 09       		.byte	9
+ 118 0059 41       		.byte	65
+ 119 005a 01       		.byte	1
+ 120 005b 40       		.byte	64
+ 121 005c 0B       		.byte	11
+ 122 005d 42       		.byte	66
+ 123 005e 01       		.byte	1
+ 124 005f 40       		.byte	64
+ 125 0060 06       		.byte	6
+ 126 0061 43       		.byte	67
+ 127 0062 01       		.byte	1
+ 128 0063 40       		.byte	64
+ 129 0064 02       		.byte	2
+ 130 0065 44       		.byte	68
+ 131 0066 01       		.byte	1
+ 132 0067 40       		.byte	64
+ 133 0068 07       		.byte	7
+ 134 0069 45       		.byte	69
+ 135 006a 01       		.byte	1
+ 136 006b 40       		.byte	64
+ 137 006c 06       		.byte	6
+ 138 006d 46       		.byte	70
+ 139 006e 01       		.byte	1
+ 140 006f 40       		.byte	64
+ 141 0070 03       		.byte	3
+ 142 0071 47       		.byte	71
+ 143 0072 01       		.byte	1
+ 144 0073 40       		.byte	64
+ 145 0074 0E       		.byte	14
+ 146 0075 48       		.byte	72
+ 147 0076 01       		.byte	1
+ 148 0077 40       		.byte	64
+ 149 0078 1A       		.byte	26
+ 150 0079 49       		.byte	73
+ 151 007a 01       		.byte	1
+ 152 007b 40       		.byte	64
+ 153 007c 0E       		.byte	14
+ 154 007d 4C       		.byte	76
+ 155 007e 01       		.byte	1
+ 156 007f 40       		.byte	64
+ 157 0080 0A       		.byte	10
+ 158 0081 4D       		.byte	77
+ 159 0082 01       		.byte	1
+ 160 0083 40       		.byte	64
+ 161 0084 07       		.byte	7
+ 162 0085 50       		.byte	80
+ 163 0086 01       		.byte	1
+ 164 0087 40       		.byte	64
+ 165 0088 02       		.byte	2
+ 166 0089 51       		.byte	81
+ 167 008a 01       		.byte	1
+ 168 008b 40       		.byte	64
+ 169 008c 00       		.byte	0
+ 170 008d 40       		.byte	64
+ 171 008e 11       		.byte	17
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 4
+
+
+ 172 008f 02       		.byte	2
+ 173 0090 18       		.byte	24
+ 174 0091 A0       		.byte	-96
+ 175 0092 19       		.byte	25
+ 176 0093 20       		.byte	32
+ 177 0094 84       		.byte	-124
+ 178 0095 0D       		.byte	13
+ 179 0096 86       		.byte	-122
+ 180 0097 0F       		.byte	15
+ 181 0098 87       		.byte	-121
+ 182 0099 0D       		.byte	13
+ 183 009a 88       		.byte	-120
+ 184 009b 0D       		.byte	13
+ 185 009c 89       		.byte	-119
+ 186 009d 38       		.byte	56
+ 187 009e 85       		.byte	-123
+ 188 009f 0F       		.byte	15
+ 189 00a0 87       		.byte	-121
+ 190 00a1 0F       		.byte	15
+ 191 00a2 8A       		.byte	-118
+ 192 00a3 0D       		.byte	13
+ 193 00a4 8B       		.byte	-117
+ 194 00a5 72       		.byte	114
+ 195 00a6 04       		.byte	4
+ 196 00a7 04       		.byte	4
+ 197 00a8 0E       		.byte	14
+ 198 00a9 08       		.byte	8
+ 199 00aa 14       		.byte	20
+ 200 00ab 04       		.byte	4
+ 201 00ac 18       		.byte	24
+ 202 00ad 08       		.byte	8
+ 203 00ae 1C       		.byte	28
+ 204 00af 01       		.byte	1
+ 205 00b0 20       		.byte	32
+ 206 00b1 04       		.byte	4
+ 207 00b2 24       		.byte	36
+ 208 00b3 03       		.byte	3
+ 209 00b4 28       		.byte	40
+ 210 00b5 08       		.byte	8
+ 211 00b6 2C       		.byte	44
+ 212 00b7 03       		.byte	3
+ 213 00b8 30       		.byte	48
+ 214 00b9 04       		.byte	4
+ 215 00ba 32       		.byte	50
+ 216 00bb 01       		.byte	1
+ 217 00bc 34       		.byte	52
+ 218 00bd 08       		.byte	8
+ 219 00be 36       		.byte	54
+ 220 00bf 02       		.byte	2
+ 221 00c0 3E       		.byte	62
+ 222 00c1 01       		.byte	1
+ 223 00c2 58       		.byte	88
+ 224 00c3 04       		.byte	4
+ 225 00c4 5C       		.byte	92
+ 226 00c5 04       		.byte	4
+ 227 00c6 5F       		.byte	95
+ 228 00c7 01       		.byte	1
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 5
+
+
+ 229 00c8 00       		.byte	0
+ 230 00c9 5C       		.byte	92
+ 231 00ca 01       		.byte	1
+ 232 00cb 08       		.byte	8
+ 233 00cc 02       		.byte	2
+ 234 00cd 02       		.byte	2
+ 235 00ce 04       		.byte	4
+ 236 00cf 04       		.byte	4
+ 237 00d0 07       		.byte	7
+ 238 00d1 02       		.byte	2
+ 239 00d2 08       		.byte	8
+ 240 00d3 02       		.byte	2
+ 241 00d4 09       		.byte	9
+ 242 00d5 80       		.byte	-128
+ 243 00d6 0A       		.byte	10
+ 244 00d7 98       		.byte	-104
+ 245 00d8 0C       		.byte	12
+ 246 00d9 20       		.byte	32
+ 247 00da 0E       		.byte	14
+ 248 00db 11       		.byte	17
+ 249 00dc 11       		.byte	17
+ 250 00dd 14       		.byte	20
+ 251 00de 13       		.byte	19
+ 252 00df 81       		.byte	-127
+ 253 00e0 16       		.byte	22
+ 254 00e1 A9       		.byte	-87
+ 255 00e2 18       		.byte	24
+ 256 00e3 10       		.byte	16
+ 257 00e4 19       		.byte	25
+ 258 00e5 A0       		.byte	-96
+ 259 00e6 1A       		.byte	26
+ 260 00e7 04       		.byte	4
+ 261 00e8 1D       		.byte	29
+ 262 00e9 10       		.byte	16
+ 263 00ea 1E       		.byte	30
+ 264 00eb 21       		.byte	33
+ 265 00ec 1F       		.byte	31
+ 266 00ed 01       		.byte	1
+ 267 00ee 21       		.byte	33
+ 268 00ef 20       		.byte	32
+ 269 00f0 22       		.byte	34
+ 270 00f1 04       		.byte	4
+ 271 00f2 28       		.byte	40
+ 272 00f3 02       		.byte	2
+ 273 00f4 29       		.byte	41
+ 274 00f5 08       		.byte	8
+ 275 00f6 2B       		.byte	43
+ 276 00f7 08       		.byte	8
+ 277 00f8 31       		.byte	49
+ 278 00f9 A0       		.byte	-96
+ 279 00fa 32       		.byte	50
+ 280 00fb 04       		.byte	4
+ 281 00fc 38       		.byte	56
+ 282 00fd 40       		.byte	64
+ 283 00fe 39       		.byte	57
+ 284 00ff 14       		.byte	20
+ 285 0100 3A       		.byte	58
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 6
+
+
+ 286 0101 82       		.byte	-126
+ 287 0102 41       		.byte	65
+ 288 0103 01       		.byte	1
+ 289 0104 42       		.byte	66
+ 290 0105 14       		.byte	20
+ 291 0106 43       		.byte	67
+ 292 0107 08       		.byte	8
+ 293 0108 46       		.byte	70
+ 294 0109 02       		.byte	2
+ 295 010a 47       		.byte	71
+ 296 010b 80       		.byte	-128
+ 297 010c 48       		.byte	72
+ 298 010d 04       		.byte	4
+ 299 010e 4A       		.byte	74
+ 300 010f 02       		.byte	2
+ 301 0110 4B       		.byte	75
+ 302 0111 05       		.byte	5
+ 303 0112 50       		.byte	80
+ 304 0113 08       		.byte	8
+ 305 0114 52       		.byte	82
+ 306 0115 50       		.byte	80
+ 307 0116 85       		.byte	-123
+ 308 0117 01       		.byte	1
+ 309 0118 C0       		.byte	-64
+ 310 0119 A7       		.byte	-89
+ 311 011a C2       		.byte	-62
+ 312 011b EF       		.byte	-17
+ 313 011c C4       		.byte	-60
+ 314 011d FF       		.byte	-1
+ 315 011e CA       		.byte	-54
+ 316 011f 0E       		.byte	14
+ 317 0120 CC       		.byte	-52
+ 318 0121 0E       		.byte	14
+ 319 0122 CE       		.byte	-50
+ 320 0123 0F       		.byte	15
+ 321 0124 D0       		.byte	-48
+ 322 0125 07       		.byte	7
+ 323 0126 D2       		.byte	-46
+ 324 0127 0C       		.byte	12
+ 325 0128 E2       		.byte	-30
+ 326 0129 08       		.byte	8
+ 327 012a E6       		.byte	-26
+ 328 012b 02       		.byte	2
+ 329 012c 00       		.byte	0
+ 330 012d 01       		.byte	1
+ 331 012e 04       		.byte	4
+ 332 012f 0C       		.byte	12
+ 333 0130 05       		.byte	5
+ 334 0131 05       		.byte	5
+ 335 0132 06       		.byte	6
+ 336 0133 02       		.byte	2
+ 337 0134 07       		.byte	7
+ 338 0135 0A       		.byte	10
+ 339 0136 0A       		.byte	10
+ 340 0137 10       		.byte	16
+ 341 0138 0C       		.byte	12
+ 342 0139 08       		.byte	8
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 7
+
+
+ 343 013a 0D       		.byte	13
+ 344 013b 09       		.byte	9
+ 345 013c 0F       		.byte	15
+ 346 013d 06       		.byte	6
+ 347 013e 11       		.byte	17
+ 348 013f 02       		.byte	2
+ 349 0140 12       		.byte	18
+ 350 0141 01       		.byte	1
+ 351 0142 13       		.byte	19
+ 352 0143 0D       		.byte	13
+ 353 0144 14       		.byte	20
+ 354 0145 02       		.byte	2
+ 355 0146 16       		.byte	22
+ 356 0147 04       		.byte	4
+ 357 0148 1A       		.byte	26
+ 358 0149 10       		.byte	16
+ 359 014a 1C       		.byte	28
+ 360 014b 01       		.byte	1
+ 361 014c 20       		.byte	32
+ 362 014d 08       		.byte	8
+ 363 014e 24       		.byte	36
+ 364 014f 01       		.byte	1
+ 365 0150 29       		.byte	41
+ 366 0151 03       		.byte	3
+ 367 0152 2A       		.byte	42
+ 368 0153 01       		.byte	1
+ 369 0154 2B       		.byte	43
+ 370 0155 0C       		.byte	12
+ 371 0156 2C       		.byte	44
+ 372 0157 01       		.byte	1
+ 373 0158 30       		.byte	48
+ 374 0159 0E       		.byte	14
+ 375 015a 31       		.byte	49
+ 376 015b 0F       		.byte	15
+ 377 015c 32       		.byte	50
+ 378 015d 01       		.byte	1
+ 379 015e 36       		.byte	54
+ 380 015f 10       		.byte	16
+ 381 0160 3A       		.byte	58
+ 382 0161 02       		.byte	2
+ 383 0162 3B       		.byte	59
+ 384 0163 02       		.byte	2
+ 385 0164 3E       		.byte	62
+ 386 0165 44       		.byte	68
+ 387 0166 40       		.byte	64
+ 388 0167 36       		.byte	54
+ 389 0168 45       		.byte	69
+ 390 0169 EC       		.byte	-20
+ 391 016a 47       		.byte	71
+ 392 016b 02       		.byte	2
+ 393 016c 48       		.byte	72
+ 394 016d 13       		.byte	19
+ 395 016e 49       		.byte	73
+ 396 016f FF       		.byte	-1
+ 397 0170 4A       		.byte	74
+ 398 0171 FF       		.byte	-1
+ 399 0172 4B       		.byte	75
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 8
+
+
+ 400 0173 FF       		.byte	-1
+ 401 0174 4F       		.byte	79
+ 402 0175 01       		.byte	1
+ 403 0176 50       		.byte	80
+ 404 0177 18       		.byte	24
+ 405 0178 54       		.byte	84
+ 406 0179 01       		.byte	1
+ 407 017a 58       		.byte	88
+ 408 017b 04       		.byte	4
+ 409 017c 59       		.byte	89
+ 410 017d 04       		.byte	4
+ 411 017e 5A       		.byte	90
+ 412 017f 04       		.byte	4
+ 413 0180 5B       		.byte	91
+ 414 0181 04       		.byte	4
+ 415 0182 5C       		.byte	92
+ 416 0183 11       		.byte	17
+ 417 0184 5D       		.byte	93
+ 418 0185 66       		.byte	102
+ 419 0186 5F       		.byte	95
+ 420 0187 01       		.byte	1
+ 421 0188 60       		.byte	96
+ 422 0189 40       		.byte	64
+ 423 018a 62       		.byte	98
+ 424 018b 40       		.byte	64
+ 425 018c 64       		.byte	100
+ 426 018d 40       		.byte	64
+ 427 018e 65       		.byte	101
+ 428 018f 40       		.byte	64
+ 429 0190 66       		.byte	102
+ 430 0191 80       		.byte	-128
+ 431 0192 68       		.byte	104
+ 432 0193 80       		.byte	-128
+ 433 0194 6A       		.byte	106
+ 434 0195 80       		.byte	-128
+ 435 0196 6C       		.byte	108
+ 436 0197 80       		.byte	-128
+ 437 0198 6E       		.byte	110
+ 438 0199 80       		.byte	-128
+ 439 019a 81       		.byte	-127
+ 440 019b 01       		.byte	1
+ 441 019c 85       		.byte	-123
+ 442 019d 02       		.byte	2
+ 443 019e 89       		.byte	-119
+ 444 019f 01       		.byte	1
+ 445 01a0 93       		.byte	-109
+ 446 01a1 01       		.byte	1
+ 447 01a2 9F       		.byte	-97
+ 448 01a3 04       		.byte	4
+ 449 01a4 A5       		.byte	-91
+ 450 01a5 02       		.byte	2
+ 451 01a6 B3       		.byte	-77
+ 452 01a7 01       		.byte	1
+ 453 01a8 B5       		.byte	-75
+ 454 01a9 02       		.byte	2
+ 455 01aa B7       		.byte	-73
+ 456 01ab 04       		.byte	4
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 9
+
+
+ 457 01ac C0       		.byte	-64
+ 458 01ad 40       		.byte	64
+ 459 01ae C1       		.byte	-63
+ 460 01af 01       		.byte	1
+ 461 01b0 C5       		.byte	-59
+ 462 01b1 D0       		.byte	-48
+ 463 01b2 C6       		.byte	-58
+ 464 01b3 52       		.byte	82
+ 465 01b4 C7       		.byte	-57
+ 466 01b5 41       		.byte	65
+ 467 01b6 C8       		.byte	-56
+ 468 01b7 3F       		.byte	63
+ 469 01b8 C9       		.byte	-55
+ 470 01b9 FF       		.byte	-1
+ 471 01ba CA       		.byte	-54
+ 472 01bb FF       		.byte	-1
+ 473 01bc CB       		.byte	-53
+ 474 01bd FF       		.byte	-1
+ 475 01be CD       		.byte	-51
+ 476 01bf A0       		.byte	-96
+ 477 01c0 CF       		.byte	-49
+ 478 01c1 04       		.byte	4
+ 479 01c2 D0       		.byte	-48
+ 480 01c3 18       		.byte	24
+ 481 01c4 D4       		.byte	-44
+ 482 01c5 40       		.byte	64
+ 483 01c6 D6       		.byte	-42
+ 484 01c7 04       		.byte	4
+ 485 01c8 D9       		.byte	-39
+ 486 01c9 04       		.byte	4
+ 487 01ca DA       		.byte	-38
+ 488 01cb 04       		.byte	4
+ 489 01cc DB       		.byte	-37
+ 490 01cd 04       		.byte	4
+ 491 01ce DC       		.byte	-36
+ 492 01cf 40       		.byte	64
+ 493 01d0 DD       		.byte	-35
+ 494 01d1 14       		.byte	20
+ 495 01d2 DF       		.byte	-33
+ 496 01d3 01       		.byte	1
+ 497 01d4 E0       		.byte	-32
+ 498 01d5 40       		.byte	64
+ 499 01d6 E2       		.byte	-30
+ 500 01d7 C0       		.byte	-64
+ 501 01d8 E4       		.byte	-28
+ 502 01d9 40       		.byte	64
+ 503 01da E5       		.byte	-27
+ 504 01db 40       		.byte	64
+ 505 01dc E6       		.byte	-26
+ 506 01dd C0       		.byte	-64
+ 507 01de E8       		.byte	-24
+ 508 01df C0       		.byte	-64
+ 509 01e0 EA       		.byte	-22
+ 510 01e1 C0       		.byte	-64
+ 511 01e2 EC       		.byte	-20
+ 512 01e3 C0       		.byte	-64
+ 513 01e4 EE       		.byte	-18
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 10
+
+
+ 514 01e5 C0       		.byte	-64
+ 515 01e6 00       		.byte	0
+ 516 01e7 44       		.byte	68
+ 517 01e8 02       		.byte	2
+ 518 01e9 80       		.byte	-128
+ 519 01ea 03       		.byte	3
+ 520 01eb 08       		.byte	8
+ 521 01ec 08       		.byte	8
+ 522 01ed 20       		.byte	32
+ 523 01ee 09       		.byte	9
+ 524 01ef 80       		.byte	-128
+ 525 01f0 0A       		.byte	10
+ 526 01f1 90       		.byte	-112
+ 527 01f2 10       		.byte	16
+ 528 01f3 08       		.byte	8
+ 529 01f4 11       		.byte	17
+ 530 01f5 04       		.byte	4
+ 531 01f6 12       		.byte	18
+ 532 01f7 40       		.byte	64
+ 533 01f8 13       		.byte	19
+ 534 01f9 80       		.byte	-128
+ 535 01fa 18       		.byte	24
+ 536 01fb 40       		.byte	64
+ 537 01fc 19       		.byte	25
+ 538 01fd 48       		.byte	72
+ 539 01fe 21       		.byte	33
+ 540 01ff 02       		.byte	2
+ 541 0200 24       		.byte	36
+ 542 0201 08       		.byte	8
+ 543 0202 27       		.byte	39
+ 544 0203 22       		.byte	34
+ 545 0204 28       		.byte	40
+ 546 0205 04       		.byte	4
+ 547 0206 2C       		.byte	44
+ 548 0207 24       		.byte	36
+ 549 0208 2E       		.byte	46
+ 550 0209 10       		.byte	16
+ 551 020a 31       		.byte	49
+ 552 020b 02       		.byte	2
+ 553 020c 37       		.byte	55
+ 554 020d 42       		.byte	66
+ 555 020e 38       		.byte	56
+ 556 020f 44       		.byte	68
+ 557 0210 3E       		.byte	62
+ 558 0211 2A       		.byte	42
+ 559 0212 40       		.byte	64
+ 560 0213 20       		.byte	32
+ 561 0214 45       		.byte	69
+ 562 0215 40       		.byte	64
+ 563 0216 47       		.byte	71
+ 564 0217 02       		.byte	2
+ 565 0218 49       		.byte	73
+ 566 0219 05       		.byte	5
+ 567 021a 4A       		.byte	74
+ 568 021b 08       		.byte	8
+ 569 021c 4C       		.byte	76
+ 570 021d 20       		.byte	32
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 11
+
+
+ 571 021e 4D       		.byte	77
+ 572 021f 01       		.byte	1
+ 573 0220 52       		.byte	82
+ 574 0221 08       		.byte	8
+ 575 0222 53       		.byte	83
+ 576 0223 08       		.byte	8
+ 577 0224 54       		.byte	84
+ 578 0225 80       		.byte	-128
+ 579 0226 55       		.byte	85
+ 580 0227 40       		.byte	64
+ 581 0228 56       		.byte	86
+ 582 0229 2B       		.byte	43
+ 583 022a 59       		.byte	89
+ 584 022b 45       		.byte	69
+ 585 022c 65       		.byte	101
+ 586 022d 08       		.byte	8
+ 587 022e 66       		.byte	102
+ 588 022f 10       		.byte	16
+ 589 0230 67       		.byte	103
+ 590 0231 41       		.byte	65
+ 591 0232 85       		.byte	-123
+ 592 0233 10       		.byte	16
+ 593 0234 86       		.byte	-122
+ 594 0235 80       		.byte	-128
+ 595 0236 87       		.byte	-121
+ 596 0237 40       		.byte	64
+ 597 0238 8F       		.byte	-113
+ 598 0239 20       		.byte	32
+ 599 023a 92       		.byte	-110
+ 600 023b 08       		.byte	8
+ 601 023c 93       		.byte	-109
+ 602 023d 06       		.byte	6
+ 603 023e 94       		.byte	-108
+ 604 023f 44       		.byte	68
+ 605 0240 95       		.byte	-107
+ 606 0241 14       		.byte	20
+ 607 0242 96       		.byte	-106
+ 608 0243 90       		.byte	-112
+ 609 0244 99       		.byte	-103
+ 610 0245 B0       		.byte	-80
+ 611 0246 9A       		.byte	-102
+ 612 0247 50       		.byte	80
+ 613 0248 9E       		.byte	-98
+ 614 0249 29       		.byte	41
+ 615 024a 9F       		.byte	-97
+ 616 024b 82       		.byte	-126
+ 617 024c A0       		.byte	-96
+ 618 024d 08       		.byte	8
+ 619 024e A2       		.byte	-94
+ 620 024f 10       		.byte	16
+ 621 0250 A4       		.byte	-92
+ 622 0251 20       		.byte	32
+ 623 0252 A5       		.byte	-91
+ 624 0253 80       		.byte	-128
+ 625 0254 A8       		.byte	-88
+ 626 0255 10       		.byte	16
+ 627 0256 C0       		.byte	-64
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 12
+
+
+ 628 0257 0F       		.byte	15
+ 629 0258 C2       		.byte	-62
+ 630 0259 0F       		.byte	15
+ 631 025a C4       		.byte	-60
+ 632 025b 0F       		.byte	15
+ 633 025c CA       		.byte	-54
+ 634 025d 44       		.byte	68
+ 635 025e CC       		.byte	-52
+ 636 025f 91       		.byte	-111
+ 637 0260 CE       		.byte	-50
+ 638 0261 EA       		.byte	-22
+ 639 0262 D0       		.byte	-48
+ 640 0263 92       		.byte	-110
+ 641 0264 D2       		.byte	-46
+ 642 0265 04       		.byte	4
+ 643 0266 D6       		.byte	-42
+ 644 0267 0B       		.byte	11
+ 645 0268 D8       		.byte	-40
+ 646 0269 F0       		.byte	-16
+ 647 026a E6       		.byte	-26
+ 648 026b 10       		.byte	16
+ 649 026c 03       		.byte	3
+ 650 026d 05       		.byte	5
+ 651 026e 04       		.byte	4
+ 652 026f 01       		.byte	1
+ 653 0270 09       		.byte	9
+ 654 0271 01       		.byte	1
+ 655 0272 13       		.byte	19
+ 656 0273 02       		.byte	2
+ 657 0274 18       		.byte	24
+ 658 0275 01       		.byte	1
+ 659 0276 19       		.byte	25
+ 660 0277 01       		.byte	1
+ 661 0278 23       		.byte	35
+ 662 0279 02       		.byte	2
+ 663 027a 28       		.byte	40
+ 664 027b 01       		.byte	1
+ 665 027c 2B       		.byte	43
+ 666 027d 04       		.byte	4
+ 667 027e 30       		.byte	48
+ 668 027f 01       		.byte	1
+ 669 0280 33       		.byte	51
+ 670 0281 04       		.byte	4
+ 671 0282 35       		.byte	53
+ 672 0283 02       		.byte	2
+ 673 0284 37       		.byte	55
+ 674 0285 01       		.byte	1
+ 675 0286 3F       		.byte	63
+ 676 0287 14       		.byte	20
+ 677 0288 40       		.byte	64
+ 678 0289 10       		.byte	16
+ 679 028a 41       		.byte	65
+ 680 028b 02       		.byte	2
+ 681 028c 45       		.byte	69
+ 682 028d D0       		.byte	-48
+ 683 028e 46       		.byte	70
+ 684 028f 10       		.byte	16
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 13
+
+
+ 685 0290 47       		.byte	71
+ 686 0291 02       		.byte	2
+ 687 0292 48       		.byte	72
+ 688 0293 1B       		.byte	27
+ 689 0294 49       		.byte	73
+ 690 0295 FF       		.byte	-1
+ 691 0296 4A       		.byte	74
+ 692 0297 FF       		.byte	-1
+ 693 0298 4B       		.byte	75
+ 694 0299 FF       		.byte	-1
+ 695 029a 4D       		.byte	77
+ 696 029b A0       		.byte	-96
+ 697 029c 4F       		.byte	79
+ 698 029d 04       		.byte	4
+ 699 029e 50       		.byte	80
+ 700 029f 18       		.byte	24
+ 701 02a0 52       		.byte	82
+ 702 02a1 80       		.byte	-128
+ 703 02a2 54       		.byte	84
+ 704 02a3 07       		.byte	7
+ 705 02a4 58       		.byte	88
+ 706 02a5 04       		.byte	4
+ 707 02a6 59       		.byte	89
+ 708 02a7 04       		.byte	4
+ 709 02a8 5A       		.byte	90
+ 710 02a9 04       		.byte	4
+ 711 02aa 5B       		.byte	91
+ 712 02ab 04       		.byte	4
+ 713 02ac 5C       		.byte	92
+ 714 02ad 44       		.byte	68
+ 715 02ae 5D       		.byte	93
+ 716 02af 44       		.byte	68
+ 717 02b0 5F       		.byte	95
+ 718 02b1 01       		.byte	1
+ 719 02b2 60       		.byte	96
+ 720 02b3 40       		.byte	64
+ 721 02b4 62       		.byte	98
+ 722 02b5 C0       		.byte	-64
+ 723 02b6 64       		.byte	100
+ 724 02b7 40       		.byte	64
+ 725 02b8 65       		.byte	101
+ 726 02b9 40       		.byte	64
+ 727 02ba 66       		.byte	102
+ 728 02bb C0       		.byte	-64
+ 729 02bc 68       		.byte	104
+ 730 02bd C0       		.byte	-64
+ 731 02be 6A       		.byte	106
+ 732 02bf C0       		.byte	-64
+ 733 02c0 6C       		.byte	108
+ 734 02c1 C0       		.byte	-64
+ 735 02c2 6E       		.byte	110
+ 736 02c3 C0       		.byte	-64
+ 737 02c4 86       		.byte	-122
+ 738 02c5 03       		.byte	3
+ 739 02c6 88       		.byte	-120
+ 740 02c7 14       		.byte	20
+ 741 02c8 89       		.byte	-119
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 14
+
+
+ 742 02c9 20       		.byte	32
+ 743 02ca 8B       		.byte	-117
+ 744 02cb 05       		.byte	5
+ 745 02cc 8C       		.byte	-116
+ 746 02cd 0C       		.byte	12
+ 747 02ce 8D       		.byte	-115
+ 748 02cf 13       		.byte	19
+ 749 02d0 8E       		.byte	-114
+ 750 02d1 71       		.byte	113
+ 751 02d2 8F       		.byte	-113
+ 752 02d3 04       		.byte	4
+ 753 02d4 90       		.byte	-112
+ 754 02d5 DC       		.byte	-36
+ 755 02d6 92       		.byte	-110
+ 756 02d7 22       		.byte	34
+ 757 02d8 97       		.byte	-105
+ 758 02d9 08       		.byte	8
+ 759 02da 98       		.byte	-104
+ 760 02db 10       		.byte	16
+ 761 02dc 9A       		.byte	-102
+ 762 02dd 40       		.byte	64
+ 763 02de 9D       		.byte	-99
+ 764 02df 13       		.byte	19
+ 765 02e0 9F       		.byte	-97
+ 766 02e1 0C       		.byte	12
+ 767 02e2 A0       		.byte	-96
+ 768 02e3 10       		.byte	16
+ 769 02e4 A1       		.byte	-95
+ 770 02e5 03       		.byte	3
+ 771 02e6 A2       		.byte	-94
+ 772 02e7 AC       		.byte	-84
+ 773 02e8 A3       		.byte	-93
+ 774 02e9 04       		.byte	4
+ 775 02ea A6       		.byte	-90
+ 776 02eb 20       		.byte	32
+ 777 02ec A8       		.byte	-88
+ 778 02ed 09       		.byte	9
+ 779 02ee AA       		.byte	-86
+ 780 02ef D0       		.byte	-48
+ 781 02f0 AD       		.byte	-83
+ 782 02f1 0A       		.byte	10
+ 783 02f2 AF       		.byte	-81
+ 784 02f3 14       		.byte	20
+ 785 02f4 B0       		.byte	-80
+ 786 02f5 E0       		.byte	-32
+ 787 02f6 B3       		.byte	-77
+ 788 02f7 30       		.byte	48
+ 789 02f8 B4       		.byte	-76
+ 790 02f9 1F       		.byte	31
+ 791 02fa B7       		.byte	-73
+ 792 02fb 0F       		.byte	15
+ 793 02fc B9       		.byte	-71
+ 794 02fd 08       		.byte	8
+ 795 02fe BA       		.byte	-70
+ 796 02ff 02       		.byte	2
+ 797 0300 BB       		.byte	-69
+ 798 0301 80       		.byte	-128
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 15
+
+
+ 799 0302 C0       		.byte	-64
+ 800 0303 04       		.byte	4
+ 801 0304 C5       		.byte	-59
+ 802 0305 04       		.byte	4
+ 803 0306 C9       		.byte	-55
+ 804 0307 FF       		.byte	-1
+ 805 0308 CA       		.byte	-54
+ 806 0309 07       		.byte	7
+ 807 030a CB       		.byte	-53
+ 808 030b FF       		.byte	-1
+ 809 030c CC       		.byte	-52
+ 810 030d 40       		.byte	64
+ 811 030e CD       		.byte	-51
+ 812 030f 20       		.byte	32
+ 813 0310 CE       		.byte	-50
+ 814 0311 F0       		.byte	-16
+ 815 0312 CF       		.byte	-49
+ 816 0313 05       		.byte	5
+ 817 0314 D0       		.byte	-48
+ 818 0315 08       		.byte	8
+ 819 0316 D2       		.byte	-46
+ 820 0317 80       		.byte	-128
+ 821 0318 D4       		.byte	-44
+ 822 0319 05       		.byte	5
+ 823 031a D8       		.byte	-40
+ 824 031b 04       		.byte	4
+ 825 031c D9       		.byte	-39
+ 826 031d 04       		.byte	4
+ 827 031e DA       		.byte	-38
+ 828 031f 04       		.byte	4
+ 829 0320 DB       		.byte	-37
+ 830 0321 04       		.byte	4
+ 831 0322 DC       		.byte	-36
+ 832 0323 22       		.byte	34
+ 833 0324 DD       		.byte	-35
+ 834 0325 42       		.byte	66
+ 835 0326 DF       		.byte	-33
+ 836 0327 01       		.byte	1
+ 837 0328 E0       		.byte	-32
+ 838 0329 40       		.byte	64
+ 839 032a E1       		.byte	-31
+ 840 032b A8       		.byte	-88
+ 841 032c E2       		.byte	-30
+ 842 032d 40       		.byte	64
+ 843 032e E3       		.byte	-29
+ 844 032f 20       		.byte	32
+ 845 0330 00       		.byte	0
+ 846 0331 20       		.byte	32
+ 847 0332 03       		.byte	3
+ 848 0333 22       		.byte	34
+ 849 0334 04       		.byte	4
+ 850 0335 08       		.byte	8
+ 851 0336 08       		.byte	8
+ 852 0337 01       		.byte	1
+ 853 0338 0B       		.byte	11
+ 854 0339 08       		.byte	8
+ 855 033a 0C       		.byte	12
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 16
+
+
+ 856 033b 20       		.byte	32
+ 857 033c 10       		.byte	16
+ 858 033d 08       		.byte	8
+ 859 033e 12       		.byte	18
+ 860 033f 90       		.byte	-112
+ 861 0340 13       		.byte	19
+ 862 0341 20       		.byte	32
+ 863 0342 16       		.byte	22
+ 864 0343 08       		.byte	8
+ 865 0344 18       		.byte	24
+ 866 0345 80       		.byte	-128
+ 867 0346 1B       		.byte	27
+ 868 0347 22       		.byte	34
+ 869 0348 1E       		.byte	30
+ 870 0349 80       		.byte	-128
+ 871 034a 21       		.byte	33
+ 872 034b 40       		.byte	64
+ 873 034c 22       		.byte	34
+ 874 034d 80       		.byte	-128
+ 875 034e 23       		.byte	35
+ 876 034f 20       		.byte	32
+ 877 0350 25       		.byte	37
+ 878 0351 40       		.byte	64
+ 879 0352 27       		.byte	39
+ 880 0353 18       		.byte	24
+ 881 0354 28       		.byte	40
+ 882 0355 01       		.byte	1
+ 883 0356 29       		.byte	41
+ 884 0357 40       		.byte	64
+ 885 0358 2B       		.byte	43
+ 886 0359 80       		.byte	-128
+ 887 035a 2C       		.byte	44
+ 888 035b 80       		.byte	-128
+ 889 035c 2F       		.byte	47
+ 890 035d 08       		.byte	8
+ 891 035e 30       		.byte	48
+ 892 035f 08       		.byte	8
+ 893 0360 32       		.byte	50
+ 894 0361 80       		.byte	-128
+ 895 0362 36       		.byte	54
+ 896 0363 20       		.byte	32
+ 897 0364 37       		.byte	55
+ 898 0365 02       		.byte	2
+ 899 0366 38       		.byte	56
+ 900 0367 80       		.byte	-128
+ 901 0368 39       		.byte	57
+ 902 0369 20       		.byte	32
+ 903 036a 3E       		.byte	62
+ 904 036b 22       		.byte	34
+ 905 036c 42       		.byte	66
+ 906 036d 04       		.byte	4
+ 907 036e 43       		.byte	67
+ 908 036f 11       		.byte	17
+ 909 0370 46       		.byte	70
+ 910 0371 06       		.byte	6
+ 911 0372 4B       		.byte	75
+ 912 0373 08       		.byte	8
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 17
+
+
+ 913 0374 4D       		.byte	77
+ 914 0375 02       		.byte	2
+ 915 0376 4E       		.byte	78
+ 916 0377 20       		.byte	32
+ 917 0378 51       		.byte	81
+ 918 0379 10       		.byte	16
+ 919 037a 52       		.byte	82
+ 920 037b 10       		.byte	16
+ 921 037c 56       		.byte	86
+ 922 037d 24       		.byte	36
+ 923 037e 57       		.byte	87
+ 924 037f 08       		.byte	8
+ 925 0380 59       		.byte	89
+ 926 0381 02       		.byte	2
+ 927 0382 5A       		.byte	90
+ 928 0383 44       		.byte	68
+ 929 0384 5D       		.byte	93
+ 930 0385 01       		.byte	1
+ 931 0386 5E       		.byte	94
+ 932 0387 A0       		.byte	-96
+ 933 0388 5F       		.byte	95
+ 934 0389 08       		.byte	8
+ 935 038a 73       		.byte	115
+ 936 038b 40       		.byte	64
+ 937 038c 77       		.byte	119
+ 938 038d 40       		.byte	64
+ 939 038e 80       		.byte	-128
+ 940 038f 21       		.byte	33
+ 941 0390 85       		.byte	-123
+ 942 0391 04       		.byte	4
+ 943 0392 90       		.byte	-112
+ 944 0393 48       		.byte	72
+ 945 0394 91       		.byte	-111
+ 946 0395 01       		.byte	1
+ 947 0396 92       		.byte	-110
+ 948 0397 08       		.byte	8
+ 949 0398 93       		.byte	-109
+ 950 0399 06       		.byte	6
+ 951 039a 94       		.byte	-108
+ 952 039b 04       		.byte	4
+ 953 039c 95       		.byte	-107
+ 954 039d 14       		.byte	20
+ 955 039e 96       		.byte	-106
+ 956 039f 90       		.byte	-112
+ 957 03a0 99       		.byte	-103
+ 958 03a1 A0       		.byte	-96
+ 959 03a2 9A       		.byte	-102
+ 960 03a3 48       		.byte	72
+ 961 03a4 9B       		.byte	-101
+ 962 03a5 02       		.byte	2
+ 963 03a6 9C       		.byte	-100
+ 964 03a7 20       		.byte	32
+ 965 03a8 9F       		.byte	-97
+ 966 03a9 C0       		.byte	-64
+ 967 03aa A0       		.byte	-96
+ 968 03ab A0       		.byte	-96
+ 969 03ac A1       		.byte	-95
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 18
+
+
+ 970 03ad 02       		.byte	2
+ 971 03ae A2       		.byte	-94
+ 972 03af 10       		.byte	16
+ 973 03b0 A5       		.byte	-91
+ 974 03b1 80       		.byte	-128
+ 975 03b2 A8       		.byte	-88
+ 976 03b3 08       		.byte	8
+ 977 03b4 AB       		.byte	-85
+ 978 03b5 01       		.byte	1
+ 979 03b6 B5       		.byte	-75
+ 980 03b7 10       		.byte	16
+ 981 03b8 C0       		.byte	-64
+ 982 03b9 27       		.byte	39
+ 983 03ba C2       		.byte	-62
+ 984 03bb 4A       		.byte	74
+ 985 03bc C4       		.byte	-60
+ 986 03bd 4E       		.byte	78
+ 987 03be CA       		.byte	-54
+ 988 03bf A9       		.byte	-87
+ 989 03c0 CC       		.byte	-52
+ 990 03c1 AA       		.byte	-86
+ 991 03c2 CE       		.byte	-50
+ 992 03c3 AC       		.byte	-84
+ 993 03c4 D0       		.byte	-48
+ 994 03c5 31       		.byte	49
+ 995 03c6 D6       		.byte	-42
+ 996 03c7 FB       		.byte	-5
+ 997 03c8 E2       		.byte	-30
+ 998 03c9 08       		.byte	8
+ 999 03ca EA       		.byte	-22
+ 1000 03cb 40       		.byte	64
+ 1001 03cc 00       		.byte	0
+ 1002 03cd 04       		.byte	4
+ 1003 03ce 03       		.byte	3
+ 1004 03cf 40       		.byte	64
+ 1005 03d0 04       		.byte	4
+ 1006 03d1 08       		.byte	8
+ 1007 03d2 07       		.byte	7
+ 1008 03d3 20       		.byte	32
+ 1009 03d4 08       		.byte	8
+ 1010 03d5 08       		.byte	8
+ 1011 03d6 09       		.byte	9
+ 1012 03d7 09       		.byte	9
+ 1013 03d8 0B       		.byte	11
+ 1014 03d9 06       		.byte	6
+ 1015 03da 0C       		.byte	12
+ 1016 03db 08       		.byte	8
+ 1017 03dc 0F       		.byte	15
+ 1018 03dd 40       		.byte	64
+ 1019 03de 13       		.byte	19
+ 1020 03df 20       		.byte	32
+ 1021 03e0 15       		.byte	21
+ 1022 03e1 12       		.byte	18
+ 1023 03e2 16       		.byte	22
+ 1024 03e3 01       		.byte	1
+ 1025 03e4 17       		.byte	23
+ 1026 03e5 05       		.byte	5
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 19
+
+
+ 1027 03e6 18       		.byte	24
+ 1028 03e7 07       		.byte	7
+ 1029 03e8 19       		.byte	25
+ 1030 03e9 04       		.byte	4
+ 1031 03ea 1B       		.byte	27
+ 1032 03eb 18       		.byte	24
+ 1033 03ec 1C       		.byte	28
+ 1034 03ed 06       		.byte	6
+ 1035 03ee 1E       		.byte	30
+ 1036 03ef 01       		.byte	1
+ 1037 03f0 20       		.byte	32
+ 1038 03f1 02       		.byte	2
+ 1039 03f2 24       		.byte	36
+ 1040 03f3 01       		.byte	1
+ 1041 03f4 25       		.byte	37
+ 1042 03f5 1F       		.byte	31
+ 1043 03f6 26       		.byte	38
+ 1044 03f7 06       		.byte	6
+ 1045 03f8 28       		.byte	40
+ 1046 03f9 06       		.byte	6
+ 1047 03fa 29       		.byte	41
+ 1048 03fb 1F       		.byte	31
+ 1049 03fc 2A       		.byte	42
+ 1050 03fd 01       		.byte	1
+ 1051 03fe 2C       		.byte	44
+ 1052 03ff 06       		.byte	6
+ 1053 0400 31       		.byte	49
+ 1054 0401 40       		.byte	64
+ 1055 0402 33       		.byte	51
+ 1056 0403 1C       		.byte	28
+ 1057 0404 34       		.byte	52
+ 1058 0405 08       		.byte	8
+ 1059 0406 35       		.byte	53
+ 1060 0407 03       		.byte	3
+ 1061 0408 36       		.byte	54
+ 1062 0409 07       		.byte	7
+ 1063 040a 37       		.byte	55
+ 1064 040b 20       		.byte	32
+ 1065 040c 3A       		.byte	58
+ 1066 040d 80       		.byte	-128
+ 1067 040e 3F       		.byte	63
+ 1068 040f 41       		.byte	65
+ 1069 0410 40       		.byte	64
+ 1070 0411 15       		.byte	21
+ 1071 0412 45       		.byte	69
+ 1072 0413 EC       		.byte	-20
+ 1073 0414 46       		.byte	70
+ 1074 0415 02       		.byte	2
+ 1075 0416 48       		.byte	72
+ 1076 0417 07       		.byte	7
+ 1077 0418 49       		.byte	73
+ 1078 0419 FF       		.byte	-1
+ 1079 041a 4A       		.byte	74
+ 1080 041b FF       		.byte	-1
+ 1081 041c 4B       		.byte	75
+ 1082 041d FF       		.byte	-1
+ 1083 041e 4F       		.byte	79
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 20
+
+
+ 1084 041f 01       		.byte	1
+ 1085 0420 50       		.byte	80
+ 1086 0421 18       		.byte	24
+ 1087 0422 52       		.byte	82
+ 1088 0423 80       		.byte	-128
+ 1089 0424 54       		.byte	84
+ 1090 0425 01       		.byte	1
+ 1091 0426 56       		.byte	86
+ 1092 0427 04       		.byte	4
+ 1093 0428 58       		.byte	88
+ 1094 0429 04       		.byte	4
+ 1095 042a 59       		.byte	89
+ 1096 042b 04       		.byte	4
+ 1097 042c 5A       		.byte	90
+ 1098 042d 04       		.byte	4
+ 1099 042e 5B       		.byte	91
+ 1100 042f 04       		.byte	4
+ 1101 0430 5C       		.byte	92
+ 1102 0431 22       		.byte	34
+ 1103 0432 5D       		.byte	93
+ 1104 0433 66       		.byte	102
+ 1105 0434 5F       		.byte	95
+ 1106 0435 01       		.byte	1
+ 1107 0436 60       		.byte	96
+ 1108 0437 40       		.byte	64
+ 1109 0438 62       		.byte	98
+ 1110 0439 40       		.byte	64
+ 1111 043a 64       		.byte	100
+ 1112 043b 40       		.byte	64
+ 1113 043c 65       		.byte	101
+ 1114 043d 40       		.byte	64
+ 1115 043e 66       		.byte	102
+ 1116 043f 80       		.byte	-128
+ 1117 0440 68       		.byte	104
+ 1118 0441 80       		.byte	-128
+ 1119 0442 6A       		.byte	106
+ 1120 0443 80       		.byte	-128
+ 1121 0444 6C       		.byte	108
+ 1122 0445 80       		.byte	-128
+ 1123 0446 6E       		.byte	110
+ 1124 0447 80       		.byte	-128
+ 1125 0448 8A       		.byte	-118
+ 1126 0449 02       		.byte	2
+ 1127 044a 8B       		.byte	-117
+ 1128 044b 01       		.byte	1
+ 1129 044c 8D       		.byte	-115
+ 1130 044d 01       		.byte	1
+ 1131 044e 8F       		.byte	-113
+ 1132 044f 02       		.byte	2
+ 1133 0450 92       		.byte	-110
+ 1134 0451 02       		.byte	2
+ 1135 0452 96       		.byte	-106
+ 1136 0453 01       		.byte	1
+ 1137 0454 AF       		.byte	-81
+ 1138 0455 04       		.byte	4
+ 1139 0456 B2       		.byte	-78
+ 1140 0457 02       		.byte	2
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 21
+
+
+ 1141 0458 B3       		.byte	-77
+ 1142 0459 02       		.byte	2
+ 1143 045a B4       		.byte	-76
+ 1144 045b 01       		.byte	1
+ 1145 045c B5       		.byte	-75
+ 1146 045d 01       		.byte	1
+ 1147 045e B7       		.byte	-73
+ 1148 045f 04       		.byte	4
+ 1149 0460 BE       		.byte	-66
+ 1150 0461 04       		.byte	4
+ 1151 0462 D4       		.byte	-44
+ 1152 0463 18       		.byte	24
+ 1153 0464 D8       		.byte	-40
+ 1154 0465 04       		.byte	4
+ 1155 0466 D9       		.byte	-39
+ 1156 0467 04       		.byte	4
+ 1157 0468 DB       		.byte	-37
+ 1158 0469 04       		.byte	4
+ 1159 046a DC       		.byte	-36
+ 1160 046b 54       		.byte	84
+ 1161 046c DD       		.byte	-35
+ 1162 046d 20       		.byte	32
+ 1163 046e DF       		.byte	-33
+ 1164 046f 01       		.byte	1
+ 1165 0470 03       		.byte	3
+ 1166 0471 08       		.byte	8
+ 1167 0472 04       		.byte	4
+ 1168 0473 08       		.byte	8
+ 1169 0474 06       		.byte	6
+ 1170 0475 68       		.byte	104
+ 1171 0476 07       		.byte	7
+ 1172 0477 01       		.byte	1
+ 1173 0478 0B       		.byte	11
+ 1174 0479 A0       		.byte	-96
+ 1175 047a 0C       		.byte	12
+ 1176 047b 08       		.byte	8
+ 1177 047c 0D       		.byte	13
+ 1178 047d 10       		.byte	16
+ 1179 047e 0E       		.byte	14
+ 1180 047f 02       		.byte	2
+ 1181 0480 15       		.byte	21
+ 1182 0481 02       		.byte	2
+ 1183 0482 16       		.byte	22
+ 1184 0483 02       		.byte	2
+ 1185 0484 17       		.byte	23
+ 1186 0485 14       		.byte	20
+ 1187 0486 19       		.byte	25
+ 1188 0487 04       		.byte	4
+ 1189 0488 1B       		.byte	27
+ 1190 0489 20       		.byte	32
+ 1191 048a 1C       		.byte	28
+ 1192 048b 04       		.byte	4
+ 1193 048c 1E       		.byte	30
+ 1194 048d 06       		.byte	6
+ 1195 048e 20       		.byte	32
+ 1196 048f 10       		.byte	16
+ 1197 0490 21       		.byte	33
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 22
+
+
+ 1198 0491 60       		.byte	96
+ 1199 0492 24       		.byte	36
+ 1200 0493 40       		.byte	64
+ 1201 0494 25       		.byte	37
+ 1202 0495 80       		.byte	-128
+ 1203 0496 26       		.byte	38
+ 1204 0497 08       		.byte	8
+ 1205 0498 27       		.byte	39
+ 1206 0499 28       		.byte	40
+ 1207 049a 29       		.byte	41
+ 1208 049b 80       		.byte	-128
+ 1209 049c 2C       		.byte	44
+ 1210 049d 20       		.byte	32
+ 1211 049e 2E       		.byte	46
+ 1212 049f 28       		.byte	40
+ 1213 04a0 36       		.byte	54
+ 1214 04a1 02       		.byte	2
+ 1215 04a2 37       		.byte	55
+ 1216 04a3 28       		.byte	40
+ 1217 04a4 38       		.byte	56
+ 1218 04a5 10       		.byte	16
+ 1219 04a6 39       		.byte	57
+ 1220 04a7 80       		.byte	-128
+ 1221 04a8 3C       		.byte	60
+ 1222 04a9 02       		.byte	2
+ 1223 04aa 3D       		.byte	61
+ 1224 04ab 28       		.byte	40
+ 1225 04ac 3F       		.byte	63
+ 1226 04ad 80       		.byte	-128
+ 1227 04ae 47       		.byte	71
+ 1228 04af 40       		.byte	64
+ 1229 04b0 4F       		.byte	79
+ 1230 04b1 85       		.byte	-123
+ 1231 04b2 57       		.byte	87
+ 1232 04b3 40       		.byte	64
+ 1233 04b4 5A       		.byte	90
+ 1234 04b5 01       		.byte	1
+ 1235 04b6 5C       		.byte	92
+ 1236 04b7 40       		.byte	64
+ 1237 04b8 5F       		.byte	95
+ 1238 04b9 05       		.byte	5
+ 1239 04ba 61       		.byte	97
+ 1240 04bb 80       		.byte	-128
+ 1241 04bc 62       		.byte	98
+ 1242 04bd 10       		.byte	16
+ 1243 04be 65       		.byte	101
+ 1244 04bf 02       		.byte	2
+ 1245 04c0 74       		.byte	116
+ 1246 04c1 01       		.byte	1
+ 1247 04c2 77       		.byte	119
+ 1248 04c3 40       		.byte	64
+ 1249 04c4 84       		.byte	-124
+ 1250 04c5 04       		.byte	4
+ 1251 04c6 86       		.byte	-122
+ 1252 04c7 08       		.byte	8
+ 1253 04c8 A5       		.byte	-91
+ 1254 04c9 20       		.byte	32
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 23
+
+
+ 1255 04ca C0       		.byte	-64
+ 1256 04cb F2       		.byte	-14
+ 1257 04cc C2       		.byte	-62
+ 1258 04cd EC       		.byte	-20
+ 1259 04ce C4       		.byte	-60
+ 1260 04cf F0       		.byte	-16
+ 1261 04d0 CA       		.byte	-54
+ 1262 04d1 68       		.byte	104
+ 1263 04d2 CC       		.byte	-52
+ 1264 04d3 E0       		.byte	-32
+ 1265 04d4 CE       		.byte	-50
+ 1266 04d5 FC       		.byte	-4
+ 1267 04d6 D0       		.byte	-48
+ 1268 04d7 10       		.byte	16
+ 1269 04d8 D2       		.byte	-46
+ 1270 04d9 10       		.byte	16
+ 1271 04da D6       		.byte	-42
+ 1272 04db D1       		.byte	-47
+ 1273 04dc D8       		.byte	-40
+ 1274 04dd 8C       		.byte	-116
+ 1275 04de A5       		.byte	-91
+ 1276 04df 20       		.byte	32
+ 1277 04e0 B4       		.byte	-76
+ 1278 04e1 40       		.byte	64
+ 1279 04e2 39       		.byte	57
+ 1280 04e3 02       		.byte	2
+ 1281 04e4 3F       		.byte	63
+ 1282 04e5 01       		.byte	1
+ 1283 04e6 59       		.byte	89
+ 1284 04e7 04       		.byte	4
+ 1285 04e8 5F       		.byte	95
+ 1286 04e9 01       		.byte	1
+ 1287 04ea 24       		.byte	36
+ 1288 04eb 40       		.byte	64
+ 1289 04ec 85       		.byte	-123
+ 1290 04ed 20       		.byte	32
+ 1291 04ee E6       		.byte	-26
+ 1292 04ef 02       		.byte	2
+ 1293 04f0 89       		.byte	-119
+ 1294 04f1 03       		.byte	3
+ 1295 04f2 8A       		.byte	-118
+ 1296 04f3 03       		.byte	3
+ 1297 04f4 8B       		.byte	-117
+ 1298 04f5 04       		.byte	4
+ 1299 04f6 8D       		.byte	-115
+ 1300 04f7 04       		.byte	4
+ 1301 04f8 8E       		.byte	-114
+ 1302 04f9 03       		.byte	3
+ 1303 04fa 8F       		.byte	-113
+ 1304 04fb 09       		.byte	9
+ 1305 04fc 92       		.byte	-110
+ 1306 04fd 02       		.byte	2
+ 1307 04fe 94       		.byte	-108
+ 1308 04ff 01       		.byte	1
+ 1309 0500 99       		.byte	-103
+ 1310 0501 05       		.byte	5
+ 1311 0502 9B       		.byte	-101
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 24
+
+
+ 1312 0503 0A       		.byte	10
+ 1313 0504 9D       		.byte	-99
+ 1314 0505 0E       		.byte	14
+ 1315 0506 B0       		.byte	-80
+ 1316 0507 03       		.byte	3
+ 1317 0508 B1       		.byte	-79
+ 1318 0509 0F       		.byte	15
+ 1319 050a B6       		.byte	-74
+ 1320 050b 03       		.byte	3
+ 1321 050c B9       		.byte	-71
+ 1322 050d 02       		.byte	2
+ 1323 050e D4       		.byte	-44
+ 1324 050f 01       		.byte	1
+ 1325 0510 D8       		.byte	-40
+ 1326 0511 04       		.byte	4
+ 1327 0512 D9       		.byte	-39
+ 1328 0513 04       		.byte	4
+ 1329 0514 DB       		.byte	-37
+ 1330 0515 04       		.byte	4
+ 1331 0516 DC       		.byte	-36
+ 1332 0517 11       		.byte	17
+ 1333 0518 DD       		.byte	-35
+ 1334 0519 20       		.byte	32
+ 1335 051a DF       		.byte	-33
+ 1336 051b 01       		.byte	1
+ 1337 051c 00       		.byte	0
+ 1338 051d 10       		.byte	16
+ 1339 051e 02       		.byte	2
+ 1340 051f 90       		.byte	-112
+ 1341 0520 03       		.byte	3
+ 1342 0521 02       		.byte	2
+ 1343 0522 04       		.byte	4
+ 1344 0523 40       		.byte	64
+ 1345 0524 05       		.byte	5
+ 1346 0525 10       		.byte	16
+ 1347 0526 09       		.byte	9
+ 1348 0527 09       		.byte	9
+ 1349 0528 0A       		.byte	10
+ 1350 0529 02       		.byte	2
+ 1351 052a 0B       		.byte	11
+ 1352 052b 08       		.byte	8
+ 1353 052c 0E       		.byte	14
+ 1354 052d 90       		.byte	-112
+ 1355 052e 11       		.byte	17
+ 1356 052f 08       		.byte	8
+ 1357 0530 12       		.byte	18
+ 1358 0531 01       		.byte	1
+ 1359 0532 13       		.byte	19
+ 1360 0533 21       		.byte	33
+ 1361 0534 18       		.byte	24
+ 1362 0535 10       		.byte	16
+ 1363 0536 19       		.byte	25
+ 1364 0537 42       		.byte	66
+ 1365 0538 1A       		.byte	26
+ 1366 0539 06       		.byte	6
+ 1367 053a 1E       		.byte	30
+ 1368 053b 80       		.byte	-128
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 25
+
+
+ 1369 053c 1F       		.byte	31
+ 1370 053d 80       		.byte	-128
+ 1371 053e 20       		.byte	32
+ 1372 053f 04       		.byte	4
+ 1373 0540 21       		.byte	33
+ 1374 0541 08       		.byte	8
+ 1375 0542 23       		.byte	35
+ 1376 0543 40       		.byte	64
+ 1377 0544 27       		.byte	39
+ 1378 0545 40       		.byte	64
+ 1379 0546 29       		.byte	41
+ 1380 0547 40       		.byte	64
+ 1381 0548 32       		.byte	50
+ 1382 0549 88       		.byte	-120
+ 1383 054a 33       		.byte	51
+ 1384 054b 02       		.byte	2
+ 1385 054c 35       		.byte	53
+ 1386 054d 10       		.byte	16
+ 1387 054e 37       		.byte	55
+ 1388 054f 40       		.byte	64
+ 1389 0550 38       		.byte	56
+ 1390 0551 81       		.byte	-127
+ 1391 0552 39       		.byte	57
+ 1392 0553 08       		.byte	8
+ 1393 0554 3A       		.byte	58
+ 1394 0555 10       		.byte	16
+ 1395 0556 3C       		.byte	60
+ 1396 0557 40       		.byte	64
+ 1397 0558 3E       		.byte	62
+ 1398 0559 10       		.byte	16
+ 1399 055a 40       		.byte	64
+ 1400 055b 04       		.byte	4
+ 1401 055c 41       		.byte	65
+ 1402 055d 08       		.byte	8
+ 1403 055e 42       		.byte	66
+ 1404 055f 80       		.byte	-128
+ 1405 0560 48       		.byte	72
+ 1406 0561 08       		.byte	8
+ 1407 0562 4A       		.byte	74
+ 1408 0563 02       		.byte	2
+ 1409 0564 50       		.byte	80
+ 1410 0565 80       		.byte	-128
+ 1411 0566 52       		.byte	82
+ 1412 0567 01       		.byte	1
+ 1413 0568 59       		.byte	89
+ 1414 0569 02       		.byte	2
+ 1415 056a 5B       		.byte	91
+ 1416 056b 01       		.byte	1
+ 1417 056c 5C       		.byte	92
+ 1418 056d 20       		.byte	32
+ 1419 056e 5F       		.byte	95
+ 1420 056f 4A       		.byte	74
+ 1421 0570 70       		.byte	112
+ 1422 0571 01       		.byte	1
+ 1423 0572 80       		.byte	-128
+ 1424 0573 10       		.byte	16
+ 1425 0574 81       		.byte	-127
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 26
+
+
+ 1426 0575 04       		.byte	4
+ 1427 0576 82       		.byte	-126
+ 1428 0577 84       		.byte	-124
+ 1429 0578 83       		.byte	-125
+ 1430 0579 01       		.byte	1
+ 1431 057a 86       		.byte	-122
+ 1432 057b 04       		.byte	4
+ 1433 057c 87       		.byte	-121
+ 1434 057d 92       		.byte	-110
+ 1435 057e 88       		.byte	-120
+ 1436 057f 01       		.byte	1
+ 1437 0580 89       		.byte	-119
+ 1438 0581 08       		.byte	8
+ 1439 0582 8B       		.byte	-117
+ 1440 0583 08       		.byte	8
+ 1441 0584 8C       		.byte	-116
+ 1442 0585 81       		.byte	-127
+ 1443 0586 90       		.byte	-112
+ 1444 0587 C0       		.byte	-64
+ 1445 0588 91       		.byte	-111
+ 1446 0589 08       		.byte	8
+ 1447 058a 92       		.byte	-110
+ 1448 058b 10       		.byte	16
+ 1449 058c 93       		.byte	-109
+ 1450 058d 28       		.byte	40
+ 1451 058e 94       		.byte	-108
+ 1452 058f 22       		.byte	34
+ 1453 0590 98       		.byte	-104
+ 1454 0591 20       		.byte	32
+ 1455 0592 99       		.byte	-103
+ 1456 0593 10       		.byte	16
+ 1457 0594 9A       		.byte	-102
+ 1458 0595 10       		.byte	16
+ 1459 0596 9B       		.byte	-101
+ 1460 0597 28       		.byte	40
+ 1461 0598 9C       		.byte	-100
+ 1462 0599 01       		.byte	1
+ 1463 059a 9D       		.byte	-99
+ 1464 059b 40       		.byte	64
+ 1465 059c 9E       		.byte	-98
+ 1466 059d 04       		.byte	4
+ 1467 059e 9F       		.byte	-97
+ 1468 059f 01       		.byte	1
+ 1469 05a0 A0       		.byte	-96
+ 1470 05a1 08       		.byte	8
+ 1471 05a2 A1       		.byte	-95
+ 1472 05a3 01       		.byte	1
+ 1473 05a4 A2       		.byte	-94
+ 1474 05a5 8A       		.byte	-118
+ 1475 05a6 A3       		.byte	-93
+ 1476 05a7 02       		.byte	2
+ 1477 05a8 A7       		.byte	-89
+ 1478 05a9 08       		.byte	8
+ 1479 05aa A8       		.byte	-88
+ 1480 05ab 20       		.byte	32
+ 1481 05ac AB       		.byte	-85
+ 1482 05ad 80       		.byte	-128
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 27
+
+
+ 1483 05ae AD       		.byte	-83
+ 1484 05af 20       		.byte	32
+ 1485 05b0 AE       		.byte	-82
+ 1486 05b1 02       		.byte	2
+ 1487 05b2 AF       		.byte	-81
+ 1488 05b3 02       		.byte	2
+ 1489 05b4 B0       		.byte	-80
+ 1490 05b5 40       		.byte	64
+ 1491 05b6 B1       		.byte	-79
+ 1492 05b7 40       		.byte	64
+ 1493 05b8 B2       		.byte	-78
+ 1494 05b9 40       		.byte	64
+ 1495 05ba B3       		.byte	-77
+ 1496 05bb 10       		.byte	16
+ 1497 05bc C0       		.byte	-64
+ 1498 05bd CF       		.byte	-49
+ 1499 05be C2       		.byte	-62
+ 1500 05bf 3F       		.byte	63
+ 1501 05c0 C4       		.byte	-60
+ 1502 05c1 0F       		.byte	15
+ 1503 05c2 CA       		.byte	-54
+ 1504 05c3 08       		.byte	8
+ 1505 05c4 CC       		.byte	-52
+ 1506 05c5 3B       		.byte	59
+ 1507 05c6 CE       		.byte	-50
+ 1508 05c7 3F       		.byte	63
+ 1509 05c8 D0       		.byte	-48
+ 1510 05c9 07       		.byte	7
+ 1511 05ca D2       		.byte	-46
+ 1512 05cb 0C       		.byte	12
+ 1513 05cc D6       		.byte	-42
+ 1514 05cd F0       		.byte	-16
+ 1515 05ce E0       		.byte	-32
+ 1516 05cf 02       		.byte	2
+ 1517 05d0 E2       		.byte	-30
+ 1518 05d1 05       		.byte	5
+ 1519 05d2 EA       		.byte	-22
+ 1520 05d3 05       		.byte	5
+ 1521 05d4 EE       		.byte	-18
+ 1522 05d5 20       		.byte	32
+ 1523 05d6 09       		.byte	9
+ 1524 05d7 02       		.byte	2
+ 1525 05d8 19       		.byte	25
+ 1526 05d9 02       		.byte	2
+ 1527 05da 24       		.byte	36
+ 1528 05db 01       		.byte	1
+ 1529 05dc 25       		.byte	37
+ 1530 05dd 01       		.byte	1
+ 1531 05de 28       		.byte	40
+ 1532 05df 01       		.byte	1
+ 1533 05e0 2C       		.byte	44
+ 1534 05e1 01       		.byte	1
+ 1535 05e2 30       		.byte	48
+ 1536 05e3 01       		.byte	1
+ 1537 05e4 31       		.byte	49
+ 1538 05e5 02       		.byte	2
+ 1539 05e6 35       		.byte	53
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 28
+
+
+ 1540 05e7 01       		.byte	1
+ 1541 05e8 3F       		.byte	63
+ 1542 05e9 10       		.byte	16
+ 1543 05ea 54       		.byte	84
+ 1544 05eb 09       		.byte	9
+ 1545 05ec 56       		.byte	86
+ 1546 05ed 04       		.byte	4
+ 1547 05ee 58       		.byte	88
+ 1548 05ef 04       		.byte	4
+ 1549 05f0 59       		.byte	89
+ 1550 05f1 04       		.byte	4
+ 1551 05f2 5B       		.byte	91
+ 1552 05f3 04       		.byte	4
+ 1553 05f4 5C       		.byte	92
+ 1554 05f5 44       		.byte	68
+ 1555 05f6 5D       		.byte	93
+ 1556 05f7 10       		.byte	16
+ 1557 05f8 5F       		.byte	95
+ 1558 05f9 01       		.byte	1
+ 1559 05fa 80       		.byte	-128
+ 1560 05fb 04       		.byte	4
+ 1561 05fc 84       		.byte	-124
+ 1562 05fd 01       		.byte	1
+ 1563 05fe 85       		.byte	-123
+ 1564 05ff 01       		.byte	1
+ 1565 0600 86       		.byte	-122
+ 1566 0601 12       		.byte	18
+ 1567 0602 87       		.byte	-121
+ 1568 0603 06       		.byte	6
+ 1569 0604 89       		.byte	-119
+ 1570 0605 07       		.byte	7
+ 1571 0606 8C       		.byte	-116
+ 1572 0607 1A       		.byte	26
+ 1573 0608 8E       		.byte	-114
+ 1574 0609 05       		.byte	5
+ 1575 060a 90       		.byte	-112
+ 1576 060b 12       		.byte	18
+ 1577 060c 92       		.byte	-110
+ 1578 060d 04       		.byte	4
+ 1579 060e 93       		.byte	-109
+ 1580 060f 01       		.byte	1
+ 1581 0610 94       		.byte	-108
+ 1582 0611 07       		.byte	7
+ 1583 0612 95       		.byte	-107
+ 1584 0613 02       		.byte	2
+ 1585 0614 96       		.byte	-106
+ 1586 0615 08       		.byte	8
+ 1587 0616 98       		.byte	-104
+ 1588 0617 12       		.byte	18
+ 1589 0618 99       		.byte	-103
+ 1590 0619 08       		.byte	8
+ 1591 061a 9C       		.byte	-100
+ 1592 061b 16       		.byte	22
+ 1593 061c 9D       		.byte	-99
+ 1594 061d 06       		.byte	6
+ 1595 061e A1       		.byte	-95
+ 1596 061f 06       		.byte	6
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 29
+
+
+ 1597 0620 A3       		.byte	-93
+ 1598 0621 01       		.byte	1
+ 1599 0622 A4       		.byte	-92
+ 1600 0623 12       		.byte	18
+ 1601 0624 A6       		.byte	-90
+ 1602 0625 04       		.byte	4
+ 1603 0626 A8       		.byte	-88
+ 1604 0627 04       		.byte	4
+ 1605 0628 A9       		.byte	-87
+ 1606 0629 04       		.byte	4
+ 1607 062a AA       		.byte	-86
+ 1608 062b 12       		.byte	18
+ 1609 062c AC       		.byte	-84
+ 1610 062d 16       		.byte	22
+ 1611 062e AD       		.byte	-83
+ 1612 062f 07       		.byte	7
+ 1613 0630 B1       		.byte	-79
+ 1614 0631 07       		.byte	7
+ 1615 0632 B2       		.byte	-78
+ 1616 0633 07       		.byte	7
+ 1617 0634 B4       		.byte	-76
+ 1618 0635 1D       		.byte	29
+ 1619 0636 B5       		.byte	-75
+ 1620 0637 08       		.byte	8
+ 1621 0638 BA       		.byte	-70
+ 1622 0639 20       		.byte	32
+ 1623 063a BF       		.byte	-65
+ 1624 063b 10       		.byte	16
+ 1625 063c C0       		.byte	-64
+ 1626 063d 12       		.byte	18
+ 1627 063e C1       		.byte	-63
+ 1628 063f 04       		.byte	4
+ 1629 0640 C5       		.byte	-59
+ 1630 0641 0B       		.byte	11
+ 1631 0642 C6       		.byte	-58
+ 1632 0643 EC       		.byte	-20
+ 1633 0644 C8       		.byte	-56
+ 1634 0645 0D       		.byte	13
+ 1635 0646 C9       		.byte	-55
+ 1636 0647 FF       		.byte	-1
+ 1637 0648 CA       		.byte	-54
+ 1638 0649 FF       		.byte	-1
+ 1639 064a CB       		.byte	-53
+ 1640 064b FF       		.byte	-1
+ 1641 064c CE       		.byte	-50
+ 1642 064d F0       		.byte	-16
+ 1643 064e CF       		.byte	-49
+ 1644 064f 44       		.byte	68
+ 1645 0650 D0       		.byte	-48
+ 1646 0651 0C       		.byte	12
+ 1647 0652 D6       		.byte	-42
+ 1648 0653 02       		.byte	2
+ 1649 0654 D7       		.byte	-41
+ 1650 0655 2C       		.byte	44
+ 1651 0656 D8       		.byte	-40
+ 1652 0657 04       		.byte	4
+ 1653 0658 D9       		.byte	-39
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 30
+
+
+ 1654 0659 04       		.byte	4
+ 1655 065a DA       		.byte	-38
+ 1656 065b 04       		.byte	4
+ 1657 065c DB       		.byte	-37
+ 1658 065d 04       		.byte	4
+ 1659 065e DC       		.byte	-36
+ 1660 065f 21       		.byte	33
+ 1661 0660 DD       		.byte	-35
+ 1662 0661 12       		.byte	18
+ 1663 0662 DF       		.byte	-33
+ 1664 0663 01       		.byte	1
+ 1665 0664 E6       		.byte	-26
+ 1666 0665 C0       		.byte	-64
+ 1667 0666 EA       		.byte	-22
+ 1668 0667 40       		.byte	64
+ 1669 0668 EB       		.byte	-21
+ 1670 0669 02       		.byte	2
+ 1671 066a 00       		.byte	0
+ 1672 066b 44       		.byte	68
+ 1673 066c 02       		.byte	2
+ 1674 066d 40       		.byte	64
+ 1675 066e 09       		.byte	9
+ 1676 066f 80       		.byte	-128
+ 1677 0670 0A       		.byte	10
+ 1678 0671 98       		.byte	-104
+ 1679 0672 11       		.byte	17
+ 1680 0673 14       		.byte	20
+ 1681 0674 13       		.byte	19
+ 1682 0675 80       		.byte	-128
+ 1683 0676 16       		.byte	22
+ 1684 0677 20       		.byte	32
+ 1685 0678 17       		.byte	23
+ 1686 0679 50       		.byte	80
+ 1687 067a 18       		.byte	24
+ 1688 067b 04       		.byte	4
+ 1689 067c 19       		.byte	25
+ 1690 067d 10       		.byte	16
+ 1691 067e 1A       		.byte	26
+ 1692 067f 10       		.byte	16
+ 1693 0680 1E       		.byte	30
+ 1694 0681 40       		.byte	64
+ 1695 0682 20       		.byte	32
+ 1696 0683 88       		.byte	-120
+ 1697 0684 27       		.byte	39
+ 1698 0685 48       		.byte	72
+ 1699 0686 28       		.byte	40
+ 1700 0687 85       		.byte	-123
+ 1701 0688 2F       		.byte	47
+ 1702 0689 10       		.byte	16
+ 1703 068a 30       		.byte	48
+ 1704 068b 40       		.byte	64
+ 1705 068c 32       		.byte	50
+ 1706 068d 02       		.byte	2
+ 1707 068e 33       		.byte	51
+ 1708 068f 28       		.byte	40
+ 1709 0690 36       		.byte	54
+ 1710 0691 20       		.byte	32
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 31
+
+
+ 1711 0692 37       		.byte	55
+ 1712 0693 10       		.byte	16
+ 1713 0694 38       		.byte	56
+ 1714 0695 20       		.byte	32
+ 1715 0696 3A       		.byte	58
+ 1716 0697 04       		.byte	4
+ 1717 0698 3E       		.byte	62
+ 1718 0699 20       		.byte	32
+ 1719 069a 41       		.byte	65
+ 1720 069b 50       		.byte	80
+ 1721 069c 43       		.byte	67
+ 1722 069d 02       		.byte	2
+ 1723 069e 48       		.byte	72
+ 1724 069f 10       		.byte	16
+ 1725 06a0 50       		.byte	80
+ 1726 06a1 40       		.byte	64
+ 1727 06a2 53       		.byte	83
+ 1728 06a3 90       		.byte	-112
+ 1729 06a4 5D       		.byte	93
+ 1730 06a5 80       		.byte	-128
+ 1731 06a6 5F       		.byte	95
+ 1732 06a7 16       		.byte	22
+ 1733 06a8 61       		.byte	97
+ 1734 06a9 02       		.byte	2
+ 1735 06aa 66       		.byte	102
+ 1736 06ab 02       		.byte	2
+ 1737 06ac 67       		.byte	103
+ 1738 06ad 02       		.byte	2
+ 1739 06ae 69       		.byte	105
+ 1740 06af 14       		.byte	20
+ 1741 06b0 6A       		.byte	106
+ 1742 06b1 80       		.byte	-128
+ 1743 06b2 6B       		.byte	107
+ 1744 06b3 80       		.byte	-128
+ 1745 06b4 71       		.byte	113
+ 1746 06b5 80       		.byte	-128
+ 1747 06b6 84       		.byte	-124
+ 1748 06b7 04       		.byte	4
+ 1749 06b8 88       		.byte	-120
+ 1750 06b9 4C       		.byte	76
+ 1751 06ba 8C       		.byte	-116
+ 1752 06bb 80       		.byte	-128
+ 1753 06bc 8D       		.byte	-115
+ 1754 06bd 01       		.byte	1
+ 1755 06be 90       		.byte	-112
+ 1756 06bf 40       		.byte	64
+ 1757 06c0 91       		.byte	-111
+ 1758 06c1 A8       		.byte	-88
+ 1759 06c2 92       		.byte	-110
+ 1760 06c3 08       		.byte	8
+ 1761 06c4 93       		.byte	-109
+ 1762 06c5 0E       		.byte	14
+ 1763 06c6 94       		.byte	-108
+ 1764 06c7 06       		.byte	6
+ 1765 06c8 95       		.byte	-107
+ 1766 06c9 14       		.byte	20
+ 1767 06ca 96       		.byte	-106
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 32
+
+
+ 1768 06cb D0       		.byte	-48
+ 1769 06cc 99       		.byte	-103
+ 1770 06cd A0       		.byte	-96
+ 1771 06ce 9A       		.byte	-102
+ 1772 06cf 70       		.byte	112
+ 1773 06d0 9B       		.byte	-101
+ 1774 06d1 20       		.byte	32
+ 1775 06d2 9D       		.byte	-99
+ 1776 06d3 40       		.byte	64
+ 1777 06d4 9F       		.byte	-97
+ 1778 06d5 81       		.byte	-127
+ 1779 06d6 A1       		.byte	-95
+ 1780 06d7 42       		.byte	66
+ 1781 06d8 A2       		.byte	-94
+ 1782 06d9 AA       		.byte	-86
+ 1783 06da A3       		.byte	-93
+ 1784 06db 22       		.byte	34
+ 1785 06dc A4       		.byte	-92
+ 1786 06dd 10       		.byte	16
+ 1787 06de A5       		.byte	-91
+ 1788 06df 80       		.byte	-128
+ 1789 06e0 A7       		.byte	-89
+ 1790 06e1 80       		.byte	-128
+ 1791 06e2 AA       		.byte	-86
+ 1792 06e3 08       		.byte	8
+ 1793 06e4 AE       		.byte	-82
+ 1794 06e5 02       		.byte	2
+ 1795 06e6 AF       		.byte	-81
+ 1796 06e7 40       		.byte	64
+ 1797 06e8 B6       		.byte	-74
+ 1798 06e9 02       		.byte	2
+ 1799 06ea C0       		.byte	-64
+ 1800 06eb 0D       		.byte	13
+ 1801 06ec C2       		.byte	-62
+ 1802 06ed 0F       		.byte	15
+ 1803 06ee C4       		.byte	-60
+ 1804 06ef E7       		.byte	-25
+ 1805 06f0 CA       		.byte	-54
+ 1806 06f1 4D       		.byte	77
+ 1807 06f2 CC       		.byte	-52
+ 1808 06f3 2F       		.byte	47
+ 1809 06f4 CE       		.byte	-50
+ 1810 06f5 26       		.byte	38
+ 1811 06f6 D0       		.byte	-48
+ 1812 06f7 0D       		.byte	13
+ 1813 06f8 D6       		.byte	-42
+ 1814 06f9 F0       		.byte	-16
+ 1815 06fa D8       		.byte	-40
+ 1816 06fb 91       		.byte	-111
+ 1817 06fc E2       		.byte	-30
+ 1818 06fd 08       		.byte	8
+ 1819 06fe E4       		.byte	-28
+ 1820 06ff 05       		.byte	5
+ 1821 0700 E6       		.byte	-26
+ 1822 0701 02       		.byte	2
+ 1823 0702 EA       		.byte	-22
+ 1824 0703 86       		.byte	-122
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 33
+
+
+ 1825 0704 EC       		.byte	-20
+ 1826 0705 12       		.byte	18
+ 1827 0706 65       		.byte	101
+ 1828 0707 80       		.byte	-128
+ 1829 0708 66       		.byte	102
+ 1830 0709 40       		.byte	64
+ 1831 070a 85       		.byte	-123
+ 1832 070b 80       		.byte	-128
+ 1833 070c 8A       		.byte	-118
+ 1834 070d 02       		.byte	2
+ 1835 070e 8E       		.byte	-114
+ 1836 070f 01       		.byte	1
+ 1837 0710 90       		.byte	-112
+ 1838 0711 04       		.byte	4
+ 1839 0712 94       		.byte	-108
+ 1840 0713 08       		.byte	8
+ 1841 0714 95       		.byte	-107
+ 1842 0715 22       		.byte	34
+ 1843 0716 96       		.byte	-106
+ 1844 0717 01       		.byte	1
+ 1845 0718 97       		.byte	-105
+ 1846 0719 80       		.byte	-128
+ 1847 071a 98       		.byte	-104
+ 1848 071b 04       		.byte	4
+ 1849 071c 99       		.byte	-103
+ 1850 071d 04       		.byte	4
+ 1851 071e 9B       		.byte	-101
+ 1852 071f 08       		.byte	8
+ 1853 0720 9E       		.byte	-98
+ 1854 0721 52       		.byte	82
+ 1855 0722 9F       		.byte	-97
+ 1856 0723 15       		.byte	21
+ 1857 0724 A2       		.byte	-94
+ 1858 0725 01       		.byte	1
+ 1859 0726 A4       		.byte	-92
+ 1860 0727 20       		.byte	32
+ 1861 0728 A5       		.byte	-91
+ 1862 0729 14       		.byte	20
+ 1863 072a A6       		.byte	-90
+ 1864 072b 02       		.byte	2
+ 1865 072c A7       		.byte	-89
+ 1866 072d 08       		.byte	8
+ 1867 072e AB       		.byte	-85
+ 1868 072f 08       		.byte	8
+ 1869 0730 AC       		.byte	-84
+ 1870 0731 08       		.byte	8
+ 1871 0732 AD       		.byte	-83
+ 1872 0733 80       		.byte	-128
+ 1873 0734 AE       		.byte	-82
+ 1874 0735 04       		.byte	4
+ 1875 0736 AF       		.byte	-81
+ 1876 0737 10       		.byte	16
+ 1877 0738 B1       		.byte	-79
+ 1878 0739 02       		.byte	2
+ 1879 073a B7       		.byte	-73
+ 1880 073b 20       		.byte	32
+ 1881 073c E0       		.byte	-32
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 34
+
+
+ 1882 073d 20       		.byte	32
+ 1883 073e E2       		.byte	-30
+ 1884 073f 10       		.byte	16
+ 1885 0740 E4       		.byte	-28
+ 1886 0741 25       		.byte	37
+ 1887 0742 E6       		.byte	-26
+ 1888 0743 02       		.byte	2
+ 1889 0744 EA       		.byte	-22
+ 1890 0745 C8       		.byte	-56
+ 1891 0746 EC       		.byte	-20
+ 1892 0747 10       		.byte	16
+ 1893 0748 07       		.byte	7
+ 1894 0749 03       		.byte	3
+ 1895 074a 0A       		.byte	10
+ 1896 074b 02       		.byte	2
+ 1897 074c 11       		.byte	17
+ 1898 074d 01       		.byte	1
+ 1899 074e 12       		.byte	18
+ 1900 074f 01       		.byte	1
+ 1901 0750 2A       		.byte	42
+ 1902 0751 02       		.byte	2
+ 1903 0752 30       		.byte	48
+ 1904 0753 02       		.byte	2
+ 1905 0754 31       		.byte	49
+ 1906 0755 02       		.byte	2
+ 1907 0756 32       		.byte	50
+ 1908 0757 01       		.byte	1
+ 1909 0758 37       		.byte	55
+ 1910 0759 01       		.byte	1
+ 1911 075a 40       		.byte	64
+ 1912 075b 30       		.byte	48
+ 1913 075c 41       		.byte	65
+ 1914 075d 05       		.byte	5
+ 1915 075e 45       		.byte	69
+ 1916 075f D0       		.byte	-48
+ 1917 0760 46       		.byte	70
+ 1918 0761 02       		.byte	2
+ 1919 0762 47       		.byte	71
+ 1920 0763 01       		.byte	1
+ 1921 0764 48       		.byte	72
+ 1922 0765 16       		.byte	22
+ 1923 0766 49       		.byte	73
+ 1924 0767 FF       		.byte	-1
+ 1925 0768 4A       		.byte	74
+ 1926 0769 FF       		.byte	-1
+ 1927 076a 4B       		.byte	75
+ 1928 076b FF       		.byte	-1
+ 1929 076c 4D       		.byte	77
+ 1930 076d A0       		.byte	-96
+ 1931 076e 4F       		.byte	79
+ 1932 076f 04       		.byte	4
+ 1933 0770 50       		.byte	80
+ 1934 0771 18       		.byte	24
+ 1935 0772 52       		.byte	82
+ 1936 0773 80       		.byte	-128
+ 1937 0774 54       		.byte	84
+ 1938 0775 05       		.byte	5
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 35
+
+
+ 1939 0776 58       		.byte	88
+ 1940 0777 04       		.byte	4
+ 1941 0778 59       		.byte	89
+ 1942 0779 04       		.byte	4
+ 1943 077a 5A       		.byte	90
+ 1944 077b 04       		.byte	4
+ 1945 077c 5B       		.byte	91
+ 1946 077d 04       		.byte	4
+ 1947 077e 5C       		.byte	92
+ 1948 077f 33       		.byte	51
+ 1949 0780 5D       		.byte	93
+ 1950 0781 33       		.byte	51
+ 1951 0782 5F       		.byte	95
+ 1952 0783 01       		.byte	1
+ 1953 0784 60       		.byte	96
+ 1954 0785 40       		.byte	64
+ 1955 0786 62       		.byte	98
+ 1956 0787 C0       		.byte	-64
+ 1957 0788 64       		.byte	100
+ 1958 0789 40       		.byte	64
+ 1959 078a 65       		.byte	101
+ 1960 078b 40       		.byte	64
+ 1961 078c 66       		.byte	102
+ 1962 078d C0       		.byte	-64
+ 1963 078e 68       		.byte	104
+ 1964 078f C0       		.byte	-64
+ 1965 0790 6A       		.byte	106
+ 1966 0791 C0       		.byte	-64
+ 1967 0792 6C       		.byte	108
+ 1968 0793 C0       		.byte	-64
+ 1969 0794 6E       		.byte	110
+ 1970 0795 C0       		.byte	-64
+ 1971 0796 81       		.byte	-127
+ 1972 0797 18       		.byte	24
+ 1973 0798 86       		.byte	-122
+ 1974 0799 0C       		.byte	12
+ 1975 079a 87       		.byte	-121
+ 1976 079b 63       		.byte	99
+ 1977 079c 88       		.byte	-120
+ 1978 079d 08       		.byte	8
+ 1979 079e 8B       		.byte	-117
+ 1980 079f 04       		.byte	4
+ 1981 07a0 8D       		.byte	-115
+ 1982 07a1 10       		.byte	16
+ 1983 07a2 91       		.byte	-111
+ 1984 07a3 7C       		.byte	124
+ 1985 07a4 93       		.byte	-109
+ 1986 07a5 01       		.byte	1
+ 1987 07a6 94       		.byte	-108
+ 1988 07a7 0C       		.byte	12
+ 1989 07a8 95       		.byte	-107
+ 1990 07a9 40       		.byte	64
+ 1991 07aa 98       		.byte	-104
+ 1992 07ab 0E       		.byte	14
+ 1993 07ac 99       		.byte	-103
+ 1994 07ad 1C       		.byte	28
+ 1995 07ae 9B       		.byte	-101
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 36
+
+
+ 1996 07af 62       		.byte	98
+ 1997 07b0 9C       		.byte	-100
+ 1998 07b1 02       		.byte	2
+ 1999 07b2 9D       		.byte	-99
+ 2000 07b3 08       		.byte	8
+ 2001 07b4 9E       		.byte	-98
+ 2002 07b5 0C       		.byte	12
+ 2003 07b6 A0       		.byte	-96
+ 2004 07b7 04       		.byte	4
+ 2005 07b8 A1       		.byte	-95
+ 2006 07b9 7F       		.byte	127
+ 2007 07ba A2       		.byte	-94
+ 2008 07bb 01       		.byte	1
+ 2009 07bc A4       		.byte	-92
+ 2010 07bd 0E       		.byte	14
+ 2011 07be A5       		.byte	-91
+ 2012 07bf 67       		.byte	103
+ 2013 07c0 A7       		.byte	-89
+ 2014 07c1 18       		.byte	24
+ 2015 07c2 A8       		.byte	-88
+ 2016 07c3 02       		.byte	2
+ 2017 07c4 A9       		.byte	-87
+ 2018 07c5 60       		.byte	96
+ 2019 07c6 AA       		.byte	-86
+ 2020 07c7 0C       		.byte	12
+ 2021 07c8 AD       		.byte	-83
+ 2022 07c9 24       		.byte	36
+ 2023 07ca B0       		.byte	-80
+ 2024 07cb 02       		.byte	2
+ 2025 07cc B2       		.byte	-78
+ 2026 07cd 01       		.byte	1
+ 2027 07ce B3       		.byte	-77
+ 2028 07cf 1F       		.byte	31
+ 2029 07d0 B5       		.byte	-75
+ 2030 07d1 78       		.byte	120
+ 2031 07d2 B6       		.byte	-74
+ 2032 07d3 0C       		.byte	12
+ 2033 07d4 BB       		.byte	-69
+ 2034 07d5 28       		.byte	40
+ 2035 07d6 BE       		.byte	-66
+ 2036 07d7 01       		.byte	1
+ 2037 07d8 D6       		.byte	-42
+ 2038 07d9 02       		.byte	2
+ 2039 07da D7       		.byte	-41
+ 2040 07db 10       		.byte	16
+ 2041 07dc D8       		.byte	-40
+ 2042 07dd 04       		.byte	4
+ 2043 07de D9       		.byte	-39
+ 2044 07df 04       		.byte	4
+ 2045 07e0 DB       		.byte	-37
+ 2046 07e1 04       		.byte	4
+ 2047 07e2 DC       		.byte	-36
+ 2048 07e3 22       		.byte	34
+ 2049 07e4 DD       		.byte	-35
+ 2050 07e5 20       		.byte	32
+ 2051 07e6 DF       		.byte	-33
+ 2052 07e7 01       		.byte	1
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 37
+
+
+ 2053 07e8 03       		.byte	3
+ 2054 07e9 08       		.byte	8
+ 2055 07ea 04       		.byte	4
+ 2056 07eb 04       		.byte	4
+ 2057 07ec 07       		.byte	7
+ 2058 07ed 08       		.byte	8
+ 2059 07ee 0B       		.byte	11
+ 2060 07ef 40       		.byte	64
+ 2061 07f0 0C       		.byte	12
+ 2062 07f1 04       		.byte	4
+ 2063 07f2 0E       		.byte	14
+ 2064 07f3 0E       		.byte	14
+ 2065 07f4 12       		.byte	18
+ 2066 07f5 04       		.byte	4
+ 2067 07f6 15       		.byte	21
+ 2068 07f7 04       		.byte	4
+ 2069 07f8 16       		.byte	22
+ 2070 07f9 80       		.byte	-128
+ 2071 07fa 17       		.byte	23
+ 2072 07fb 14       		.byte	20
+ 2073 07fc 1B       		.byte	27
+ 2074 07fd 09       		.byte	9
+ 2075 07fe 1C       		.byte	28
+ 2076 07ff 20       		.byte	32
+ 2077 0800 1E       		.byte	30
+ 2078 0801 41       		.byte	65
+ 2079 0802 21       		.byte	33
+ 2080 0803 02       		.byte	2
+ 2081 0804 22       		.byte	34
+ 2082 0805 40       		.byte	64
+ 2083 0806 27       		.byte	39
+ 2084 0807 14       		.byte	20
+ 2085 0808 2C       		.byte	44
+ 2086 0809 04       		.byte	4
+ 2087 080a 2D       		.byte	45
+ 2088 080b 06       		.byte	6
+ 2089 080c 2E       		.byte	46
+ 2090 080d 80       		.byte	-128
+ 2091 080e 31       		.byte	49
+ 2092 080f 02       		.byte	2
+ 2093 0810 34       		.byte	52
+ 2094 0811 80       		.byte	-128
+ 2095 0812 36       		.byte	54
+ 2096 0813 01       		.byte	1
+ 2097 0814 37       		.byte	55
+ 2098 0815 18       		.byte	24
+ 2099 0816 3A       		.byte	58
+ 2100 0817 04       		.byte	4
+ 2101 0818 3C       		.byte	60
+ 2102 0819 A4       		.byte	-92
+ 2103 081a 3E       		.byte	62
+ 2104 081b 02       		.byte	2
+ 2105 081c 43       		.byte	67
+ 2106 081d 08       		.byte	8
+ 2107 081e 49       		.byte	73
+ 2108 081f 01       		.byte	1
+ 2109 0820 4B       		.byte	75
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 38
+
+
+ 2110 0821 80       		.byte	-128
+ 2111 0822 52       		.byte	82
+ 2112 0823 04       		.byte	4
+ 2113 0824 53       		.byte	83
+ 2114 0825 40       		.byte	64
+ 2115 0826 59       		.byte	89
+ 2116 0827 05       		.byte	5
+ 2117 0828 5A       		.byte	90
+ 2118 0829 80       		.byte	-128
+ 2119 082a 5E       		.byte	94
+ 2120 082b 40       		.byte	64
+ 2121 082c 6C       		.byte	108
+ 2122 082d 24       		.byte	36
+ 2123 082e 6F       		.byte	111
+ 2124 082f 01       		.byte	1
+ 2125 0830 73       		.byte	115
+ 2126 0831 40       		.byte	64
+ 2127 0832 74       		.byte	116
+ 2128 0833 40       		.byte	64
+ 2129 0834 75       		.byte	117
+ 2130 0835 88       		.byte	-120
+ 2131 0836 76       		.byte	118
+ 2132 0837 08       		.byte	8
+ 2133 0838 81       		.byte	-127
+ 2134 0839 02       		.byte	2
+ 2135 083a 82       		.byte	-126
+ 2136 083b 04       		.byte	4
+ 2137 083c 83       		.byte	-125
+ 2138 083d 14       		.byte	20
+ 2139 083e 86       		.byte	-122
+ 2140 083f 10       		.byte	16
+ 2141 0840 87       		.byte	-121
+ 2142 0841 01       		.byte	1
+ 2143 0842 88       		.byte	-120
+ 2144 0843 80       		.byte	-128
+ 2145 0844 89       		.byte	-119
+ 2146 0845 11       		.byte	17
+ 2147 0846 8A       		.byte	-118
+ 2148 0847 0C       		.byte	12
+ 2149 0848 8D       		.byte	-115
+ 2150 0849 14       		.byte	20
+ 2151 084a 8E       		.byte	-114
+ 2152 084b 80       		.byte	-128
+ 2153 084c 90       		.byte	-112
+ 2154 084d 04       		.byte	4
+ 2155 084e 94       		.byte	-108
+ 2156 084f 08       		.byte	8
+ 2157 0850 95       		.byte	-107
+ 2158 0851 22       		.byte	34
+ 2159 0852 96       		.byte	-106
+ 2160 0853 01       		.byte	1
+ 2161 0854 97       		.byte	-105
+ 2162 0855 80       		.byte	-128
+ 2163 0856 98       		.byte	-104
+ 2164 0857 04       		.byte	4
+ 2165 0858 99       		.byte	-103
+ 2166 0859 04       		.byte	4
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 39
+
+
+ 2167 085a 9A       		.byte	-102
+ 2168 085b 02       		.byte	2
+ 2169 085c 9B       		.byte	-101
+ 2170 085d 08       		.byte	8
+ 2171 085e 9D       		.byte	-99
+ 2172 085f 88       		.byte	-120
+ 2173 0860 9E       		.byte	-98
+ 2174 0861 10       		.byte	16
+ 2175 0862 9F       		.byte	-97
+ 2176 0863 15       		.byte	21
+ 2177 0864 A2       		.byte	-94
+ 2178 0865 01       		.byte	1
+ 2179 0866 A4       		.byte	-92
+ 2180 0867 20       		.byte	32
+ 2181 0868 A5       		.byte	-91
+ 2182 0869 14       		.byte	20
+ 2183 086a A7       		.byte	-89
+ 2184 086b 08       		.byte	8
+ 2185 086c B1       		.byte	-79
+ 2186 086d 08       		.byte	8
+ 2187 086e B2       		.byte	-78
+ 2188 086f 02       		.byte	2
+ 2189 0870 C0       		.byte	-64
+ 2190 0871 62       		.byte	98
+ 2191 0872 C2       		.byte	-62
+ 2192 0873 E8       		.byte	-24
+ 2193 0874 C4       		.byte	-60
+ 2194 0875 72       		.byte	114
+ 2195 0876 CA       		.byte	-54
+ 2196 0877 F0       		.byte	-16
+ 2197 0878 CC       		.byte	-52
+ 2198 0879 F1       		.byte	-15
+ 2199 087a CE       		.byte	-50
+ 2200 087b F2       		.byte	-14
+ 2201 087c D0       		.byte	-48
+ 2202 087d 02       		.byte	2
+ 2203 087e D2       		.byte	-46
+ 2204 087f 08       		.byte	8
+ 2205 0880 D6       		.byte	-42
+ 2206 0881 1B       		.byte	27
+ 2207 0882 E2       		.byte	-30
+ 2208 0883 20       		.byte	32
+ 2209 0884 E4       		.byte	-28
+ 2210 0885 68       		.byte	104
+ 2211 0886 E6       		.byte	-26
+ 2212 0887 10       		.byte	16
+ 2213 0888 EA       		.byte	-22
+ 2214 0889 85       		.byte	-123
+ 2215 088a 31       		.byte	49
+ 2216 088b 20       		.byte	32
+ 2217 088c 32       		.byte	50
+ 2218 088d 04       		.byte	4
+ 2219 088e 34       		.byte	52
+ 2220 088f 08       		.byte	8
+ 2221 0890 36       		.byte	54
+ 2222 0891 40       		.byte	64
+ 2223 0892 CC       		.byte	-52
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 40
+
+
+ 2224 0893 F0       		.byte	-16
+ 2225 0894 5F       		.byte	95
+ 2226 0895 02       		.byte	2
+ 2227 0896 63       		.byte	99
+ 2228 0897 02       		.byte	2
+ 2229 0898 85       		.byte	-123
+ 2230 0899 20       		.byte	32
+ 2231 089a 96       		.byte	-106
+ 2232 089b 08       		.byte	8
+ 2233 089c 9C       		.byte	-100
+ 2234 089d 08       		.byte	8
+ 2235 089e A5       		.byte	-91
+ 2236 089f 20       		.byte	32
+ 2237 08a0 A6       		.byte	-90
+ 2238 08a1 40       		.byte	64
+ 2239 08a2 D6       		.byte	-42
+ 2240 08a3 C0       		.byte	-64
+ 2241 08a4 E2       		.byte	-30
+ 2242 08a5 10       		.byte	16
+ 2243 08a6 3E       		.byte	62
+ 2244 08a7 10       		.byte	16
+ 2245 08a8 86       		.byte	-122
+ 2246 08a9 40       		.byte	64
+ 2247 08aa 8C       		.byte	-116
+ 2248 08ab 01       		.byte	1
+ 2249 08ac 96       		.byte	-106
+ 2250 08ad 08       		.byte	8
+ 2251 08ae 9C       		.byte	-100
+ 2252 08af 08       		.byte	8
+ 2253 08b0 A6       		.byte	-90
+ 2254 08b1 40       		.byte	64
+ 2255 08b2 A7       		.byte	-89
+ 2256 08b3 01       		.byte	1
+ 2257 08b4 AB       		.byte	-85
+ 2258 08b5 02       		.byte	2
+ 2259 08b6 CE       		.byte	-50
+ 2260 08b7 20       		.byte	32
+ 2261 08b8 E6       		.byte	-26
+ 2262 08b9 40       		.byte	64
+ 2263 08ba EE       		.byte	-18
+ 2264 08bb 80       		.byte	-128
+ 2265 08bc 90       		.byte	-112
+ 2266 08bd 01       		.byte	1
+ 2267 08be 96       		.byte	-106
+ 2268 08bf 18       		.byte	24
+ 2269 08c0 9A       		.byte	-102
+ 2270 08c1 02       		.byte	2
+ 2271 08c2 9C       		.byte	-100
+ 2272 08c3 08       		.byte	8
+ 2273 08c4 A7       		.byte	-89
+ 2274 08c5 01       		.byte	1
+ 2275 08c6 B6       		.byte	-74
+ 2276 08c7 02       		.byte	2
+ 2277 08c8 7C       		.byte	124
+ 2278 08c9 20       		.byte	32
+ 2279 08ca DE       		.byte	-34
+ 2280 08cb 01       		.byte	1
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 41
+
+
+ 2281 08cc 00       		.byte	0
+ 2282 08cd 08       		.byte	8
+ 2283 08ce 03       		.byte	3
+ 2284 08cf 02       		.byte	2
+ 2285 08d0 59       		.byte	89
+ 2286 08d1 40       		.byte	64
+ 2287 08d2 84       		.byte	-124
+ 2288 08d3 04       		.byte	4
+ 2289 08d4 9C       		.byte	-100
+ 2290 08d5 20       		.byte	32
+ 2291 08d6 C0       		.byte	-64
+ 2292 08d7 0A       		.byte	10
+ 2293 08d8 D4       		.byte	-44
+ 2294 08d9 01       		.byte	1
+ 2295 08da 45       		.byte	69
+ 2296 08db 02       		.byte	2
+ 2297 08dc 9D       		.byte	-99
+ 2298 08dd 40       		.byte	64
+ 2299 08de A3       		.byte	-93
+ 2300 08df 02       		.byte	2
+ 2301 08e0 B4       		.byte	-76
+ 2302 08e1 20       		.byte	32
+ 2303 08e2 D0       		.byte	-48
+ 2304 08e3 01       		.byte	1
+ 2305 08e4 E8       		.byte	-24
+ 2306 08e5 02       		.byte	2
+ 2307 08e6 9D       		.byte	-99
+ 2308 08e7 40       		.byte	64
+ 2309 08e8 A3       		.byte	-93
+ 2310 08e9 02       		.byte	2
+ 2311 08ea A5       		.byte	-91
+ 2312 08eb 02       		.byte	2
+ 2313 08ec 27       		.byte	39
+ 2314 08ed 04       		.byte	4
+ 2315 08ee 80       		.byte	-128
+ 2316 08ef 20       		.byte	32
+ 2317 08f0 81       		.byte	-127
+ 2318 08f1 01       		.byte	1
+ 2319 08f2 84       		.byte	-124
+ 2320 08f3 04       		.byte	4
+ 2321 08f4 90       		.byte	-112
+ 2322 08f5 01       		.byte	1
+ 2323 08f6 96       		.byte	-106
+ 2324 08f7 18       		.byte	24
+ 2325 08f8 9A       		.byte	-102
+ 2326 08f9 02       		.byte	2
+ 2327 08fa 9F       		.byte	-97
+ 2328 08fb 04       		.byte	4
+ 2329 08fc A7       		.byte	-89
+ 2330 08fd 01       		.byte	1
+ 2331 08fe B0       		.byte	-80
+ 2332 08ff 08       		.byte	8
+ 2333 0900 B7       		.byte	-73
+ 2334 0901 04       		.byte	4
+ 2335 0902 C8       		.byte	-56
+ 2336 0903 20       		.byte	32
+ 2337 0904 E4       		.byte	-28
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 42
+
+
+ 2338 0905 A0       		.byte	-96
+ 2339 0906 E6       		.byte	-26
+ 2340 0907 40       		.byte	64
+ 2341 0908 11       		.byte	17
+ 2342 0909 02       		.byte	2
+ 2343 090a 14       		.byte	20
+ 2344 090b 20       		.byte	32
+ 2345 090c 60       		.byte	96
+ 2346 090d 01       		.byte	1
+ 2347 090e 66       		.byte	102
+ 2348 090f 82       		.byte	-126
+ 2349 0910 74       		.byte	116
+ 2350 0911 04       		.byte	4
+ 2351 0912 7B       		.byte	123
+ 2352 0913 02       		.byte	2
+ 2353 0914 87       		.byte	-121
+ 2354 0915 01       		.byte	1
+ 2355 0916 90       		.byte	-112
+ 2356 0917 01       		.byte	1
+ 2357 0918 9A       		.byte	-102
+ 2358 0919 82       		.byte	-126
+ 2359 091a 9C       		.byte	-100
+ 2360 091b 20       		.byte	32
+ 2361 091c A0       		.byte	-96
+ 2362 091d 04       		.byte	4
+ 2363 091e A3       		.byte	-93
+ 2364 091f 02       		.byte	2
+ 2365 0920 A5       		.byte	-91
+ 2366 0921 01       		.byte	1
+ 2367 0922 A7       		.byte	-89
+ 2368 0923 01       		.byte	1
+ 2369 0924 AA       		.byte	-86
+ 2370 0925 10       		.byte	16
+ 2371 0926 AB       		.byte	-85
+ 2372 0927 02       		.byte	2
+ 2373 0928 AE       		.byte	-82
+ 2374 0929 04       		.byte	4
+ 2375 092a B2       		.byte	-78
+ 2376 092b 80       		.byte	-128
+ 2377 092c C4       		.byte	-60
+ 2378 092d 30       		.byte	48
+ 2379 092e D6       		.byte	-42
+ 2380 092f C0       		.byte	-64
+ 2381 0930 D8       		.byte	-40
+ 2382 0931 80       		.byte	-128
+ 2383 0932 DC       		.byte	-36
+ 2384 0933 80       		.byte	-128
+ 2385 0934 DE       		.byte	-34
+ 2386 0935 20       		.byte	32
+ 2387 0936 E6       		.byte	-26
+ 2388 0937 10       		.byte	16
+ 2389 0938 EA       		.byte	-22
+ 2390 0939 A0       		.byte	-96
+ 2391 093a EE       		.byte	-18
+ 2392 093b 10       		.byte	16
+ 2393 093c 13       		.byte	19
+ 2394 093d 28       		.byte	40
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 43
+
+
+ 2395 093e 15       		.byte	21
+ 2396 093f 04       		.byte	4
+ 2397 0940 7B       		.byte	123
+ 2398 0941 08       		.byte	8
+ 2399 0942 7F       		.byte	127
+ 2400 0943 20       		.byte	32
+ 2401 0944 83       		.byte	-125
+ 2402 0945 28       		.byte	40
+ 2403 0946 85       		.byte	-123
+ 2404 0947 04       		.byte	4
+ 2405 0948 88       		.byte	-120
+ 2406 0949 04       		.byte	4
+ 2407 094a 9D       		.byte	-99
+ 2408 094b 40       		.byte	64
+ 2409 094c AF       		.byte	-81
+ 2410 094d 02       		.byte	2
+ 2411 094e B5       		.byte	-75
+ 2412 094f 02       		.byte	2
+ 2413 0950 C4       		.byte	-60
+ 2414 0951 0E       		.byte	14
+ 2415 0952 DE       		.byte	-34
+ 2416 0953 03       		.byte	3
+ 2417 0954 E0       		.byte	-32
+ 2418 0955 04       		.byte	4
+ 2419 0956 EC       		.byte	-20
+ 2420 0957 08       		.byte	8
+ 2421 0958 10       		.byte	16
+ 2422 0959 20       		.byte	32
+ 2423 095a 74       		.byte	116
+ 2424 095b 04       		.byte	4
+ 2425 095c 85       		.byte	-123
+ 2426 095d 40       		.byte	64
+ 2427 095e 8C       		.byte	-116
+ 2428 095f 20       		.byte	32
+ 2429 0960 9D       		.byte	-99
+ 2430 0961 40       		.byte	64
+ 2431 0962 A0       		.byte	-96
+ 2432 0963 04       		.byte	4
+ 2433 0964 AB       		.byte	-85
+ 2434 0965 28       		.byte	40
+ 2435 0966 C4       		.byte	-60
+ 2436 0967 08       		.byte	8
+ 2437 0968 DE       		.byte	-34
+ 2438 0969 04       		.byte	4
+ 2439 096a E6       		.byte	-26
+ 2440 096b 08       		.byte	8
+ 2441 096c 00       		.byte	0
+ 2442 096d 76       		.byte	118
+ 2443 096e 08       		.byte	8
+ 2444 096f 12       		.byte	18
+ 2445 0970 0A       		.byte	10
+ 2446 0971 56       		.byte	86
+ 2447 0972 0C       		.byte	12
+ 2448 0973 74       		.byte	116
+ 2449 0974 10       		.byte	16
+ 2450 0975 5E       		.byte	94
+ 2451 0976 1A       		.byte	26
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 44
+
+
+ 2452 0977 56       		.byte	86
+ 2453 0978 1C       		.byte	28
+ 2454 0979 0C       		.byte	12
+ 2455 097a 00       		.byte	0
+ 2456 097b FF       		.byte	-1
+ 2457 097c 03       		.byte	3
+ 2458 097d C0       		.byte	-64
+ 2459 097e 00       		.byte	0
+ 2460 097f 00       		.byte	0
+ 2461 0980 82       		.byte	-126
+ 2462 0981 80       		.byte	-128
+ 2463 0982 00       		.byte	0
+ 2464 0983 00       		.byte	0
+ 2465 0984 43       		.byte	67
+ 2466 0985 00       		.byte	0
+ 2467 0986 00       		.byte	0
+ 2468 0987 00       		.byte	0
+ 2469 0988 00       		.byte	0
+ 2470 0989 4D       		.byte	77
+ 2471 098a 00       		.byte	0
+ 2472 098b 00       		.byte	0
+ 2473 098c 0A       		.byte	10
+ 2474 098d 4D       		.byte	77
+ 2475 098e 10       		.byte	16
+ 2476 098f 00       		.byte	0
+ 2477 0990 01       		.byte	1
+ 2478 0991 0D       		.byte	13
+ 2479 0992 00       		.byte	0
+ 2480 0993 40       		.byte	64
+ 2481 0994 56       		.byte	86
+ 2482 0995 72       		.byte	114
+ 2483 0996 09       		.byte	9
+ 2484 0997 08       		.byte	8
+ 2485 0998 04       		.byte	4
+ 2486 0999 00       		.byte	0
+ 2487 099a 80       		.byte	-128
+ 2488 099b 00       		.byte	0
+ 2489 099c 07       		.byte	7
+ 2490 099d 10       		.byte	16
+ 2491 099e 38       		.byte	56
+ 2492 099f 60       		.byte	96
+ 2493 09a0 04       		.byte	4
+ 2494 09a1 02       		.byte	2
+ 2495 09a2 00       		.byte	0
+ 2496 09a3 0D       		.byte	13
+ 2497 09a4 84       		.byte	-124
+ 2498 09a5 4D       		.byte	77
+ 2499 09a6 00       		.byte	0
+ 2500 09a7 00       		.byte	0
+ 2501 09a8 60       		.byte	96
+ 2502 09a9 00       		.byte	0
+ 2503 09aa 00       		.byte	0
+ 2504 09ab 00       		.byte	0
+ 2505 09ac 84       		.byte	-124
+ 2506 09ad 12       		.byte	18
+ 2507 09ae 00       		.byte	0
+ 2508 09af 64       		.byte	100
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 45
+
+
+ 2509 09b0 80       		.byte	-128
+ 2510 09b1 01       		.byte	1
+ 2511 09b2 04       		.byte	4
+ 2512 09b3 32       		.byte	50
+ 2513 09b4 84       		.byte	-124
+ 2514 09b5 4D       		.byte	77
+ 2515 09b6 00       		.byte	0
+ 2516 09b7 00       		.byte	0
+ 2517 09b8 00       		.byte	0
+ 2518 09b9 00       		.byte	0
+ 2519 09ba 7F       		.byte	127
+ 2520 09bb 70       		.byte	112
+ 2521 09bc 80       		.byte	-128
+ 2522 09bd 0F       		.byte	15
+ 2523 09be 08       		.byte	8
+ 2524 09bf 00       		.byte	0
+ 2525 09c0 08       		.byte	8
+ 2526 09c1 00       		.byte	0
+ 2527 09c2 00       		.byte	0
+ 2528 09c3 28       		.byte	40
+ 2529 09c4 00       		.byte	0
+ 2530 09c5 00       		.byte	0
+ 2531 09c6 50       		.byte	80
+ 2532 09c7 00       		.byte	0
+ 2533 09c8 65       		.byte	101
+ 2534 09c9 03       		.byte	3
+ 2535 09ca 20       		.byte	32
+ 2536 09cb 00       		.byte	0
+ 2537 09cc 04       		.byte	4
+ 2538 09cd BE       		.byte	-66
+ 2539 09ce FC       		.byte	-4
+ 2540 09cf 0D       		.byte	13
+ 2541 09d0 1F       		.byte	31
+ 2542 09d1 FF       		.byte	-1
+ 2543 09d2 FF       		.byte	-1
+ 2544 09d3 FF       		.byte	-1
+ 2545 09d4 22       		.byte	34
+ 2546 09d5 00       		.byte	0
+ 2547 09d6 F0       		.byte	-16
+ 2548 09d7 08       		.byte	8
+ 2549 09d8 04       		.byte	4
+ 2550 09d9 00       		.byte	0
+ 2551 09da 00       		.byte	0
+ 2552 09db 00       		.byte	0
+ 2553 09dc 00       		.byte	0
+ 2554 09dd 00       		.byte	0
+ 2555 09de 00       		.byte	0
+ 2556 09df 00       		.byte	0
+ 2557 09e0 04       		.byte	4
+ 2558 09e1 04       		.byte	4
+ 2559 09e2 04       		.byte	4
+ 2560 09e3 00       		.byte	0
+ 2561 09e4 11       		.byte	17
+ 2562 09e5 01       		.byte	1
+ 2563 09e6 00       		.byte	0
+ 2564 09e7 01       		.byte	1
+ 2565 09e8 00       		.byte	0
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 46
+
+
+ 2566 09e9 00       		.byte	0
+ 2567 09ea C0       		.byte	-64
+ 2568 09eb 00       		.byte	0
+ 2569 09ec 40       		.byte	64
+ 2570 09ed 01       		.byte	1
+ 2571 09ee 10       		.byte	16
+ 2572 09ef 11       		.byte	17
+ 2573 09f0 C0       		.byte	-64
+ 2574 09f1 01       		.byte	1
+ 2575 09f2 00       		.byte	0
+ 2576 09f3 11       		.byte	17
+ 2577 09f4 40       		.byte	64
+ 2578 09f5 01       		.byte	1
+ 2579 09f6 40       		.byte	64
+ 2580 09f7 01       		.byte	1
+ 2581 09f8 00       		.byte	0
+ 2582 09f9 00       		.byte	0
+ 2583 09fa 00       		.byte	0
+ 2584 09fb 00       		.byte	0
+ 2585 09fc 00       		.byte	0
+ 2586 09fd 00       		.byte	0
+ 2587 09fe 00       		.byte	0
+ 2588 09ff 00       		.byte	0
+ 2589 0a00 00       		.byte	0
+ 2590 0a01 00       		.byte	0
+ 2591 0a02 00       		.byte	0
+ 2592 0a03 00       		.byte	0
+ 2593 0a04 00       		.byte	0
+ 2594 0a05 00       		.byte	0
+ 2595 0a06 00       		.byte	0
+ 2596 0a07 00       		.byte	0
+ 2597 0a08 31       		.byte	49
+ 2598 0a09 00       		.byte	0
+ 2599 0a0a 06       		.byte	6
+ 2600 0a0b 04       		.byte	4
+ 2601 0a0c 00       		.byte	0
+ 2602 0a0d 00       		.byte	0
+ 2603 0a0e 13       		.byte	19
+ 2604 0a0f 02       		.byte	2
+ 2605 0a10 00       		.byte	0
+ 2606 0a11 00       		.byte	0
+ 2607 0a12 80       		.byte	-128
+ 2608 0a13 01       		.byte	1
+ 2609 0a14 31       		.byte	49
+ 2610 0a15 00       		.byte	0
+ 2611 0a16 0E       		.byte	14
+ 2612 0a17 01       		.byte	1
+ 2613 0a18 00       		.byte	0
+ 2614 0a19 01       		.byte	1
+ 2615 0a1a 40       		.byte	64
+ 2616 0a1b 00       		.byte	0
+ 2617 0a1c 40       		.byte	64
+ 2618 0a1d 00       		.byte	0
+ 2619 0a1e 00       		.byte	0
+ 2620 0a1f 04       		.byte	4
+ 2621 0a20 00       		.byte	0
+ 2622 0a21 00       		.byte	0
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 47
+
+
+ 2623 0a22 08       		.byte	8
+ 2624 0a23 00       		.byte	0
+ 2625 0a24 2C       		.byte	44
+ 2626 0a25 01       		.byte	1
+ 2627 0a26 03       		.byte	3
+ 2628 0a27 00       		.byte	0
+ 2629 0a28 40       		.byte	64
+ 2630 0a29 00       		.byte	0
+ 2631 0a2a 00       		.byte	0
+ 2632 0a2b 00       		.byte	0
+ 2633 0a2c 00       		.byte	0
+ 2634 0a2d 00       		.byte	0
+ 2635 0a2e 40       		.byte	64
+ 2636 0a2f 00       		.byte	0
+ 2637 0a30 00       		.byte	0
+ 2638 0a31 00       		.byte	0
+ 2639 0a32 0C       		.byte	12
+ 2640 0a33 00       		.byte	0
+ 2641 0a34 00       		.byte	0
+ 2642 0a35 00       		.byte	0
+ 2643 0a36 80       		.byte	-128
+ 2644 0a37 01       		.byte	1
+ 2645 0a38 30       		.byte	48
+ 2646 0a39 01       		.byte	1
+ 2647 0a3a 40       		.byte	64
+ 2648 0a3b 00       		.byte	0
+ 2649 0a3c 80       		.byte	-128
+ 2650 0a3d 06       		.byte	6
+ 2651 0a3e 0F       		.byte	15
+ 2652 0a3f 00       		.byte	0
+ 2653 0a40 0A       		.byte	10
+ 2654 0a41 00       		.byte	0
+ 2655 0a42 80       		.byte	-128
+ 2656 0a43 08       		.byte	8
+ 2657 0a44 00       		.byte	0
+ 2658 0a45 00       		.byte	0
+ 2659 0a46 11       		.byte	17
+ 2660 0a47 11       		.byte	17
+ 2661 0a48 45       		.byte	69
+ 2662 0a49 03       		.byte	3
+ 2663 0a4a 06       		.byte	6
+ 2664 0a4b 00       		.byte	0
+ 2665 0a4c 02       		.byte	2
+ 2666 0a4d 00       		.byte	0
+ 2667 0a4e 0C       		.byte	12
+ 2668 0a4f E0       		.byte	-32
+ 2669 0a50 24       		.byte	36
+ 2670 0a51 FF       		.byte	-1
+ 2671 0a52 FF       		.byte	-1
+ 2672 0a53 FF       		.byte	-1
+ 2673 0a54 62       		.byte	98
+ 2674 0a55 A0       		.byte	-96
+ 2675 0a56 F0       		.byte	-16
+ 2676 0a57 41       		.byte	65
+ 2677 0a58 0C       		.byte	12
+ 2678 0a59 00       		.byte	0
+ 2679 0a5a 80       		.byte	-128
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 48
+
+
+ 2680 0a5b 00       		.byte	0
+ 2681 0a5c 00       		.byte	0
+ 2682 0a5d 00       		.byte	0
+ 2683 0a5e 00       		.byte	0
+ 2684 0a5f 00       		.byte	0
+ 2685 0a60 04       		.byte	4
+ 2686 0a61 04       		.byte	4
+ 2687 0a62 04       		.byte	4
+ 2688 0a63 04       		.byte	4
+ 2689 0a64 22       		.byte	34
+ 2690 0a65 62       		.byte	98
+ 2691 0a66 00       		.byte	0
+ 2692 0a67 01       		.byte	1
+ 2693 0a68 00       		.byte	0
+ 2694 0a69 00       		.byte	0
+ 2695 0a6a 00       		.byte	0
+ 2696 0a6b 00       		.byte	0
+ 2697 0a6c 00       		.byte	0
+ 2698 0a6d 00       		.byte	0
+ 2699 0a6e 40       		.byte	64
+ 2700 0a6f 02       		.byte	2
+ 2701 0a70 00       		.byte	0
+ 2702 0a71 10       		.byte	16
+ 2703 0a72 30       		.byte	48
+ 2704 0a73 10       		.byte	16
+ 2705 0a74 00       		.byte	0
+ 2706 0a75 10       		.byte	16
+ 2707 0a76 10       		.byte	16
+ 2708 0a77 12       		.byte	18
+ 2709 0a78 00       		.byte	0
+ 2710 0a79 00       		.byte	0
+ 2711 0a7a 00       		.byte	0
+ 2712 0a7b 00       		.byte	0
+ 2713 0a7c 00       		.byte	0
+ 2714 0a7d 00       		.byte	0
+ 2715 0a7e 00       		.byte	0
+ 2716 0a7f 00       		.byte	0
+ 2717 0a80 00       		.byte	0
+ 2718 0a81 00       		.byte	0
+ 2719 0a82 00       		.byte	0
+ 2720 0a83 00       		.byte	0
+ 2721 0a84 00       		.byte	0
+ 2722 0a85 00       		.byte	0
+ 2723 0a86 00       		.byte	0
+ 2724 0a87 00       		.byte	0
+ 2725 0a88 00       		.byte	0
+ 2726 0a89 60       		.byte	96
+ 2727 0a8a 60       		.byte	96
+ 2728 0a8b 00       		.byte	0
+ 2729 0a8c 60       		.byte	96
+ 2730 0a8d 00       		.byte	0
+ 2731 0a8e 00       		.byte	0
+ 2732 0a8f 00       		.byte	0
+ 2733 0a90 93       		.byte	-109
+ 2734 0a91 00       		.byte	0
+ 2735 0a92 50       		.byte	80
+ 2736 0a93 80       		.byte	-128
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 49
+
+
+ 2737 0a94 83       		.byte	-125
+ 2738 0a95 00       		.byte	0
+ 2739 0a96 83       		.byte	-125
+ 2740 0a97 00       		.byte	0
+ 2741 0a98 00       		.byte	0
+ 2742 0a99 00       		.byte	0
+ 2743 0a9a 00       		.byte	0
+ 2744 0a9b 00       		.byte	0
+ 2745 0a9c 00       		.byte	0
+ 2746 0a9d 0B       		.byte	11
+ 2747 0a9e 0B       		.byte	11
+ 2748 0a9f 00       		.byte	0
+ 2749 0aa0 00       		.byte	0
+ 2750 0aa1 00       		.byte	0
+ 2751 0aa2 00       		.byte	0
+ 2752 0aa3 00       		.byte	0
+ 2753 0aa4 14       		.byte	20
+ 2754 0aa5 00       		.byte	0
+ 2755 0aa6 01       		.byte	1
+ 2756 0aa7 16       		.byte	22
+ 2757 0aa8 12       		.byte	18
+ 2758 0aa9 00       		.byte	0
+ 2759 0aaa 02       		.byte	2
+ 2760 0aab 00       		.byte	0
+ 2761 0aac 00       		.byte	0
+ 2762 0aad 00       		.byte	0
+ 2763 0aae 00       		.byte	0
+ 2764 0aaf 00       		.byte	0
+ 2765 0ab0 E0       		.byte	-32
+ 2766 0ab1 00       		.byte	0
+ 2767 0ab2 04       		.byte	4
+ 2768 0ab3 E0       		.byte	-32
+ 2769 0ab4 E0       		.byte	-32
+ 2770 0ab5 00       		.byte	0
+ 2771 0ab6 E0       		.byte	-32
+ 2772 0ab7 00       		.byte	0
+ 2773 0ab8 08       		.byte	8
+ 2774 0ab9 00       		.byte	0
+ 2775 0aba 00       		.byte	0
+ 2776 0abb 00       		.byte	0
+ 2777 0abc 25       		.byte	37
+ 2778 0abd 00       		.byte	0
+ 2779 0abe 18       		.byte	24
+ 2780 0abf 01       		.byte	1
+ 2781              		.section	.cywolatch,"a",%progbits
+ 2782              		.align	2
+ 2783              		.type	cy_meta_wonvl, %object
+ 2784              		.size	cy_meta_wonvl, 4
+ 2785              	cy_meta_wonvl:
+ 2786 0000 BC       		.byte	-68
+ 2787 0001 90       		.byte	-112
+ 2788 0002 AC       		.byte	-84
+ 2789 0003 AF       		.byte	-81
+ 2790              		.section	.cycustnvl,"a",%progbits
+ 2791              		.align	2
+ 2792              		.type	cy_meta_custnvl, %object
+ 2793              		.size	cy_meta_custnvl, 4
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 50
+
+
+ 2794              	cy_meta_custnvl:
+ 2795 0000 00       		.byte	0
+ 2796 0001 00       		.byte	0
+ 2797 0002 40       		.byte	64
+ 2798 0003 05       		.byte	5
+ 2799              		.section	.cymeta,"a",%progbits
+ 2800              		.align	2
+ 2801              		.type	cy_metadata, %object
+ 2802              		.size	cy_metadata, 12
+ 2803              	cy_metadata:
+ 2804 0000 00       		.byte	0
+ 2805 0001 01       		.byte	1
+ 2806 0002 2E       		.byte	46
+ 2807 0003 16       		.byte	22
+ 2808 0004 10       		.byte	16
+ 2809 0005 69       		.byte	105
+ 2810 0006 00       		.byte	0
+ 2811 0007 01       		.byte	1
+ 2812 0008 00       		.byte	0
+ 2813 0009 00       		.byte	0
+ 2814 000a 00       		.byte	0
+ 2815 000b 00       		.byte	0
+ 2816              		.section	.cyflashprotect,"a",%progbits
+ 2817              		.align	2
+ 2818              		.type	cy_meta_flashprotect, %object
+ 2819              		.size	cy_meta_flashprotect, 256
+ 2820              	cy_meta_flashprotect:
+ 2821 0000 00000000 		.space	256
+ 2821      00000000 
+ 2821      00000000 
+ 2821      00000000 
+ 2821      00000000 
+ 2822              		.text
+ 2823              	.Letext0:
+ 2824              		.file 1 "c:\\program files (x86)\\cypress\\psoc creator\\4.3\\psoc creator\\import\\gnu\\arm\\5.4.
+ 2825              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.3\\psoc creator\\import\\gnu\\arm\\5.4.
+ 2826              		.file 3 "Generated_Source\\PSoC5\\cymetadata.c"
+ 2827              		.section	.debug_info,"",%progbits
+ 2828              	.Ldebug_info0:
+ 2829 0000 35010000 		.4byte	0x135
+ 2830 0004 0400     		.2byte	0x4
+ 2831 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 2832 000a 04       		.byte	0x4
+ 2833 000b 01       		.uleb128 0x1
+ 2834 000c 31000000 		.4byte	.LASF17
+ 2835 0010 0C       		.byte	0xc
+ 2836 0011 EC010000 		.4byte	.LASF18
+ 2837 0015 06010000 		.4byte	.LASF19
+ 2838 0019 00000000 		.4byte	.Ldebug_line0
+ 2839 001d 02       		.uleb128 0x2
+ 2840 001e 01       		.byte	0x1
+ 2841 001f 06       		.byte	0x6
+ 2842 0020 E0010000 		.4byte	.LASF0
+ 2843 0024 03       		.uleb128 0x3
+ 2844 0025 00000000 		.4byte	.LASF9
+ 2845 0029 01       		.byte	0x1
+ 2846 002a 1D       		.byte	0x1d
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 51
+
+
+ 2847 002b 2F000000 		.4byte	0x2f
+ 2848 002f 02       		.uleb128 0x2
+ 2849 0030 01       		.byte	0x1
+ 2850 0031 08       		.byte	0x8
+ 2851 0032 23000000 		.4byte	.LASF1
+ 2852 0036 02       		.uleb128 0x2
+ 2853 0037 02       		.byte	0x2
+ 2854 0038 05       		.byte	0x5
+ 2855 0039 CD010000 		.4byte	.LASF2
+ 2856 003d 02       		.uleb128 0x2
+ 2857 003e 02       		.byte	0x2
+ 2858 003f 07       		.byte	0x7
+ 2859 0040 D1000000 		.4byte	.LASF3
+ 2860 0044 02       		.uleb128 0x2
+ 2861 0045 04       		.byte	0x4
+ 2862 0046 05       		.byte	0x5
+ 2863 0047 D7010000 		.4byte	.LASF4
+ 2864 004b 02       		.uleb128 0x2
+ 2865 004c 04       		.byte	0x4
+ 2866 004d 07       		.byte	0x7
+ 2867 004e BF000000 		.4byte	.LASF5
+ 2868 0052 02       		.uleb128 0x2
+ 2869 0053 08       		.byte	0x8
+ 2870 0054 05       		.byte	0x5
+ 2871 0055 BF010000 		.4byte	.LASF6
+ 2872 0059 02       		.uleb128 0x2
+ 2873 005a 08       		.byte	0x8
+ 2874 005b 07       		.byte	0x7
+ 2875 005c 74010000 		.4byte	.LASF7
+ 2876 0060 04       		.uleb128 0x4
+ 2877 0061 04       		.byte	0x4
+ 2878 0062 05       		.byte	0x5
+ 2879 0063 696E7400 		.ascii	"int\000"
+ 2880 0067 02       		.uleb128 0x2
+ 2881 0068 04       		.byte	0x4
+ 2882 0069 07       		.byte	0x7
+ 2883 006a 0A000000 		.4byte	.LASF8
+ 2884 006e 03       		.uleb128 0x3
+ 2885 006f 8B010000 		.4byte	.LASF10
+ 2886 0073 02       		.byte	0x2
+ 2887 0074 18       		.byte	0x18
+ 2888 0075 24000000 		.4byte	0x24
+ 2889 0079 05       		.uleb128 0x5
+ 2890 007a 91000000 		.4byte	0x91
+ 2891 007e 8A000000 		.4byte	0x8a
+ 2892 0082 06       		.uleb128 0x6
+ 2893 0083 8A000000 		.4byte	0x8a
+ 2894 0087 BF0A     		.2byte	0xabf
+ 2895 0089 00       		.byte	0
+ 2896 008a 02       		.uleb128 0x2
+ 2897 008b 04       		.byte	0x4
+ 2898 008c 07       		.byte	0x7
+ 2899 008d B6010000 		.4byte	.LASF11
+ 2900 0091 07       		.uleb128 0x7
+ 2901 0092 6E000000 		.4byte	0x6e
+ 2902 0096 08       		.uleb128 0x8
+ 2903 0097 F4000000 		.4byte	.LASF12
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 52
+
+
+ 2904 009b 03       		.byte	0x3
+ 2905 009c 1F       		.byte	0x1f
+ 2906 009d A7000000 		.4byte	0xa7
+ 2907 00a1 05       		.uleb128 0x5
+ 2908 00a2 03       		.byte	0x3
+ 2909 00a3 00000000 		.4byte	cy_meta_configecc
+ 2910 00a7 07       		.uleb128 0x7
+ 2911 00a8 79000000 		.4byte	0x79
+ 2912 00ac 05       		.uleb128 0x5
+ 2913 00ad 91000000 		.4byte	0x91
+ 2914 00b1 BC000000 		.4byte	0xbc
+ 2915 00b5 09       		.uleb128 0x9
+ 2916 00b6 8A000000 		.4byte	0x8a
+ 2917 00ba 03       		.byte	0x3
+ 2918 00bb 00       		.byte	0
+ 2919 00bc 0A       		.uleb128 0xa
+ 2920 00bd E4000000 		.4byte	.LASF13
+ 2921 00c1 03       		.byte	0x3
+ 2922 00c2 8401     		.2byte	0x184
+ 2923 00c4 CE000000 		.4byte	0xce
+ 2924 00c8 05       		.uleb128 0x5
+ 2925 00c9 03       		.byte	0x3
+ 2926 00ca 00000000 		.4byte	cy_meta_custnvl
+ 2927 00ce 07       		.uleb128 0x7
+ 2928 00cf AC000000 		.4byte	0xac
+ 2929 00d3 0A       		.uleb128 0xa
+ 2930 00d4 A8010000 		.4byte	.LASF14
+ 2931 00d8 03       		.byte	0x3
+ 2932 00d9 9201     		.2byte	0x192
+ 2933 00db E5000000 		.4byte	0xe5
+ 2934 00df 05       		.uleb128 0x5
+ 2935 00e0 03       		.byte	0x3
+ 2936 00e1 00000000 		.4byte	cy_meta_wonvl
+ 2937 00e5 07       		.uleb128 0x7
+ 2938 00e6 AC000000 		.4byte	0xac
+ 2939 00ea 05       		.uleb128 0x5
+ 2940 00eb 91000000 		.4byte	0x91
+ 2941 00ef FA000000 		.4byte	0xfa
+ 2942 00f3 09       		.uleb128 0x9
+ 2943 00f4 8A000000 		.4byte	0x8a
+ 2944 00f8 FF       		.byte	0xff
+ 2945 00f9 00       		.byte	0
+ 2946 00fa 0A       		.uleb128 0xa
+ 2947 00fb 93010000 		.4byte	.LASF15
+ 2948 00ff 03       		.byte	0x3
+ 2949 0100 A001     		.2byte	0x1a0
+ 2950 0102 0C010000 		.4byte	0x10c
+ 2951 0106 05       		.uleb128 0x5
+ 2952 0107 03       		.byte	0x3
+ 2953 0108 00000000 		.4byte	cy_meta_flashprotect
+ 2954 010c 07       		.uleb128 0x7
+ 2955 010d EA000000 		.4byte	0xea
+ 2956 0111 05       		.uleb128 0x5
+ 2957 0112 91000000 		.4byte	0x91
+ 2958 0116 21010000 		.4byte	0x121
+ 2959 011a 09       		.uleb128 0x9
+ 2960 011b 8A000000 		.4byte	0x8a
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 53
+
+
+ 2961 011f 0B       		.byte	0xb
+ 2962 0120 00       		.byte	0
+ 2963 0121 0A       		.uleb128 0xa
+ 2964 0122 17000000 		.4byte	.LASF16
+ 2965 0126 03       		.byte	0x3
+ 2966 0127 CD01     		.2byte	0x1cd
+ 2967 0129 33010000 		.4byte	0x133
+ 2968 012d 05       		.uleb128 0x5
+ 2969 012e 03       		.byte	0x3
+ 2970 012f 00000000 		.4byte	cy_metadata
+ 2971 0133 07       		.uleb128 0x7
+ 2972 0134 11010000 		.4byte	0x111
+ 2973 0138 00       		.byte	0
+ 2974              		.section	.debug_abbrev,"",%progbits
+ 2975              	.Ldebug_abbrev0:
+ 2976 0000 01       		.uleb128 0x1
+ 2977 0001 11       		.uleb128 0x11
+ 2978 0002 01       		.byte	0x1
+ 2979 0003 25       		.uleb128 0x25
+ 2980 0004 0E       		.uleb128 0xe
+ 2981 0005 13       		.uleb128 0x13
+ 2982 0006 0B       		.uleb128 0xb
+ 2983 0007 03       		.uleb128 0x3
+ 2984 0008 0E       		.uleb128 0xe
+ 2985 0009 1B       		.uleb128 0x1b
+ 2986 000a 0E       		.uleb128 0xe
+ 2987 000b 10       		.uleb128 0x10
+ 2988 000c 17       		.uleb128 0x17
+ 2989 000d 00       		.byte	0
+ 2990 000e 00       		.byte	0
+ 2991 000f 02       		.uleb128 0x2
+ 2992 0010 24       		.uleb128 0x24
+ 2993 0011 00       		.byte	0
+ 2994 0012 0B       		.uleb128 0xb
+ 2995 0013 0B       		.uleb128 0xb
+ 2996 0014 3E       		.uleb128 0x3e
+ 2997 0015 0B       		.uleb128 0xb
+ 2998 0016 03       		.uleb128 0x3
+ 2999 0017 0E       		.uleb128 0xe
+ 3000 0018 00       		.byte	0
+ 3001 0019 00       		.byte	0
+ 3002 001a 03       		.uleb128 0x3
+ 3003 001b 16       		.uleb128 0x16
+ 3004 001c 00       		.byte	0
+ 3005 001d 03       		.uleb128 0x3
+ 3006 001e 0E       		.uleb128 0xe
+ 3007 001f 3A       		.uleb128 0x3a
+ 3008 0020 0B       		.uleb128 0xb
+ 3009 0021 3B       		.uleb128 0x3b
+ 3010 0022 0B       		.uleb128 0xb
+ 3011 0023 49       		.uleb128 0x49
+ 3012 0024 13       		.uleb128 0x13
+ 3013 0025 00       		.byte	0
+ 3014 0026 00       		.byte	0
+ 3015 0027 04       		.uleb128 0x4
+ 3016 0028 24       		.uleb128 0x24
+ 3017 0029 00       		.byte	0
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 54
+
+
+ 3018 002a 0B       		.uleb128 0xb
+ 3019 002b 0B       		.uleb128 0xb
+ 3020 002c 3E       		.uleb128 0x3e
+ 3021 002d 0B       		.uleb128 0xb
+ 3022 002e 03       		.uleb128 0x3
+ 3023 002f 08       		.uleb128 0x8
+ 3024 0030 00       		.byte	0
+ 3025 0031 00       		.byte	0
+ 3026 0032 05       		.uleb128 0x5
+ 3027 0033 01       		.uleb128 0x1
+ 3028 0034 01       		.byte	0x1
+ 3029 0035 49       		.uleb128 0x49
+ 3030 0036 13       		.uleb128 0x13
+ 3031 0037 01       		.uleb128 0x1
+ 3032 0038 13       		.uleb128 0x13
+ 3033 0039 00       		.byte	0
+ 3034 003a 00       		.byte	0
+ 3035 003b 06       		.uleb128 0x6
+ 3036 003c 21       		.uleb128 0x21
+ 3037 003d 00       		.byte	0
+ 3038 003e 49       		.uleb128 0x49
+ 3039 003f 13       		.uleb128 0x13
+ 3040 0040 2F       		.uleb128 0x2f
+ 3041 0041 05       		.uleb128 0x5
+ 3042 0042 00       		.byte	0
+ 3043 0043 00       		.byte	0
+ 3044 0044 07       		.uleb128 0x7
+ 3045 0045 26       		.uleb128 0x26
+ 3046 0046 00       		.byte	0
+ 3047 0047 49       		.uleb128 0x49
+ 3048 0048 13       		.uleb128 0x13
+ 3049 0049 00       		.byte	0
+ 3050 004a 00       		.byte	0
+ 3051 004b 08       		.uleb128 0x8
+ 3052 004c 34       		.uleb128 0x34
+ 3053 004d 00       		.byte	0
+ 3054 004e 03       		.uleb128 0x3
+ 3055 004f 0E       		.uleb128 0xe
+ 3056 0050 3A       		.uleb128 0x3a
+ 3057 0051 0B       		.uleb128 0xb
+ 3058 0052 3B       		.uleb128 0x3b
+ 3059 0053 0B       		.uleb128 0xb
+ 3060 0054 49       		.uleb128 0x49
+ 3061 0055 13       		.uleb128 0x13
+ 3062 0056 3F       		.uleb128 0x3f
+ 3063 0057 19       		.uleb128 0x19
+ 3064 0058 02       		.uleb128 0x2
+ 3065 0059 18       		.uleb128 0x18
+ 3066 005a 00       		.byte	0
+ 3067 005b 00       		.byte	0
+ 3068 005c 09       		.uleb128 0x9
+ 3069 005d 21       		.uleb128 0x21
+ 3070 005e 00       		.byte	0
+ 3071 005f 49       		.uleb128 0x49
+ 3072 0060 13       		.uleb128 0x13
+ 3073 0061 2F       		.uleb128 0x2f
+ 3074 0062 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 55
+
+
+ 3075 0063 00       		.byte	0
+ 3076 0064 00       		.byte	0
+ 3077 0065 0A       		.uleb128 0xa
+ 3078 0066 34       		.uleb128 0x34
+ 3079 0067 00       		.byte	0
+ 3080 0068 03       		.uleb128 0x3
+ 3081 0069 0E       		.uleb128 0xe
+ 3082 006a 3A       		.uleb128 0x3a
+ 3083 006b 0B       		.uleb128 0xb
+ 3084 006c 3B       		.uleb128 0x3b
+ 3085 006d 05       		.uleb128 0x5
+ 3086 006e 49       		.uleb128 0x49
+ 3087 006f 13       		.uleb128 0x13
+ 3088 0070 3F       		.uleb128 0x3f
+ 3089 0071 19       		.uleb128 0x19
+ 3090 0072 02       		.uleb128 0x2
+ 3091 0073 18       		.uleb128 0x18
+ 3092 0074 00       		.byte	0
+ 3093 0075 00       		.byte	0
+ 3094 0076 00       		.byte	0
+ 3095              		.section	.debug_aranges,"",%progbits
+ 3096 0000 14000000 		.4byte	0x14
+ 3097 0004 0200     		.2byte	0x2
+ 3098 0006 00000000 		.4byte	.Ldebug_info0
+ 3099 000a 04       		.byte	0x4
+ 3100 000b 00       		.byte	0
+ 3101 000c 0000     		.2byte	0
+ 3102 000e 0000     		.2byte	0
+ 3103 0010 00000000 		.4byte	0
+ 3104 0014 00000000 		.4byte	0
+ 3105              		.section	.debug_line,"",%progbits
+ 3106              	.Ldebug_line0:
+ 3107 0000 3D010000 		.section	.debug_str,"MS",%progbits,1
+ 3107      02003701 
+ 3107      00000201 
+ 3107      FB0E0D00 
+ 3107      01010101 
+ 3108              	.LASF9:
+ 3109 0000 5F5F7569 		.ascii	"__uint8_t\000"
+ 3109      6E74385F 
+ 3109      7400
+ 3110              	.LASF8:
+ 3111 000a 756E7369 		.ascii	"unsigned int\000"
+ 3111      676E6564 
+ 3111      20696E74 
+ 3111      00
+ 3112              	.LASF16:
+ 3113 0017 63795F6D 		.ascii	"cy_metadata\000"
+ 3113      65746164 
+ 3113      61746100 
+ 3114              	.LASF1:
+ 3115 0023 756E7369 		.ascii	"unsigned char\000"
+ 3115      676E6564 
+ 3115      20636861 
+ 3115      7200
+ 3116              	.LASF17:
+ 3117 0031 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 56
+
+
+ 3117      43313120 
+ 3117      352E342E 
+ 3117      31203230 
+ 3117      31363036 
+ 3118 0064 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 3118      20726576 
+ 3118      6973696F 
+ 3118      6E203233 
+ 3118      37373135 
+ 3119 0097 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 3119      66756E63 
+ 3119      74696F6E 
+ 3119      2D736563 
+ 3119      74696F6E 
+ 3120              	.LASF5:
+ 3121 00bf 6C6F6E67 		.ascii	"long unsigned int\000"
+ 3121      20756E73 
+ 3121      69676E65 
+ 3121      6420696E 
+ 3121      7400
+ 3122              	.LASF3:
+ 3123 00d1 73686F72 		.ascii	"short unsigned int\000"
+ 3123      7420756E 
+ 3123      7369676E 
+ 3123      65642069 
+ 3123      6E7400
+ 3124              	.LASF13:
+ 3125 00e4 63795F6D 		.ascii	"cy_meta_custnvl\000"
+ 3125      6574615F 
+ 3125      63757374 
+ 3125      6E766C00 
+ 3126              	.LASF12:
+ 3127 00f4 63795F6D 		.ascii	"cy_meta_configecc\000"
+ 3127      6574615F 
+ 3127      636F6E66 
+ 3127      69676563 
+ 3127      6300
+ 3128              	.LASF19:
+ 3129 0106 433A5C55 		.ascii	"C:\\Users\\Susanna\\Desktop\\Final_Project_DiGiacom"
+ 3129      73657273 
+ 3129      5C537573 
+ 3129      616E6E61 
+ 3129      5C446573 
+ 3130 0135 6F5F5061 		.ascii	"o_Palmieri\\Final_Project_DiGiacomoPalmieri\\Final_"
+ 3130      6C6D6965 
+ 3130      72695C46 
+ 3130      696E616C 
+ 3130      5F50726F 
+ 3131 0166 50726F6A 		.ascii	"Project.cydsn\000"
+ 3131      6563742E 
+ 3131      63796473 
+ 3131      6E00
+ 3132              	.LASF7:
+ 3133 0174 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 3133      206C6F6E 
+ 3133      6720756E 
+ 3133      7369676E 
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc228LBR.s 			page 57
+
+
+ 3133      65642069 
+ 3134              	.LASF10:
+ 3135 018b 75696E74 		.ascii	"uint8_t\000"
+ 3135      385F7400 
+ 3136              	.LASF15:
+ 3137 0193 63795F6D 		.ascii	"cy_meta_flashprotect\000"
+ 3137      6574615F 
+ 3137      666C6173 
+ 3137      6870726F 
+ 3137      74656374 
+ 3138              	.LASF14:
+ 3139 01a8 63795F6D 		.ascii	"cy_meta_wonvl\000"
+ 3139      6574615F 
+ 3139      776F6E76 
+ 3139      6C00
+ 3140              	.LASF11:
+ 3141 01b6 73697A65 		.ascii	"sizetype\000"
+ 3141      74797065 
+ 3141      00
+ 3142              	.LASF6:
+ 3143 01bf 6C6F6E67 		.ascii	"long long int\000"
+ 3143      206C6F6E 
+ 3143      6720696E 
+ 3143      7400
+ 3144              	.LASF2:
+ 3145 01cd 73686F72 		.ascii	"short int\000"
+ 3145      7420696E 
+ 3145      7400
+ 3146              	.LASF4:
+ 3147 01d7 6C6F6E67 		.ascii	"long int\000"
+ 3147      20696E74 
+ 3147      00
+ 3148              	.LASF0:
+ 3149 01e0 7369676E 		.ascii	"signed char\000"
+ 3149      65642063 
+ 3149      68617200 
+ 3150              	.LASF18:
+ 3151 01ec 47656E65 		.ascii	"Generated_Source\\PSoC5\\cymetadata.c\000"
+ 3151      72617465 
+ 3151      645F536F 
+ 3151      75726365 
+ 3151      5C50536F 
+ 3152              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

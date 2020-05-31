@@ -1,0 +1,653 @@
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cclhz6KR.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"InterruptRoutines.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.Switch_ISR,"ax",%progbits
+  20              		.align	2
+  21              		.global	Switch_ISR
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	Switch_ISR, %function
+  25              	Switch_ISR:
+  26              	.LFB63:
+  27              		.file 1 "InterruptRoutines.c"
+   1:InterruptRoutines.c **** /* ========================================
+   2:InterruptRoutines.c ****  * Source code for the handling of interrupts
+   3:InterruptRoutines.c ****  * ========================================
+   4:InterruptRoutines.c **** */
+   5:InterruptRoutines.c **** 
+   6:InterruptRoutines.c **** #include "project.h"
+   7:InterruptRoutines.c **** #include "InterruptRoutines.h"
+   8:InterruptRoutines.c **** 
+   9:InterruptRoutines.c **** /* ISR of the timer with clock frequency 1 Hz and period 20 sec used for the on-board switch */
+  10:InterruptRoutines.c **** CY_ISR(Switch_ISR)
+  11:InterruptRoutines.c **** {
+  28              		.loc 1 11 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 08B5     		push	{r3, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
+  12:InterruptRoutines.c ****     Timer_SW_ReadStatusRegister();
+  36              		.loc 1 12 0
+  37 0002 FFF7FEFF 		bl	Timer_SW_ReadStatusRegister
+  38              	.LVL0:
+  13:InterruptRoutines.c ****     button_pressed=1;           // set the flag button_pressed if the button is pressed
+  39              		.loc 1 13 0
+  40 0006 0122     		movs	r2, #1
+  41 0008 034B     		ldr	r3, .L3
+  42 000a 1A60     		str	r2, [r3]
+  14:InterruptRoutines.c ****     click_count++;              // count the number of clicks
+  43              		.loc 1 14 0
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cclhz6KR.s 			page 2
+
+
+  44 000c 034A     		ldr	r2, .L3+4
+  45 000e 1368     		ldr	r3, [r2]
+  46 0010 0133     		adds	r3, r3, #1
+  47 0012 1360     		str	r3, [r2]
+  48 0014 08BD     		pop	{r3, pc}
+  49              	.L4:
+  50 0016 00BF     		.align	2
+  51              	.L3:
+  52 0018 00000000 		.word	button_pressed
+  53 001c 00000000 		.word	click_count
+  54              		.cfi_endproc
+  55              	.LFE63:
+  56              		.size	Switch_ISR, .-Switch_ISR
+  57              		.section	.text.TIME_ISR,"ax",%progbits
+  58              		.align	2
+  59              		.global	TIME_ISR
+  60              		.thumb
+  61              		.thumb_func
+  62              		.type	TIME_ISR, %function
+  63              	TIME_ISR:
+  64              	.LFB64:
+  15:InterruptRoutines.c ****     
+  16:InterruptRoutines.c **** }
+  17:InterruptRoutines.c **** 
+  18:InterruptRoutines.c **** /* ISR of the timer with clock frequency 1 Hz and period 2 sec used to count time from the turn on 
+  19:InterruptRoutines.c **** CY_ISR(TIME_ISR)
+  20:InterruptRoutines.c **** {
+  65              		.loc 1 20 0
+  66              		.cfi_startproc
+  67              		@ args = 0, pretend = 0, frame = 0
+  68              		@ frame_needed = 0, uses_anonymous_args = 0
+  69 0000 08B5     		push	{r3, lr}
+  70              		.cfi_def_cfa_offset 8
+  71              		.cfi_offset 3, -8
+  72              		.cfi_offset 14, -4
+  21:InterruptRoutines.c ****     Timer_CountTime_ReadStatusRegister();
+  73              		.loc 1 21 0
+  74 0002 FFF7FEFF 		bl	Timer_CountTime_ReadStatusRegister
+  75              	.LVL1:
+  22:InterruptRoutines.c ****     time_passed=time_passed+2;  // increase time_passed every 2 seconds
+  76              		.loc 1 22 0
+  77 0006 034A     		ldr	r2, .L7
+  78 0008 1388     		ldrh	r3, [r2]
+  79 000a 9BB2     		uxth	r3, r3
+  80 000c 0233     		adds	r3, r3, #2
+  81 000e 9BB2     		uxth	r3, r3
+  82 0010 1380     		strh	r3, [r2]	@ movhi
+  83 0012 08BD     		pop	{r3, pc}
+  84              	.L8:
+  85              		.align	2
+  86              	.L7:
+  87 0014 00000000 		.word	time_passed
+  88              		.cfi_endproc
+  89              	.LFE64:
+  90              		.size	TIME_ISR, .-TIME_ISR
+  91              		.comm	time_passed,2,2
+  92              		.comm	click_count,4,4
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cclhz6KR.s 			page 3
+
+
+  93              		.comm	button_pressed,4,4
+  94              		.text
+  95              	.Letext0:
+  96              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.3\\psoc creator\\import\\gnu\\arm\\5.4.
+  97              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.3\\psoc creator\\import\\gnu\\arm\\5.4.
+  98              		.file 4 "Generated_Source\\PSoC5/core_cm3.h"
+  99              		.file 5 "InterruptRoutines.h"
+ 100              		.file 6 "Generated_Source\\PSoC5/Timer_SW.h"
+ 101              		.file 7 "Generated_Source\\PSoC5/Timer_CountTime.h"
+ 102              		.section	.debug_info,"",%progbits
+ 103              	.Ldebug_info0:
+ 104 0000 59010000 		.4byte	0x159
+ 105 0004 0400     		.2byte	0x4
+ 106 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 107 000a 04       		.byte	0x4
+ 108 000b 01       		.uleb128 0x1
+ 109 000c 2E000000 		.4byte	.LASF26
+ 110 0010 0C       		.byte	0xc
+ 111 0011 4C010000 		.4byte	.LASF27
+ 112 0015 BC000000 		.4byte	.LASF28
+ 113 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 114 001d 00000000 		.4byte	0
+ 115 0021 00000000 		.4byte	.Ldebug_line0
+ 116 0025 02       		.uleb128 0x2
+ 117 0026 01       		.byte	0x1
+ 118 0027 06       		.byte	0x6
+ 119 0028 E6010000 		.4byte	.LASF0
+ 120 002c 02       		.uleb128 0x2
+ 121 002d 01       		.byte	0x1
+ 122 002e 08       		.byte	0x8
+ 123 002f 74010000 		.4byte	.LASF1
+ 124 0033 02       		.uleb128 0x2
+ 125 0034 02       		.byte	0x2
+ 126 0035 05       		.byte	0x5
+ 127 0036 36020000 		.4byte	.LASF2
+ 128 003a 03       		.uleb128 0x3
+ 129 003b 69010000 		.4byte	.LASF4
+ 130 003f 02       		.byte	0x2
+ 131 0040 2B       		.byte	0x2b
+ 132 0041 45000000 		.4byte	0x45
+ 133 0045 02       		.uleb128 0x2
+ 134 0046 02       		.byte	0x2
+ 135 0047 07       		.byte	0x7
+ 136 0048 0E000000 		.4byte	.LASF3
+ 137 004c 03       		.uleb128 0x3
+ 138 004d FE010000 		.4byte	.LASF5
+ 139 0051 02       		.byte	0x2
+ 140 0052 3F       		.byte	0x3f
+ 141 0053 57000000 		.4byte	0x57
+ 142 0057 02       		.uleb128 0x2
+ 143 0058 04       		.byte	0x4
+ 144 0059 05       		.byte	0x5
+ 145 005a C7010000 		.4byte	.LASF6
+ 146 005e 02       		.uleb128 0x2
+ 147 005f 04       		.byte	0x4
+ 148 0060 07       		.byte	0x7
+ 149 0061 56020000 		.4byte	.LASF7
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cclhz6KR.s 			page 4
+
+
+ 150 0065 02       		.uleb128 0x2
+ 151 0066 08       		.byte	0x8
+ 152 0067 05       		.byte	0x5
+ 153 0068 00000000 		.4byte	.LASF8
+ 154 006c 02       		.uleb128 0x2
+ 155 006d 08       		.byte	0x8
+ 156 006e 07       		.byte	0x7
+ 157 006f 2A010000 		.4byte	.LASF9
+ 158 0073 04       		.uleb128 0x4
+ 159 0074 04       		.byte	0x4
+ 160 0075 05       		.byte	0x5
+ 161 0076 696E7400 		.ascii	"int\000"
+ 162 007a 02       		.uleb128 0x2
+ 163 007b 04       		.byte	0x4
+ 164 007c 07       		.byte	0x7
+ 165 007d 21000000 		.4byte	.LASF10
+ 166 0081 03       		.uleb128 0x3
+ 167 0082 40020000 		.4byte	.LASF11
+ 168 0086 03       		.byte	0x3
+ 169 0087 24       		.byte	0x24
+ 170 0088 3A000000 		.4byte	0x3a
+ 171 008c 03       		.uleb128 0x3
+ 172 008d 49020000 		.4byte	.LASF12
+ 173 0091 03       		.byte	0x3
+ 174 0092 2C       		.byte	0x2c
+ 175 0093 4C000000 		.4byte	0x4c
+ 176 0097 02       		.uleb128 0x2
+ 177 0098 04       		.byte	0x4
+ 178 0099 04       		.byte	0x4
+ 179 009a 30020000 		.4byte	.LASF13
+ 180 009e 02       		.uleb128 0x2
+ 181 009f 08       		.byte	0x8
+ 182 00a0 04       		.byte	0x4
+ 183 00a1 C0010000 		.4byte	.LASF14
+ 184 00a5 02       		.uleb128 0x2
+ 185 00a6 01       		.byte	0x1
+ 186 00a7 08       		.byte	0x8
+ 187 00a8 51020000 		.4byte	.LASF15
+ 188 00ac 02       		.uleb128 0x2
+ 189 00ad 08       		.byte	0x8
+ 190 00ae 04       		.byte	0x4
+ 191 00af F2010000 		.4byte	.LASF16
+ 192 00b3 02       		.uleb128 0x2
+ 193 00b4 04       		.byte	0x4
+ 194 00b5 07       		.byte	0x7
+ 195 00b6 D0010000 		.4byte	.LASF17
+ 196 00ba 05       		.uleb128 0x5
+ 197 00bb 81000000 		.4byte	0x81
+ 198 00bf 06       		.uleb128 0x6
+ 199 00c0 41010000 		.4byte	.LASF18
+ 200 00c4 01       		.byte	0x1
+ 201 00c5 0A       		.byte	0xa
+ 202 00c6 00000000 		.4byte	.LFB63
+ 203 00ca 20000000 		.4byte	.LFE63-.LFB63
+ 204 00ce 01       		.uleb128 0x1
+ 205 00cf 9C       		.byte	0x9c
+ 206 00d0 DE000000 		.4byte	0xde
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cclhz6KR.s 			page 5
+
+
+ 207 00d4 07       		.uleb128 0x7
+ 208 00d5 06000000 		.4byte	.LVL0
+ 209 00d9 46010000 		.4byte	0x146
+ 210 00dd 00       		.byte	0
+ 211 00de 06       		.uleb128 0x6
+ 212 00df 60010000 		.4byte	.LASF19
+ 213 00e3 01       		.byte	0x1
+ 214 00e4 13       		.byte	0x13
+ 215 00e5 00000000 		.4byte	.LFB64
+ 216 00e9 18000000 		.4byte	.LFE64-.LFB64
+ 217 00ed 01       		.uleb128 0x1
+ 218 00ee 9C       		.byte	0x9c
+ 219 00ef FD000000 		.4byte	0xfd
+ 220 00f3 07       		.uleb128 0x7
+ 221 00f4 06000000 		.4byte	.LVL1
+ 222 00f8 51010000 		.4byte	0x151
+ 223 00fc 00       		.byte	0
+ 224 00fd 08       		.uleb128 0x8
+ 225 00fe D9010000 		.4byte	.LASF20
+ 226 0102 04       		.byte	0x4
+ 227 0103 1207     		.2byte	0x712
+ 228 0105 09010000 		.4byte	0x109
+ 229 0109 05       		.uleb128 0x5
+ 230 010a 8C000000 		.4byte	0x8c
+ 231 010e 09       		.uleb128 0x9
+ 232 010f B1010000 		.4byte	.LASF21
+ 233 0113 05       		.byte	0x5
+ 234 0114 0A       		.byte	0xa
+ 235 0115 1F010000 		.4byte	0x11f
+ 236 0119 05       		.uleb128 0x5
+ 237 011a 03       		.byte	0x3
+ 238 011b 00000000 		.4byte	button_pressed
+ 239 011f 05       		.uleb128 0x5
+ 240 0120 73000000 		.4byte	0x73
+ 241 0124 09       		.uleb128 0x9
+ 242 0125 08020000 		.4byte	.LASF22
+ 243 0129 05       		.byte	0x5
+ 244 012a 0B       		.byte	0xb
+ 245 012b 1F010000 		.4byte	0x11f
+ 246 012f 05       		.uleb128 0x5
+ 247 0130 03       		.byte	0x3
+ 248 0131 00000000 		.4byte	click_count
+ 249 0135 09       		.uleb128 0x9
+ 250 0136 A5010000 		.4byte	.LASF23
+ 251 013a 05       		.byte	0x5
+ 252 013b 0C       		.byte	0xc
+ 253 013c BA000000 		.4byte	0xba
+ 254 0140 05       		.uleb128 0x5
+ 255 0141 03       		.byte	0x3
+ 256 0142 00000000 		.4byte	time_passed
+ 257 0146 0A       		.uleb128 0xa
+ 258 0147 14020000 		.4byte	.LASF24
+ 259 014b 14020000 		.4byte	.LASF24
+ 260 014f 06       		.byte	0x6
+ 261 0150 5E       		.byte	0x5e
+ 262 0151 0A       		.uleb128 0xa
+ 263 0152 82010000 		.4byte	.LASF25
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cclhz6KR.s 			page 6
+
+
+ 264 0156 82010000 		.4byte	.LASF25
+ 265 015a 07       		.byte	0x7
+ 266 015b 5E       		.byte	0x5e
+ 267 015c 00       		.byte	0
+ 268              		.section	.debug_abbrev,"",%progbits
+ 269              	.Ldebug_abbrev0:
+ 270 0000 01       		.uleb128 0x1
+ 271 0001 11       		.uleb128 0x11
+ 272 0002 01       		.byte	0x1
+ 273 0003 25       		.uleb128 0x25
+ 274 0004 0E       		.uleb128 0xe
+ 275 0005 13       		.uleb128 0x13
+ 276 0006 0B       		.uleb128 0xb
+ 277 0007 03       		.uleb128 0x3
+ 278 0008 0E       		.uleb128 0xe
+ 279 0009 1B       		.uleb128 0x1b
+ 280 000a 0E       		.uleb128 0xe
+ 281 000b 55       		.uleb128 0x55
+ 282 000c 17       		.uleb128 0x17
+ 283 000d 11       		.uleb128 0x11
+ 284 000e 01       		.uleb128 0x1
+ 285 000f 10       		.uleb128 0x10
+ 286 0010 17       		.uleb128 0x17
+ 287 0011 00       		.byte	0
+ 288 0012 00       		.byte	0
+ 289 0013 02       		.uleb128 0x2
+ 290 0014 24       		.uleb128 0x24
+ 291 0015 00       		.byte	0
+ 292 0016 0B       		.uleb128 0xb
+ 293 0017 0B       		.uleb128 0xb
+ 294 0018 3E       		.uleb128 0x3e
+ 295 0019 0B       		.uleb128 0xb
+ 296 001a 03       		.uleb128 0x3
+ 297 001b 0E       		.uleb128 0xe
+ 298 001c 00       		.byte	0
+ 299 001d 00       		.byte	0
+ 300 001e 03       		.uleb128 0x3
+ 301 001f 16       		.uleb128 0x16
+ 302 0020 00       		.byte	0
+ 303 0021 03       		.uleb128 0x3
+ 304 0022 0E       		.uleb128 0xe
+ 305 0023 3A       		.uleb128 0x3a
+ 306 0024 0B       		.uleb128 0xb
+ 307 0025 3B       		.uleb128 0x3b
+ 308 0026 0B       		.uleb128 0xb
+ 309 0027 49       		.uleb128 0x49
+ 310 0028 13       		.uleb128 0x13
+ 311 0029 00       		.byte	0
+ 312 002a 00       		.byte	0
+ 313 002b 04       		.uleb128 0x4
+ 314 002c 24       		.uleb128 0x24
+ 315 002d 00       		.byte	0
+ 316 002e 0B       		.uleb128 0xb
+ 317 002f 0B       		.uleb128 0xb
+ 318 0030 3E       		.uleb128 0x3e
+ 319 0031 0B       		.uleb128 0xb
+ 320 0032 03       		.uleb128 0x3
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cclhz6KR.s 			page 7
+
+
+ 321 0033 08       		.uleb128 0x8
+ 322 0034 00       		.byte	0
+ 323 0035 00       		.byte	0
+ 324 0036 05       		.uleb128 0x5
+ 325 0037 35       		.uleb128 0x35
+ 326 0038 00       		.byte	0
+ 327 0039 49       		.uleb128 0x49
+ 328 003a 13       		.uleb128 0x13
+ 329 003b 00       		.byte	0
+ 330 003c 00       		.byte	0
+ 331 003d 06       		.uleb128 0x6
+ 332 003e 2E       		.uleb128 0x2e
+ 333 003f 01       		.byte	0x1
+ 334 0040 3F       		.uleb128 0x3f
+ 335 0041 19       		.uleb128 0x19
+ 336 0042 03       		.uleb128 0x3
+ 337 0043 0E       		.uleb128 0xe
+ 338 0044 3A       		.uleb128 0x3a
+ 339 0045 0B       		.uleb128 0xb
+ 340 0046 3B       		.uleb128 0x3b
+ 341 0047 0B       		.uleb128 0xb
+ 342 0048 27       		.uleb128 0x27
+ 343 0049 19       		.uleb128 0x19
+ 344 004a 11       		.uleb128 0x11
+ 345 004b 01       		.uleb128 0x1
+ 346 004c 12       		.uleb128 0x12
+ 347 004d 06       		.uleb128 0x6
+ 348 004e 40       		.uleb128 0x40
+ 349 004f 18       		.uleb128 0x18
+ 350 0050 9742     		.uleb128 0x2117
+ 351 0052 19       		.uleb128 0x19
+ 352 0053 01       		.uleb128 0x1
+ 353 0054 13       		.uleb128 0x13
+ 354 0055 00       		.byte	0
+ 355 0056 00       		.byte	0
+ 356 0057 07       		.uleb128 0x7
+ 357 0058 898201   		.uleb128 0x4109
+ 358 005b 00       		.byte	0
+ 359 005c 11       		.uleb128 0x11
+ 360 005d 01       		.uleb128 0x1
+ 361 005e 31       		.uleb128 0x31
+ 362 005f 13       		.uleb128 0x13
+ 363 0060 00       		.byte	0
+ 364 0061 00       		.byte	0
+ 365 0062 08       		.uleb128 0x8
+ 366 0063 34       		.uleb128 0x34
+ 367 0064 00       		.byte	0
+ 368 0065 03       		.uleb128 0x3
+ 369 0066 0E       		.uleb128 0xe
+ 370 0067 3A       		.uleb128 0x3a
+ 371 0068 0B       		.uleb128 0xb
+ 372 0069 3B       		.uleb128 0x3b
+ 373 006a 05       		.uleb128 0x5
+ 374 006b 49       		.uleb128 0x49
+ 375 006c 13       		.uleb128 0x13
+ 376 006d 3F       		.uleb128 0x3f
+ 377 006e 19       		.uleb128 0x19
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cclhz6KR.s 			page 8
+
+
+ 378 006f 3C       		.uleb128 0x3c
+ 379 0070 19       		.uleb128 0x19
+ 380 0071 00       		.byte	0
+ 381 0072 00       		.byte	0
+ 382 0073 09       		.uleb128 0x9
+ 383 0074 34       		.uleb128 0x34
+ 384 0075 00       		.byte	0
+ 385 0076 03       		.uleb128 0x3
+ 386 0077 0E       		.uleb128 0xe
+ 387 0078 3A       		.uleb128 0x3a
+ 388 0079 0B       		.uleb128 0xb
+ 389 007a 3B       		.uleb128 0x3b
+ 390 007b 0B       		.uleb128 0xb
+ 391 007c 49       		.uleb128 0x49
+ 392 007d 13       		.uleb128 0x13
+ 393 007e 3F       		.uleb128 0x3f
+ 394 007f 19       		.uleb128 0x19
+ 395 0080 02       		.uleb128 0x2
+ 396 0081 18       		.uleb128 0x18
+ 397 0082 00       		.byte	0
+ 398 0083 00       		.byte	0
+ 399 0084 0A       		.uleb128 0xa
+ 400 0085 2E       		.uleb128 0x2e
+ 401 0086 00       		.byte	0
+ 402 0087 3F       		.uleb128 0x3f
+ 403 0088 19       		.uleb128 0x19
+ 404 0089 3C       		.uleb128 0x3c
+ 405 008a 19       		.uleb128 0x19
+ 406 008b 6E       		.uleb128 0x6e
+ 407 008c 0E       		.uleb128 0xe
+ 408 008d 03       		.uleb128 0x3
+ 409 008e 0E       		.uleb128 0xe
+ 410 008f 3A       		.uleb128 0x3a
+ 411 0090 0B       		.uleb128 0xb
+ 412 0091 3B       		.uleb128 0x3b
+ 413 0092 0B       		.uleb128 0xb
+ 414 0093 00       		.byte	0
+ 415 0094 00       		.byte	0
+ 416 0095 00       		.byte	0
+ 417              		.section	.debug_aranges,"",%progbits
+ 418 0000 24000000 		.4byte	0x24
+ 419 0004 0200     		.2byte	0x2
+ 420 0006 00000000 		.4byte	.Ldebug_info0
+ 421 000a 04       		.byte	0x4
+ 422 000b 00       		.byte	0
+ 423 000c 0000     		.2byte	0
+ 424 000e 0000     		.2byte	0
+ 425 0010 00000000 		.4byte	.LFB63
+ 426 0014 20000000 		.4byte	.LFE63-.LFB63
+ 427 0018 00000000 		.4byte	.LFB64
+ 428 001c 18000000 		.4byte	.LFE64-.LFB64
+ 429 0020 00000000 		.4byte	0
+ 430 0024 00000000 		.4byte	0
+ 431              		.section	.debug_ranges,"",%progbits
+ 432              	.Ldebug_ranges0:
+ 433 0000 00000000 		.4byte	.LFB63
+ 434 0004 20000000 		.4byte	.LFE63
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cclhz6KR.s 			page 9
+
+
+ 435 0008 00000000 		.4byte	.LFB64
+ 436 000c 18000000 		.4byte	.LFE64
+ 437 0010 00000000 		.4byte	0
+ 438 0014 00000000 		.4byte	0
+ 439              		.section	.debug_line,"",%progbits
+ 440              	.Ldebug_line0:
+ 441 0000 AF010000 		.section	.debug_str,"MS",%progbits,1
+ 441      02008601 
+ 441      00000201 
+ 441      FB0E0D00 
+ 441      01010101 
+ 442              	.LASF8:
+ 443 0000 6C6F6E67 		.ascii	"long long int\000"
+ 443      206C6F6E 
+ 443      6720696E 
+ 443      7400
+ 444              	.LASF3:
+ 445 000e 73686F72 		.ascii	"short unsigned int\000"
+ 445      7420756E 
+ 445      7369676E 
+ 445      65642069 
+ 445      6E7400
+ 446              	.LASF10:
+ 447 0021 756E7369 		.ascii	"unsigned int\000"
+ 447      676E6564 
+ 447      20696E74 
+ 447      00
+ 448              	.LASF26:
+ 449 002e 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 449      43313120 
+ 449      352E342E 
+ 449      31203230 
+ 449      31363036 
+ 450 0061 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 450      20726576 
+ 450      6973696F 
+ 450      6E203233 
+ 450      37373135 
+ 451 0094 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 451      66756E63 
+ 451      74696F6E 
+ 451      2D736563 
+ 451      74696F6E 
+ 452              	.LASF28:
+ 453 00bc 433A5C55 		.ascii	"C:\\Users\\Susanna\\Desktop\\Final_Project_DiGiacom"
+ 453      73657273 
+ 453      5C537573 
+ 453      616E6E61 
+ 453      5C446573 
+ 454 00eb 6F5F5061 		.ascii	"o_Palmieri\\Final_Project_DiGiacomoPalmieri\\Final_"
+ 454      6C6D6965 
+ 454      72695C46 
+ 454      696E616C 
+ 454      5F50726F 
+ 455 011c 50726F6A 		.ascii	"Project.cydsn\000"
+ 455      6563742E 
+ 455      63796473 
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cclhz6KR.s 			page 10
+
+
+ 455      6E00
+ 456              	.LASF9:
+ 457 012a 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 457      206C6F6E 
+ 457      6720756E 
+ 457      7369676E 
+ 457      65642069 
+ 458              	.LASF18:
+ 459 0141 53776974 		.ascii	"Switch_ISR\000"
+ 459      63685F49 
+ 459      535200
+ 460              	.LASF27:
+ 461 014c 496E7465 		.ascii	"InterruptRoutines.c\000"
+ 461      72727570 
+ 461      74526F75 
+ 461      74696E65 
+ 461      732E6300 
+ 462              	.LASF19:
+ 463 0160 54494D45 		.ascii	"TIME_ISR\000"
+ 463      5F495352 
+ 463      00
+ 464              	.LASF4:
+ 465 0169 5F5F7569 		.ascii	"__uint16_t\000"
+ 465      6E743136 
+ 465      5F7400
+ 466              	.LASF1:
+ 467 0174 756E7369 		.ascii	"unsigned char\000"
+ 467      676E6564 
+ 467      20636861 
+ 467      7200
+ 468              	.LASF25:
+ 469 0182 54696D65 		.ascii	"Timer_CountTime_ReadStatusRegister\000"
+ 469      725F436F 
+ 469      756E7454 
+ 469      696D655F 
+ 469      52656164 
+ 470              	.LASF23:
+ 471 01a5 74696D65 		.ascii	"time_passed\000"
+ 471      5F706173 
+ 471      73656400 
+ 472              	.LASF21:
+ 473 01b1 62757474 		.ascii	"button_pressed\000"
+ 473      6F6E5F70 
+ 473      72657373 
+ 473      656400
+ 474              	.LASF14:
+ 475 01c0 646F7562 		.ascii	"double\000"
+ 475      6C6500
+ 476              	.LASF6:
+ 477 01c7 6C6F6E67 		.ascii	"long int\000"
+ 477      20696E74 
+ 477      00
+ 478              	.LASF17:
+ 479 01d0 73697A65 		.ascii	"sizetype\000"
+ 479      74797065 
+ 479      00
+ 480              	.LASF20:
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cclhz6KR.s 			page 11
+
+
+ 481 01d9 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 481      52784275 
+ 481      66666572 
+ 481      00
+ 482              	.LASF0:
+ 483 01e6 7369676E 		.ascii	"signed char\000"
+ 483      65642063 
+ 483      68617200 
+ 484              	.LASF16:
+ 485 01f2 6C6F6E67 		.ascii	"long double\000"
+ 485      20646F75 
+ 485      626C6500 
+ 486              	.LASF5:
+ 487 01fe 5F5F696E 		.ascii	"__int32_t\000"
+ 487      7433325F 
+ 487      7400
+ 488              	.LASF22:
+ 489 0208 636C6963 		.ascii	"click_count\000"
+ 489      6B5F636F 
+ 489      756E7400 
+ 490              	.LASF24:
+ 491 0214 54696D65 		.ascii	"Timer_SW_ReadStatusRegister\000"
+ 491      725F5357 
+ 491      5F526561 
+ 491      64537461 
+ 491      74757352 
+ 492              	.LASF13:
+ 493 0230 666C6F61 		.ascii	"float\000"
+ 493      7400
+ 494              	.LASF2:
+ 495 0236 73686F72 		.ascii	"short int\000"
+ 495      7420696E 
+ 495      7400
+ 496              	.LASF11:
+ 497 0240 75696E74 		.ascii	"uint16_t\000"
+ 497      31365F74 
+ 497      00
+ 498              	.LASF12:
+ 499 0249 696E7433 		.ascii	"int32_t\000"
+ 499      325F7400 
+ 500              	.LASF15:
+ 501 0251 63686172 		.ascii	"char\000"
+ 501      00
+ 502              	.LASF7:
+ 503 0256 6C6F6E67 		.ascii	"long unsigned int\000"
+ 503      20756E73 
+ 503      69676E65 
+ 503      6420696E 
+ 503      7400
+ 504              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
