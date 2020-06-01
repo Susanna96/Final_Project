@@ -631,7 +631,8 @@ int main(void)
                                     EEPROM_readPage(0x0002,(uint8_t*)Data_read,DATA_BYTES);
                                     
                                     /* Print 5 overthreshold samples and timestamp */
-                                    sprintf(message, "Over threshold data: %d %d %d %d %d Timestamp: %d seconds\r\n", Data_read[0],Data_read[1],Data_read[2],Data_read[3],Data_read[4],Data_read[5]);
+                                    sprintf(message, "Over threshold data: %d %d %d %d %d Timestamp: %d seconds\r\n", 
+                                        Data_read[0],Data_read[1],Data_read[2],Data_read[3],Data_read[4],Data_read[5]);
             						UART_PutString(message);
                                 }                          
                         }
@@ -658,7 +659,8 @@ int main(void)
                                     EEPROM_readPage(0x0002,(uint8_t*)Data_read,DATA_BYTES);
                                     
                                     /* Print 5 overthreshold samples and timestamp */
-                                    sprintf(message, "Over threshold data: %d %d %d %d %d Timestamp: %d seconds\r\n", Data_read[0],Data_read[1],Data_read[2],Data_read[3],Data_read[4],Data_read[5]);
+                                    sprintf(message, "Over threshold data: %d %d %d %d %d Timestamp: %d seconds\r\n", 
+                                        Data_read[0],Data_read[1],Data_read[2],Data_read[3],Data_read[4],Data_read[5]);
             						UART_PutString(message);
                                 }                          
                         }
@@ -685,7 +687,8 @@ int main(void)
                                     EEPROM_readPage(0x0002,(uint8_t*)Data_read,DATA_BYTES);
                                     
                                     /* Print 5 overthreshold samples and timestamp */
-                                    sprintf(message, "Over threshold data: %d %d %d %d %d Timestamp: %d seconds\r\n", Data_read[0],Data_read[1],Data_read[2],Data_read[3],Data_read[4],Data_read[5]);
+                                    sprintf(message, "Over threshold data: %d %d %d %d %d Timestamp: %d seconds\r\n", 
+                                        Data_read[0],Data_read[1],Data_read[2],Data_read[3],Data_read[4],Data_read[5]);
             						UART_PutString(message);
                                 }                          
                         }
@@ -719,7 +722,8 @@ int main(void)
 //                      UART_PutArray(OutArray,12);
 						
                         /* Print acceleration data and current parameters */
-                        sprintf(message, "Acceleration data: %d %d %d \r\n Parameters: 0x%02X (0x%02X)\r\n\n", X_Out_mg[i],Y_Out_mg[i],Z_Out_mg[i], Parameters_read, Parameters);
+                        sprintf(message, "Acceleration data: %d %d %d \r\n Parameters: 0x%02X (0x%02X)\r\n\n", 
+                            X_Out_mg[i],Y_Out_mg[i],Z_Out_mg[i], Parameters_read, Parameters);
 						UART_PutString(message);
                         
 						CyDelay(5);

@@ -15,7 +15,8 @@ CY_ISR(Switch_ISR)
     
 }
 
-/* ISR of the timer with clock frequency 1 Hz and period 2 sec used to count time from the turn on of the device */
+/* ISR of the timer with clock frequency 1 Hz and period 2 sec used 
+to count time from the turn on of the device */
 CY_ISR(TIME_ISR)
 {
     Timer_CountTime_ReadStatusRegister();

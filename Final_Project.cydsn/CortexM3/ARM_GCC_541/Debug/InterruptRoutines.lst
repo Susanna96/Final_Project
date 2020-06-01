@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cclhz6KR.s 			page 1
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc0UCC7O.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cclhz6KR.s 			page 1
   42 000a 1A60     		str	r2, [r3]
   14:InterruptRoutines.c ****     click_count++;              // count the number of clicks
   43              		.loc 1 14 0
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cclhz6KR.s 			page 2
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc0UCC7O.s 			page 2
 
 
   44 000c 034A     		ldr	r2, .L3+4
@@ -85,10 +85,11 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cclhz6KR.s 			page 1
   15:InterruptRoutines.c ****     
   16:InterruptRoutines.c **** }
   17:InterruptRoutines.c **** 
-  18:InterruptRoutines.c **** /* ISR of the timer with clock frequency 1 Hz and period 2 sec used to count time from the turn on 
-  19:InterruptRoutines.c **** CY_ISR(TIME_ISR)
-  20:InterruptRoutines.c **** {
-  65              		.loc 1 20 0
+  18:InterruptRoutines.c **** /* ISR of the timer with clock frequency 1 Hz and period 2 sec used 
+  19:InterruptRoutines.c **** to count time from the turn on of the device */
+  20:InterruptRoutines.c **** CY_ISR(TIME_ISR)
+  21:InterruptRoutines.c **** {
+  65              		.loc 1 21 0
   66              		.cfi_startproc
   67              		@ args = 0, pretend = 0, frame = 0
   68              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -96,12 +97,12 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cclhz6KR.s 			page 1
   70              		.cfi_def_cfa_offset 8
   71              		.cfi_offset 3, -8
   72              		.cfi_offset 14, -4
-  21:InterruptRoutines.c ****     Timer_CountTime_ReadStatusRegister();
-  73              		.loc 1 21 0
+  22:InterruptRoutines.c ****     Timer_CountTime_ReadStatusRegister();
+  73              		.loc 1 22 0
   74 0002 FFF7FEFF 		bl	Timer_CountTime_ReadStatusRegister
   75              	.LVL1:
-  22:InterruptRoutines.c ****     time_passed=time_passed+2;  // increase time_passed every 2 seconds
-  76              		.loc 1 22 0
+  23:InterruptRoutines.c ****     time_passed=time_passed+2;  // increase time_passed every 2 seconds
+  76              		.loc 1 23 0
   77 0006 034A     		ldr	r2, .L7
   78 0008 1388     		ldrh	r3, [r2]
   79 000a 9BB2     		uxth	r3, r3
@@ -117,10 +118,10 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cclhz6KR.s 			page 1
   89              	.LFE64:
   90              		.size	TIME_ISR, .-TIME_ISR
   91              		.comm	time_passed,2,2
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc0UCC7O.s 			page 3
+
+
   92              		.comm	click_count,4,4
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cclhz6KR.s 			page 3
-
-
   93              		.comm	button_pressed,4,4
   94              		.text
   95              	.Letext0:
@@ -177,10 +178,10 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cclhz6KR.s 			page 1
  146 005e 02       		.uleb128 0x2
  147 005f 04       		.byte	0x4
  148 0060 07       		.byte	0x7
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc0UCC7O.s 			page 4
+
+
  149 0061 56020000 		.4byte	.LASF7
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cclhz6KR.s 			page 4
-
-
  150 0065 02       		.uleb128 0x2
  151 0066 08       		.byte	0x8
  152 0067 05       		.byte	0x5
@@ -237,10 +238,10 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cclhz6KR.s 			page 1
  203 00ca 20000000 		.4byte	.LFE63-.LFB63
  204 00ce 01       		.uleb128 0x1
  205 00cf 9C       		.byte	0x9c
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc0UCC7O.s 			page 5
+
+
  206 00d0 DE000000 		.4byte	0xde
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cclhz6KR.s 			page 5
-
-
  207 00d4 07       		.uleb128 0x7
  208 00d5 06000000 		.4byte	.LVL0
  209 00d9 46010000 		.4byte	0x146
@@ -248,7 +249,7 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cclhz6KR.s 			page 1
  211 00de 06       		.uleb128 0x6
  212 00df 60010000 		.4byte	.LASF19
  213 00e3 01       		.byte	0x1
- 214 00e4 13       		.byte	0x13
+ 214 00e4 14       		.byte	0x14
  215 00e5 00000000 		.4byte	.LFB64
  216 00e9 18000000 		.4byte	.LFE64-.LFB64
  217 00ed 01       		.uleb128 0x1
@@ -297,10 +298,10 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cclhz6KR.s 			page 1
  260 014f 06       		.byte	0x6
  261 0150 5E       		.byte	0x5e
  262 0151 0A       		.uleb128 0xa
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc0UCC7O.s 			page 6
+
+
  263 0152 82010000 		.4byte	.LASF25
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cclhz6KR.s 			page 6
-
-
  264 0156 82010000 		.4byte	.LASF25
  265 015a 07       		.byte	0x7
  266 015b 5E       		.byte	0x5e
@@ -357,10 +358,10 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cclhz6KR.s 			page 1
  317 002f 0B       		.uleb128 0xb
  318 0030 3E       		.uleb128 0x3e
  319 0031 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc0UCC7O.s 			page 7
+
+
  320 0032 03       		.uleb128 0x3
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cclhz6KR.s 			page 7
-
-
  321 0033 08       		.uleb128 0x8
  322 0034 00       		.byte	0
  323 0035 00       		.byte	0
@@ -417,10 +418,10 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cclhz6KR.s 			page 1
  374 006b 49       		.uleb128 0x49
  375 006c 13       		.uleb128 0x13
  376 006d 3F       		.uleb128 0x3f
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc0UCC7O.s 			page 8
+
+
  377 006e 19       		.uleb128 0x19
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cclhz6KR.s 			page 8
-
-
  378 006f 3C       		.uleb128 0x3c
  379 0070 19       		.uleb128 0x19
  380 0071 00       		.byte	0
@@ -477,10 +478,10 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cclhz6KR.s 			page 1
  431              		.section	.debug_ranges,"",%progbits
  432              	.Ldebug_ranges0:
  433 0000 00000000 		.4byte	.LFB63
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc0UCC7O.s 			page 9
+
+
  434 0004 20000000 		.4byte	.LFE63
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cclhz6KR.s 			page 9
-
-
  435 0008 00000000 		.4byte	.LFB64
  436 000c 18000000 		.4byte	.LFE64
  437 0010 00000000 		.4byte	0
@@ -537,10 +538,10 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cclhz6KR.s 			page 1
  454      5F50726F 
  455 011c 50726F6A 		.ascii	"Project.cydsn\000"
  455      6563742E 
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc0UCC7O.s 			page 10
+
+
  455      63796473 
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cclhz6KR.s 			page 10
-
-
  455      6E00
  456              	.LASF9:
  457 012a 6C6F6E67 		.ascii	"long long unsigned int\000"
@@ -597,10 +598,10 @@ ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cclhz6KR.s 			page 1
  479 01d0 73697A65 		.ascii	"sizetype\000"
  479      74797065 
  479      00
+ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cc0UCC7O.s 			page 11
+
+
  480              	.LASF20:
-ARM GAS  C:\Users\Susanna\AppData\Local\Temp\cclhz6KR.s 			page 11
-
-
  481 01d9 49544D5F 		.ascii	"ITM_RxBuffer\000"
  481      52784275 
  481      66666572 

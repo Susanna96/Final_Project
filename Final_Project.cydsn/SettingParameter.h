@@ -17,7 +17,7 @@
     volatile int16 fullscale_range;
     volatile uint8_t sensitivity;
     volatile uint8_t confidence_interval;
-    uint8 Parameters;
+    volatile uint8 Parameters;
     void setParameter(void);
     
     

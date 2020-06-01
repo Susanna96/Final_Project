@@ -6,7 +6,7 @@
  *
  * ========================================
 */
-#include  "SettingParameter.h"
+#include "SettingParameter.h"
 #include "project.h"
 #include "I2C_Interface.h"
 #include "stdio.h"
@@ -42,10 +42,10 @@ CTRL_REG4[5:4]=FS[1:0]=11 (16.0 g FSR) */
 
 /*Brief HEX value for INT2 THRESHOLD register for the different fullscale ranges: 
 */
-#define LIS3DH_THRESHOLD_EVENTS_2g  0x5E   // about 1500g
-#define LIS3DH_THRESHOLD_EVENTS_4g  0x2F   // about 1500g
-#define LIS3DH_THRESHOLD_EVENTS_8g  0x18   // about 1500g
-#define LIS3DH_THRESHOLD_EVENTS_16g 0x08   // about 1500g
+#define LIS3DH_THRESHOLD_EVENTS_2g  0x5E   // about 1500mg
+#define LIS3DH_THRESHOLD_EVENTS_4g  0x2F   // about 1500mg
+#define LIS3DH_THRESHOLD_EVENTS_8g  0x18   // about 1500mg
+#define LIS3DH_THRESHOLD_EVENTS_16g 0x08   // about 1500mg
 
 int32 value_digit_pot;
 int16 value_pot;
@@ -65,7 +65,7 @@ void setParameter(void)
     
     /* Set the variables Parameters, fullscale_range, sensitivity, confidence_interval, 
     write in the CTRL_REG4 the FSR and in the INT2_THS regiter the value of the threhsold 
-    according to the value of the potentiometer signal */
+    according to the range of values of the potentiometer signal */
     if((value_pot>=0) && (value_pot<1250))
     {
         Parameters=0x00;
