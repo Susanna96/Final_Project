@@ -2,7 +2,7 @@
 
 This repository contains the Final_Project code. In particular, it contains our development and realization of Project_2 (variant 1).
 
-The aim of Project_2 is the developing of a system which controls the blinking frequency of a RGB Led based on the acceleration output data acquired by the LIS3DH 3-axis accelerometer (Adafruit).
+The aim of Project_2 is the developing of a system which controls the blinking frequency of a RGB LED based on the acceleration output data acquired by the LIS3DH 3-axis accelerometer (Adafruit).
 
 In order to achieve this goal, we first configured the LIS3DH using high-speed I2C (400 kHz), low-power mode and 50 Hz data rate. We set the UART baud rate at 57600 bps. 
 We decided to use the potentiometer to change the full-scale range. When the pin 3.2 is connected to Vdd, the variable "Flag" is set to 1 and the device is in configuration mode (on-board blue LED is blinking). In this state, moving the potentiometer it is possible to change the full-scale range. 
